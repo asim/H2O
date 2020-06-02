@@ -18,3 +18,9 @@ This repo serves as the historic record of H2O, a microservices platform built b
 - Asim Aslam
 - Matt Oddie
 - Ryan Slade
+
+## Presentations
+
+- https://speakerdeck.com/davegardnerisme/hailo-tech-platform
+- https://speakerdeck.com/mattheath/a-journey-into-a-microservice-world
+- https://www.slideshare.net/nathariel/moving-to-microservices-a-technology-and-organisation-transformational-journey
