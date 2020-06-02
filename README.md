@@ -1,6 +1,6 @@
 # H2O
 
-The Hailo microservices platform
+The Hailo H2O microservices platform
 
 ## Overview
 
