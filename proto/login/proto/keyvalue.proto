@@ -1,0 +1,6 @@
+package com.hailocab.service.login;
+
+message KeyValue {
+	required string key = 1;
+	required string value = 2;
+}

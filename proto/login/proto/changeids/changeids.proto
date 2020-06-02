@@ -1,0 +1,10 @@
+package com.hailocab.service.login.changeids;
+
+message Request {
+	required string application = 1;
+	required string uid = 2;
+	repeated string ids = 3;
+}
+
+message Response {
+}

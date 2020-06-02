@@ -1,0 +1,18 @@
+pkg github.com/HailoOSS/go-hailo-lib/validate, func Chain(*Validator) func(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, func City(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, func CityId(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, func CurrencyCode(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, func Hob(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, func HobId(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, func Latitude(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, func Longitude(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, func New() *Validator
+pkg github.com/HailoOSS/go-hailo-lib/validate, func NotEmpty(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, func NotOneOf(...interface{}) Rule
+pkg github.com/HailoOSS/go-hailo-lib/validate, func OneOf(...interface{}) Rule
+pkg github.com/HailoOSS/go-hailo-lib/validate, func Regexp(*regexp.Regexp) func(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, method (*Validator) CheckField(string, ...Rule) *Validator
+pkg github.com/HailoOSS/go-hailo-lib/validate, method (*Validator) CheckMethod(string, ...Rule) *Validator
+pkg github.com/HailoOSS/go-hailo-lib/validate, method (*Validator) Validate(interface{}) *multierror.MultiError
+pkg github.com/HailoOSS/go-hailo-lib/validate, type Rule func(reflect.Value) error
+pkg github.com/HailoOSS/go-hailo-lib/validate, type Validator struct

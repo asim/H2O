@@ -1,0 +1,8 @@
+package com.HailoOSS.service.provisioning.restartaz;
+
+message Request {
+	required string azName = 1;
+}
+
+message Response {
+}

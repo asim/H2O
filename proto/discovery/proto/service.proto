@@ -1,0 +1,13 @@
+package com.hailocab.kernel.discovery;
+
+option java_outer_classname = "DiscoveryService";
+
+message Service {
+	required string name = 1;
+	optional string description = 2;
+	required uint64 version = 3;
+	required string source = 4;
+	required string ownerEmail = 5;
+	required string ownerMobile = 6;
+	optional string ownerTeam = 7;
+}

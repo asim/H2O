@@ -1,0 +1,9 @@
+package com.HailoOSS.kernel.platform.loadedconfig;
+
+message Request {
+	
+}
+
+message Response {
+	required string config = 1;
+}

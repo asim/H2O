@@ -1,0 +1,20 @@
+package com.HailoOSS.kernel.provisioningmanager.provisioned;
+
+message Service {
+        required string serviceName = 1;
+        required uint64 serviceVersion = 2;
+        required string machineClass = 3;
+        optional uint64 noFileSoftLimit = 4;
+        optional uint64 noFileHardLimit = 5;
+        optional uint64 serviceType = 6;
+
+}
+
+message Request {
+	optional string serviceName = 1;
+	optional string machineClass = 2;
+}
+
+message Response {
+	repeated Service services = 1;
+}

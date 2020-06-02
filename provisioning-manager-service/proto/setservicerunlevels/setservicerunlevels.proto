@@ -1,0 +1,11 @@
+package com.HailoOSS.kernel.provisioningmanager.setservicerunlevels;
+
+import "github.com/HailoOSS/provisioning-manager-service/proto/levels.proto";
+
+message Request {
+	required string serviceName = 1;
+	repeated provisioningmanager.Level levels = 2;
+}
+
+message Response {
+}

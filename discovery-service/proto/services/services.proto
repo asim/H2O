@@ -1,0 +1,11 @@
+package com.HailoOSS.kernel.discovery.services;
+
+import 'github.com/HailoOSS/discovery-service/proto/service.proto';
+
+message Request {
+	optional string service = 1;
+}
+
+message Response{
+	repeated com.HailoOSS.kernel.discovery.Service services = 1;
+}

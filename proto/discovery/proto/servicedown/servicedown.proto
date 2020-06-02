@@ -1,0 +1,14 @@
+package com.hailocab.kernel.discovery.servicedown;
+
+message Request {
+	required string instanceId = 1;
+	required string hostname = 2;
+	required string serviceName = 3;
+	optional string serviceDescription = 4;
+	required uint64 serviceVersion = 5;
+	required string endpointName = 6;
+	required string azName = 7;
+}
+
+message Response {
+}

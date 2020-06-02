@@ -1,0 +1,15 @@
+package com.hailocab.service.login.listsessions;
+
+message Request {
+}
+
+message Session {
+    optional int64 createdTimestamp = 1;
+    optional string mech = 2;
+    optional string deviceType = 3;
+}
+
+message Response {
+    repeated Session sessions = 1;
+    optional string uid = 2;
+}

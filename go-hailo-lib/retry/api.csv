@@ -1,0 +1,12 @@
+pkg github.com/HailoOSS/go-hailo-lib/retry, const BackoffConstant = 0
+pkg github.com/HailoOSS/go-hailo-lib/retry, const BackoffConstant BackoffType
+pkg github.com/HailoOSS/go-hailo-lib/retry, const BackoffExponential = 2
+pkg github.com/HailoOSS/go-hailo-lib/retry, const BackoffExponential BackoffType
+pkg github.com/HailoOSS/go-hailo-lib/retry, const BackoffLinear = 1
+pkg github.com/HailoOSS/go-hailo-lib/retry, const BackoffLinear BackoffType
+pkg github.com/HailoOSS/go-hailo-lib/retry, func NewRetrier(BackoffType, uint, time.Duration, time.Duration, ErrorHandler) Retrier
+pkg github.com/HailoOSS/go-hailo-lib/retry, func NewSimpleRetrier(BackoffType, uint, time.Duration) Retrier
+pkg github.com/HailoOSS/go-hailo-lib/retry, method (Retrier) Try(func() error) error
+pkg github.com/HailoOSS/go-hailo-lib/retry, type BackoffType uint8
+pkg github.com/HailoOSS/go-hailo-lib/retry, type ErrorHandler func(error)
+pkg github.com/HailoOSS/go-hailo-lib/retry, type Retrier struct

@@ -1,0 +1,26 @@
+package com.hailocab.service.login.auth;
+
+import 'github.com/hailocab/h2/proto/login/proto/keyvalue.proto';
+
+message Request {
+	required string mech = 1;
+	required string deviceType = 2;
+	required string password = 3;
+	optional string username = 4;
+	// the plan is to get rid of these when we port
+	optional string email = 5;
+	optional string phone = 6;
+	optional string newPassword = 7;
+	optional string apiToken = 8;
+	// application is for h2 login and namespaces our user pool
+	optional string application = 9;
+	// meta data is optional meta data for h2 logins to attach to the login record, things like IP etc.
+	repeated com.hailocab.service.login.KeyValue meta = 10;
+    // If true will authenticate the user with the current session
+    optional bool noExpire = 11;
+}
+
+message Response {
+	required string sessId = 1;
+	required string token = 2;
+}

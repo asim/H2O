@@ -1,0 +1,13 @@
+package com.HailoOSS.service.login.readusermulti;
+
+import "github.com/HailoOSS/login-service/proto/readuser/readuser.proto";
+
+
+message Request {
+	required string application = 1;
+	repeated string uid = 2;
+}
+
+message Response {
+	repeated com.HailoOSS.service.login.readuser.Response users = 1;
+}

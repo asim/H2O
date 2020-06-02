@@ -1,0 +1,8 @@
+package com.HailoOSS.kernel.binding;
+
+message BindingRule {
+  required string service = 1;
+  required string version = 2;
+  required int32 weight = 3;
+}
+

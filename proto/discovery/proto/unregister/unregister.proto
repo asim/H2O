@@ -1,0 +1,8 @@
+package com.hailocab.kernel.discovery.unregister;
+
+message Request {
+	required string instanceId = 1;
+}
+
+message Response {
+}

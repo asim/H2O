@@ -1,0 +1,12 @@
+package com.HailoOSS.service.config.update;
+
+message Request {
+	required string id = 1;
+	optional string path = 2;
+	required string message = 3;
+	required string config = 4;
+	optional bool noReload = 5;
+}
+
+message Response {
+}

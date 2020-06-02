@@ -1,0 +1,8 @@
+package com.hailocab.service.login.deletesession;
+
+message Request {
+	required string sessId = 1;
+}
+
+message Response {
+}

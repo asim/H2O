@@ -1,0 +1,11 @@
+package com.HailoOSS.kernel.binding.setupservice;
+
+message Request {
+  required string service = 1;
+  required string queue = 2;
+  required string azname = 3;
+}
+
+message Response {
+  required bool ok = 1;
+}

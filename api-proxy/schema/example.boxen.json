@@ -1,0 +1,16 @@
+{
+	"api":{
+		"controlPlane":{
+			"rules":[
+				{"match":{"path":"/v1/system/ping","proportion":0.5},"action":3},
+				{"match":{"path":"/status","proportion":1.0},"action":1},
+				{"match":{"regulatoryArea":"LON","path":"/v2/throttle","proportion":1.0},"action":3},
+				{"match":{"regulatoryArea":"DUB","path":"/v2/throttle","proportion":1.0},"action":1},
+				{"match":{"path":"/v2/throttle","proportion":1.0},"action":2}
+			]
+		},
+		"proxyMappings":{
+			"localhost":"customer.dev"
+		}
+	}
+}

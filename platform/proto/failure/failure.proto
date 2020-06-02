@@ -1,0 +1,15 @@
+package com.HailoOSS.kernel.platform.failure;
+
+message Failure {
+	required string serviceName = 1;
+	required uint64 serviceVersion = 2;
+	required string instanceId = 3;
+	required string azName = 4;
+	required string hostname = 5;
+	required int64 timestamp = 6;
+	optional int64 uptime = 7;
+	required string type = 8;
+	required string reason = 9;
+	optional string stack = 10;
+	optional string info = 11;
+}

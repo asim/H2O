@@ -1,0 +1,17 @@
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, const BadRequest = "BAD_REQUEST"
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, const BadRequest ideal-string
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, const InternalServerError = "INTERNAL_SERVER_ERROR"
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, const InternalServerError ideal-string
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, func New() *Error
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) Code() string
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) Context() []string
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) Description() string
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) Error() string
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) HasErrors() bool
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) HttpCode() uint32
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) SetC(string, string) *Error
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) SetCode(string) *Error
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) SetD(string) *Error
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) Type() string
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, method (*Error) UnsetC(string) *Error
+pkg github.com/HailoOSS/go-hailo-lib/weberrors, type Error struct

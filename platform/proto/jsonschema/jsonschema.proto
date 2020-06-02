@@ -1,0 +1,9 @@
+package com.HailoOSS.kernel.platform.jsonschema;
+
+message Request {
+	optional string endpoint = 1;
+}
+
+message Response {
+	optional string jsonschema = 1;
+}

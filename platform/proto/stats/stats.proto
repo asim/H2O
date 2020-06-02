@@ -1,0 +1,56 @@
+package com.HailoOSS.kernel.platform.stats;
+
+message EndpointSLA {
+	required float mean = 1;        // The sla for mean response time
+	required float upper95 = 2;     // The sla for upper 95th percentile response time
+}
+
+message EndpointStat {
+	required float rate1 = 1;	// The average rate over the last minute
+	required float rate5 = 2;	// The average rate over the last five minutes
+	required float rate15 = 3;	// The average rate over the last fifteen minutes
+	required float mean = 4;	// The total mean rate
+	required float stdDev = 5;	// The total standard deviation in rate
+	required float upper95 = 6;	// The upper 95th percentile of the rate
+}
+
+message EndpointStats {
+	required string endpointName = 1;	// The name of the endpoint
+	required EndpointSLA sla = 2;           // The endpoint slas
+	required EndpointStat success = 3;	// A sample of succesful requests
+	required EndpointStat error = 4;	// A sample of requests with errors
+}
+
+message RusageStats {
+	required float userTime = 1;	// The time spent in user mode
+	required float systemTime = 2;	// The time spent in kernel mode
+	required int64 maxRss = 3;	// The maximum resident set size used (kilobytes)
+	required int64 inBlock = 4;	// The number of blocks read from file system
+	required int64 ouBlock = 5;	// The number of blocks written to the file system
+}
+
+message RuntimeStats {
+	required uint64 heapInUse = 1;		// The amount of memory allocated and still in use
+	required uint64 heapTotal = 2;		// The The total amount of memory allocated
+	required uint64 heapReleased = 3;	// The amount of memory realeased to the OS
+	required uint64 lastGCDuration = 4;	// The duration in nanoseconds of the last GC run
+	required uint32 numGC = 5;		// The number of GC runs so far
+	required uint32 numGoRoutines = 6;	// The number of Go routines currently executing
+}
+
+message PlatformStats {
+	required string serviceName = 1;	// The service name
+	required uint64 serviceVersion = 2;	// The service version
+	required string hostname = 3;		// The hostname of the machine
+	required string instanceId = 4;		// The unique instance id of the service
+	required string status = 5;		// The status of the service. 
+	required int64 timestamp = 6;		// The Unix UTC timestamp when the sample was taken
+	required int64 uptime = 7;		// The time the service has been running in nanoseconds
+	required RusageStats rusage = 8;	// Stats for system resource usage
+	required RuntimeStats runtime = 9;	// Stats for the runtime
+	repeated EndpointStats endpoints = 10;	// Stats for all endpoints within this service
+	optional string serviceType = 11;	// The service type, platform, external, etc
+	optional string azName = 12;		// The Az name
+}
+
+message Request {}

@@ -1,0 +1,18 @@
+package com.HailoOSS.service.login.createuser;
+
+message Request {
+	required string application = 1;
+	required string uid = 2;
+	repeated string ids = 3;
+	required int64 createdTimestamp = 4;
+	repeated string roles = 5;
+	optional string password = 6;
+	optional int64 passwordChangeTimestamp = 7;
+	optional bool requirePassword = 8 [default = true];
+	optional string firstname = 9;
+	optional string lastname = 10;
+	optional string accountExpirationDate = 11;
+}
+
+message Response {
+}

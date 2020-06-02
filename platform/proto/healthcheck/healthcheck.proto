@@ -1,0 +1,31 @@
+package com.HailoOSS.kernel.platform.healthcheck;
+
+message HealthCheck {
+	enum Priority {
+		PAGER = 1;
+		EMAIL = 2;
+		WARNING = 3;
+	}
+
+	message KeyValue {
+		required string key = 1;
+		required string value = 2;
+	}
+
+	required int64 timestamp = 1;
+	required string serviceName = 2;	// The service name
+	required uint64 serviceVersion = 3;	// The service version
+	required string hostname = 4;		// The hostname of the machine
+	required string instanceId = 5;		// The unique instance id of the service
+	required string healthCheckId = 6;  // A unique ID for the healthcheck, eg: com.HailoOSS.service.cassandra
+	required bool isHealthy = 7;
+	optional string errorDescription = 8;
+	repeated KeyValue measurements = 9;
+	optional Priority priority = 10 [default = WARNING];
+}
+
+message Request {}
+
+message Response {
+	repeated HealthCheck healthchecks = 1;
+}

@@ -1,0 +1,15 @@
+create keyspace login
+  with placement_strategy = 'SimpleStrategy'
+  and strategy_options = {replication_factor:1};
+
+use login;
+
+create column family admins and comparator = 'UTF8Type';
+create column family endpointAuths and comparator = 'UTF8Type';
+create column family expiredSessions and comparator = 'UTF8Type';
+create column family sessions and comparator = 'UTF8Type';
+create column family userLoginIndex and comparator = 'UTF8Type';
+create column family users and comparator = 'UTF8Type';
+create column family usersIndex and comparator = 'UTF8Type';
+create column family usersIndexIndex and comparator = 'UTF8Type';
+create column family userSessions and comparator = 'UTF8Type';

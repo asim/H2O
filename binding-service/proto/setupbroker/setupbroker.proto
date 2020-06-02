@@ -1,0 +1,11 @@
+package com.HailoOSS.kernel.binding.setupbroker;
+
+message Request {
+  required string hostname = 1;
+  required int32 port = 2;
+  optional string azname =3;
+}
+
+message Response {
+  required bool ok = 1;
+}

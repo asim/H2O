@@ -1,0 +1,6 @@
+{
+	"h1login":{
+		"hostname":"login-test.elasticride.com",
+		"skipSsl":false
+	}
+}

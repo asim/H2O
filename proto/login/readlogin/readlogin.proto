@@ -1,0 +1,29 @@
+package com.hailocab.service.login.readlogin;
+
+import 'github.com/hailocab/h2/proto/login/proto/keyvalue.proto';
+
+message Request {
+	// which user
+	required string application = 1;
+	required string uid = 2;
+	// specify a time range to search between
+	optional int64 rangeStart = 3;
+	optional int64 rangeEnd = 4;
+	// paginate
+	optional string lastId = 5;
+	optional int32 count = 6 [default=10];
+}
+
+message Response {
+    repeated Login login = 1;
+    optional string lastId = 2;
+}
+
+message Login {
+	optional string application = 1;
+	optional string uid = 2;
+	optional int64 loggedInTimestamp = 3;
+	optional string mech = 4;
+	optional string deviceType = 5;
+	repeated com.hailocab.service.login.KeyValue meta = 6;
+}

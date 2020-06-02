@@ -1,0 +1,26 @@
+{
+	"api":{
+		"controlPlane":{
+			"rules":[
+				{"match":{"regulatoryArea":"LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO","proportion":1.0},"action":1},
+
+				{"match":{"source":"customer","proportion":1.0},"action":1},
+
+				{"match":{"path":"/v1/experiment","proportion":1.0},"action":2},
+				{"match":{"path":"/v1/gamification","proportion":1.0},"action":2},
+
+				{"match":{"source":"customer","path":"/v1/order","proportion":1.0},"action":2},
+				{"match":{"source":"customer","path":"/v1/quote","proportion":1.0},"action":2},
+				{"match":{"source":"customer","path":"/v1/track","proportion":1.0},"action":2},
+				{"match":{"source":"customer","path":"/v1/customer/neardrivers","proportion":1.0},"action":2},
+
+				{"match":{"source":"customer","path":"/v1/order","regulatoryArea":"LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO","proportion":1.0},"action":1},
+				{"match":{"source":"customer","path":"/v1/quote","regulatoryArea":"LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO","proportion":1.0},"action":1},
+				{"match":{"source":"customer","path":"/v1/track","regulatoryArea":"LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO","proportion":1.0},"action":1},
+				{"match":{"source":"customer","path":"/v1/customer/neardrivers","regulatoryArea":"LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO","proportion":1.0},"action":1},
+
+				{"match":{"path":"/v2/throttle","proportion":1.0},"action":3}
+			]
+		}
+	}
+}

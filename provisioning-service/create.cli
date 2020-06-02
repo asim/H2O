@@ -1,0 +1,39 @@
+drop keyspace provisioning;
+
+create keyspace provisioning with
+	placement_strategy = 'SimpleStrategy'
+	and strategy_options = {replication_factor: 1}
+	and durable_writes = true;
+
+use provisioning;
+
+create column family provisioned_service with
+	column_type = 'Standard'
+	and comparator = 'UTF8Type'
+	and key_validation_class = 'UTF8Type'
+	and column_metadata = [
+		{column_name: 'servicename', validation_class: UTF8Type},
+		{column_name: 'serviceversion', validation_class: LongType},
+		{column_name: 'machineclass', validation_class: UTF8Type},
+		{column_name: 'nofilesoftlimit', validation_class: LongType},
+		{column_name: 'nofilehardlimit', validation_class: LongType},
+		{column_name: 'servicetype', validation_class: LongType},
+		{column_name: 'cpu', validation_class: LongType},
+		{column_name: 'memory', validation_class: LongType},
+	]
+;
+
+create column family run_levels with
+        column_type = 'Standard'
+        and comparator = 'UTF8Type'
+        and key_validation_class = 'UTF8Type'
+	and column_metadata = [
+		{column_name: 'region', validation_class: UTF8Type}
+		{column_name: 'level', validation_class: LongType}
+	]
+;
+
+create column family service_run_levels with
+        column_type = 'Standard'
+        and comparator = 'UTF8Type'
+        and key_validation_class = 'UTF8Type';

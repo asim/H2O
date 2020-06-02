@@ -1,0 +1,13 @@
+package com.hailolabs.service.helloworld.hello;
+
+// Protobufs aren't that specific to Hailo, they're originally something cooked
+// up by Google, and the full documentation can be found here:
+// https://developers.google.com/protocol-buffers/
+
+message Request {
+  required string name = 1;
+}
+
+message Response {
+  required string message = 1;
+}

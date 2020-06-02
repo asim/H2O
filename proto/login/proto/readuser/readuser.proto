@@ -1,0 +1,16 @@
+package com.hailocab.service.login.readuser;
+
+message Request {
+	required string application = 1;
+	required string uid = 2;
+}
+
+message Response {
+	required string application = 1;
+	required string uid = 2;
+	repeated string ids = 3;
+	required int64 createdTimestamp = 4;
+	repeated string roles = 5;
+	optional string password = 6;
+	optional int64 passwordChangeTimestamp = 7;
+}

@@ -1,0 +1,11 @@
+package com.hailocab.service.login.readsession;
+
+message Request {
+	required string sessId = 1;
+	optional bool noRenew = 2;
+}
+
+message Response {
+	required string sessId = 1;
+	required string token = 2;
+}

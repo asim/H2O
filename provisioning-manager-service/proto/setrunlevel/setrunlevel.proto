@@ -1,0 +1,11 @@
+package com.HailoOSS.kernel.provisioningmanager.setrunlevel;
+
+import "github.com/HailoOSS/provisioning-manager-service/proto/levels.proto";
+
+message Request {
+	required string region = 1;
+	required provisioningmanager.Level level = 2;
+}
+
+message Response {
+}

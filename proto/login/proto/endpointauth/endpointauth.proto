@@ -1,0 +1,12 @@
+package com.hailocab.service.login.endpointauth;
+
+import 'github.com/hailocab/h2/proto/login/proto/endpoint.proto';
+
+message Request {
+	required string service = 1;
+}
+
+message Response {
+	repeated com.hailocab.service.login.Endpoint endpoints = 1;
+}
+

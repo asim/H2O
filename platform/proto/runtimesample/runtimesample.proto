@@ -1,0 +1,18 @@
+package com.HailoOSS.kernel.platform.runtimesample;
+
+message RuntimeSample {
+	required string serviceName = 1; // The service name
+	required string instanceId = 2; // The unique instance id of the service
+	required int64 timestamp = 3; // The Unix UTC timestamp when the sample was taken
+	required uint64 heapInUse = 4; // The amount of memory allocated and still in use
+	required uint64 heapTotal = 5; // The The total amount of memory allocated
+	required uint64 heapReleased = 6; // The amount of memory realeased to the OS
+	required uint64 lastGCDuration = 7; // The duration in nanoseconds of the last GC run
+	required uint32 numGC = 8; // The number of GC runs so far
+	required uint32 numGoRoutines = 9; // The number of Go routines currently executing
+	required int64 uptime = 10; // The time the service has been running in nanoseconds
+}
+
+
+
+

@@ -1,0 +1,35 @@
+package com.HailoOSS.kernel.provisioningmanager;
+
+message Resource {
+	optional double cpu = 1;
+	optional uint64 memory = 2;
+	optional uint64 disk = 3;
+}
+
+message Service {
+	required string name = 1;
+	optional string version = 2;
+	optional Resource usage = 3;
+	optional Resource allocation = 4;
+}
+
+message Machine {
+	required uint64 cores = 1;
+	required uint64 memory = 2;
+	required uint64 disk = 3;
+	optional Resource usage = 4;
+}
+
+message Provisioner {
+	required string id = 1;
+	required string version = 2;
+	required string hostname = 3;
+	required string ipAddress = 4;
+	required string azName = 5;
+	required string machineClass = 6;
+	required uint64 started = 7;
+	required uint64 lastUpdate = 8;
+	required Machine machine = 9;
+	repeated Service processes = 10;
+	repeated Service containers = 11;
+}

@@ -1,0 +1,22 @@
+package com.HailoOSS.service.config;
+
+message ChangeMeta {
+	required string changeId = 5;
+	required int64 timestamp = 1;
+	required string authMechanism = 2;
+	required string userId = 3;
+	required string message = 4;
+}
+
+message Change {
+	required string changeId = 1;
+	required string id = 2;
+	required int64 timestamp = 3;
+	required string authMechanism = 4;
+	required string userId = 5;
+	required string message = 6;
+	required string config = 7;
+	optional string path = 8;
+	optional string oldConfig = 9;
+}
+

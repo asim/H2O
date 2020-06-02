@@ -1,0 +1,9 @@
+This is a Partial Credits file of components of the HailoLabs platform.
+
+Component:
+Apache Cassandra - http://cassandra.apache.org/
+NSQ - http://nsq.io/
+RabbitMQ - https://www.rabbitmq.com/
+Memcached - http://memcached.org/
+Nginx - http://wiki.nginx.org/Main
+Docker - https://www.docker.com/

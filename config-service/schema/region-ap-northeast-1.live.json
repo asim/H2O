@@ -1,0 +1,56 @@
+{
+    "hailo": {
+      "service": {
+        "monitoring": {
+          "defaults": {
+            "zabbixProxy": "zproxy-ap-northeast-1-live",
+            "hostGroup": "ap-northeast-1 (live)"
+          }
+        },
+        "cruftflake": {
+          "servers": [
+            "phpservices01-global03-live:5599",
+            "phpservices02-global03-live:5599",
+            "phpservices03-global03-live:5599"
+          ]
+        },
+        "cassandra": {
+          "hosts": [
+            "10.9.2.222",
+            "10.9.2.213",
+            "10.9.3.18",
+            "10.9.3.17",
+            "10.9.2.58",
+            "10.9.2.59"
+          ]
+        },
+        "memcache": {
+          "servers": [
+            "vpcutilities01-global03-live",
+            "vpcutilities02-global03-live",
+            "vpcutilities03-global03-live"
+          ]
+        },
+        "nsq": {
+          "subHosts": [
+            "vpcutilities01-global03-live:4150",
+            "vpcutilities02-global03-live:4150",
+            "vpcutilities03-global03-live:4150"
+          ],
+          "pubHosts": [
+            "vpcutilities01-global03-live:4150",
+            "vpcutilities02-global03-live:4150",
+            "vpcutilities03-global03-live:4150"
+          ]
+        },
+        "zookeeper": {
+          "hosts": [
+            "vpcutilities01-global03-live:2181",
+            "vpcutilities02-global03-live:2181",
+            "vpcutilities03-global03-live:2181"
+          ]
+        }
+      }
+    }
+}
+

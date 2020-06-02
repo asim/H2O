@@ -1,0 +1,16 @@
+package com.hailocab.kernel.discovery.endpoints;
+
+message Request {
+	optional string service = 1;
+}
+
+message Response {
+	message Endpoint {
+		required string fqName = 1;
+		required uint64 version = 2;
+		required uint32 mean = 3;
+		required uint32 upper95 = 4;
+	}
+
+	repeated Endpoint endpoints = 1;
+}

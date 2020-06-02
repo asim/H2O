@@ -1,0 +1,19 @@
+package com.HailoOSS.service.config.milticompile;
+
+message Request {
+	message CompileRequest {
+		repeated string id = 1;
+		optional string path = 2;
+		optional string previousHash = 3;
+	}
+	repeated CompileRequest compileRequests = 1;
+}
+
+message Response {
+	message CompileResponse {
+		optional string config = 1;
+		optional string hash = 2;
+		optional bool error = 3;
+	}
+	repeated CompileResponse compileResponses = 1;
+}

@@ -1,0 +1,12 @@
+package com.HailoOSS.service.login.endpointauth;
+
+import 'github.com/HailoOSS/login-service/proto/endpoint.proto';
+
+message Request {
+	required string service = 1;
+}
+
+message Response {
+	repeated com.HailoOSS.service.login.Endpoint endpoints = 1;
+}
+

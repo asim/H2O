@@ -1,0 +1,20 @@
+create keyspace configservice
+  with placement_strategy = 'org.apache.cassandra.locator.SimpleStrategy'
+  and strategy_options = {replication_factor:1};
+
+use configservice;
+
+create column family configservice
+    and comparator = 'UTF8Type';
+
+create column family audit
+    and comparator = 'UTF8Type';
+
+create column family auditIndex
+    and comparator = 'UTF8Type';
+
+create column family auditService
+    and comparator = 'UTF8Type';
+
+create column family auditServiceIndex
+    and comparator = 'UTF8Type';

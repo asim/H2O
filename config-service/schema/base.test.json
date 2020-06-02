@@ -1,0 +1,70 @@
+{
+  "hailo": {
+    "service": {
+      "monitoring": {
+        "defaults": {
+          "apiPassword": "Aekoquu0",
+          "apiUsername": "autoreg-test",
+          "apiUrl": "https://zabbix-api.elasticride.com/zabbix/api_jsonrpc.php"
+        }
+      },
+      "elasticsearch": {
+        "disablePing": true,
+        "timeout": 3000,
+        "ping": "/",
+        "attempts": 2,
+        "skipSsl": true,
+        "port": 9200,
+        "hosts": [
+          "elasticsearch-test.elasticride.com"
+        ]
+      },
+      "cassandra": {
+        "defaults": {
+          "maxRetries": 3,
+          "recvTimeout": "2s",
+          "sendTimeout": "2s",
+          "writeConsistencyLevel": "LOCAL_QUORUM",
+          "readConsistencyLevel": "LOCAL_QUORUM"
+        }
+      },
+      "authentication": {
+        "publicKey": "/var/www/login-service/current/config/test/public-key"
+      },
+      "instrumentation": {
+        "statsd": {
+          "enabled": true,
+          "port": 8125,
+          "host": "graphite03-global01-test.i.HailoOSS.com",
+          "hostname": "graphite03-global01-test.i.HailoOSS.com"
+        }
+      },
+      "memcache": {
+        "timeouts": {
+          "connectTimeout": "20ms",
+          "clusterTimeout": "40ms",
+          "opTimeoutSleep": "2ms",
+          "pollTimeout": "10ms",
+          "sendRecvTimeout": "10ms"
+        }
+      },
+      "nsq": {
+        "retry": {
+          "delay": "5s",
+          "maxAttempts": 30
+        },
+        "obf": {
+          "size": 1000000,
+          "enabled": false
+        },
+        "readWaitTimeout": "15s",
+        "readWriteTimeout": "300ms",
+        "connectionTimeout": "300ms",
+        "writeCl": "ONE"
+      },
+      "zookeeper": {
+        "recvTimeout": "400ms"
+      }
+    }
+  }
+}

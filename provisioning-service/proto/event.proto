@@ -1,0 +1,14 @@
+package com.HailoOSS.kernel.provisioning;
+
+option java_outer_classname = "ProvisioningProvisioning";
+
+message Event {
+	required string serviceName = 1;
+	required uint64 serviceVersion = 2;
+	required string machineClass = 3;
+	required string hostname = 4;
+	required string azName = 5;
+	required string action = 6;
+	required string info = 7;
+	required int64 timestamp = 8;
+}

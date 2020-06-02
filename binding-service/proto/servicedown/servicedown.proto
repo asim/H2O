@@ -1,0 +1,10 @@
+package com.HailoOSS.kernel.binding.servicedown;
+
+message Request {
+  required string service = 1;
+  required string queue = 2;
+}
+
+message Response {
+  required bool ok = 1;
+}

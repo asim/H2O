@@ -1,0 +1,49 @@
+{
+  "mappings": {
+      "admin": {
+        "properties": {
+          "Username": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "firstName": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "lastName": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "fullName": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "alternateNames": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "date",
+            "format": "date_optional_time"
+          },
+          "action": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "status" : {
+            "type": "string"
+          },
+          "accountExpirationDate": {
+            "type": "date",
+            "format" : "YYYY-MM-dd"
+          },
+          "lastLoginAt": {
+            "type": "date",
+            "format": "date_optional_time"
+          }
+        }
+      }
+  }
+}

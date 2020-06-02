@@ -1,0 +1,30 @@
+#!/bin/sh
+
+#LEAVE the service startup routine to puppet
+
+# Test for the "hailosvc" user:
+user="hailosvc"
+hailodir="/opt/hailo"
+logdir="$hailodir/var/log"
+
+hailoUserExists=`cat /etc/passwd |grep $user |wc -l`
+binary="$hailodir/bin/hailo-provisioning-service"
+
+if [ ${hailoUserExists} -gt 0 ];then
+	chmod +x $binary
+	chown root: $binary
+
+	#Assume everything should be owned by hailosvc 
+	chown $user: $logdir
+else
+	echo "The '$user' user doesn't exist - can't start the service!"
+fi
+
+#if [ ${hailoUserExists} -gt 0 ]
+#then
+	# Start the service:
+#	start hailo-provisioning-service && echo "Hailo Provisioning service started"
+#else
+#	echo "The 'hailosvc' user doesn't exist - can't start the service!"
+#fi
+

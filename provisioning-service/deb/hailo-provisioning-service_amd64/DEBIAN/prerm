@@ -1,0 +1,3 @@
+#!/bin/sh
+stop hailo-provisioning-service
+echo "Hailo Provisioning Service stopped"

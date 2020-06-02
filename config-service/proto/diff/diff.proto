@@ -1,0 +1,13 @@
+package com.HailoOSS.service.config.diff;
+
+message Request {
+	required string id = 1;
+	optional string path = 2;
+	required string config = 3;
+}
+
+message Response {
+	optional string diff = 1;
+	optional string patch = 2;
+	optional string existingConfig = 3;
+}

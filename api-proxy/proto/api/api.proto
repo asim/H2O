@@ -1,0 +1,21 @@
+package com.hailocab.api;
+
+message Request {
+	message Pair {
+		required string key = 1;
+		required string value = 2;
+	}
+
+	required string path = 1;
+	required string verb = 2;
+	repeated Pair get = 3;
+	repeated Pair post = 4;
+	repeated string header = 5;
+	optional string body = 6;    // raw body, if not application/x-www-form-urlencoded
+}
+
+message Response {
+	required int32 statusCode = 1;
+	repeated string header = 2;
+	required string body = 3;
+}

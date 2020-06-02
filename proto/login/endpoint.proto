@@ -1,0 +1,17 @@
+package com.hailocab.service.login;
+
+option java_outer_classname = "LoginEndpoint";
+
+message Service {
+	required string name = 1;
+	required string role = 2;
+}
+
+message Endpoint {
+	// service + endpoint identify the thing we can call
+	required string service = 1;
+	required string endpoint = 2;
+	// services identify what is granted access to this
+	repeated Service granted = 3;
+}
+

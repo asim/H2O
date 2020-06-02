@@ -1,0 +1,34 @@
+package com.hailocab.kernel.discovery.register;
+
+import 'github.com/hailocab/h2/proto/discovery/proto/service.proto';
+
+message Request {
+	required string instanceId = 1;
+	required string hostname = 2;
+	required string azName = 3;
+	required com.hailocab.kernel.discovery.Service service = 4;
+	required string endpoint = 5;
+	required int32 mean = 6;
+	required int32 upper95 = 7;
+	optional string subscribe = 8;
+	optional string machineClass = 9;
+}
+
+message MultiRequest {
+	message Endpoint {
+		required string name = 1;
+		required int32 mean = 2;
+		required int32 upper95 = 3;
+		optional string subscribe = 4;
+	}
+
+	required string instanceId = 1;
+	required string hostname = 2;
+	required string azName = 3;
+	required com.hailocab.kernel.discovery.Service service = 4;
+	repeated Endpoint endpoints = 5;
+	optional string machineClass = 6;
+}
+
+message Response {
+}

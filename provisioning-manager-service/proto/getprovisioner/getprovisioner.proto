@@ -1,0 +1,11 @@
+package com.HailoOSS.kernel.provisioningmanager.getprovisioner;
+
+import "github.com/HailoOSS/provisioning-manager-service/proto/provisioner.proto";
+
+message Request {
+	required string hostname = 1;
+}
+
+message Response {
+	required provisioningmanager.Provisioner provisioner = 1;
+}

@@ -1,0 +1,21 @@
+package com.HailoOSS.kernel.platform.endpointmetrics;
+
+message EndpointMetrics {
+	required string serviceName = 1; // The name of the service
+	required string endpointName = 2; // The name of the endpoint
+	required string instanceId = 3; // The unique instance id of the service
+	required int64 timestamp = 4; // The Unix UTC timestamp when the sample was recorded
+	required EndpointSample successSample = 5; // A sample of succesful requests
+	required EndpointSample errorSample = 6; // A sample of requests with errors
+}
+
+message EndpointSample {
+	required float rate1 = 1; // The average rate over the last minute
+	required float rate5 = 2; // The average rate over the last five minutes
+	required float rate15 = 3; // The average rate over the last fifteen minutes
+	required float mean = 4; // The total mean rate
+	required float stdDev = 5; // The total standard deviation in rate
+	required float upper95 = 6; // The upper 95th percentile of the rate
+} 
+
+

@@ -1,0 +1,11 @@
+package com.HailoOSS.kernel.binding.createrule;
+
+import 'github.com/HailoOSS/binding-service/proto/rule.proto';
+
+message Request {
+	required com.HailoOSS.kernel.binding.BindingRule rule = 1;
+}
+
+message Response {
+	required bool ok = 1;
+}

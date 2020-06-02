@@ -1,0 +1,4 @@
+build-service
+setenv.sh
+*.sw?
+/tags

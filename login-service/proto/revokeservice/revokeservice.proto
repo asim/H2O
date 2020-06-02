@@ -1,0 +1,11 @@
+package com.HailoOSS.service.login.revokeservice;
+
+import 'github.com/HailoOSS/login-service/proto/endpoint.proto';
+
+message Request {
+	required com.HailoOSS.service.login.Endpoint endpoint = 1;
+}
+
+message Response {
+}
+

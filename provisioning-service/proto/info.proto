@@ -1,0 +1,37 @@
+package com.HailoOSS.kernel.provisioning;
+
+// info about the provisioning service, its running processes and containers
+
+message Resource {
+	optional double cpu = 1; // cpu as a percentage
+	optional uint64 memory = 2; // memory in bytes
+	optional uint64 disk = 3; // disk in bytes
+}
+
+message Service {
+	required string name = 1;
+	optional string version = 2;
+	optional Resource usage = 3;
+	optional Resource allocation = 4;
+}
+
+message Machine {
+	required uint64 cores = 1;
+	required uint64 memory = 2;
+	required uint64 disk = 3;
+	required Resource usage = 4;
+}
+
+message Info {
+	required string id = 1;
+	required string version = 2;
+	required string hostname = 3;
+	required string ipAddress = 4;
+	required string azName = 5;
+	required string machineClass = 6;
+	required uint64 started = 7;
+	required uint64 timestamp = 8;
+	required Machine machine = 9;
+	repeated Service processes = 10;
+	repeated Service containers = 11;
+}

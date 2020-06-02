@@ -1,0 +1,12 @@
+package com.HailoOSS.kernel.provisioningmanager.getresources;
+
+import "github.com/HailoOSS/provisioning-manager-service/proto/provisioner.proto";
+
+message Request {
+	optional string machineClass = 1;
+}
+
+message Response {
+	required provisioningmanager.Resource total = 1;
+	required provisioningmanager.Resource usage = 2;
+}

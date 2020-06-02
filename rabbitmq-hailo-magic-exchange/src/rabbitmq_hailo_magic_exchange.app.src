@@ -1,0 +1,13 @@
+{application, rabbitmq_hailo_magic_exchange,
+ [
+  {description, "RabbitMQ H2O Exchange"},
+  {vsn, "0.3.5"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  rabbit,
+                  mnesia
+                 ]},
+  {modules, []}
+ ]}.

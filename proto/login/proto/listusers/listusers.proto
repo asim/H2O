@@ -1,0 +1,25 @@
+package com.hailocab.service.login.listusers;
+
+message Request {
+	required string application = 1;
+	// specify a time range to search between
+	optional int64 rangeStart = 2;
+	optional int64 rangeEnd = 3;
+	// paginate
+	optional string lastId = 4;
+	optional int64 count = 5 [default = 10];
+}
+
+message Response {
+	message User {
+		required string uid = 1;
+		repeated string ids = 2;
+		required int64 createdTimestamp = 3;
+		repeated string roles = 4;
+		optional int64 passwordChangeTimestamp = 5;
+	}
+
+	required string application = 1;
+	repeated User users = 2;
+	optional string lastId = 3;
+}

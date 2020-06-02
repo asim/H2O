@@ -1,0 +1,2 @@
+pkg github.com/HailoOSS/go-hailo-lib/geo, func Haversine(float64, float64, float64, float64) float64
+pkg github.com/HailoOSS/go-hailo-lib/geo, func HaversineInMeters(float64, float64, float64, float64) float64

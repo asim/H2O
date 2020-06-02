@@ -1,0 +1,8 @@
+package com.HailoOSS.kernel.platform.schema;
+
+message Request {	
+}
+
+message Response {
+	required string schema = 1;
+}

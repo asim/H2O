@@ -1,0 +1,29 @@
+#!/bin/sh
+set -e
+
+user="hailosvc"
+hailodir="/opt/hailo"
+
+case "$1" in
+	install|upgrade)
+		#Add hailo user if doesnt exist
+		hailoUserExists=`cat /etc/passwd |grep $user |wc -l`
+		if [ ${hailoUserExists} -eq 0 ]; then
+			adduser --quiet --system --group --disabled-password --home $hailodir --no-create-home $user
+		fi
+
+		#Create dirs
+		mkdir -p $hailodir/var/log
+		mkdir -p $hailodir/bin
+		mkdir -p $hailodir/etc
+	
+		;;
+
+	upgrade|abort-upgrade)
+		;;
+
+	*)
+		echo "postinst called with unknown argument ${1}" >&2
+		exit 0
+		;;
+esac

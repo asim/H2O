@@ -1,0 +1,10 @@
+package com.HailoOSS.service.provisioningmanager.delete;
+
+message Request {
+	required string serviceName = 1;
+	required uint64 serviceVersion = 2;
+	required string machineClass = 3;
+}
+
+message Response {
+}

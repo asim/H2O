@@ -1,0 +1,10 @@
+package com.HailoOSS.service.config.delete;
+
+message Request {
+	required string id = 1;
+	optional string path = 2;
+	required string message = 3;
+}
+
+message Response {
+}

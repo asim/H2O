@@ -1,0 +1,142 @@
+{
+  "hailo": {
+    "api": {
+      "trace": {
+        "pcChance": 0.1
+      }
+    }
+  },
+  "api": {
+    "controlPlane": {
+      "rules": [
+        {
+          "match": {
+            "regulatoryArea": "LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO,ORK,GWY,LMK",
+            "proportion": 1
+          },
+          "action": 1
+        },
+        {
+          "match": {
+            "source": "customer",
+            "proportion": 1
+          },
+          "action": 1
+        },
+        {
+          "match": {
+            "proportion": 1,
+            "path": "/v1/experiment"
+          },
+          "action": 2
+        },
+        {
+          "match": {
+            "proportion": 1,
+            "path": "/v1/gamification"
+          },
+          "action": 2
+        },
+        {
+          "match": {
+            "regulatoryArea": "LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO,ORK,GWY,LMK",
+            "proportion": 1,
+            "path": "/v1/point"
+          },
+          "action": 2
+        },
+        {
+          "match": {
+            "source": "customer",
+            "proportion": 1,
+            "path": "/v1/order"
+          },
+          "action": 2
+        },
+        {
+          "match": {
+            "source": "customer",
+            "proportion": 1,
+            "path": "/v1/quote"
+          },
+          "action": 2
+        },
+        {
+          "match": {
+            "source": "customer",
+            "proportion": 1,
+            "path": "/v1/track"
+          },
+          "action": 2
+        },
+        {
+          "match": {
+            "source": "customer",
+            "proportion": 1,
+            "path": "/v1/customer/neardrivers"
+          },
+          "action": 2
+        },
+        {
+          "match": {
+            "source": "customer",
+            "proportion": 1,
+            "path": "/v1/customer/jobhistory"
+          },
+          "action": 2
+        },
+        {
+          "match": {
+            "source": "customer",
+            "regulatoryArea": "LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO,ORK,GWY,LMK",
+            "proportion": 1,
+            "path": "/v1/order"
+          },
+          "action": 1
+        },
+        {
+          "match": {
+            "source": "customer",
+            "regulatoryArea": "LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO,ORK,GWY,LMK",
+            "proportion": 1,
+            "path": "/v1/quote"
+          },
+          "action": 1
+        },
+        {
+          "match": {
+            "source": "customer",
+            "regulatoryArea": "LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO,ORK,GWY,LMK",
+            "proportion": 1,
+            "path": "/v1/track"
+          },
+          "action": 1
+        },
+        {
+          "match": {
+            "source": "customer",
+            "regulatoryArea": "LON,DUB,BOS,CHI,NYC,TOR,MTR,MAD,BCN,WAS,OSA,TYO,ORK,GWY,LMK",
+            "proportion": 1,
+            "path": "/v1/customer/neardrivers"
+          },
+          "action": 1
+        },
+        {
+          "match": {
+            "source": "customer",
+            "proportion": 1,
+            "path": "/v1/experiment"
+          },
+          "action": 2
+        },
+        {
+          "match": {
+            "proportion": 1,
+            "path": "/v2/throttle"
+          },
+          "action": 3
+        }
+      ]
+    }
+  }
+}

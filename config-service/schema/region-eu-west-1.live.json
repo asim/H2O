@@ -1,0 +1,56 @@
+{
+    "hailo": {
+      "service": {
+        "monitoring": {
+          "defaults": {
+            "zabbixProxy": "zproxy-eu-west-1-live",
+            "hostGroup": "eu-west-1 (live)"
+          }
+        },
+        "cruftflake": {
+          "servers": [
+            "services01-global01-live:5599",
+            "services02-global01-live:5599",
+            "services03-global01-live:5599"
+          ]
+        },
+        "cassandra": {
+          "hosts": [
+            "10.1.2.160",
+            "10.1.2.161",
+            "10.1.3.14",
+            "10.1.3.15",
+            "10.1.2.34",
+            "10.1.2.36"
+          ]
+        },
+        "memcache": {
+          "servers": [
+            "vpcutilities07-global01-live",
+            "vpcutilities08-global01-live",
+            "vpcutilities09-global01-live"
+          ]
+        },
+        "nsq": {
+          "subHosts": [
+            "vpcutilities07-global01-live:4150",
+            "vpcutilities08-global01-live:4150",
+            "vpcutilities09-global01-live:4150"
+          ],
+          "pubHosts": [
+            "vpcutilities07-global01-live:4150",
+            "vpcutilities08-global01-live:4150",
+            "vpcutilities09-global01-live:4150"
+          ]
+        },
+        "zookeeper": {
+          "hosts": [
+            "vpcutilities07-global01-live:2181",
+            "vpcutilities08-global01-live:2181",
+            "vpcutilities09-global01-live:2181"
+          ]
+        }
+      }
+    }
+}
+

@@ -1,0 +1,10 @@
+package com.HailoOSS.service.login.changeaccountexpirationdate;
+
+message Request {
+	required string application = 1;
+	required string uid = 2;
+	required string account_expiration_date = 3;
+}
+
+message Response {
+}

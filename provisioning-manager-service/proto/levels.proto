@@ -1,0 +1,10 @@
+package com.HailoOSS.kernel.provisioningmanager;
+
+enum Level {
+	HALT = 0;
+	PLATFORM = 1;
+	CRITICAL = 2;
+	ESSENTIAL = 3;
+	DEGRADED = 4;
+	ALL = 5;
+}

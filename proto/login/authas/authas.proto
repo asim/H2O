@@ -1,0 +1,17 @@
+package com.hailocab.service.login.authas;
+
+import 'github.com/hailocab/h2/proto/login/proto/keyvalue.proto';
+
+message Request {
+	optional string username = 1;
+	// application is for h2 login and namespaces our user pool
+	optional string application = 2;
+	optional string deviceType = 3;
+	// meta data is optional meta data for h2 logins to attach to the login record, things like IP etc.
+	repeated com.hailocab.service.login.KeyValue meta = 4;
+}
+
+message Response {
+	required string sessId = 1;
+	required string token = 2;
+}

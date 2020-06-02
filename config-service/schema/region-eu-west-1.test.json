@@ -1,0 +1,65 @@
+{
+    "hailo": {
+      "service": {
+        "monitoring": {
+          "defaults": {
+            "zabbixProxy": "zproxy-eu-west-1-test",
+            "hostGroup": "eu-west-1 (test)"
+          }
+        },
+        "cruftflake": {
+          "servers": [
+            "services01-global01-test:5599",
+            "services02-global01-test:5599",
+            "services03-global01-test:5599"
+          ]
+        },
+        "cassandra": {
+          "hosts": [
+            "10.2.3.10",
+            "10.2.2.95",
+            "10.2.2.189"
+          ]
+        },
+        "memcache": {
+          "servers": [
+            "vpcutilities01-global01-test",
+            "vpcutilities02-global01-test",
+            "vpcutilities03-global01-test"
+          ]
+        },
+        "nsq": {
+          "subHosts": [
+            "vpcutilities01-global01-test:4150",
+            "vpcutilities02-global01-test:4150",
+            "vpcutilities03-global01-test:4150"
+          ],
+          "nsqlookupdSeeds": [
+            "vpcutilities01-global01-test:4161",
+            "vpcutilities02-global01-test:4161",
+            "vpcutilities03-global01-test:4161"
+          ],
+          "obf": {
+            "hosts": [
+              "vpcutilities01-global01-test",
+              "vpcutilities02-global01-test",
+              "vpcutilities03-global01-test"
+            ]
+          },
+          "pubHosts": [
+            "vpcutilities01-global01-test:4150",
+            "vpcutilities02-global01-test:4150",
+            "vpcutilities03-global01-test:4150"
+          ]
+        },
+        "zookeeper": {
+          "hosts": [
+            "vpcutilities01-global01-test:2181",
+            "vpcutilities02-global01-test:2181",
+            "vpcutilities03-global01-test:2181"
+          ]
+        }
+      }
+    }
+}
+

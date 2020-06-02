@@ -1,0 +1,12 @@
+package com.hailocab.service.login.updateuserroles;
+
+message Request {
+    required string application = 1;
+    // Who to update the roles for
+    required string uid = 2;
+    // The new role set for the user
+    repeated string roles = 3;
+}
+
+// Response is empty if the call was successful
+message Response{}

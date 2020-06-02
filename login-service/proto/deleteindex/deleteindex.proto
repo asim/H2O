@@ -1,0 +1,10 @@
+package com.HailoOSS.service.login.deleteindex;
+
+message Request {
+	required string application = 1;
+	required string uid = 2;
+}
+
+message Response {
+}
+

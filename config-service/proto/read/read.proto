@@ -1,0 +1,14 @@
+package com.HailoOSS.service.config.read;
+
+import 'github.com/HailoOSS/config-service/proto/common.proto';
+
+message Request {
+	required string id = 1;
+	optional string path = 2;
+}
+
+message Response {
+	required string config = 1;
+	required string hash = 2;
+	required com.HailoOSS.service.config.ChangeMeta meta = 3;
+}

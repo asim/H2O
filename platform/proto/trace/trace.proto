@@ -1,0 +1,29 @@
+package com.HailoOSS.kernel.platform.trace;
+
+message Event {
+	enum Type {
+		IN = 1;
+		OUT = 2;
+		REQ = 3;
+		REP = 4;
+		ATTEMPT_TIMEOUT = 5;
+		START = 6;
+	}
+
+	required int64 timestamp = 1;
+	required string traceId = 2;
+	required Type type = 3;
+	optional string messageId = 4;
+	optional string parentMessageId = 5;
+	optional string from = 6;
+	optional string fromEndpoint = 16;
+	optional string to = 7;
+	optional string hostname = 8;
+	optional string az = 9;
+	optional string payload = 10;
+	optional string errorCode = 11;
+	optional string errorDescription = 12;
+	optional string handlerInstanceId = 13;
+	optional int64 duration = 14;
+	optional bool persistentTrace = 15 [default = false];
+}

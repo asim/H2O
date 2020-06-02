@@ -1,0 +1,14 @@
+drop keyspace binding;
+
+create keyspace binding with
+	placement_strategy = 'SimpleStrategy'
+	and strategy_options = {replication_factor: 1}
+	and durable_writes = true;
+
+use binding;
+
+create column family binding_rules with
+	column_type = 'Standard'
+	and comparator = 'UTF8Type'
+	and key_validation_class = 'UTF8Type'
+;

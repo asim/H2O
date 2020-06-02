@@ -1,0 +1,13 @@
+package com.HailoOSS.service.config.validate;
+
+message Request {
+	repeated string id = 1;
+	optional string path = 2;
+}
+
+message Response {
+	required bool isValid = 1;
+	repeated string presentSchema = 2;
+	repeated string absentSchema = 3;
+	repeated string error = 4;
+}

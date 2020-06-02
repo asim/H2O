@@ -1,0 +1,16 @@
+package com.HailoOSS.service.provisioningmanager.read;
+
+message Request {
+	required string serviceName = 1;
+	required uint64 serviceVersion = 2;
+	required string machineClass = 3;
+}
+
+message Response {
+	required string serviceName = 1;
+	required uint64 serviceVersion = 2;
+	required string machineClass = 3;
+	optional uint64 noFileSoftLimit = 4;
+	optional uint64 noFileHardLimit = 5;
+	optional uint64 serviceType = 6;
+}

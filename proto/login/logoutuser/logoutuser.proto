@@ -1,0 +1,10 @@
+package com.hailocab.service.login.logoutuser;
+
+message Request {
+	required string mech = 1;
+	required string deviceType = 2;
+	required string uid = 3;
+}
+
+message Response {
+}

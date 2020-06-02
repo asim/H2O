@@ -1,0 +1,10 @@
+package com.HailoOSS.kernel.binding.subscribetopic;
+
+message Request {
+  required string topic = 1;
+  required string queue = 2;
+}
+
+message Response {
+  required bool ok = 1;
+}

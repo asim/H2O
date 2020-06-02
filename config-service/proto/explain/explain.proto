@@ -1,0 +1,10 @@
+package com.HailoOSS.service.config.explain;
+
+message Request {
+	repeated string id = 1;
+	optional string path = 2;
+}
+
+message Response {
+	required string config = 1;
+}

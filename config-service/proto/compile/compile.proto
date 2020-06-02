@@ -1,0 +1,11 @@
+package com.HailoOSS.service.config.compile;
+
+message Request {
+	repeated string id = 1;
+	optional string path = 2;
+}
+
+message Response {
+	required string config = 1;
+	required string hash = 2;
+}

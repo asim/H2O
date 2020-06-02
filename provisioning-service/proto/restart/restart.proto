@@ -1,0 +1,11 @@
+package com.HailoOSS.service.provisioning.restart;
+
+message Request {
+	required string serviceName = 1;
+	required uint64 serviceVersion = 2;
+	required string machineClass = 3;
+	optional string azName = 4;
+}
+
+message Response {
+}

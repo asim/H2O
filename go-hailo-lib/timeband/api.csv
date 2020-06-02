@@ -1,0 +1,20 @@
+pkg github.com/HailoOSS/go-hailo-lib/timeband, func TimeFromTime(time.Time) *Time
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (*Day) UnmarshalJSON([]uint8) error
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (*Time) Gte(*Time) bool
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (*Time) Lte(*Time) bool
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (*Time) String() string
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (*Time) UnmarshalJSON([]uint8) error
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (*TimeBand) Spans(time.Time) bool
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (Day) MatchesDow(time.Time) bool
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (Day) String() string
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (Day) Weekday() time.Weekday
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (Days) MatchesDow(time.Time) bool
+pkg github.com/HailoOSS/go-hailo-lib/timeband, method (TimeBands) Spans(time.Time) bool
+pkg github.com/HailoOSS/go-hailo-lib/timeband, type Day string
+pkg github.com/HailoOSS/go-hailo-lib/timeband, type Days []Day
+pkg github.com/HailoOSS/go-hailo-lib/timeband, type Time struct
+pkg github.com/HailoOSS/go-hailo-lib/timeband, type TimeBand struct
+pkg github.com/HailoOSS/go-hailo-lib/timeband, type TimeBand struct, Days Days
+pkg github.com/HailoOSS/go-hailo-lib/timeband, type TimeBand struct, EndTime Time
+pkg github.com/HailoOSS/go-hailo-lib/timeband, type TimeBand struct, StartTime Time
+pkg github.com/HailoOSS/go-hailo-lib/timeband, type TimeBands []*TimeBand

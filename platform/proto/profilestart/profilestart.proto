@@ -1,0 +1,23 @@
+package com.HailoOSS.kernel.platform.profilestart;
+
+
+message Request {
+	optional string id = 1;
+	optional ProfileType type = 2;
+	optional Output output = 3;
+}
+
+message Response {
+
+}
+
+enum Output {
+  S3 = 0;
+  FILE = 1;
+}
+
+enum ProfileType {
+  CPU = 0;
+  MEMORY = 1;
+  BLOCK = 2;
+}

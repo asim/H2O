@@ -1,0 +1,11 @@
+package com.hailocab.kernel.discovery.services;
+
+import 'github.com/hailocab/h2/proto/discovery/proto/service.proto';
+
+message Request {
+	optional string service = 1;
+}
+
+message Response{
+	repeated com.hailocab.kernel.discovery.Service services = 1;
+}

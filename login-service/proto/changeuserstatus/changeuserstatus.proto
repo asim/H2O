@@ -1,0 +1,17 @@
+package com.HailoOSS.service.login.changeuserstatus;
+
+message Request {
+    required string application = 1;
+    required string uid = 2;
+
+    // what is new status?
+    required string status = 3;
+
+    // for the batch operations
+    repeated string uids = 4;
+}
+
+// Response is empty if the call was successful
+message Response{
+	repeated string uids = 1;
+}

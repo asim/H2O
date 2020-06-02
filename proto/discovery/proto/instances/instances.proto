@@ -1,0 +1,21 @@
+package com.hailocab.kernel.discovery.instances;
+
+message Request {
+	optional string azName = 1;
+	optional string serviceName = 2;
+}
+
+message Response {
+	repeated Instance instances = 1;
+}
+
+message Instance {
+	required string instanceId = 1;
+	required string hostname = 2;
+	required string serviceName = 3;
+	optional string serviceDescription = 4;
+	required uint64 serviceVersion = 5;
+	required string azName = 6;
+	repeated string subTopic = 7;
+	optional string machineClass = 8;
+}

@@ -1,0 +1,11 @@
+package com.hailocab.service.login.revokeservice;
+
+import 'github.com/hailocab/h2/proto/login/proto/endpoint.proto';
+
+message Request {
+	required com.hailocab.service.login.Endpoint endpoint = 1;
+}
+
+message Response {
+}
+

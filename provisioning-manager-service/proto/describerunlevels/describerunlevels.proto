@@ -1,0 +1,15 @@
+package com.HailoOSS.kernel.provisioningmanager.describerunlevels;
+
+import "github.com/HailoOSS/provisioning-manager-service/proto/levels.proto";
+
+message RunLevel {
+	required provisioningmanager.Level level = 1;
+	required string description = 3;
+}
+
+message Request {
+}
+
+message Response {
+	repeated RunLevel runLevels = 1;
+}

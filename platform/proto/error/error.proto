@@ -1,0 +1,19 @@
+package com.HailoOSS.kernel.platform.error;
+
+message PlatformError {
+	enum ErrorType {
+		INTERNAL_SERVER_ERROR = 1;
+		BAD_REQUEST = 2;
+		BAD_RESPONSE = 3;
+		TIMEOUT = 4;
+		FORBIDDEN = 5;
+		NOT_FOUND = 6;
+		CONFLICT = 7;
+	}
+
+	required ErrorType type = 1;
+	required string code = 2;
+	required string description = 3;
+	optional uint32 httpCode = 4;
+	repeated string context = 5;
+}

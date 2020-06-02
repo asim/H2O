@@ -1,0 +1,5 @@
+pkg github.com/HailoOSS/go-hailo-lib/proc, func CachedNumRemoteTcpConns(string) int
+pkg github.com/HailoOSS/go-hailo-lib/proc, func CachedRemoteTcpConns() map[string]int
+pkg github.com/HailoOSS/go-hailo-lib/proc, func NumRemoteTcpConns(string) int
+pkg github.com/HailoOSS/go-hailo-lib/proc, func RemoteTcpConns() map[string]int
+pkg github.com/HailoOSS/go-hailo-lib/proc, func RunCacheLoader()

@@ -1,0 +1,104 @@
+{
+  "hailo": {
+    "service": {
+      "authentication":{
+        "publicKey":"/opt/hailo/login-service/public-key"
+      },
+      "cruftflake": {
+        "timeout": "20ms",
+        "servers": [
+          "localhost:15599"
+        ]
+      },
+      "elasticsearch": {
+        "attempts": 2,
+        "timeout": 3000,
+        "hosts": [
+          "localhost:19200"
+        ]
+      },
+      "instrumentation": {
+        "statsd": {
+          "enabled": true,
+          "port": 18125,
+          "host": "localhost"
+        }
+      },
+      "trace": {
+        "columnFamily": "trace",
+        "hosts": [
+          "localhost"
+        ],
+        "keyspace": "trace"
+      },
+      "cassandra": {
+        "defaults": {
+          "maxRetries": 5,
+          "recvTimeout": "1s",
+          "sendTimeout": "1s",
+          "writeConsistencyLevel": "ONE",
+          "readConsistencyLevel": "ONE"
+        },
+        "hosts": [
+          "localhost:19160"
+        ]
+      },
+      "memcache": {
+        "timeouts": {
+          "pollTimeout": "250ms",
+          "sendRecvTimeout": "100ms",
+          "connectTimeout": "1s",
+          "clusterTimeout": "1s",
+          "opTimeoutSleep": "20ms"
+        },
+        "servers": [
+          "localhost:21211"
+        ]
+      },
+      "nsq": {
+        "federation": {
+          "ap-northeast-1": [
+            "localhost:14164"
+          ],
+          "us-east-1": [
+            "localhost:14162",
+            "localhost:14163"
+          ]
+        },
+        "retry": {
+          "delay": "5s",
+          "maxAttempts": 30
+        },
+        "pubHosts": [
+          "localhost:14150"
+        ],
+        "subHosts": [
+          "localhost:14150"
+        ],
+        "writeCl": "ONE",
+        "connectionTimeout": "300ms",
+        "readWriteTimeout": "300ms",
+        "readWaitTimeout": "15s",
+        "nsqlookupdSeeds": [
+          "localhost:14161"
+        ],
+        "disableLookupd":true
+      },
+      "redis": {
+        "servers": [
+          {
+            "alias": "localhost",
+            "port": 16379,
+            "host": "localhost"
+          }
+        ]
+      },
+      "zookeeper": {
+        "recvTimeout": "200ms",
+        "hosts": [
+          "localhost:12181"
+        ]
+      }
+    }
+  }
+}

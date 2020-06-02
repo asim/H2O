@@ -1,0 +1,13 @@
+package com.hailocab.service.login.readusermulti;
+
+import "github.com/hailocab/h2/proto/login/proto/readuser/readuser.proto";
+
+
+message Request {
+	required string application = 1;
+	repeated string uid = 2;
+}
+
+message Response {
+	repeated com.hailocab.service.login.readuser.Response users = 1;
+}
