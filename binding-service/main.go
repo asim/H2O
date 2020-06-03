@@ -14,7 +14,7 @@ func main() {
 	defer log.Flush()
 
 	// register service + endpoints
-	server.Name = "com.hailo-platform/H2O.kernel.binding"
+	server.Name = "com.hailocab.kernel.binding"
 	server.Description = "Binding service; responsible for binding brokers and services"
 	server.Version = ServiceVersion
 	server.Source = "github.com/hailo-platform/H2O/binding-service"
@@ -49,14 +49,14 @@ func main() {
 
 	// only register, don't bind. We'll manually do it in the init() call
 	server.Register(&server.Endpoint{
-		Name:       "com.hailo-platform/H2O.kernel.discovery.serviceup",
+		Name:       "com.hailocab.kernel.discovery.serviceup",
 		Handler:    handler.ServiceUpListener,
 		Authoriser: server.OpenToTheWorldAuthoriser(),
 	})
 
 	// only register, don't bind. We'll manually do it in the init() call
 	server.Register(&server.Endpoint{
-		Name:       "com.hailo-platform/H2O.kernel.discovery.servicedown",
+		Name:       "com.hailocab.kernel.discovery.servicedown",
 		Handler:    handler.ServiceDownListener,
 		Authoriser: server.OpenToTheWorldAuthoriser(),
 	})

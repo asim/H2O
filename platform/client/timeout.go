@@ -145,7 +145,7 @@ func (t *Timeout) reloadSlas() {
 	for service := range t.endpoints {
 		// load from discovery service
 		log.Debugf("[Client] Loading SLAs from discovery service for %v...", service)
-		req, err := NewRequest("com.hailo-platform/H2O.kernel.discovery", "endpoints", &eps.Request{
+		req, err := NewRequest("com.hailocab.kernel.discovery", "endpoints", &eps.Request{
 			Service: proto.String(service),
 		})
 		if err != nil {

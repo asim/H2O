@@ -14,14 +14,14 @@ import (
 func SetServiceRunLevels(req *server.Request) (proto.Message, errors.Error) {
 	request := &srlproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning-manager.setservicerunlevels", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning-manager.setservicerunlevels", fmt.Sprintf("%v", err))
 	}
 
 	service := request.GetServiceName()
 	levels := request.GetLevels()
 
 	if len(service) == 0 {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.provisioning-manager.setservicerunlevels", "Service Name cannot be blank")
+		return nil, errors.BadRequest("com.hailocab.provisioning-manager.setservicerunlevels", "Service Name cannot be blank")
 	}
 
 	var runLevels [6]bool
@@ -29,7 +29,7 @@ func SetServiceRunLevels(req *server.Request) (proto.Message, errors.Error) {
 
 	for _, level := range levels {
 		if level < runlevels.MinRunLevel || level > runlevels.MaxRunLevel {
-			return nil, errors.BadRequest("com.hailo-platform/H2O.provisioning-manager.setservicerunlevels", fmt.Sprintf("Invalid run level of %d provided", level))
+			return nil, errors.BadRequest("com.hailocab.provisioning-manager.setservicerunlevels", fmt.Sprintf("Invalid run level of %d provided", level))
 		}
 
 		runLevels[level] = true
@@ -38,7 +38,7 @@ func SetServiceRunLevels(req *server.Request) (proto.Message, errors.Error) {
 
 	err := dao.SetServiceRunLevels(service, runLevels)
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning-manager.setservicerunlevels", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning-manager.setservicerunlevels", fmt.Sprintf("%v", err))
 	}
 
 	event.SetServiceRunLevels(service, stringLevels, req.Auth().AuthUser().Id)

@@ -26,7 +26,7 @@ var _ = &json.SyntaxError{}
 var _ = math.Inf
 
 type RunLevel struct {
-	Level            *com_hailo-platform/H2O_kernel_provisioningmanager.Level `protobuf:"varint,1,req,name=level,enum=com.hailo-platform/H2O.kernel.provisioningmanager.Level" json:"level,omitempty"`
+	Level            *com_hailo-platform/H2O_kernel_provisioningmanager.Level `protobuf:"varint,1,req,name=level,enum=com.hailocab.kernel.provisioningmanager.Level" json:"level,omitempty"`
 	Description      *string                                        `protobuf:"bytes,3,req,name=description" json:"description,omitempty"`
 	XXX_unrecognized []byte                                         `json:"-"`
 }

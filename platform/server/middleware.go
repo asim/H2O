@@ -94,7 +94,7 @@ func tokenConstrainedMiddleware(ep *Endpoint, h Handler) Handler {
 			inst.Gauge(1.0, tokenBucketName, len(tokC))
 			inst.Counter(1.0, "server.error.capacity", 1)
 
-			return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.server.capacity",
+			return nil, errors.InternalServerError("com.hailocab.kernel.server.capacity",
 				fmt.Sprintf("Server %v out of capacity", Name))
 		}
 	}

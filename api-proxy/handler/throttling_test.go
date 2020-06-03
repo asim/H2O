@@ -174,7 +174,7 @@ func TestSynchronisation(t *testing.T) {
 			},
 		},
 	}
-	expectedRequest, err := client.NewRequest("com.hailo-platform/H2O.service.api-throttling", "checkin", expectedRequestPayload)
+	expectedRequest, err := client.NewRequest("com.hailocab.service.api-throttling", "checkin", expectedRequestPayload)
 	assert.NoError(t, err, "Error constructing expected service request")
 	expectedResponse := &checkinproto.Response{
 		ThrottledBuckets: []string{"sessId:abc"},

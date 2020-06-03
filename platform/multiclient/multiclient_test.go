@@ -45,7 +45,7 @@ func (suite *multiClientSuite) TestAnyErrorsIgnoring() {
 		{
 			errs:  map[string]errors.Error{},
 			types: []string{errors.ErrorForbidden, errors.ErrorBadResponse},
-			codes: []string{"com.hailo-platform/H2O.service.foo.bar"},
+			codes: []string{"com.hailocab.service.foo.bar"},
 			isErr: false,
 		},
 		{
@@ -57,7 +57,7 @@ func (suite *multiClientSuite) TestAnyErrorsIgnoring() {
 		{
 			errs:  map[string]errors.Error{},
 			types: []string{},
-			codes: []string{"com.hailo-platform/H2O.service.foo.bar"},
+			codes: []string{"com.hailocab.service.foo.bar"},
 			isErr: false,
 		},
 		{
@@ -69,7 +69,7 @@ func (suite *multiClientSuite) TestAnyErrorsIgnoring() {
 		{
 			errs:  map[string]errors.Error{},
 			types: nil,
-			codes: []string{"com.hailo-platform/H2O.service.foo.bar"},
+			codes: []string{"com.hailocab.service.foo.bar"},
 			isErr: false,
 		},
 		// types
@@ -155,7 +155,7 @@ func (suite *multiClientSuite) TestSetCallerAndReset() {
 
 	// do a call!
 	cl.AddScopedReq(&ScopedReq{
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "health",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
@@ -172,7 +172,7 @@ func (suite *multiClientSuite) TestSetCallerAndReset() {
 
 	// make same call -- crucial point is that the SetCaller thing shouldn't be reset
 	cl.AddScopedReq(&ScopedReq{
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "health",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
@@ -194,7 +194,7 @@ func (suite *multiClientSuite) TestPlatformError() {
 
 	// A single request should not add the suffix provided to PlatformError() but return it verbatim
 	cl.AddScopedReq(&ScopedReq{
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "health",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
@@ -210,14 +210,14 @@ func (suite *multiClientSuite) TestPlatformError() {
 	cl.Reset()
 	cl.AddScopedReq(&ScopedReq{
 		Uid:      "uid1",
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "health",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
 	})
 	cl.AddScopedReq(&ScopedReq{
 		Uid:      "uid2",
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "bar",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
@@ -233,14 +233,14 @@ func (suite *multiClientSuite) TestPlatformError() {
 	cl.DefaultScopeFrom(ExplicitScoper().SetContext("prefixy"))
 	cl.AddScopedReq(&ScopedReq{
 		Uid:      "uid1",
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "health",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
 	})
 	cl.AddScopedReq(&ScopedReq{
 		Uid:      "uid2",
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "bar",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
@@ -263,7 +263,7 @@ func (suite *multiClientSuite) TestSucceeded() {
 	// A single request should not add any context to the code
 	cl.DefaultScopeFrom(ExplicitScoper().SetContext("prefixy"))
 	cl.AddScopedReq(&ScopedReq{
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "health",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
@@ -298,42 +298,42 @@ func (suite *multiClientSuite) TestConcurrenctRequests() {
 	cl.DefaultScopeFrom(ExplicitScoper().SetContext("prefixy"))
 	cl.AddScopedReq(&ScopedReq{
 		Uid:      "a",
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "a",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
 	})
 	cl.AddScopedReq(&ScopedReq{
 		Uid:      "b",
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "b",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
 	})
 	cl.AddScopedReq(&ScopedReq{
 		Uid:      "c",
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "c",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
 	})
 	cl.AddScopedReq(&ScopedReq{
 		Uid:      "d",
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "c",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
 	})
 	cl.AddScopedReq(&ScopedReq{
 		Uid:      "e",
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "c",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},
 	})
 	cl.AddScopedReq(&ScopedReq{
 		Uid:      "f",
-		Service:  "com.hailo-platform/H2O.service.foo",
+		Service:  "com.hailocab.service.foo",
 		Endpoint: "c",
 		Req:      &hcproto.Request{},
 		Rsp:      &hcproto.Response{},

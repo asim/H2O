@@ -113,7 +113,7 @@ func eventToNSQ(service string, version uint64, action, info, mClass, user strin
 	return &NSQEvent{
 		Id:        uuid,
 		Timestamp: strconv.Itoa(int(time.Now().Unix())),
-		Type:      "com.hailo-platform/H2O.kernel.provisioning.event",
+		Type:      "com.hailocab.kernel.provisioning.event",
 		Details: map[string]string{
 			"ServiceName":    service,
 			"ServiceVersion": strconv.Itoa(int(version)),
@@ -165,7 +165,7 @@ func (e *eventManager) pub(service string, version uint64, action, info string) 
 
 	p := eventProto(service, version, action, info)
 
-	if err := client.Pub("com.hailo-platform/H2O.kernel.provisioning.event", p); err != nil {
+	if err := client.Pub("com.hailocab.kernel.provisioning.event", p); err != nil {
 		log.Errorf("Failed to publish provisioning event: %v", err)
 		return
 	}

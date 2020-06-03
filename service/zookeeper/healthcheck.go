@@ -8,8 +8,8 @@ import (
 )
 
 const (
-	HealthCheckId  = "com.hailo-platform/H2O.service.zookeeper"
-	MaxConnCheckId = "com.hailo-platform/H2O.service.zookeeper.maxconns"
+	HealthCheckId  = "com.hailocab.service.zookeeper"
+	MaxConnCheckId = "com.hailocab.service.zookeeper.maxconns"
 )
 
 // HealthCheck asserts we can talk to ZK

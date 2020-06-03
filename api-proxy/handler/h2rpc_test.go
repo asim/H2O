@@ -76,7 +76,7 @@ func (suite *h2RPCHandlerSuite) TestRpcHandlerFormEncodedPostReturningError() {
 	defer TeardownTestServer(t, server)
 
 	values := make(url.Values)
-	values.Set("service", "com.hailo-platform/H2O.service.foo")
+	values.Set("service", "com.hailocab.service.foo")
 	values.Set("endpoint", "bar")
 	values.Set("request", "{\"baz\":\"bing\"}")
 	body := values.Encode()
@@ -89,7 +89,7 @@ func (suite *h2RPCHandlerSuite) TestRpcHandlerFormEncodedPostReturningError() {
 
 	// double check request
 
-	assert.Equal(t, "com.hailo-platform/H2O.service.foo", caller.req.Service(), "Request has expected service name")
+	assert.Equal(t, "com.hailocab.service.foo", caller.req.Service(), "Request has expected service name")
 	assert.Equal(t, "bar", caller.req.Endpoint(), "Request has expected endpoint name")
 	assert.Equal(t, "application/json", caller.req.ContentType(), "Request has expected content-type")
 

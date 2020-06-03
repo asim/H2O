@@ -146,7 +146,7 @@ func (self *discovery) callDiscoveryService(action string, successState bool) er
 	}
 
 	request, err := ScopedRequest(
-		"com.hailo-platform/H2O.kernel.discovery",
+		"com.hailocab.kernel.discovery",
 		action,
 		&register.MultiRequest{
 			InstanceId:   proto.String(InstanceID),

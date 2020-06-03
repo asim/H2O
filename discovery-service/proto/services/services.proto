@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.kernel.discovery.services;
+package com.hailocab.kernel.discovery.services;
 
 import 'github.com/hailo-platform/H2O/discovery-service/proto/service.proto';
 
@@ -7,5 +7,5 @@ message Request {
 }
 
 message Response{
-	repeated com.hailo-platform/H2O.kernel.discovery.Service services = 1;
+	repeated com.hailocab.kernel.discovery.Service services = 1;
 }

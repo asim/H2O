@@ -246,7 +246,7 @@ func install(serviceName string, serviceVersion, noFileSoftLimit, noFileHardLimi
 		Environment     map[string]string
 	}{
 		cmdName,
-		"com.hailo-platform/H2O.service.provisioning.create",
+		"com.hailocab.service.provisioning.create",
 		exePath,
 		time.Now().String(),
 		user,

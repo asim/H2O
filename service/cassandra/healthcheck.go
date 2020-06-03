@@ -8,8 +8,8 @@ import (
 )
 
 const (
-	HealthCheckId  = "com.hailo-platform/H2O.service.cassandra"
-	MaxConnCheckId = "com.hailo-platform/H2O.service.cassandra.maxconns"
+	HealthCheckId  = "com.hailocab.service.cassandra"
+	MaxConnCheckId = "com.hailocab.service.cassandra.maxconns"
 )
 
 // HealthCheck asserts we can connect to C* and

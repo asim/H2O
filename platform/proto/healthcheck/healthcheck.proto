@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.kernel.platform.healthcheck;
+package com.hailocab.kernel.platform.healthcheck;
 
 message HealthCheck {
 	enum Priority {
@@ -17,7 +17,7 @@ message HealthCheck {
 	required uint64 serviceVersion = 3;	// The service version
 	required string hostname = 4;		// The hostname of the machine
 	required string instanceId = 5;		// The unique instance id of the service
-	required string healthCheckId = 6;  // A unique ID for the healthcheck, eg: com.hailo-platform/H2O.service.cassandra
+	required string healthCheckId = 6;  // A unique ID for the healthcheck, eg: com.hailocab.service.cassandra
 	required bool isHealthy = 7;
 	optional string errorDescription = 8;
 	repeated KeyValue measurements = 9;

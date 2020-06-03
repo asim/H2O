@@ -37,7 +37,7 @@ func publishFailure(r interface{}) {
 	b := make([]byte, 1024)
 	runtime.Stack(b, true)
 
-	if err := client.Pub("com.hailo-platform/H2O.monitor.failure", &fproto.Failure{
+	if err := client.Pub("com.hailocab.monitor.failure", &fproto.Failure{
 		ServiceName:    proto.String(Name),
 		ServiceVersion: proto.Uint64(Version),
 		AzName:         proto.String(az),

@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.service.login.auth;
+package com.hailocab.service.login.auth;
 
 import 'github.com/hailo-platform/H2O/login-service/proto/keyvalue.proto';
 
@@ -15,7 +15,7 @@ message Request {
 	// application is for h2 login and namespaces our user pool
 	optional string application = 9;
 	// meta data is optional meta data for h2 logins to attach to the login record, things like IP etc.
-	repeated com.hailo-platform/H2O.service.login.KeyValue meta = 10;
+	repeated com.hailocab.service.login.KeyValue meta = 10;
 	// If true will authenticate the user with the current session
 	optional bool noExpire = 11;
 	optional string oauthToken = 12;

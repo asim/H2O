@@ -26,7 +26,7 @@ func validBuild() models.Build {
 		BinaryURL:    "http://s3.amazon.com/abcdefg",
 		Version:      "20130627091746",
 		Language:     "Go",
-		Name:         "com.hailo-platform/H2O.kernel.build-service",
+		Name:         "com.hailocab.kernel.build-service",
 		Branch:       "master",
 		TimeStamp:    1372346773,
 		Coverage: map[string]float64{

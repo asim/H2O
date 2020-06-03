@@ -16,18 +16,18 @@ import (
 // The plainPass is used to give idempotence to the storage of a user
 func CreateUser(user *domain.User, plainPass string) errors.Error {
 	if _, _, ok := IsLDAPUser(user.App, user.Uid); ok {
-		return errors.InternalServerError("com.hailo-platform/H2O.service.login.createuser.ldap", "Cant create LDAP user")
+		return errors.InternalServerError("com.hailocab.service.login.createuser.ldap", "Cant create LDAP user")
 	}
 
 	lock, err := lockUser(user)
 	defer lock.Unlock()
 	if err != nil {
-		return errors.InternalServerError("com.hailo-platform/H2O.service.login.createuser.lockerr", fmt.Sprintf("Failed to achieve ZK lock for `create` operation: %v", err))
+		return errors.InternalServerError("com.hailocab.service.login.createuser.lockerr", fmt.Sprintf("Failed to achieve ZK lock for `create` operation: %v", err))
 	}
 
 	pool, err := cassandra.ConnectionPool(Keyspace)
 	if err != nil {
-		return errors.InternalServerError("com.hailo-platform/H2O.service.login.createuser.cassandra", fmt.Sprintf("Failed to get connection pool: %v", err))
+		return errors.InternalServerError("com.hailocab.service.login.createuser.cassandra", fmt.Sprintf("Failed to get connection pool: %v", err))
 	}
 
 	// test to see if exists -- can happily "replay" a create request, but cannot overwrite something that exists with different data
@@ -40,11 +40,11 @@ func CreateUser(user *domain.User, plainPass string) errors.Error {
 
 	writer := pool.Writer()
 	if err := writeUser(user, writer, nil); err != nil {
-		return errors.InternalServerError("com.hailo-platform/H2O.service.login.createuser.marshaling", fmt.Sprintf("Failed to marshal into mutation: %v", err))
+		return errors.InternalServerError("com.hailocab.service.login.createuser.marshaling", fmt.Sprintf("Failed to marshal into mutation: %v", err))
 	}
 	t := time.Now()
 	if err := writer.Run(); err != nil {
-		return errors.InternalServerError("com.hailo-platform/H2O.service.login.createuser.cassandra", fmt.Sprintf("Create error writing to C*: %v", err))
+		return errors.InternalServerError("com.hailocab.service.login.createuser.cassandra", fmt.Sprintf("Create error writing to C*: %v", err))
 	}
 	inst.Timing(1.0, "cassandra.write.createuser", time.Since(t))
 

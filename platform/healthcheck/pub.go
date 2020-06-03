@@ -6,5 +6,5 @@ import (
 
 // pubLastSample pings this healthcheck sample out into the ether
 func pubLastSample(hc *HealthCheck, ls *Sample) {
-	client.Pub("com.hailo-platform/H2O.monitor.healthcheck", healthCheckSampleToProto(hc, ls))
+	client.Pub("com.hailocab.monitor.healthcheck", healthCheckSampleToProto(hc, ls))
 }

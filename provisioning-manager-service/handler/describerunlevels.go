@@ -12,7 +12,7 @@ import (
 func DescribeRunLevels(req *server.Request) (proto.Message, errors.Error) {
 	request := &descproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning-manager.describerunlevels", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning-manager.describerunlevels", fmt.Sprintf("%v", err))
 	}
 
 	return runlevels.DescribeProto(), nil

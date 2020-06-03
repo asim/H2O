@@ -1,9 +1,9 @@
-package com.hailo-platform/H2O.kernel.binding.createrule;
+package com.hailocab.kernel.binding.createrule;
 
 import 'github.com/hailo-platform/H2O/binding-service/proto/rule.proto';
 
 message Request {
-	required com.hailo-platform/H2O.kernel.binding.BindingRule rule = 1;
+	required com.hailocab.kernel.binding.BindingRule rule = 1;
 }
 
 message Response {

@@ -17,7 +17,7 @@ import (
 func Delete(req *server.Request) (proto.Message, errors.Error) {
 	request := &del.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.delete", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailocab.service.config.delete", fmt.Sprintf("%v", err))
 	}
 
 	previousConfig, _, err := domain.ReadConfig(request.GetId(), request.GetPath())
@@ -27,7 +27,7 @@ func Delete(req *server.Request) (proto.Message, errors.Error) {
 
 	u4, err := gouuid.NewV4()
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.delete.genid", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.service.config.delete.genid", fmt.Sprintf("%v", err))
 	}
 
 	err = domain.DeleteConfig(
@@ -39,10 +39,10 @@ func Delete(req *server.Request) (proto.Message, errors.Error) {
 		request.GetMessage(),
 	)
 	if err == domain.ErrPathNotFound {
-		return nil, errors.NotFound("com.hailo-platform/H2O.service.config.delete", fmt.Sprintf("%v", err))
+		return nil, errors.NotFound("com.hailocab.service.config.delete", fmt.Sprintf("%v", err))
 	}
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.delete", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.service.config.delete", fmt.Sprintf("%v", err))
 	}
 
 	broadcastChange(request.GetId())

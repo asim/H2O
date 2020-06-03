@@ -21,7 +21,7 @@ var (
 )
 
 func init() {
-	service.Name = "com.hailo-platform/H2O.hailo-2-api"
+	service.Name = "com.hailocab.hailo-2-api"
 	service.Description = "Routing layer that handles all inbound client requests, routing them to H1, H2, or " +
 		"throttling them."
 	service.Version = ServiceVersion

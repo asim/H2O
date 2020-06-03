@@ -15,16 +15,16 @@ import (
 func DeleteUser(req *server.Request) (proto.Message, errors.Error) {
 	request := &deleteproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.deleteuser.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.deleteuser.unmarshal", err.Error())
 	}
 
 	user, err := dao.ReadUser(domain.Application(request.GetApplication()), request.GetUid())
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.deleteuser.dao.read", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.deleteuser.dao.read", err.Error())
 	}
 	if user != nil {
 		if err := dao.DeleteUser(user); err != nil {
-			return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.deleteuser.dao.delete", err.Error())
+			return nil, errors.InternalServerError("com.hailocab.service.login.deleteuser.dao.delete", err.Error())
 		}
 
 		if user.ShouldBePublished() {

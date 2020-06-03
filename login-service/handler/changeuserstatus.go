@@ -19,7 +19,7 @@ import (
 func ChangeUserStatus(req *server.Request) (proto.Message, errors.Error) {
 	request := &changeuserstatusproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.changeuserstatus.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.changeuserstatus.unmarshal", err.Error())
 	}
 
 	updatedUids := make([]string, 0)
@@ -34,23 +34,23 @@ func ChangeUserStatus(req *server.Request) (proto.Message, errors.Error) {
 	for _, uid := range uids {
 		user, err := dao.ReadUser(domain.Application(request.GetApplication()), uid)
 		if err != nil {
-			log.Error(errors.InternalServerError("com.hailo-platform/H2O.service.login.changeuserstatus.dao.read", err.Error()))
+			log.Error(errors.InternalServerError("com.hailocab.service.login.changeuserstatus.dao.read", err.Error()))
 			continue
 		}
 		if user == nil {
-			log.Error(errors.NotFound("com.hailo-platform/H2O.service.login.changeuserstatus", fmt.Sprintf("No user with ID %s", request.GetUid())))
+			log.Error(errors.NotFound("com.hailocab.service.login.changeuserstatus", fmt.Sprintf("No user with ID %s", request.GetUid())))
 			continue
 		}
 
 		if request.GetStatus() != "enabled" && request.GetStatus() != "disabled" {
-			log.Error(errors.NotFound("com.hailo-platform/H2O.service.login.changeuserstatus", fmt.Sprintf("Invalid status %s for user", request.GetStatus())))
+			log.Error(errors.NotFound("com.hailocab.service.login.changeuserstatus", fmt.Sprintf("Invalid status %s for user", request.GetStatus())))
 			continue
 		}
 
 		user.Status = request.GetStatus()
 
 		if err := dao.UpdateUser(user); err != nil {
-			log.Error(errors.InternalServerError("com.hailo-platform/H2O.service.login.changeuserstats.dao.changeuserstatus", err.Error()))
+			log.Error(errors.InternalServerError("com.hailocab.service.login.changeuserstats.dao.changeuserstatus", err.Error()))
 			continue
 		}
 

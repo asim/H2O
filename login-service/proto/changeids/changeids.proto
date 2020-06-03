@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.service.login.changeids;
+package com.hailocab.service.login.changeids;
 
 message Request {
 	required string application = 1;

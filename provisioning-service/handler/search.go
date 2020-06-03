@@ -23,14 +23,14 @@ func provisioned(req *server.Request, serviceName, machineClass string) (dao.Pro
 		pReq.MachineClass = proto.String(machineClass)
 	}
 
-	request, err := req.ScopedRequest("com.hailo-platform/H2O.kernel.provisioning-manager", "provisioned", pReq)
+	request, err := req.ScopedRequest("com.hailocab.kernel.provisioning-manager", "provisioned", pReq)
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.search", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.search", fmt.Sprintf("%v", err))
 	}
 
 	response := &pproto.Response{}
 	if err := client.Req(request, response); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.search", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.search", fmt.Sprintf("%v", err))
 	}
 
 	var provisioned dao.ProvisionedServices
@@ -51,12 +51,12 @@ func Search(req *server.Request) (proto.Message, errors.Error) {
 
 	request := &search.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.search", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.search", fmt.Sprintf("%v", err))
 	}
 
 	rows, err := provisioned(req, request.GetServiceName(), request.GetMachineClass())
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.search", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.search", fmt.Sprintf("%v", err))
 	}
 
 	results := make([]*search.Result, len(rows))

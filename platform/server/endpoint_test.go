@@ -29,7 +29,7 @@ type EndpointSuite struct {
 
 func (suite *EndpointSuite) SetupTest() {
 	suite.origName = Name
-	Name = "com.hailo-platform/H2O.service.foo"
+	Name = "com.hailocab.service.foo"
 	suite.origRegistry = reg
 	suite.registry = newRegistry()
 	reg = suite.registry

@@ -15,15 +15,15 @@ import (
 func Explain(req *server.Request) (proto.Message, errors.Error) {
 	request := &explain.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.explain", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailocab.service.config.explain", fmt.Sprintf("%v", err))
 	}
 
 	config, err := domain.ExplainConfig(request.GetId(), request.GetPath())
 	if err == domain.ErrPathNotFound {
-		return nil, errors.NotFound("com.hailo-platform/H2O.service.config.explain", fmt.Sprintf("%v", err))
+		return nil, errors.NotFound("com.hailocab.service.config.explain", fmt.Sprintf("%v", err))
 	}
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.explain", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.service.config.explain", fmt.Sprintf("%v", err))
 	}
 
 	return &explain.Response{

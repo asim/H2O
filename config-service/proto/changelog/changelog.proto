@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.service.config.changelog;
+package com.hailocab.service.config.changelog;
 
 import 'github.com/hailo-platform/H2O/config-service/proto/common.proto';
 
@@ -13,6 +13,6 @@ message Request {
 }
 
 message Response {
-	repeated com.hailo-platform/H2O.service.config.Change changes = 1;
+	repeated com.hailocab.service.config.Change changes = 1;
 	optional string last = 2;
 }

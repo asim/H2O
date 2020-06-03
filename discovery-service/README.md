@@ -92,7 +92,7 @@ order to `Get` the details of a new node we haven't yet seen.
 For querying, everything is in-memory and uses a handy DSL:
 
 	instances := registry.AllInstances().Filter(
-		registry.MatchingServicePrefix("com.hailo-platform/H2O.kernel")
+		registry.MatchingServicePrefix("com.hailocab.kernel")
 		)
 	for _, i := range instances {
 		log.Debugf("Instance: %v", i)

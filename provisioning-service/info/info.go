@@ -159,7 +159,7 @@ func pubInfo() error {
 	services, _ := getServices(delta)
 	machineInfo, _ := getMachineInfo(delta)
 
-	return client.Pub("com.hailo-platform/H2O.kernel.provisioning.info", &iproto.Info{
+	return client.Pub("com.hailocab.kernel.provisioning.info", &iproto.Info{
 		Id:           proto.String(server.InstanceID),
 		Version:      proto.String(version),
 		Hostname:     proto.String(hostname),

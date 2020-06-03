@@ -127,8 +127,8 @@ func getProcessList() (map[string][]int, error) {
 			continue
 		}
 
-		// is it a com.hailo-platform/H2O process?
-		if !strings.Contains(status.Name, "com.hailo-platform/H2O") {
+		// is it a com.hailocab process?
+		if !strings.Contains(status.Name, "com.hailocab") {
 			if status.Ppid > 1 {
 				// hold onto pid as it may be a child of one we know about
 				cpids[status.Ppid] = append(cpids[status.Ppid], pid)
@@ -136,14 +136,14 @@ func getProcessList() (map[string][]int, error) {
 			continue
 		}
 
-		// /proc/[pid]/status must now already contain Name: com.hailo-platform/H2O
+		// /proc/[pid]/status must now already contain Name: com.hailocab
 		proc := &sigar.ProcArgs{}
 		if err := proc.Get(pid); err != nil {
 			continue
 		}
 
 		for _, arg := range proc.List {
-			if strings.Contains(arg, "com.hailo-platform/H2O") {
+			if strings.Contains(arg, "com.hailocab") {
 				procs[arg] = append(procs[arg], pid)
 				break
 			}

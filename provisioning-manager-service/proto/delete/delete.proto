@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.service.provisioningmanager.delete;
+package com.hailocab.service.provisioningmanager.delete;
 
 message Request {
 	required string serviceName = 1;

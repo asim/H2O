@@ -32,7 +32,7 @@ func EndpointsHandler(srv *HailoServer) http.HandlerFunc {
 			fmt.Fprint(rw, jsonResponse{
 				"status":      false,
 				"code":        11,
-				"dotted_code": "com.hailo-platform/H2O.hailo-2-api.noregions",
+				"dotted_code": "com.hailocab.hailo-2-api.noregions",
 				"payload":     "No online regions found",
 			})
 			return
@@ -48,7 +48,7 @@ func EndpointsHandler(srv *HailoServer) http.HandlerFunc {
 			fmt.Fprint(rw, jsonResponse{
 				"status":      false,
 				"code":        11,
-				"dotted_code": "com.hailo-platform/H2O.hailo-2-api.noapps",
+				"dotted_code": "com.hailocab.hailo-2-api.noapps",
 				"payload":     "No apps found for this region",
 			})
 			return

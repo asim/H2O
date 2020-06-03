@@ -13,7 +13,7 @@ import (
 func Create(req *server.Request) (proto.Message, errors.Error) {
 	request := &create.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.create", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.create", fmt.Sprintf("%v", err))
 	}
 
 	createReq := &createproto.Request{
@@ -24,14 +24,14 @@ func Create(req *server.Request) (proto.Message, errors.Error) {
 		NoFileHardLimit: request.NoFileHardLimit,
 	}
 
-	crequest, err := req.ScopedRequest("com.hailo-platform/H2O.kernel.provisioning-manager", "create", createReq)
+	crequest, err := req.ScopedRequest("com.hailocab.kernel.provisioning-manager", "create", createReq)
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.create", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.create", fmt.Sprintf("%v", err))
 	}
 
 	response := &createproto.Response{}
 	if err := client.Req(crequest, response); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.create", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.create", fmt.Sprintf("%v", err))
 	}
 
 	return &create.Response{}, nil

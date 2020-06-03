@@ -35,7 +35,7 @@ func jsonschemaHandler(req *Request) (proto.Message, errors.Error) {
 
 	rsp, err := json.Marshal(schemas)
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.marshal.error", fmt.Sprintf("Unable to unmarshal response data: %v", err.Error()))
+		return nil, errors.InternalServerError("com.hailocab.kernel.marshal.error", fmt.Sprintf("Unable to unmarshal response data: %v", err.Error()))
 	}
 
 	return &jsonschemaproto.Response{

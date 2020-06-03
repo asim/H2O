@@ -25,7 +25,7 @@ CREATE INDEX ON provisioned_service(machineclass);
 
 // populate db with initial values
 INSERT INTO provisioned_service (id, servicename, serviceversion, machineclass,nofilesoftlimit,nofilehardlimit, servicetype)
-	VALUES ('2e48e4541c5666adc859a9eafcd20458881872de', 'com.hailo-platform/H2O.service.log', 20140821140014, 'dev',1024, 4096,1);
+	VALUES ('2e48e4541c5666adc859a9eafcd20458881872de', 'com.hailocab.service.log', 20140821140014, 'dev',1024, 4096,1);
 
 CREATE TABLE run_levels (
 	key text PRIMARY KEY,

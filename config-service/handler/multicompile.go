@@ -15,7 +15,7 @@ import (
 func MultiCompile(req *server.Request) (proto.Message, errors.Error) {
 	request := &multicompile.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.multicompile", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailocab.service.config.multicompile", fmt.Sprintf("%v", err))
 	}
 
 	compileResponses := make([]*multicompile.Response_CompileResponse, len(request.GetCompileRequests()))

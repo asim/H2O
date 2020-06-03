@@ -6,18 +6,18 @@ import (
 
 func TestServiceToBindingDef(t *testing.T) {
 	s := Service{
-		Service:  "com.hailo-platform/H2O.service.foobar",
+		Service:  "com.hailocab.service.foobar",
 		Version:  "201306271500",
-		Instance: "server-com.hailo-platform/H2O.service.foobar-1234567890",
+		Instance: "server-com.hailocab.service.foobar-1234567890",
 		AzName:   "eu-west-1a"}
 	b := BindingDefFromService(&s)
-	if b.Destination != "server-com.hailo-platform/H2O.service.foobar-1234567890" {
+	if b.Destination != "server-com.hailocab.service.foobar-1234567890" {
 		t.Error("Destination incorrect ", b.Destination)
 	}
 	if b.DestinationType != string(QUEUE) {
 		t.Error("Destination type incorrect ", b.DestinationType)
 	}
-	if b.RoutingKey != "com.hailo-platform/H2O.service.foobar" {
+	if b.RoutingKey != "com.hailocab.service.foobar" {
 		t.Error("Routing key incorrect ", b.RoutingKey)
 	}
 	if b.Source != "h2o" {
@@ -29,16 +29,16 @@ func TestServiceToBindingDef(t *testing.T) {
 	if b.Arguments["x-match"] != "all" {
 		t.Error("'x-match' incorrect ", b.Arguments["x-match"])
 	}
-	if b.Arguments["service"] != "com.hailo-platform/H2O.service.foobar" {
+	if b.Arguments["service"] != "com.hailocab.service.foobar" {
 		t.Error("'service' incorrect ", b.Arguments["service"])
 	}
 }
 
 func TestServiceToExchangeBindingDef(t *testing.T) {
 	s := Service{
-		Service:  "com.hailo-platform/H2O.service.foobar",
+		Service:  "com.hailocab.service.foobar",
 		Version:  "201306271500",
-		Instance: "server-com.hailo-platform/H2O.service.foobar-1234567890",
+		Instance: "server-com.hailocab.service.foobar-1234567890",
 		AzName:   "eu-west-1a"}
 	b := ExchangeBindingDefFromService(&s, "eu-west-1a")
 	if b.Destination != "eu-west-1a" {
@@ -47,7 +47,7 @@ func TestServiceToExchangeBindingDef(t *testing.T) {
 	if b.DestinationType != string(EXCHANGE) {
 		t.Error("Destination type incorrect ", b.DestinationType)
 	}
-	if b.RoutingKey != "com.hailo-platform/H2O.service.foobar" {
+	if b.RoutingKey != "com.hailocab.service.foobar" {
 		t.Error("Routing key incorrect ", b.RoutingKey)
 	}
 	if b.Source != "h2o" {
@@ -59,7 +59,7 @@ func TestServiceToExchangeBindingDef(t *testing.T) {
 	if b.Arguments["x-match"] != "all" {
 		t.Error("'x-match' incorrect ", b.Arguments["x-match"])
 	}
-	if b.Arguments["service"] != "com.hailo-platform/H2O.service.foobar" {
+	if b.Arguments["service"] != "com.hailocab.service.foobar" {
 		t.Error("'service' incorrect ", b.Arguments["service"])
 	}
 	if b.Arguments["x-nofed"] != "yes" {

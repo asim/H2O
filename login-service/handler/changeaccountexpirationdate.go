@@ -17,23 +17,23 @@ import (
 func ChangeAccountExpirationDate(req *server.Request) (proto.Message, errors.Error) {
 	request := &changeaccountexpirationdate.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.changeaccountexpirationdate.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.changeaccountexpirationdate.unmarshal", err.Error())
 	}
 
 	user, err := dao.ReadUser(domain.Application(request.GetApplication()), request.GetUid())
 
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.changeaccountexpirationdate.dao.read", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.changeaccountexpirationdate.dao.read", err.Error())
 	}
 
 	if user == nil {
-		return nil, errors.NotFound("com.hailo-platform/H2O.service.login.changeaccountexpirationdate", fmt.Sprintf("No user with ID %s", request.GetUid()))
+		return nil, errors.NotFound("com.hailocab.service.login.changeaccountexpirationdate", fmt.Sprintf("No user with ID %s", request.GetUid()))
 	}
 
 	user.AccountExpirationDate = request.GetAccountExpirationDate()
 
 	if err := dao.UpdateUser(user); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.changeaccountexpirationdate.dao.updateuser", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.changeaccountexpirationdate.dao.updateuser", err.Error())
 	}
 
 	if user.ShouldBePublished() {

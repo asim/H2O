@@ -194,7 +194,7 @@ func callEndpoints(service string) ([]*endpoints.Response_Endpoint, error) {
 	}
 
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.kernel.discovery",
+		"com.hailocab.kernel.discovery",
 		"endpoints",
 		&endpoints.Request{
 			Service: proto.String(service),
@@ -217,7 +217,7 @@ func callServices(service string) ([]*shared.Service, error) {
 		raven.AmqpUri = AmqpHost
 	}
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.kernel.discovery",
+		"com.hailocab.kernel.discovery",
 		"services",
 		&services.Request{
 			Service: proto.String(service),
@@ -239,7 +239,7 @@ func callServices(service string) ([]*shared.Service, error) {
 func CallInstances(az string) ([]*instances.Instance, error) {
 
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.kernel.discovery",
+		"com.hailocab.kernel.discovery",
 		"instances",
 		&instances.Request{
 			AzName: proto.String(az),

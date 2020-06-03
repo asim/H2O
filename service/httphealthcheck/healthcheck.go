@@ -9,7 +9,7 @@ import (
 	"github.com/mreiferson/go-httpclient"
 )
 
-const HealthCheckId = "com.hailo-platform/H2O.service.http"
+const HealthCheckId = "com.hailocab.service.http"
 
 var (
 	defaultHttpClient *http.Client

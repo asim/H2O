@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.kernel.provisioningmanager;
+package com.hailocab.kernel.provisioningmanager;
 
 enum Level {
 	HALT = 0;

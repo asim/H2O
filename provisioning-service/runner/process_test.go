@@ -20,13 +20,13 @@ func createTestFile(filename string) {
 }
 
 func TestSplitProcessName(t *testing.T) {
-	const filename = "/opt/hailo/bin/com.hailo-platform/H2O.service.provisioning.testsplitprocessname-20130102030405"
+	const filename = "/opt/hailo/bin/com.hailocab.service.provisioning.testsplitprocessname-20130102030405"
 	serviceName, seviceVersion, err := splitProcessName(filename)
 	if err != nil {
 		log.Fatalln("Error: ", err)
 	}
 
-	if serviceName != "com.hailo-platform/H2O.service.provisioning.testsplitprocessname" {
+	if serviceName != "com.hailocab.service.provisioning.testsplitprocessname" {
 		t.Error("Error testing splitProcessName() - serviceName was wrong")
 	}
 
@@ -36,17 +36,17 @@ func TestSplitProcessName(t *testing.T) {
 }
 
 func TestStopExtraProcesses(t *testing.T) {
-	const filename = "/opt/hailo/bin/com.hailo-platform/H2O.service.provisioning.teststopextra-20130102030405"
+	const filename = "/opt/hailo/bin/com.hailocab.service.provisioning.teststopextra-20130102030405"
 	createTestFile(filename)
 	defer os.Remove(filename)
 
-	extraP := &dao.ProvisionedService{ServiceName: "com.hailo-platform/H2O.service.provisioning.teststopextra", ServiceVersion: 20130102030405, MachineClass: "A"}
+	extraP := &dao.ProvisionedService{ServiceName: "com.hailocab.service.provisioning.teststopextra", ServiceVersion: 20130102030405, MachineClass: "A"}
 
-	if err := proc.Start("com.hailo-platform/H2O.service.provisioning.teststopextra", 20130102030405, 1024, 4096); err != nil {
+	if err := proc.Start("com.hailocab.service.provisioning.teststopextra", 20130102030405, 1024, 4096); err != nil {
 		t.Error("Error starting service:", err)
 	}
 
-	numInstances, err := proc.CountRunningInstances("com.hailo-platform/H2O.service.provisioning.teststopextra", 20130102030405)
+	numInstances, err := proc.CountRunningInstances("com.hailocab.service.provisioning.teststopextra", 20130102030405)
 	if err != nil {
 		t.Error("Error:", err)
 	}

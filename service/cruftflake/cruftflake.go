@@ -9,7 +9,7 @@ import (
 // Mint a new Cruftflake ID from the IDGen Service
 func Mint() (int64, error) {
 	reqProto := &cf.Request{}
-	req, err := server.ScopedRequest("com.hailo-platform/H2O.service.idgen", "cruftflake", reqProto)
+	req, err := server.ScopedRequest("com.hailocab.service.idgen", "cruftflake", reqProto)
 	if err != nil {
 		return 0, err
 	}

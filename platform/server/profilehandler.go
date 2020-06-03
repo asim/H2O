@@ -17,7 +17,7 @@ import (
 func profileStartHandler(req *Request) (proto.Message, errors.Error) {
 	request := &profilestartproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.kernel.platform.profilestart", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailocab.kernel.platform.profilestart", fmt.Sprintf("%v", err))
 	}
 
 	cfg := &dcprofile.Config{}
@@ -40,11 +40,11 @@ func profileStartHandler(req *Request) (proto.Message, errors.Error) {
 	}
 
 	if !cfg.CPUProfile && !cfg.MemProfile && !cfg.BlockProfile {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.kernel.platform.profilestart", "Unsupported profile type, please use: cpu, memory or block")
+		return nil, errors.BadRequest("com.hailocab.kernel.platform.profilestart", "Unsupported profile type, please use: cpu, memory or block")
 	}
 
 	if err := profile.StartProfiling(cfg, output, fmt.Sprintf("%s-%v", Name, Version), request.GetId()); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.platform.profilestart", fmt.Sprintf("Unable to start profile %v", err.Error()))
+		return nil, errors.InternalServerError("com.hailocab.kernel.platform.profilestart", fmt.Sprintf("Unable to start profile %v", err.Error()))
 	}
 
 	return &profilestartproto.Response{}, nil
@@ -54,7 +54,7 @@ func profileStartHandler(req *Request) (proto.Message, errors.Error) {
 func profileStopHandler(req *Request) (proto.Message, errors.Error) {
 	id, profileOutput, binaryOutput, err := profile.StopProfiling()
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.platform.profilestop", fmt.Sprintf("Unable to stop profile %v", err.Error()))
+		return nil, errors.InternalServerError("com.hailocab.kernel.platform.profilestop", fmt.Sprintf("Unable to stop profile %v", err.Error()))
 	}
 	pr := &profilestopproto.Response{
 		Id:            proto.String(id),

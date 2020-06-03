@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.service.config.update;
+package com.hailocab.service.config.update;
 
 message Request {
 	required string id = 1;

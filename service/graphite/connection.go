@@ -145,7 +145,7 @@ func Children(q string) ([]string, error) {
 }
 
 // Children returns a list of target IDs within a specific node in the target tree
-// An example q would be `stats.com.hailo-platform/H2O` to find all child nodes of this
+// An example q would be `stats.com.hailocab` to find all child nodes of this
 func (conn *Connection) Children(q string) ([]string, error) {
 	v := url.Values{}
 	v.Set("format", "treejson")

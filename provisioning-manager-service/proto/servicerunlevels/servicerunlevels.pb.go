@@ -27,7 +27,7 @@ var _ = math.Inf
 
 type ServiceRunLevels struct {
 	ServiceName      *string                                         `protobuf:"bytes,1,req,name=serviceName" json:"serviceName,omitempty"`
-	Levels           []com_hailo-platform/H2O_kernel_provisioningmanager.Level `protobuf:"varint,2,rep,name=levels,enum=com.hailo-platform/H2O.kernel.provisioningmanager.Level" json:"levels,omitempty"`
+	Levels           []com_hailo-platform/H2O_kernel_provisioningmanager.Level `protobuf:"varint,2,rep,name=levels,enum=com.hailocab.kernel.provisioningmanager.Level" json:"levels,omitempty"`
 	XXX_unrecognized []byte                                          `json:"-"`
 }
 

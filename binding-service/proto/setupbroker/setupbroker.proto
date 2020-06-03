@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.kernel.binding.setupbroker;
+package com.hailocab.kernel.binding.setupbroker;
 
 message Request {
   required string hostname = 1;

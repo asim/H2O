@@ -23,7 +23,7 @@ import (
 const (
 	langGo      = "Go"
 	langJava    = "Java"
-	serviceName = "com.hailo-platform/H2O.build-service"
+	serviceName = "com.hailocab.build-service"
 
 	envSqlUsername = "BUILD_SERVICE_SQL_USERNAME"
 	envSqlPassword = "BUILD_SERVICE_SQL_PASSWORD"

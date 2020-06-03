@@ -16,7 +16,7 @@ import (
 func ServiceUpListener(req *server.Request) (proto.Message, errors.Error) {
 	request := &serviceup.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.kernel.binding.serviceup", err.Error())
+		return nil, errors.BadRequest("com.hailocab.kernel.binding.serviceup", err.Error())
 	}
 	errObj := binding.SetupService(domain.ServiceFromServiceupProto(request))
 	if errObj != nil {
@@ -31,7 +31,7 @@ func ServiceUpListener(req *server.Request) (proto.Message, errors.Error) {
 func ServiceDownListener(req *server.Request) (proto.Message, errors.Error) {
 	request := &servicedown.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.kernel.binding.servicedown", err.Error())
+		return nil, errors.BadRequest("com.hailocab.kernel.binding.servicedown", err.Error())
 	}
 	queue := request.GetInstanceId()
 	service := request.GetServiceName()

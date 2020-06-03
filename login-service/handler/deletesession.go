@@ -14,7 +14,7 @@ import (
 func DeleteSession(req *server.Request) (proto.Message, errors.Error) {
 	request := &sessiondel.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.sessiondelete.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.sessiondelete.unmarshal", err.Error())
 	}
 
 	if req.SessionID() != request.GetSessId() {
@@ -26,11 +26,11 @@ func DeleteSession(req *server.Request) (proto.Message, errors.Error) {
 
 	sess, err := dao.ReadSession(request.GetSessId())
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.sessiondelete.dao", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.sessiondelete.dao", err.Error())
 	}
 	if sess != nil {
 		if err := auther.Expire(sess); err != nil {
-			return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.sessiondelete.expire", err.Error())
+			return nil, errors.InternalServerError("com.hailocab.service.login.sessiondelete.expire", err.Error())
 		}
 	}
 

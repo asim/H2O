@@ -13,7 +13,7 @@ import (
 func ServiceRunLevels(req *server.Request) (proto.Message, errors.Error) {
 	request := &srlproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning-manager.servicerunlevels", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning-manager.servicerunlevels", fmt.Sprintf("%v", err))
 	}
 
 	rsp := &srlproto.Response{}

@@ -38,7 +38,7 @@ import (
 )
 
 func main() {
-	service.Name = "com.hailo-platform/H2O.service.login"
+	service.Name = "com.hailocab.service.login"
 	service.Description = "Responsible for managing authentication credentials and issuing tokens for users knowing these credentials."
 	service.Version = ServiceVersion
 	service.Source = "github.com/hailo-platform/H2O/login-service"

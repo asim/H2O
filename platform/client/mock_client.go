@@ -79,7 +79,7 @@ func (m *MockClient) Req(req *Request, rsp proto.Message, options ...Options) ha
 		return nil
 	} else {
 		log.Warnf("[Service client mock] Couldn't match response for %s:%s", req.Service(), req.Endpoint())
-		return hailo_errors.InternalServerError("com.hailo-platform/H2O.kernel.platform.nilresponse", "Nil response")
+		return hailo_errors.InternalServerError("com.hailocab.kernel.platform.nilresponse", "Nil response")
 	}
 }
 
@@ -100,7 +100,7 @@ func (m *MockClient) CustomReq(req *Request, options ...Options) (*Response, hai
 		return &Response{resp}, nil
 	} else {
 		log.Warnf("[Service client mock] Couldn't match response for %s:%s", req.Service(), req.Endpoint())
-		return nil, hailo_errors.InternalServerError("com.hailo-platform/H2O.kernel.platform.nilresponse", "Nil response")
+		return nil, hailo_errors.InternalServerError("com.hailocab.kernel.platform.nilresponse", "Nil response")
 	}
 }
 

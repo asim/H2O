@@ -94,7 +94,7 @@ func (a *ldapAuther) callLDAPLogin(username, password string) (*domain.User, err
 	rsp := &loginproto.Response{}
 	cl.AddScopedReq(&multiclient.ScopedReq{
 		Uid:      "ldap_login",
-		Service:  "com.hailo-platform/H2O.service.ldap",
+		Service:  "com.hailocab.service.ldap",
 		Endpoint: "login",
 		Req: &loginproto.Request{
 			Username: proto.String(username),

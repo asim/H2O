@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-	server.Name = "com.hailo-platform/H2O.kernel.discovery"
+	server.Name = "com.hailocab.kernel.discovery"
 	server.Description = "Discovery service; responsible for knowing which services are currently running on which boxes"
 	server.Version = ServiceVersion
 	server.Source = "github.com/hailo-platform/H2O/discovery-service"

@@ -27,7 +27,7 @@ var _ = math.Inf
 
 type RunLevel struct {
 	Region           *string                                        `protobuf:"bytes,1,req,name=region" json:"region,omitempty"`
-	Level            *com_hailo-platform/H2O_kernel_provisioningmanager.Level `protobuf:"varint,2,req,name=level,enum=com.hailo-platform/H2O.kernel.provisioningmanager.Level" json:"level,omitempty"`
+	Level            *com_hailo-platform/H2O_kernel_provisioningmanager.Level `protobuf:"varint,2,req,name=level,enum=com.hailocab.kernel.provisioningmanager.Level" json:"level,omitempty"`
 	XXX_unrecognized []byte                                         `json:"-"`
 }
 
@@ -58,7 +58,7 @@ func (m *Request) String() string { return proto.CompactTextString(m) }
 func (*Request) ProtoMessage()    {}
 
 type Response struct {
-	DefaultLevel     *com_hailo-platform/H2O_kernel_provisioningmanager.Level `protobuf:"varint,1,req,name=defaultLevel,enum=com.hailo-platform/H2O.kernel.provisioningmanager.Level" json:"defaultLevel,omitempty"`
+	DefaultLevel     *com_hailo-platform/H2O_kernel_provisioningmanager.Level `protobuf:"varint,1,req,name=defaultLevel,enum=com.hailocab.kernel.provisioningmanager.Level" json:"defaultLevel,omitempty"`
 	RunLevels        []*RunLevel                                    `protobuf:"bytes,2,rep,name=runLevels" json:"runLevels,omitempty"`
 	XXX_unrecognized []byte                                         `json:"-"`
 }

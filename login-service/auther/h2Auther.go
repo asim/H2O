@@ -349,7 +349,7 @@ func (a *h2Auther) OAuth(app domain.Application, deviceType, username, oauthtoke
 	oauthRsp := &oauth.Response{}
 	call := multiclient.New().AddScopedReq(&multiclient.ScopedReq{
 		Uid:      "oauth",
-		Service:  "com.hailo-platform/H2O.service.oauth-client",
+		Service:  "com.hailocab.service.oauth-client",
 		Endpoint: "info",
 		Req:      oauthReq,
 		Rsp:      oauthRsp,

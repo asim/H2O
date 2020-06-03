@@ -92,7 +92,7 @@ func (s *H2HandlerSuite) TestNormal() {
 	// Expect a service-to-service call
 	expectedRequestPayload, err := httpRequestToProto(request)
 	s.NoError(err)
-	expectedRequest, err := client.NewRequest("com.hailo-platform/H2O.api.h2-test", "foo", expectedRequestPayload)
+	expectedRequest, err := client.NewRequest("com.hailocab.api.h2-test", "foo", expectedRequestPayload)
 	s.NoError(err, "Error constructing expected service request")
 	expectedResponse := &api.Response{
 		StatusCode: proto.Int(200),
@@ -127,7 +127,7 @@ func (s *H2HandlerSuite) TestOverwriteContentType() {
 	// Expect a service-to-service call
 	expectedRequestPayload, err := httpRequestToProto(request)
 	s.NoError(err)
-	expectedRequest, err := client.NewRequest("com.hailo-platform/H2O.api.h2-test", "foo", expectedRequestPayload)
+	expectedRequest, err := client.NewRequest("com.hailocab.api.h2-test", "foo", expectedRequestPayload)
 	s.NoError(err, "Error constructing expected service request")
 	var _status int32 = 200
 	var _body string = "foobar"
@@ -174,7 +174,7 @@ func (s *H2HandlerSuite) TestPCIFilter() {
 	// Expect a service-to-service call
 	expectedRequestPayload, err := httpRequestToProto(request)
 	s.NoError(err)
-	expectedRequest, err := client.NewRequest("com.hailo-platform/H2O.api.v1.customer", "card", expectedRequestPayload)
+	expectedRequest, err := client.NewRequest("com.hailocab.api.v1.customer", "card", expectedRequestPayload)
 	s.NoError(err, "Error constructing expected service request")
 	expectedResponse := &api.Response{
 		StatusCode: proto.Int(200),

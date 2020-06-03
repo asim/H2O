@@ -14,12 +14,12 @@ import (
 func RevokeService(req *server.Request) (proto.Message, errors.Error) {
 	request := &revokeservice.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.revokeservice.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.revokeservice.unmarshal", err.Error())
 	}
 
 	epas := protoToEndpointAuth(request.GetEndpoint())
 	if err := dao.DeleteEndpointAuths(epas); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.revokeservice.dao", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.revokeservice.dao", err.Error())
 	}
 
 	return &revokeservice.Response{}, nil

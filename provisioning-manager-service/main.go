@@ -15,7 +15,7 @@ import (
 func main() {
 	defer log.Flush()
 
-	service.Name = "com.hailo-platform/H2O.kernel.provisioning-manager"
+	service.Name = "com.hailocab.kernel.provisioning-manager"
 	service.Description = "Responsible for coordinating and caching higher level functionality for provisioning"
 	service.Version = ServiceVersion
 	service.Source = "github.com/hailo-platform/H2O/provisioning-manager-service"
@@ -131,9 +131,9 @@ func main() {
 
 	// Subscribers
 	service.Register(&service.Endpoint{
-		Name:       "com.hailo-platform/H2O.kernel.provisioning.info",
+		Name:       "com.hailocab.kernel.provisioning.info",
 		Handler:    handler.SubProvisioningInfo,
-		Subscribe:  "com.hailo-platform/H2O.kernel.provisioning.info",
+		Subscribe:  "com.hailocab.kernel.provisioning.info",
 		Authoriser: service.OpenToTheWorldAuthoriser(),
 	})
 

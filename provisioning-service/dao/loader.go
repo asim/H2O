@@ -37,7 +37,7 @@ func init() {
 }
 
 func getProvisionedServices(machineClass string) (ProvisionedServices, error) {
-	request, err := server.ScopedRequest("com.hailo-platform/H2O.kernel.provisioning-manager", "provisioned", &pproto.Request{
+	request, err := server.ScopedRequest("com.hailocab.kernel.provisioning-manager", "provisioned", &pproto.Request{
 		MachineClass: proto.String(machineClass),
 	})
 	if err != nil {

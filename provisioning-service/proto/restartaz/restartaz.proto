@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.service.provisioning.restartaz;
+package com.hailocab.service.provisioning.restartaz;
 
 message Request {
 	required string azName = 1;

@@ -11,7 +11,7 @@ import (
 // pubServiceUp transmits via the platform the fact that we've come up
 func pubServiceUp(inst *Instance) {
 	pub, err := client.NewPublication(
-		"com.hailo-platform/H2O.kernel.discovery.serviceup",
+		"com.hailocab.kernel.discovery.serviceup",
 		&serviceup.Request{
 			InstanceId:     proto.String(inst.Id),
 			Hostname:       proto.String(inst.Hostname),
@@ -34,7 +34,7 @@ func pubServiceUp(inst *Instance) {
 
 // pubServiceDown transmits via the platform the fact that we've gone down
 func pubServiceDown(inst *Instance) {
-	pub, err := client.NewPublication("com.hailo-platform/H2O.kernel.discovery.servicedown", &servicedown.Request{
+	pub, err := client.NewPublication("com.hailocab.kernel.discovery.servicedown", &servicedown.Request{
 		InstanceId:     proto.String(inst.Id),
 		Hostname:       proto.String(inst.Hostname),
 		ServiceName:    proto.String(inst.Name),

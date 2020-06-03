@@ -8,7 +8,7 @@ hshell flag interface
 
 Example:
     
-    hshell -protobuf=github.com/hailo-platform/H2O/go-platform-layer/examples/sayhello -endpoint="com.hailo-platform/H2O.service.helloworld.sayhello" -request="Name: proto.String(\"Moddie\")"  -update=false -hint=false -default=false
+    hshell -protobuf=github.com/hailo-platform/H2O/go-platform-layer/examples/sayhello -endpoint="com.hailocab.service.helloworld.sayhello" -request="Name: proto.String(\"Moddie\")"  -update=false -hint=false -default=false
 
 Explain:
 

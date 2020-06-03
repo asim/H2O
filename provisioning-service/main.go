@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	service.Name = "com.hailo-platform/H2O.kernel.provisioning"
+	service.Name = "com.hailocab.kernel.provisioning"
 	service.Description = "Provisioning service; responsible for provisioning all other services"
 	service.Version = ServiceVersion
 	service.Source = "github.com/hailo-platform/H2O/provisioning-service"
@@ -49,16 +49,16 @@ func main() {
 		Authoriser: service.SignInRoleAuthoriser([]string{"ADMIN"}),
 	})
 	service.Register(&service.Endpoint{
-		Name:       "com.hailo-platform/H2O.kernel.provisioning.restart",
+		Name:       "com.hailocab.kernel.provisioning.restart",
 		Handler:    handler.Restart,
 		Authoriser: service.SignInRoleAuthoriser([]string{"ADMIN"}),
-		Subscribe:  "com.hailo-platform/H2O.kernel.provisioning.restart",
+		Subscribe:  "com.hailocab.kernel.provisioning.restart",
 	})
 	service.Register(&service.Endpoint{
-		Name:       "com.hailo-platform/H2O.kernel.provisioning.restartaz",
+		Name:       "com.hailocab.kernel.provisioning.restartaz",
 		Handler:    handler.RestartAZ,
 		Authoriser: service.SignInRoleAuthoriser([]string{"ADMIN"}),
-		Subscribe:  "com.hailo-platform/H2O.kernel.provisioning.restartaz",
+		Subscribe:  "com.hailocab.kernel.provisioning.restartaz",
 	})
 
 	service.RegisterPostConnectHandler(pkgmgr.Setup)

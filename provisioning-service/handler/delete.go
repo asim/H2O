@@ -13,7 +13,7 @@ import (
 func Delete(req *server.Request) (proto.Message, errors.Error) {
 	request := &delete.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.delete", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.delete", fmt.Sprintf("%v", err))
 	}
 
 	deleteReq := &delproto.Request{
@@ -22,14 +22,14 @@ func Delete(req *server.Request) (proto.Message, errors.Error) {
 		MachineClass:   request.MachineClass,
 	}
 
-	drequest, err := req.ScopedRequest("com.hailo-platform/H2O.kernel.provisioning-manager", "delete", deleteReq)
+	drequest, err := req.ScopedRequest("com.hailocab.kernel.provisioning-manager", "delete", deleteReq)
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.delete", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.delete", fmt.Sprintf("%v", err))
 	}
 
 	response := &delproto.Response{}
 	if err := client.Req(drequest, response); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.delete", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.delete", fmt.Sprintf("%v", err))
 	}
 
 	return &delete.Response{}, nil

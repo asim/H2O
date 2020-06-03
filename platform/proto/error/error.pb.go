@@ -74,7 +74,7 @@ func (x *PlatformError_ErrorType) UnmarshalJSON(data []byte) error {
 }
 
 type PlatformError struct {
-	Type             *PlatformError_ErrorType `protobuf:"varint,1,req,name=type,enum=com.hailo-platform/H2O.kernel.platform.error.PlatformError_ErrorType" json:"type,omitempty"`
+	Type             *PlatformError_ErrorType `protobuf:"varint,1,req,name=type,enum=com.hailocab.kernel.platform.error.PlatformError_ErrorType" json:"type,omitempty"`
 	Code             *string                  `protobuf:"bytes,2,req,name=code" json:"code,omitempty"`
 	Description      *string                  `protobuf:"bytes,3,req,name=description" json:"description,omitempty"`
 	HttpCode         *uint32                  `protobuf:"varint,4,opt,name=httpCode" json:"httpCode,omitempty"`
@@ -122,5 +122,5 @@ func (m *PlatformError) GetContext() []string {
 }
 
 func init() {
-	proto.RegisterEnum("com.hailo-platform/H2O.kernel.platform.error.PlatformError_ErrorType", PlatformError_ErrorType_name, PlatformError_ErrorType_value)
+	proto.RegisterEnum("com.hailocab.kernel.platform.error.PlatformError_ErrorType", PlatformError_ErrorType_name, PlatformError_ErrorType_value)
 }

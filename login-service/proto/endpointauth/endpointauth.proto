@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.service.login.endpointauth;
+package com.hailocab.service.login.endpointauth;
 
 import 'github.com/hailo-platform/H2O/login-service/proto/endpoint.proto';
 
@@ -7,6 +7,6 @@ message Request {
 }
 
 message Response {
-	repeated com.hailo-platform/H2O.service.login.Endpoint endpoints = 1;
+	repeated com.hailocab.service.login.Endpoint endpoints = 1;
 }
 

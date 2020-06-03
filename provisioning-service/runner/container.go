@@ -68,7 +68,7 @@ func startMissingContainers(provisionedServices dao.ProvisionedServices) error {
 
 func stopExtraContainers(provisionedServices dao.ProvisionedServices) error {
 	// stop any services that are running but shouldn't be
-	runningContainerNames, err := container.ListRunning("com.hailo-platform/H2O")
+	runningContainerNames, err := container.ListRunning("com.hailocab")
 	if err != nil {
 		return err
 	}

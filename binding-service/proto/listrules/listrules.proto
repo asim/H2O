@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.kernel.binding.listrules;
+package com.hailocab.kernel.binding.listrules;
 
 import 'github.com/hailo-platform/H2O/binding-service/proto/rule.proto';
 
@@ -8,5 +8,5 @@ message Request {
 }
 
 message Response {
-	repeated com.hailo-platform/H2O.kernel.binding.BindingRule rules = 1;
+	repeated com.hailocab.kernel.binding.BindingRule rules = 1;
 }

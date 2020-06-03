@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.kernel.platform.stats;
+package com.hailocab.kernel.platform.stats;
 
 message EndpointSLA {
 	required float mean = 1;        // The sla for mean response time

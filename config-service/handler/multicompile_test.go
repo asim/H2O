@@ -39,7 +39,7 @@ func (s *MulticompileSuite) SetupTest() {
 	s.zk = &zk.MockZookeeperClient{}
 	zk.ActiveMockZookeeperClient = s.zk
 	zk.Connector = zk.MockConnector
-	ssync.SetRegionLockNamespace("com.hailo-platform/H2O.service.config")
+	ssync.SetRegionLockNamespace("com.hailocab.service.config")
 
 	// Mock NSQ
 	s.realPublisher = nsq.DefaultPublisher
@@ -102,7 +102,7 @@ func (s *MulticompileSuite) TestMulticompileHandlerAuth() {
 		lock.On("SetTTL", mock.AnythingOfType("time.Duration")).Return()
 		lock.On("SetTimeout", mock.AnythingOfType("time.Duration")).Return()
 
-		lockPath := fmt.Sprintf("/com.hailo-platform/H2O.service.config/%s", ids[i])
+		lockPath := fmt.Sprintf("/com.hailocab.service.config/%s", ids[i])
 		s.zk.
 			On("NewLock", lockPath, gozk.WorldACL(gozk.PermAll)).
 			Return(lock)

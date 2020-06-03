@@ -98,7 +98,7 @@ func (s *serviceToService) load() error {
 	reqProto := &endpointauth.Request{
 		Service: proto.String(svc),
 	}
-	req, err := client.NewRequest("com.hailo-platform/H2O.service.login", "endpointauth", reqProto)
+	req, err := client.NewRequest("com.hailocab.service.login", "endpointauth", reqProto)
 	if err != nil {
 		return err
 	}

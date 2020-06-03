@@ -10,8 +10,8 @@ import (
 )
 
 const (
-	HealthCheckId  = "com.hailo-platform/H2O.service.cassandra-gocassa"
-	MaxConnCheckId = "com.hailo-platform/H2O.service.cassandra-gocassa.maxconns"
+	HealthCheckId  = "com.hailocab.service.cassandra-gocassa"
+	MaxConnCheckId = "com.hailocab.service.cassandra-gocassa.maxconns"
 )
 
 // HealthCheck verifies we can connect to the supplied C* keyspace, and verifies the passed column families exist

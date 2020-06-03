@@ -13,7 +13,7 @@ import (
 	"strings"
 )
 
-const HealthCheckId = "com.hailo-platform/H2O.service.bindings"
+const HealthCheckId = "com.hailocab.service.bindings"
 
 // HealthCheck asserts all the local queues are bound that should be bound
 func BindingHealthCheck() healthcheck.Checker {
@@ -40,7 +40,7 @@ func checkBindings() (map[string]string, error) {
 			AzName: proto.String(azname),
 		}
 
-		instancesReq, err := server.ScopedRequest("com.hailo-platform/H2O.kernel.discovery", "instances", ir)
+		instancesReq, err := server.ScopedRequest("com.hailocab.kernel.discovery", "instances", ir)
 		if err != nil {
 			return nil, err
 		}

@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.service.login.deleteuser;
+package com.hailocab.service.login.deleteuser;
 
 message Request {
 	required string application = 1;

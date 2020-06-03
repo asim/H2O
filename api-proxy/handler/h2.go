@@ -74,7 +74,7 @@ func h2Handler(rw http.ResponseWriter, r *http.Request, router controlplane.Rout
 		request.SetTraceShouldPersist(traceInfo.PersistentTrace)
 	}
 	request.SetSessionID(session.SessionId(r))
-	request.SetFrom("com.hailo-platform/H2O.hailo-2-api")
+	request.SetFrom("com.hailocab.hailo-2-api")
 	request.SetRemoteAddr(r.RemoteAddr)
 
 	rsp := &api.Response{}
@@ -118,5 +118,5 @@ func pathToEndpoint(p string) (service, endpoint string) {
 	p = path.Clean(p)
 	p = strings.TrimPrefix(p, "/")
 	parts := strings.Split(p, "/")
-	return "com.hailo-platform/H2O.api." + strings.Join(parts[:len(parts)-1], "."), parts[len(parts)-1]
+	return "com.hailocab.api." + strings.Join(parts[:len(parts)-1], "."), parts[len(parts)-1]
 }

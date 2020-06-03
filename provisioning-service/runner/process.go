@@ -17,7 +17,7 @@ func startMissingProcesses(provisionedServices dao.ProvisionedServices) error {
 	me := multierror.New()
 
 	// start up any services that aren't running but should be
-	runningProcesses, err := process.ListRunning("com.hailo-platform/H2O")
+	runningProcesses, err := process.ListRunning("com.hailocab")
 	if err != nil {
 		return err
 	}
@@ -89,7 +89,7 @@ func startMissingProcesses(provisionedServices dao.ProvisionedServices) error {
 
 func stopExtraProcesses(provisionedServices dao.ProvisionedServices) error {
 	// stop any services that are running but shouldn't be
-	runningProcessNames, err := process.ListRunning("com.hailo-platform/H2O")
+	runningProcessNames, err := process.ListRunning("com.hailocab")
 	if err != nil {
 		return err
 	}

@@ -53,7 +53,7 @@ func (self LocalError) Type() string {
 	return self.errorType
 }
 
-// Code returns the error code, e.g. com.hailo-platform/H2O.service.something.went.wrong
+// Code returns the error code, e.g. com.hailocab.service.something.went.wrong
 func (self LocalError) Code() string {
 	return self.code
 }

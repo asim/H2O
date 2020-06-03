@@ -41,7 +41,7 @@ func CreateRule(service string, version string, weight int) error {
 
 func callCreateRule(service string, version string, weight int) error {
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.kernel.binding",
+		"com.hailocab.kernel.binding",
 		"createrule",
 		&createrule.Request{
 			Rule: &shared.BindingRule{
@@ -65,7 +65,7 @@ func callCreateRule(service string, version string, weight int) error {
 func callDeleteRule(service string, version string, weight int) error {
 
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.kernel.binding",
+		"com.hailocab.kernel.binding",
 		"deleterule",
 		&deleterule.Request{
 			Rule: &shared.BindingRule{
@@ -89,7 +89,7 @@ func callDeleteRule(service string, version string, weight int) error {
 func callListRules(service string) ([]*shared.BindingRule, error) {
 
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.kernel.binding",
+		"com.hailocab.kernel.binding",
 		"listrules",
 		&listrules.Request{
 			Service: proto.String(service),

@@ -19,11 +19,11 @@ import (
 )
 
 const (
-	loginService          = "com.hailo-platform/H2O.service.login"
+	loginService          = "com.hailocab.service.login"
 	readSessionEndpoint   = "readsession"
 	deleteSessionEndpoint = "deletesession"
 	authEndpoint          = "auth"
-	badCredentialsErrCode = "com.hailo-platform/H2O.service.login.auth.badCredentials"
+	badCredentialsErrCode = "com.hailocab.service.login.auth.badCredentials"
 )
 
 // Scope represents some session witin which we may know about a user who has

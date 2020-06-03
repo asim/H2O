@@ -15,11 +15,11 @@ func RestartAZ(req *server.Request) (proto.Message, errors.Error) {
 
 	request := &restartaz.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.restartaz", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.restartaz", fmt.Sprintf("%v", err))
 	}
 
 	if err := process.RestartAZ(request.GetAzName()); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.restart", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.restart", fmt.Sprintf("%v", err))
 	}
 
 	return &restartaz.Response{}, nil

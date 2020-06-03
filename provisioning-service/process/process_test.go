@@ -27,15 +27,15 @@ func createTestFile(filename string) {
 }
 
 func TestStartStop(t *testing.T) {
-	filename := path.Join(exeDir, "com.hailo-platform/H2O.service.provisioning.testprocess-20130102030405")
+	filename := path.Join(exeDir, "com.hailocab.service.provisioning.testprocess-20130102030405")
 	createTestFile(filename)
 	defer os.Remove(filename)
 
-	if err := Start("com.hailo-platform/H2O.service.provisioning.testprocess", 20130102030405, 1024, 4096); err != nil {
+	if err := Start("com.hailocab.service.provisioning.testprocess", 20130102030405, 1024, 4096); err != nil {
 		t.Error("Error testing Start():", err)
 	}
 
-	numInstances, err := CountRunningInstances("com.hailo-platform/H2O.service.provisioning.testprocess", 20130102030405)
+	numInstances, err := CountRunningInstances("com.hailocab.service.provisioning.testprocess", 20130102030405)
 	if err != nil {
 		t.Error("Error:", err)
 	}
@@ -43,13 +43,13 @@ func TestStartStop(t *testing.T) {
 		t.Error("Expecting our made up provisioned service to be running")
 	}
 
-	if err := Stop("com.hailo-platform/H2O.service.provisioning.testprocess", 20130102030405); err != nil {
+	if err := Stop("com.hailocab.service.provisioning.testprocess", 20130102030405); err != nil {
 		t.Error("Error testing Stop():", err)
 	}
 
 	time.Sleep(time.Second * 2) // it takes some time for the service to actually stop
 
-	numInstances, err = CountRunningInstances("com.hailo-platform/H2O.service.provisioning.testprocess", 20130102030405)
+	numInstances, err = CountRunningInstances("com.hailocab.service.provisioning.testprocess", 20130102030405)
 	if err != nil {
 		t.Error("Error:", err)
 	}

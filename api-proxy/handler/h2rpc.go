@@ -63,7 +63,7 @@ func rpcHandler(rw http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
 		err := &h2error.ApiError{
 			ErrorType:        errors.ErrorBadRequest,
-			ErrorCode:        "com.hailo-platform/H2O.api.rpc.postrequired",
+			ErrorCode:        "com.hailocab.api.rpc.postrequired",
 			ErrorDescription: "Requests to the RPC endpoint must be POST-ed",
 			ErrorContext:     []string{"15"},
 			ErrorHttpCode:    http.StatusMethodNotAllowed,
@@ -94,7 +94,7 @@ func rpcHandler(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// test auth -- blanket block on com.hailo-platform/H2O.kernel.*
+	// test auth -- blanket block on com.hailocab.kernel.*
 	if perr := authorisedFor(r, service); perr != nil {
 		h2error.Write(rw, perr, responseContentType, traceInfo)
 		return
@@ -106,7 +106,7 @@ func rpcHandler(rw http.ResponseWriter, r *http.Request) {
 		request.SetTraceShouldPersist(traceInfo.PersistentTrace)
 	}
 	request.SetSessionID(session.SessionId(r))
-	request.SetFrom("com.hailo-platform/H2O.hailo-2-api")
+	request.SetFrom("com.hailocab.hailo-2-api")
 	request.SetRemoteAddr(r.RemoteAddr)
 
 	rsp, perr := rpcCaller(request)
@@ -139,7 +139,7 @@ func httpToH2Request(r *http.Request) (service string, req *client.Request, perr
 		endpoint = r.URL.Query().Get("endpoint")
 	default: // assume JSON is posted as a form param
 		if err := r.ParseForm(); err != nil {
-			perr = errors.BadRequest("com.hailo-platform/H2O.api.rpc.parseform", "Cannot parse form data.", "15")
+			perr = errors.BadRequest("com.hailocab.api.rpc.parseform", "Cannot parse form data.", "15")
 			return
 		}
 		reqBytes = []byte(r.PostForm.Get("request"))
@@ -151,11 +151,11 @@ func httpToH2Request(r *http.Request) (service string, req *client.Request, perr
 	}
 
 	if service == "" {
-		perr = errors.BadRequest("com.hailo-platform/H2O.api.rpc.missingservice", "Missing 'service' parameter.", "15")
+		perr = errors.BadRequest("com.hailocab.api.rpc.missingservice", "Missing 'service' parameter.", "15")
 		return
 	}
 	if endpoint == "" {
-		perr = errors.BadRequest("com.hailo-platform/H2O.api.rpc.missingendpoint", "Missing 'endpoint' parameter.", "15")
+		perr = errors.BadRequest("com.hailocab.api.rpc.missingendpoint", "Missing 'endpoint' parameter.", "15")
 		return
 	}
 
@@ -169,7 +169,7 @@ func httpToH2Request(r *http.Request) (service string, req *client.Request, perr
 	}
 
 	if reqErr != nil {
-		perr = errors.BadRequest("com.hailo-platform/H2O.api.rpc.badrequest", fmt.Sprintf("%v", reqErr))
+		perr = errors.BadRequest("com.hailocab.api.rpc.badrequest", fmt.Sprintf("%v", reqErr))
 		return
 	}
 
@@ -179,7 +179,7 @@ func httpToH2Request(r *http.Request) (service string, req *client.Request, perr
 // authorisedFor checks if we are authorised to hit this service
 func authorisedFor(r *http.Request, service string) errors.Error {
 	// only bother if trying to hit kernel
-	if !strings.HasPrefix(service, "com.hailo-platform/H2O.kernel.") {
+	if !strings.HasPrefix(service, "com.hailocab.kernel.") {
 		return nil
 	}
 
@@ -197,5 +197,5 @@ func authorisedFor(r *http.Request, service string) errors.Error {
 		return nil
 	}
 
-	return errors.Forbidden("com.hailo-platform/H2O.api.rpc.auth", "Permission denied.", "5")
+	return errors.Forbidden("com.hailocab.api.rpc.auth", "Permission denied.", "5")
 }

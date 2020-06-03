@@ -10,7 +10,7 @@ import (
 )
 
 func TestDownload(t *testing.T) {
-	s := &dao.ProvisionedService{ServiceName: "com.hailo-platform/H2O.service.banning", ServiceVersion: 20130719163756, MachineClass: "A"}
+	s := &dao.ProvisionedService{ServiceName: "com.hailocab.service.banning", ServiceVersion: 20130719163756, MachineClass: "A"}
 
 	filename, err := Download(s)
 	if err != nil {

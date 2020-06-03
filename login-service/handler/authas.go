@@ -13,7 +13,7 @@ import (
 func AuthAs(req *server.Request) (proto.Message, errors.Error) {
 	request := &authas.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.authas.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.authas.unmarshal", err.Error())
 	}
 
 	app := domain.Application(request.GetApplication())
@@ -23,9 +23,9 @@ func AuthAs(req *server.Request) (proto.Message, errors.Error) {
 
 	sess, err := auther.AuthAs(app, deviceType, username, meta)
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.authas.auther", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.authas.auther", err.Error())
 	} else if sess == nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.authas.auther", "No session found")
+		return nil, errors.InternalServerError("com.hailocab.service.login.authas.auther", "No session found")
 	}
 
 	rsp := &authas.Response{

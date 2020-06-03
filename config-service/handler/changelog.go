@@ -16,7 +16,7 @@ import (
 func ChangeLog(req *server.Request) (proto.Message, errors.Error) {
 	request := &changelog.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.changelog", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailocab.service.config.changelog", fmt.Sprintf("%v", err))
 	}
 
 	id := request.GetId()
@@ -35,7 +35,7 @@ func ChangeLog(req *server.Request) (proto.Message, errors.Error) {
 		chs, last, err = domain.ServiceChangeLog(id, start, end, count, lastId)
 	}
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.changelog", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.service.config.changelog", fmt.Sprintf("%v", err))
 	}
 
 	return &changelog.Response{

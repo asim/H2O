@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.kernel.provisioningmanager.getprovisioner;
+package com.hailocab.kernel.provisioningmanager.getprovisioner;
 
 import "github.com/hailo-platform/H2O/provisioning-manager-service/proto/provisioner.proto";
 

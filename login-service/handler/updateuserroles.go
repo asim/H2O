@@ -17,27 +17,27 @@ import (
 func UpdateUserRoles(req *server.Request) (proto.Message, errors.Error) {
 	request := &updateproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.updateuserroles.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.updateuserroles.unmarshal", err.Error())
 	}
 
 	// Validate the new roles before we proceed
 	newRoleSet := request.GetRoles()
 	if err := domain.ValidateRoleSet(newRoleSet); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.updateuserroles.validate", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.updateuserroles.validate", err.Error())
 	}
 
 	user, err := dao.ReadUser(domain.Application(request.GetApplication()), request.GetUid())
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.updateuserroles.dao.read", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.updateuserroles.dao.read", err.Error())
 	}
 	if user == nil {
-		return nil, errors.NotFound("com.hailo-platform/H2O.service.login.updateuserroles", fmt.Sprintf("No user with ID %s",
+		return nil, errors.NotFound("com.hailocab.service.login.updateuserroles", fmt.Sprintf("No user with ID %s",
 			request.GetUid()))
 	}
 
 	user.Roles = newRoleSet
 	if err := dao.UpdateUser(user); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.updateuserroles.dao.update", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.updateuserroles.dao.update", err.Error())
 	}
 
 	if user.ShouldBePublished() {

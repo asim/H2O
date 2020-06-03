@@ -64,7 +64,7 @@ func testBlat(user *domain.User, plainPass string) errors.Error {
 
 	existing, err := ReadUser(user.App, user.Uid)
 	if err != nil {
-		return errors.InternalServerError("com.hailo-platform/H2O.service.login.createuser.testblat", fmt.Sprintf("Failed to test for existing: %v", err))
+		return errors.InternalServerError("com.hailocab.service.login.createuser.testblat", fmt.Sprintf("Failed to test for existing: %v", err))
 	}
 	if existing == nil {
 		return nil
@@ -80,12 +80,12 @@ func testBlat(user *domain.User, plainPass string) errors.Error {
 	existingFc := comparison(existing)
 
 	if !newFc.equals(existingFc) {
-		return errors.BadRequest("com.hailo-platform/H2O.service.login.createuser.exists", fmt.Sprintf("User with ID '%v' already exists: %v", user.Uid, newFc.diff(existingFc)))
+		return errors.BadRequest("com.hailocab.service.login.createuser.exists", fmt.Sprintf("User with ID '%v' already exists: %v", user.Uid, newFc.diff(existingFc)))
 	}
 
 	// now test password
 	if err := existing.PasswordMatches([]byte(plainPass)); err != nil {
-		return errors.BadRequest("com.hailo-platform/H2O.service.login.createuser.exists", fmt.Sprintf("User with ID '%v' already exists: Password does not match", user.Uid))
+		return errors.BadRequest("com.hailocab.service.login.createuser.exists", fmt.Sprintf("User with ID '%v' already exists: Password does not match", user.Uid))
 	}
 
 	return nil

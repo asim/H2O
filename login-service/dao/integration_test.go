@@ -192,8 +192,8 @@ func TestCreateUserIndexConstraints(t *testing.T) {
 		t.Fatal("Should not be able to create duplicate user with same indexes")
 	} else {
 		// err should be known
-		if err.Code() != "com.hailo-platform/H2O.service.login.createuser.indexinuse" {
-			t.Fatalf("Index constraint err code should be com.hailo-platform/H2O.service.login.createuser.indexinuse, got %v", err.Code())
+		if err.Code() != "com.hailocab.service.login.createuser.indexinuse" {
+			t.Fatalf("Index constraint err code should be com.hailocab.service.login.createuser.indexinuse, got %v", err.Code())
 		}
 	}
 

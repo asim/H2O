@@ -17,7 +17,7 @@ import (
 func SubscribeTopicHandler(req *server.Request) (proto.Message, errors.Error) {
 	request := &subscribetopic.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.kernel.binding.subscribetopic", err.Error())
+		return nil, errors.BadRequest("com.hailocab.kernel.binding.subscribetopic", err.Error())
 	}
 	queue := request.GetQueue()
 	topic := request.GetTopic()
@@ -28,7 +28,7 @@ func SubscribeTopicHandler(req *server.Request) (proto.Message, errors.Error) {
 
 	err := binding.CreateTopicBindingE2Q(httpClient, binding.LocalHost+":"+binding.DefaultRabbitPort, raven.TOPIC_EXCHANGE, queue, topic)
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.setupservice", fmt.Sprintf("Error while creating E2Q binding h2o.topic -> %v. %v", queue, err))
+		return nil, errors.InternalServerError("com.hailocab.kernel.binding.setupservice", fmt.Sprintf("Error while creating E2Q binding h2o.topic -> %v. %v", queue, err))
 	}
 
 	return &subscribetopic.Response{Ok: proto.Bool(true)}, nil

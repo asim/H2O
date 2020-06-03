@@ -100,8 +100,8 @@ func (x *ProfileType) UnmarshalJSON(data []byte) error {
 
 type Request struct {
 	Id               *string      `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
-	Type             *ProfileType `protobuf:"varint,2,opt,name=type,enum=com.hailo-platform/H2O.kernel.platform.profilestart.ProfileType" json:"type,omitempty"`
-	Output           *Output      `protobuf:"varint,3,opt,name=output,enum=com.hailo-platform/H2O.kernel.platform.profilestart.Output" json:"output,omitempty"`
+	Type             *ProfileType `protobuf:"varint,2,opt,name=type,enum=com.hailocab.kernel.platform.profilestart.ProfileType" json:"type,omitempty"`
+	Output           *Output      `protobuf:"varint,3,opt,name=output,enum=com.hailocab.kernel.platform.profilestart.Output" json:"output,omitempty"`
 	XXX_unrecognized []byte       `json:"-"`
 }
 
@@ -139,6 +139,6 @@ func (m *Response) String() string { return proto.CompactTextString(m) }
 func (*Response) ProtoMessage()    {}
 
 func init() {
-	proto.RegisterEnum("com.hailo-platform/H2O.kernel.platform.profilestart.Output", Output_name, Output_value)
-	proto.RegisterEnum("com.hailo-platform/H2O.kernel.platform.profilestart.ProfileType", ProfileType_name, ProfileType_value)
+	proto.RegisterEnum("com.hailocab.kernel.platform.profilestart.Output", Output_name, Output_value)
+	proto.RegisterEnum("com.hailocab.kernel.platform.profilestart.ProfileType", ProfileType_name, ProfileType_value)
 }

@@ -19,7 +19,7 @@ func MultiRegister(req *server.Request) (proto.Message, errors.Error) {
 	inst := multiRegToInstance(request)
 	if err := registry.Register(inst); err != nil {
 		log.Warnf("[Discovery] Error registering endpoint: %s", err.Error())
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.discovery.multiregister", fmt.Sprintf("Error registering: %v", err))
+		return nil, errors.InternalServerError("com.hailocab.kernel.discovery.multiregister", fmt.Sprintf("Error registering: %v", err))
 	}
 
 	return &registerproto.Response{}, nil

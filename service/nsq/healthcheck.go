@@ -15,9 +15,9 @@ import (
 )
 
 const (
-	HealthCheckId   = "com.hailo-platform/H2O.service.nsq"
-	HighWatermarkId = "com.hailo-platform/H2O.service.nsq.highwatermark"
-	MaxConnCheckId  = "com.hailo-platform/H2O.service.nsq.maxconns"
+	HealthCheckId   = "com.hailocab.service.nsq"
+	HighWatermarkId = "com.hailocab.service.nsq.highwatermark"
+	MaxConnCheckId  = "com.hailocab.service.nsq.maxconns"
 )
 
 var (

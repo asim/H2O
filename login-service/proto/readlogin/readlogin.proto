@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.service.login.readlogin;
+package com.hailocab.service.login.readlogin;
 
 import 'github.com/hailo-platform/H2O/login-service/proto/keyvalue.proto';
 
@@ -25,5 +25,5 @@ message Login {
 	optional int64 loggedInTimestamp = 3;
 	optional string mech = 4;
 	optional string deviceType = 5;
-	repeated com.hailo-platform/H2O.service.login.KeyValue meta = 6;
+	repeated com.hailocab.service.login.KeyValue meta = 6;
 }

@@ -34,7 +34,7 @@ func reportIncrements(bufP *bucketBufferT) (*throttledBucketsT, error) {
 	req := multiclient.New().AddScopedReq(&multiclient.ScopedReq{
 		Uid:      "increments",
 		From:     newthrottleSyncScoper(),
-		Service:  "com.hailo-platform/H2O.service.api-throttling",
+		Service:  "com.hailocab.service.api-throttling",
 		Endpoint: "checkin",
 		Req: &checkinproto.Request{
 			BucketRequests: bucketReqs,

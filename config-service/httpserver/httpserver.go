@@ -44,7 +44,7 @@ func Serve(name, source string, version uint64) {
 		err := json.Unmarshal([]byte(cfg), &config)
 		if err != nil {
 			metric = "error"
-			writeError(w, errors.InternalServerError("com.hailo-platform/H2O.service.config.http.unmarshal", fmt.Sprintf("Failed to unmarshal config, when translating to HTTP response: %v", err)))
+			writeError(w, errors.InternalServerError("com.hailocab.service.config.http.unmarshal", fmt.Sprintf("Failed to unmarshal config, when translating to HTTP response: %v", err)))
 			return
 		}
 
@@ -55,7 +55,7 @@ func Serve(name, source string, version uint64) {
 		b, err := json.Marshal(response)
 		if err != nil {
 			metric = "error"
-			writeError(w, errors.InternalServerError("com.hailo-platform/H2O.service.config.http.marshal", fmt.Sprintf("Failed to marshal to HTTP response: %v", err)))
+			writeError(w, errors.InternalServerError("com.hailocab.service.config.http.marshal", fmt.Sprintf("Failed to marshal to HTTP response: %v", err)))
 			return
 		}
 		w.Header().Set("Content-Type", "application/json")
@@ -72,7 +72,7 @@ func Serve(name, source string, version uint64) {
 		}
 		b, err := json.Marshal(response)
 		if err != nil {
-			writeError(w, errors.InternalServerError("com.hailo-platform/H2O.service.config.http.marshal", fmt.Sprintf("Failed to marshal to HTTP response: %v", err)))
+			writeError(w, errors.InternalServerError("com.hailocab.service.config.http.marshal", fmt.Sprintf("Failed to marshal to HTTP response: %v", err)))
 			return
 		}
 		w.Header().Set("Content-Type", "application/json")

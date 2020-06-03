@@ -58,7 +58,7 @@ func PubRuleChange(service, version, action, user string, weight int32) {
 	event := map[string]interface{}{
 		"id":        uuid,
 		"timestamp": strconv.Itoa(int(time.Now().Unix())),
-		"type":      "com.hailo-platform/H2O.kernel.binding.event",
+		"type":      "com.hailocab.kernel.binding.event",
 		"details": map[string]string{
 			"ServiceName":    service,
 			"ServiceVersion": version,

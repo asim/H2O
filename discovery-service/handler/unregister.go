@@ -20,7 +20,7 @@ func Unregister(req *server.Request) (proto.Message, errors.Error) {
 
 	if err := registry.Unregister(instanceId); err != nil {
 		log.Warnf("[Discovery] Error unregistering endpoint: %v", err)
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.discovery.handler.unregister", fmt.Sprintf("Error unregistering endpoint: %v", err))
+		return nil, errors.InternalServerError("com.hailocab.discovery.handler.unregister", fmt.Sprintf("Error unregistering endpoint: %v", err))
 	}
 
 	return &unregisterproto.Response{}, nil

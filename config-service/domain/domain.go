@@ -370,5 +370,5 @@ func CreateOrUpdateConfig(changeId, id, path, userMech, userId, message string, 
 }
 
 func lockPath(id string) string {
-	return fmt.Sprintf("/com.hailo-platform/H2O.service.config/%s", id)
+	return fmt.Sprintf("/com.hailocab.service.config/%s", id)
 }

@@ -15,7 +15,7 @@ import (
 func Compile(req *server.Request) (proto.Message, errors.Error) {
 	request := &compile.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.compile", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailocab.service.config.compile", fmt.Sprintf("%v", err))
 	}
 
 	cfg, hash, err := DoCompile(request.GetId(), request.GetPath())
@@ -34,11 +34,11 @@ func Compile(req *server.Request) (proto.Message, errors.Error) {
 func DoCompile(ids []string, path string) (config, hash string, compileErr errors.Error) {
 	cfg, err := domain.CompileConfig(ids, path)
 	if err == domain.ErrPathNotFound {
-		compileErr = errors.NotFound("com.hailo-platform/H2O.service.config.compile", fmt.Sprintf("%v", err))
+		compileErr = errors.NotFound("com.hailocab.service.config.compile", fmt.Sprintf("%v", err))
 		return
 	}
 	if err != nil {
-		compileErr = errors.InternalServerError("com.hailo-platform/H2O.service.config.compile", fmt.Sprintf("%v", err))
+		compileErr = errors.InternalServerError("com.hailocab.service.config.compile", fmt.Sprintf("%v", err))
 		return
 	}
 

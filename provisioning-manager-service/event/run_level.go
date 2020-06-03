@@ -39,7 +39,7 @@ func setServiceRunLevelsToNSQ(serviceName string, runLevels []string, user strin
 	pubNSQEvent(&NSQEvent{
 		Id:        uuid,
 		Timestamp: strconv.Itoa(int(time.Now().Unix())),
-		Type:      "com.hailo-platform/H2O.platform.runlevel.service",
+		Type:      "com.hailocab.platform.runlevel.service",
 		Details: map[string]string{
 			"Service":   serviceName,
 			"RunLevels": strings.Join(runLevels, ", "),
@@ -60,7 +60,7 @@ func setRegionRunLevelToNSQ(region, runLevel, user string) {
 	pubNSQEvent(&NSQEvent{
 		Id:        uuid,
 		Timestamp: strconv.Itoa(int(time.Now().Unix())),
-		Type:      "com.hailo-platform/H2O.platform.runlevel.region",
+		Type:      "com.hailocab.platform.runlevel.region",
 		Details: map[string]string{
 			"Region":   region,
 			"RunLevel": runLevel,

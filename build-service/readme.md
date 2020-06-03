@@ -22,7 +22,7 @@ The expected JSON format is
 	  "BinaryUrl": "http://s3.amazon.com/abcdefg",
 	  "Version": "20130627091746",
 	  "Language": "Go",
-	  "Name": "com.hailo-platform/H2O.kernel.build-service",
+	  "Name": "com.hailocab.kernel.build-service",
 	  "TimeStamp": 1372346773
 	}
 ```
@@ -46,7 +46,7 @@ will include:
     Go version, architecture etc.)
   - sourceurl (the Github URL that prompted the build, down to the level of the
     exact commit hash)
-  - service (fully qualified service name, eg: com.hailo-platform/H2O.kernel.discovery)
+  - service (fully qualified service name, eg: com.hailocab.kernel.discovery)
   - version (actually a date, eg: 20130601114431)
   - type (enum of Java/Go)
   - binaryurl (the location of the go binary or jar)

@@ -13,7 +13,7 @@ import (
 	"time"
 )
 
-const HealthCheckId = "com.hailo-platform/H2O.service.aws_s3"
+const HealthCheckId = "com.hailocab.service.aws_s3"
 
 // HealthCheck asserts we can connect to s3
 func HealthCheck(accessKey string, secretKey string, region string) healthcheck.Checker {

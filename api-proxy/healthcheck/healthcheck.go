@@ -21,7 +21,7 @@ func Init(monitor *statusmonitor.StatusMonitor) {
 
 	// Add azstatus healthcheck that exposes the status of this api instance
 	healthcheck.Register(&healthcheck.HealthCheck{
-		Id:             "com.hailo-platform/H2O.kernel.azstatus",
+		Id:             "com.hailocab.kernel.azstatus",
 		ServiceName:    server.Name,
 		ServiceVersion: server.Version,
 		Hostname:       Hostname,

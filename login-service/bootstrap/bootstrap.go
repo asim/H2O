@@ -19,10 +19,10 @@ const (
 )
 
 func main() {
-	sync.SetRegionLockNamespace("com.hailo-platform/H2O.service.login")
+	sync.SetRegionLockNamespace("com.hailocab.service.login")
 
 	fmt.Println("Loading config...")
-	service_loader.Init("com.hailo-platform/H2O.service.login")
+	service_loader.Init("com.hailocab.service.login")
 	_, t := config.LastLoaded()
 	for t.IsZero() {
 		fmt.Println("Config not loaded, sleeping for 0.5 seconds")

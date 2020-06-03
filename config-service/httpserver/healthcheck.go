@@ -7,7 +7,7 @@ import (
 	"github.com/hailo-platform/H2O/service/healthcheck"
 )
 
-const HealthCheckId = "com.hailo-platform/H2O.service.config.httpconnect"
+const HealthCheckId = "com.hailocab.service.config.httpconnect"
 
 var connectErr error = fmt.Errorf("Not yet connected")
 var connectErrorLock sync.RWMutex

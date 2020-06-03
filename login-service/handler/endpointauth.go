@@ -16,20 +16,20 @@ import (
 func EndpointAuth(req *server.Request) (proto.Message, errors.Error) {
 	request := &endpointauth.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.endpointauth.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.endpointauth.unmarshal", err.Error())
 	}
 
 	// authorise by service-to-service header
 	s := request.GetService()
 	if req.From() != s {
 		if !req.Auth().IsAuth() || !req.Auth().AuthUser().HasRole("ADMIN") {
-			return nil, errors.Forbidden("com.hailo-platform/H2O.service.login.endpointauth.auth", "Permission denied (unauthorised role)")
+			return nil, errors.Forbidden("com.hailocab.service.login.endpointauth.auth", "Permission denied (unauthorised role)")
 		}
 	}
 
 	authorised, err := dao.ReadEndpointAuth(s)
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.endpointauth.dao", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.endpointauth.dao", err.Error())
 	}
 
 	rsp := &endpointauth.Response{

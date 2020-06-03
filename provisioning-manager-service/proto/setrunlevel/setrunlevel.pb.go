@@ -26,7 +26,7 @@ var _ = math.Inf
 
 type Request struct {
 	Region           *string                                        `protobuf:"bytes,1,req,name=region" json:"region,omitempty"`
-	Level            *com_hailo-platform/H2O_kernel_provisioningmanager.Level `protobuf:"varint,2,req,name=level,enum=com.hailo-platform/H2O.kernel.provisioningmanager.Level" json:"level,omitempty"`
+	Level            *com_hailo-platform/H2O_kernel_provisioningmanager.Level `protobuf:"varint,2,req,name=level,enum=com.hailocab.kernel.provisioningmanager.Level" json:"level,omitempty"`
 	XXX_unrecognized []byte                                         `json:"-"`
 }
 

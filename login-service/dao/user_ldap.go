@@ -48,7 +48,7 @@ func readLDAPUsers(ids []string) ([]*domain.User, error) {
 	rsp := &readusersproto.Response{}
 	cl.AddScopedReq(&multiclient.ScopedReq{
 		Uid:      "ldap_login",
-		Service:  "com.hailo-platform/H2O.service.ldap",
+		Service:  "com.hailocab.service.ldap",
 		Endpoint: "readusers",
 		Req: &readusersproto.Request{
 			Ids: ids,

@@ -13,7 +13,7 @@ import (
 
 var User string
 var Session string
-var FromService string = "com.hailo-platform/H2O.hshell"
+var FromService string = "com.hailocab.hshell"
 
 func Login(user string, password string) (string, error) {
 	return callAuth(user, password, "admin", "")
@@ -33,7 +33,7 @@ func NewPasswordH2(user, password, newPassword string) (string, error) {
 
 func Logout() error {
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.service.login",
+		"com.hailocab.service.login",
 		"deletesession",
 		&deletesession.Request{
 			SessId: proto.String(Session),
@@ -54,7 +54,7 @@ func Logout() error {
 
 func callAuth(user, password, mech, application string) (string, error) {
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.service.login",
+		"com.hailocab.service.login",
 		"auth",
 		&auth.Request{
 			Username:    proto.String(user),
@@ -78,7 +78,7 @@ func callAuth(user, password, mech, application string) (string, error) {
 
 func callNewAuth(user string, password string, newPassword string, mech string, application string) (string, error) {
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.service.login",
+		"com.hailocab.service.login",
 		"auth",
 		&auth.Request{
 			Username:    proto.String(user),

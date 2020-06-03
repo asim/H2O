@@ -198,7 +198,7 @@ func (t *ThrottlingHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 			Status:     false,
 			Payload:    "Client error: rate limit exceeded",
 			Number:     429,
-			DottedCode: "com.hailo-platform/H2O.api.throttled",
+			DottedCode: "com.hailocab.api.throttled",
 			Context:    nil,
 		})
 		if marshalErr != nil {

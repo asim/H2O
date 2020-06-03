@@ -44,7 +44,7 @@ type Options struct {
 }
 
 var (
-	// Name is the name of the service such as com.hailo-platform/H2O.example
+	// Name is the name of the service such as com.hailocab.example
 	Name string
 	// Description is the human readable version for the Name
 	Description string
@@ -361,7 +361,7 @@ reqProcessor:
 		// Match a handler
 		endpoint, ok := reg.find(req.Endpoint())
 		if !ok {
-			if rsp, err := ErrorResponse(req, errors.InternalServerError("com.hailo-platform/H2O.kernel.handler.missing", fmt.Sprintf("No handler registered for %s", req.Destination()))); err != nil {
+			if rsp, err := ErrorResponse(req, errors.InternalServerError("com.hailocab.kernel.handler.missing", fmt.Sprintf("No handler registered for %s", req.Destination()))); err != nil {
 				log.Criticalf("[Server] Unable to build response: %v", err)
 			} else {
 				raven.SendResponse(rsp, InstanceID)
@@ -388,7 +388,7 @@ reqProcessor:
 			_, rspProtoT := endpoint.ProtoTypes()
 			rspDataT := reflect.TypeOf(rspData)
 			if rspProtoT != nil && rspProtoT != rspDataT {
-				err = errors.InternalServerError("com.hailo-platform/H2O.kernel.server.mismatchedprotocol",
+				err = errors.InternalServerError("com.hailocab.kernel.server.mismatchedprotocol",
 					fmt.Sprintf("Mismatched response protocol. %s != %s", rspDataT.String(), rspProtoT.String()))
 			}
 		}
@@ -416,7 +416,7 @@ reqProcessor:
 		}
 
 		if rsp, err := ReplyResponse(req, rspData); err != nil {
-			if rsp, err2 := ErrorResponse(req, errors.InternalServerError("com.hailo-platform/H2O.kernel.marshal.error", fmt.Sprintf("Could not marshal response %v", err))); err2 != nil {
+			if rsp, err2 := ErrorResponse(req, errors.InternalServerError("com.hailocab.kernel.marshal.error", fmt.Sprintf("Could not marshal response %v", err))); err2 != nil {
 				log.Criticalf("[Server] Unable to build error response: %v", err2)
 			} else { // Send the error response
 				raven.SendResponse(rsp, InstanceID)

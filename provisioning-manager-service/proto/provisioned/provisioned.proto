@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.kernel.provisioningmanager.provisioned;
+package com.hailocab.kernel.provisioningmanager.provisioned;
 
 message Service {
         required string serviceName = 1;

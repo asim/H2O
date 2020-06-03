@@ -1,4 +1,4 @@
-package com.hailo-platform/H2O.kernel.discovery.unregister;
+package com.hailocab.kernel.discovery.unregister;
 
 message Request {
 	required string instanceId = 1;

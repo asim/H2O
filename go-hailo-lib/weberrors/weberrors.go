@@ -55,7 +55,7 @@ func (e *Error) UnsetC(k string) *Error {
 	return e
 }
 
-// SetCode sets the error code. (eg. com.hailo-platform/H2O.service.organization.whatever)
+// SetCode sets the error code. (eg. com.hailocab.service.organization.whatever)
 func (e *Error) SetCode(c string) *Error {
 	e.code = c
 	return e

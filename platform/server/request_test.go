@@ -128,14 +128,14 @@ func TestScopedRequestTracePassthrough(t *testing.T) {
 	}
 	originatingReq := NewRequestFromDelivery(originatingDelivery)
 
-	scopedReq, err := originatingReq.ScopedRequest("com.hailo-platform/H2O.service.helloworld", "sayhello", &TestPayload{})
+	scopedReq, err := originatingReq.ScopedRequest("com.hailocab.service.helloworld", "sayhello", &TestPayload{})
 	assert.Nil(t, err, "error constructing scoped request: %v", err)
 	assert.Equal(t, "test-trace-id", scopedReq.TraceID(), `TraceID() should return "test-trace-id"`)
 	assert.True(t, scopedReq.TraceShouldPersist(), "TraceShouldPersist() should return true")
 }
 
 func TestScopedRequestAuthorised(t *testing.T) {
-	req, err := ScopedRequest("com.hailo-platform/H2O.service.hellowork", "sayhello", &TestPayload{})
+	req, err := ScopedRequest("com.hailocab.service.hellowork", "sayhello", &TestPayload{})
 	assert.Nil(t, err, "error constructing scoped request: %v", err)
 	assert.True(t, req.Authorised(), "S2S requests should be authorised")
 }
@@ -149,7 +149,7 @@ func TestRequestAuthorisedPassthrough(t *testing.T) {
 	originatingReq := NewRequestFromDelivery(originatingDelivery)
 	assert.True(t, originatingReq.Auth().Authorised(), "scope of authorised request should be authorised")
 
-	scopedReq, err := originatingReq.ScopedRequest("com.hailo-platform/H2O.service.helloworld", "sayhello", &TestPayload{})
+	scopedReq, err := originatingReq.ScopedRequest("com.hailocab.service.helloworld", "sayhello", &TestPayload{})
 	assert.Nil(t, err, "error constructing scoped request: %v", err)
 	assert.True(t, scopedReq.Authorised(), "Scoped requests should inherit authorised-flag")
 }

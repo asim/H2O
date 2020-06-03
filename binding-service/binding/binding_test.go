@@ -98,13 +98,13 @@ func TestCreateBinding(t *testing.T) {
 		fmt.Printf("Received request %#v\n", r)
 
 		switch {
-		case r.URL.Path == "/api/bindings///e/h2o/q/server-com.hailo-platform/H2O.service.foobar-1234567890":
+		case r.URL.Path == "/api/bindings///e/h2o/q/server-com.hailocab.service.foobar-1234567890":
 			v, ok := bindingDef.Arguments["service"]
 			if !ok {
 				t.Error("Missing 'service' argument")
 
 			}
-			if v.(string) != "com.hailo-platform/H2O.service.foobar" {
+			if v.(string) != "com.hailocab.service.foobar" {
 				t.Error("'service' argument incorrect", v)
 
 			}
@@ -127,10 +127,10 @@ func TestCreateBinding(t *testing.T) {
 	hc := &http.Client{}
 	b := &domain.BindingDef{Source: "h2o",
 		Vhost:           "/",
-		Destination:     "server-com.hailo-platform/H2O.service.foobar-1234567890",
+		Destination:     "server-com.hailocab.service.foobar-1234567890",
 		DestinationType: string(domain.QUEUE),
-		RoutingKey:      "com.hailo-platform/H2O.service.foobar",
-		Arguments:       map[string]interface{}{"service": "com.hailo-platform/H2O.service.foobar", "x-match": "all"}}
+		RoutingKey:      "com.hailocab.service.foobar",
+		Arguments:       map[string]interface{}{"service": "com.hailocab.service.foobar", "x-match": "all"}}
 	err := CreateBinding(hc, srvURL, b)
 	if err != nil {
 		t.Error("Error creating binding ", err)

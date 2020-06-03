@@ -168,7 +168,7 @@ func main() {
 	outputFile := flag.String("output", "test-client.go", "Output filename")
 	importStr := flag.String("protobuf", "", "The import protobuf path, ie. go-banning-service/audit")
 	requestStr := flag.String("go", "", `The request object in native Go ie. "Name: proto.String(\"Moddie\"),"`)
-	endpointStr := flag.String("endpoint", "", "The endpoint to hit ie. com.hailo-platform/H2O.banning.retrieve")
+	endpointStr := flag.String("endpoint", "", "The endpoint to hit ie. com.hailocab.banning.retrieve")
 	jsonStr := flag.String("json", "", "the request object as json")
 	hint := flag.Bool("hint", false, "Give you a peek at the protobuf.  Won't actually run the request")
 	defaultReq := flag.Bool("default", false, "if true, send the default request")

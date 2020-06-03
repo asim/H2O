@@ -154,7 +154,7 @@ func (c *defClient) AddScopedReq(sr *ScopedReq) MultiClient {
 	c.responses[sr.Uid] = sr.Rsp
 	if err != nil {
 		c.errors.set(sr.Uid, clientReq,
-			errors.InternalServerError("com.hailo-platform/H2O.kernel.multirequest.badrequest", err.Error()), from)
+			errors.InternalServerError("com.hailocab.kernel.multirequest.badrequest", err.Error()), from)
 	} else {
 		clientReq.SetOptions(sr.Options)
 	}
@@ -193,7 +193,7 @@ func (c *defClient) Execute() MultiClient {
 		} else if req == nil {
 			log.Warnf("[Multiclient] Not expecting nil Request within MultiClient")
 			c.errors.set(uid, req, errors.InternalServerError(
-				"com.hailo-platform/H2O.kernel.multirequest.badrequest.nil",
+				"com.hailocab.kernel.multirequest.badrequest.nil",
 				fmt.Sprintf("Response for uid %s is nil", uid)), nil)
 			continue
 		}

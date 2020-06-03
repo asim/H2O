@@ -28,7 +28,7 @@ func (s *DomainSuite) SetupTest() {
 	s.zk = &zk.MockZookeeperClient{}
 	zk.ActiveMockZookeeperClient = s.zk
 	zk.Connector = zk.MockConnector
-	ssync.SetRegionLockNamespace("com.hailo-platform/H2O.service.config")
+	ssync.SetRegionLockNamespace("com.hailocab.service.config")
 }
 
 func (s *DomainSuite) TearDownTest() {

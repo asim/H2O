@@ -14,7 +14,7 @@ import (
 func DeleteIndex(req *server.Request) (proto.Message, errors.Error) {
 	request := &deleteindexproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.deleteindex.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.deleteindex.unmarshal", err.Error())
 	}
 
 	user := &domain.User{
@@ -25,7 +25,7 @@ func DeleteIndex(req *server.Request) (proto.Message, errors.Error) {
 	err := dao.DeleteUserIndexes(user, request.GetUid(), []domain.Id{})
 
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.deleteindex.dao.read", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.deleteindex.dao.read", err.Error())
 	}
 
 	return &deleteindexproto.Response{}, nil

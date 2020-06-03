@@ -14,15 +14,15 @@ import (
 func ReadUserMulti(req *server.Request) (proto.Message, errors.Error) {
 	request := &multireadproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.readusermulti.unmarshal", fmt.Sprintf("%v", err.Error()))
+		return nil, errors.BadRequest("com.hailocab.service.login.readusermulti.unmarshal", fmt.Sprintf("%v", err.Error()))
 	}
 
 	users, err := dao.MultiReadUser(domain.Application(request.GetApplication()), request.GetUid())
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.readusermulti.dao.multiread", fmt.Sprintf("%v", err.Error()))
+		return nil, errors.InternalServerError("com.hailocab.service.login.readusermulti.dao.multiread", fmt.Sprintf("%v", err.Error()))
 	}
 	if len(users) < 1 {
-		return nil, errors.NotFound("com.hailo-platform/H2O.service.login.readusermulti", fmt.Sprintf("No users with ID %s", request.GetUid()))
+		return nil, errors.NotFound("com.hailocab.service.login.readusermulti", fmt.Sprintf("No users with ID %s", request.GetUid()))
 	}
 
 	// Loop and construct return

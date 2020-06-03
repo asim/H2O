@@ -18,7 +18,7 @@ const (
 	adminPassFallback = "Password1"
 	mech              = "h2"
 	application       = "ADMIN"
-	serviceName       = "com.hailo-platform/H2O.service.login"
+	serviceName       = "com.hailocab.service.login"
 )
 
 // Stores found admin tokens in a map based on callapi_host
@@ -77,7 +77,7 @@ func adminLogin(c *request.Context, user, pass string) (string, error) {
 		return "", err
 	}
 	postData := map[string]string{
-		"service":  "com.hailo-platform/H2O.service.login",
+		"service":  "com.hailocab.service.login",
 		"endpoint": "auth",
 		"request":  string(adminJson),
 	}

@@ -1,9 +1,9 @@
-package com.hailo-platform/H2O.service.login.revokeservice;
+package com.hailocab.service.login.revokeservice;
 
 import 'github.com/hailo-platform/H2O/login-service/proto/endpoint.proto';
 
 message Request {
-	required com.hailo-platform/H2O.service.login.Endpoint endpoint = 1;
+	required com.hailocab.service.login.Endpoint endpoint = 1;
 }
 
 message Response {

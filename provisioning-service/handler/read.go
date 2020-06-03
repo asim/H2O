@@ -13,7 +13,7 @@ import (
 func Read(req *server.Request) (proto.Message, errors.Error) {
 	request := &read.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.read", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.read", fmt.Sprintf("%v", err))
 	}
 
 	readReq := &readproto.Request{
@@ -22,14 +22,14 @@ func Read(req *server.Request) (proto.Message, errors.Error) {
 		MachineClass:   request.MachineClass,
 	}
 
-	rrequest, err := req.ScopedRequest("com.hailo-platform/H2O.kernel.provisioning-manager", "read", readReq)
+	rrequest, err := req.ScopedRequest("com.hailocab.kernel.provisioning-manager", "read", readReq)
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.read", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.read", fmt.Sprintf("%v", err))
 	}
 
 	response := &readproto.Response{}
 	if err := client.Req(rrequest, response); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.read", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.read", fmt.Sprintf("%v", err))
 	}
 
 	return &read.Response{

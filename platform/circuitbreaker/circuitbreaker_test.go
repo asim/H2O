@@ -61,7 +61,7 @@ func (s *CircuitBreakerTestSuit) TestOpenToClosedCircuit() {
 }
 
 func (s *CircuitBreakerTestSuit) TestCircuitConfig() {
-	service := "com.hailo-platform/H2O.test.cruft"
+	service := "com.hailocab.test.cruft"
 	endpoint := "testendpoint"
 
 	// Set default timeout to 100 ms
@@ -100,7 +100,7 @@ func (s *CircuitBreakerTestSuit) TestCircuitConfig() {
 				"circuitbreaker": {
 					"initialIntervalMs": 50,
 					"endpoints": {
-						"com.hailo-platform/H2O.test.cruft": {
+						"com.hailocab.test.cruft": {
 							"testendpoint": {
 								"initialIntervalMs": 90
 							}

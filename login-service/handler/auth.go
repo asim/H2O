@@ -22,7 +22,7 @@ type authResponse struct {
 func Auth(req *server.Request) (proto.Message, errors.Error) {
 	request := &auth.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.auth.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.auth.unmarshal", err.Error())
 	}
 
 	authMech := request.GetMech()
@@ -84,7 +84,7 @@ func authViaH2(req *server.Request, request *auth.Request) (*auth.Response, erro
 	if noExpire { // Get existing session
 		existingSession, err := dao.ReadSession(req.SessionID())
 		if err != nil {
-			return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.auth.readsession", err.Error())
+			return nil, errors.InternalServerError("com.hailocab.service.login.auth.readsession", err.Error())
 		}
 		currentSession = existingSession
 	}
@@ -92,10 +92,10 @@ func authViaH2(req *server.Request, request *auth.Request) (*auth.Response, erro
 	sess, err := auther.Auth(app, deviceType, username, password, newPassword, meta, currentSession)
 	if err == auther.ErrorChangePassword {
 		// need a different code for change password
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.auth.change-password", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.auth.change-password", err.Error())
 	}
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.auth.auther", err.Error())
+		return nil, errors.InternalServerError("com.hailocab.service.login.auth.auther", err.Error())
 	}
 
 	if sess == nil {

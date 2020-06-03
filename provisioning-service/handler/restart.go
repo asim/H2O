@@ -16,11 +16,11 @@ func Restart(req *server.Request) (proto.Message, errors.Error) {
 
 	request := &restart.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.restart", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.restart", fmt.Sprintf("%v", err))
 	}
 
 	if err := process.Restart(request.GetServiceName(), request.GetServiceVersion(), request.GetAzName()); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.restart", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning.handler.restart", fmt.Sprintf("%v", err))
 	}
 
 	// Pub an event

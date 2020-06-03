@@ -21,12 +21,12 @@ const (
 func Update(req *server.Request) (proto.Message, errors.Error) {
 	request := &update.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.update", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailocab.service.config.update", fmt.Sprintf("%v", err))
 	}
 
 	u4, err := gouuid.NewV4()
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.update.genid", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.service.config.update.genid", fmt.Sprintf("%v", err))
 	}
 
 	var mech, id string
@@ -53,7 +53,7 @@ func Update(req *server.Request) (proto.Message, errors.Error) {
 		[]byte(request.GetConfig()),
 	)
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.update", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.service.config.update", fmt.Sprintf("%v", err))
 	}
 
 	if !request.GetNoReload() {

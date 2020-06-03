@@ -13,7 +13,7 @@ import (
 
 func initHealthChecks() {
 	// add default healthcheck (to check we have config loaded - since we've just tried to load it)
-	HealthCheck("com.hailo-platform/H2O.kernel.configloaded", func() (map[string]string, error) {
+	HealthCheck("com.hailocab.kernel.configloaded", func() (map[string]string, error) {
 		ret := make(map[string]string)
 		h, t := config.LastLoaded()
 		ret["hash"] = h
@@ -28,13 +28,13 @@ func initHealthChecks() {
 	})
 
 	// add default healthcheck (to check the service to service errors)
-	HealthCheck("com.hailo-platform/H2O.kernel.servicetoservice.auth.badrole", func() (map[string]string, error) {
+	HealthCheck("com.hailocab.kernel.servicetoservice.auth.badrole", func() (map[string]string, error) {
 		ret := make(map[string]string)
 
 		var failing []string
 
 		// Get the error counts
-		counters := errors.Get("com.hailo-platform/H2O.kernel.auth.badrole")
+		counters := errors.Get("com.hailocab.kernel.auth.badrole")
 
 		failed := 0
 		for name, count := range counters {
@@ -54,7 +54,7 @@ func initHealthChecks() {
 
 		if cleared := errors.Cleared(); time.Since(cleared).Seconds() > 60 {
 			// Clear the errors counts
-			errors.Clear("com.hailo-platform/H2O.kernel.auth.badrole")
+			errors.Clear("com.hailocab.kernel.auth.badrole")
 		}
 
 		if len(failing) > 0 {
@@ -65,7 +65,7 @@ func initHealthChecks() {
 	})
 
 	// add default healthcheck (to check the platform capacity)
-	HealthCheck("com.hailo-platform/H2O.kernel.resource.capacity", func() (map[string]string, error) {
+	HealthCheck("com.hailocab.kernel.resource.capacity", func() (map[string]string, error) {
 		capacity := 0
 		offendingCallers := []string{}
 
@@ -89,5 +89,5 @@ func initHealthChecks() {
 		}, err
 	})
 
-	HealthCheck("com.hailo-platform/H2O.kernel.client.circuit", circuitbreaker.CircuitHealthCheck)
+	HealthCheck("com.hailocab.kernel.client.circuit", circuitbreaker.CircuitHealthCheck)
 }

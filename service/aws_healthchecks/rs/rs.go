@@ -10,7 +10,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-const HealthCheckId = "com.hailo-platform/H2O.service.aws_rs"
+const HealthCheckId = "com.hailocab.service.aws_rs"
 
 // HealthCheck asserts we can connect to rs
 func HealthCheck(odbc string) healthcheck.Checker {

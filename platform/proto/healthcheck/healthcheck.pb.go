@@ -73,7 +73,7 @@ type HealthCheck struct {
 	IsHealthy        *bool                   `protobuf:"varint,7,req,name=isHealthy" json:"isHealthy,omitempty"`
 	ErrorDescription *string                 `protobuf:"bytes,8,opt,name=errorDescription" json:"errorDescription,omitempty"`
 	Measurements     []*HealthCheck_KeyValue `protobuf:"bytes,9,rep,name=measurements" json:"measurements,omitempty"`
-	Priority         *HealthCheck_Priority   `protobuf:"varint,10,opt,name=priority,enum=com.hailo-platform/H2O.kernel.platform.healthcheck.HealthCheck_Priority,def=3" json:"priority,omitempty"`
+	Priority         *HealthCheck_Priority   `protobuf:"varint,10,opt,name=priority,enum=com.hailocab.kernel.platform.healthcheck.HealthCheck_Priority,def=3" json:"priority,omitempty"`
 	XXX_unrecognized []byte                  `json:"-"`
 }
 
@@ -202,5 +202,5 @@ func (m *Response) GetHealthchecks() []*HealthCheck {
 }
 
 func init() {
-	proto.RegisterEnum("com.hailo-platform/H2O.kernel.platform.healthcheck.HealthCheck_Priority", HealthCheck_Priority_name, HealthCheck_Priority_value)
+	proto.RegisterEnum("com.hailocab.kernel.platform.healthcheck.HealthCheck_Priority", HealthCheck_Priority_name, HealthCheck_Priority_value)
 }

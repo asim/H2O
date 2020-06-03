@@ -14,12 +14,12 @@ import (
 func RunLevels(req *server.Request) (proto.Message, errors.Error) {
 	request := &rlproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning-manager.runlevels", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning-manager.runlevels", fmt.Sprintf("%v", err))
 	}
 
 	runLevels, err := dao.ReadRunLevels()
 	if err != nil {
-		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning-manager.runlevels", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailocab.provisioning-manager.runlevels", fmt.Sprintf("%v", err))
 	}
 
 	defaultLevel := levels.Level(runlevels.DefaultRunLevel)

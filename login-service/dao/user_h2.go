@@ -50,7 +50,7 @@ func testIndexes(pool gossie.ConnectionPool, user *domain.User) errors.Error {
 		}).MultiGet(tempIds)
 		inst.Timing(1.0, "cassandra.read.testindexes", time.Since(t))
 		if err != nil {
-			return errors.InternalServerError("com.hailo-platform/H2O.service.login.createuser.cassandra", fmt.Sprintf("Failed to test for existing: %v", err))
+			return errors.InternalServerError("com.hailocab.service.login.createuser.cassandra", fmt.Sprintf("Failed to test for existing: %v", err))
 		}
 		for _, row := range rows {
 			if len(row.Columns) < 1 || string(row.Columns[0].Name) != "uid" {
@@ -59,7 +59,7 @@ func testIndexes(pool gossie.ConnectionPool, user *domain.User) errors.Error {
 			}
 			if string(row.Columns[0].Value) != user.Uid {
 				id := getCorrectId(string(row.Key), user.Ids)
-				return errors.BadRequest("com.hailo-platform/H2O.service.login.createuser.indexinuse", fmt.Sprintf("Index '%s' is already linked to another user '%s'", id, string(row.Columns[0].Value)))
+				return errors.BadRequest("com.hailocab.service.login.createuser.indexinuse", fmt.Sprintf("Index '%s' is already linked to another user '%s'", id, string(row.Columns[0].Value)))
 			}
 		}
 	}

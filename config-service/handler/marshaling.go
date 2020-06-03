@@ -53,7 +53,7 @@ func changeToNSQ(action, changeId, id, path, mech, user, message, config, previo
 	return &NSQEvent{
 		Id:        changeId,
 		Timestamp: strconv.Itoa(int(time.Now().Unix())),
-		Type:      "com.hailo-platform/H2O.service.config.event",
+		Type:      "com.hailocab.service.config.event",
 		Details: map[string]string{
 			"Action":         action,
 			"Id":             id,

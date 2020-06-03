@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	HealthCheckId = "com.hailo-platform/H2O.service.memcache"
+	HealthCheckId = "com.hailocab.service.memcache"
 )
 
 // HealthCheck asserts we can talk to memcache

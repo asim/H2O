@@ -25,7 +25,7 @@ const (
 
 const (
 	// use the gateway service to make this call
-	serviceName = "com.hailo-platform/H2O.service.gateway"
+	serviceName = "com.hailocab.service.gateway"
 )
 
 // SetRunLevel calls the setrunlevel endpoint in the provisioning service

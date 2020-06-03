@@ -18,7 +18,7 @@ import (
 func CreateUser(req *server.Request) (proto.Message, errors.Error) {
 	request := &createproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.createuser.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.createuser.unmarshal", err.Error())
 	}
 
 	user := &domain.User{
@@ -41,12 +41,12 @@ func CreateUser(req *server.Request) (proto.Message, errors.Error) {
 	if request.GetRequirePassword() || request.GetPassword() != "" {
 		// set password now we know we can proceed
 		if err := user.SetPassword(request.GetPassword()); err != nil {
-			return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.createuser.badpassword", fmt.Sprintf("Password %s", err.Error()))
+			return nil, errors.BadRequest("com.hailocab.service.login.createuser.badpassword", fmt.Sprintf("Password %s", err.Error()))
 		}
 	}
 
 	if errs := userValidator.Validate(user); errs.AnyErrors() {
-		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.createuser.validate", errs.Error())
+		return nil, errors.BadRequest("com.hailocab.service.login.createuser.validate", errs.Error())
 	}
 
 	if err := dao.CreateUser(user, request.GetPassword()); err != nil {

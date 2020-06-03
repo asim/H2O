@@ -18,7 +18,7 @@ import (
 )
 
 func main() {
-	service.Name = "com.hailo-platform/H2O.service.config"
+	service.Name = "com.hailocab.service.config"
 	service.Description = "Responsible for storing configuration data for applications."
 	service.Version = ServiceVersion
 	service.Source = "github.com/hailo-platform/H2O/config-service"

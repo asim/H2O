@@ -26,7 +26,7 @@ import (
 func TestJsonHttpCall(t *testing.T) {
 	// zoning service is OpenToTheWorld and should have _some_ zone surrounding Somerset House
 	json := []byte(`{"location":{"lat":51.510761,"lng":-0.1174437}}`)
-	req, err := client.NewJsonRequest("com.hailo-platform/H2O.service.zoning", "search", json)
+	req, err := client.NewJsonRequest("com.hailocab.service.zoning", "search", json)
 	if err != nil {
 		t.Fatalf("Error creating request: %v", err)
 	}
@@ -46,7 +46,7 @@ func TestJsonHttpCall(t *testing.T) {
 
 func TestJsonHttpCallThatFails(t *testing.T) {
 	// discovery service is NOT open to the world, because it's a kernel service
-	req, err := client.NewJsonRequest("com.hailo-platform/H2O.kernel.discovery", "services", []byte(`{}`))
+	req, err := client.NewJsonRequest("com.hailocab.kernel.discovery", "services", []byte(`{}`))
 	if err != nil {
 		t.Fatalf("Error creating request: %v", err)
 	}
@@ -59,8 +59,8 @@ func TestJsonHttpCallThatFails(t *testing.T) {
 		t.Fatal("We are EXPECTING as error executing request")
 	}
 
-	if perr.Code() != "com.hailo-platform/H2O.api.rpc.auth" {
-		t.Errorf("Expecting code 'com.hailo-platform/H2O.api.rpc.auth' got '%s'", perr.Code())
+	if perr.Code() != "com.hailocab.api.rpc.auth" {
+		t.Errorf("Expecting code 'com.hailocab.api.rpc.auth' got '%s'", perr.Code())
 	}
 	if perr.Type() != "FORBIDDEN" {
 		t.Errorf("Expecting type 'FORBIDDEN' got '%s'", perr.Type())
@@ -69,7 +69,7 @@ func TestJsonHttpCallThatFails(t *testing.T) {
 
 func TestProtoHttpCall(t *testing.T) {
 	// zoning service is OpenToTheWorld and should have _some_ zone surrounding Somerset House
-	req, err := client.NewRequest("com.hailo-platform/H2O.service.zoning", "search", &searchproto.Request{
+	req, err := client.NewRequest("com.hailocab.service.zoning", "search", &searchproto.Request{
 		Location: &searchproto.LatLng{
 			Lat: proto.Float64(51.510761),
 			Lng: proto.Float64(-0.1174437),
@@ -94,7 +94,7 @@ func TestProtoHttpCall(t *testing.T) {
 
 func TestProtoHttpCallThatFails(t *testing.T) {
 	// discovery service is NOT open to the world, because it's a kernel service
-	req, err := client.NewRequest("com.hailo-platform/H2O.kernel.discovery", "services", &servicesproto.Request{})
+	req, err := client.NewRequest("com.hailocab.kernel.discovery", "services", &servicesproto.Request{})
 	if err != nil {
 		t.Fatalf("Error creating request: %v", err)
 	}
@@ -107,8 +107,8 @@ func TestProtoHttpCallThatFails(t *testing.T) {
 		t.Fatal("We are EXPECTING as error executing request")
 	}
 
-	if perr.Code() != "com.hailo-platform/H2O.api.rpc.auth" {
-		t.Errorf("Expecting code 'com.hailo-platform/H2O.api.rpc.auth' got '%s'", perr.Code())
+	if perr.Code() != "com.hailocab.api.rpc.auth" {
+		t.Errorf("Expecting code 'com.hailocab.api.rpc.auth' got '%s'", perr.Code())
 	}
 	if perr.Type() != "FORBIDDEN" {
 		t.Errorf("Expecting type 'FORBIDDEN' got '%s'", perr.Type())

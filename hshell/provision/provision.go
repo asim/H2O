@@ -123,7 +123,7 @@ func callCreate(service string, class string, version int) error {
 	}
 
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.kernel.provisioning-manager",
+		"com.hailocab.kernel.provisioning-manager",
 		"create",
 		&create.Request{
 			ServiceName:    proto.String(service),
@@ -148,7 +148,7 @@ func callDelete(service string, class string, version int) error {
 	}
 
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.kernel.provisioning-manager",
+		"com.hailocab.kernel.provisioning-manager",
 		"delete",
 		&del.Request{
 			ServiceName:    proto.String(service),
@@ -173,7 +173,7 @@ func callSearch(service string, class string) ([]*search.Result, error) {
 	}
 
 	request, _ := client.NewRequest(
-		"com.hailo-platform/H2O.kernel.provisioning-manager",
+		"com.hailocab.kernel.provisioning-manager",
 		"search",
 		&search.Request{
 			ServiceName:  proto.String(service),
@@ -193,7 +193,7 @@ func callSearch(service string, class string) ([]*search.Result, error) {
 
 func PubRestart(service, class string, version uint64, azname string) error {
 	pub, err := client.NewPublication(
-		"com.hailo-platform/H2O.kernel.provisioning.restart",
+		"com.hailocab.kernel.provisioning.restart",
 		&restart.Request{
 			ServiceName:    proto.String(service),
 			ServiceVersion: proto.Uint64(version),
@@ -210,7 +210,7 @@ func PubRestart(service, class string, version uint64, azname string) error {
 
 func PubRestartAz(azname string) error {
 	pub, err := client.NewPublication(
-		"com.hailo-platform/H2O.kernel.provisioning.restartaz",
+		"com.hailocab.kernel.provisioning.restartaz",
 		&restartaz.Request{
 			AzName: proto.String(azname),
 		},

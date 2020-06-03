@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	mockFooService     = "com.hailo-platform/H2O.service.foo"
+	mockFooService     = "com.hailocab.service.foo"
 	mockHealthEndpoint = "health"
 )
 

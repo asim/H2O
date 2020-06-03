@@ -27,7 +27,7 @@ func (c *H2HobService) ReadHob(hob string) (*Hob, error) {
 	cl.AddScopedReq(
 		&multiclient.ScopedReq{
 			Uid:      "readhob",
-			Service:  "com.hailo-platform/H2O.service.hob",
+			Service:  "com.hailocab.service.hob",
 			Endpoint: "readhob",
 			Req:      &readhob.Request{Hob: proto.String(hob)},
 			Rsp:      rsp,
@@ -46,7 +46,7 @@ func (c *H2HobService) ReadServiceTypes(hob string) (ServiceTypes, error) {
 	cl.AddScopedReq(
 		&multiclient.ScopedReq{
 			Uid:      "readservicetypes",
-			Service:  "com.hailo-platform/H2O.service.hob",
+			Service:  "com.hailocab.service.hob",
 			Endpoint: "readservicetypes",
 			Req:      &readservicetypes.Request{Hob: proto.String(hob)},
 			Rsp:      rsp,
@@ -85,7 +85,7 @@ func (c *H2HobService) Multiconfig(hobs, hobHashes, serviceTypesHashes []string)
 	cl.AddScopedReq(
 		&multiclient.ScopedReq{
 			Uid:      "multiconfig",
-			Service:  "com.hailo-platform/H2O.service.hob",
+			Service:  "com.hailocab.service.hob",
 			Endpoint: "multiconfig",
 			Req: &multiconfig.Request{
 				Ids: hobIds,

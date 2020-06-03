@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	thinAPI = "com.hailo-platform/H2O.hailo-2-api"
+	thinAPI = "com.hailocab.hailo-2-api"
 )
 
 // GrantService will authorise a specific service to be authorised to talk to a specific endpoint

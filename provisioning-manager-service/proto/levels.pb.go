@@ -70,5 +70,5 @@ func (x *Level) UnmarshalJSON(data []byte) error {
 }
 
 func init() {
-	proto.RegisterEnum("com.hailo-platform/H2O.kernel.provisioningmanager.Level", Level_name, Level_value)
+	proto.RegisterEnum("com.hailocab.kernel.provisioningmanager.Level", Level_name, Level_value)
 }
