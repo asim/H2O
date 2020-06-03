@@ -12,7 +12,7 @@ import (
 	"github.com/peterbourgon/g2s"
 	metrics "github.com/rcrowley/go-metrics"
 
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 const runtimeSampleInterval = 60 * time.Second

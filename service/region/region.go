@@ -9,8 +9,8 @@ import (
 	"launchpad.net/tomb"
 
 	log "github.com/cihub/seelog"
-	nsqlib "github.com/HailoOSS/go-nsq"
-	"github.com/HailoOSS/service/nsq"
+	nsqlib "github.com/hailo-platform/H2O/go-nsq"
+	"github.com/hailo-platform/H2O/service/nsq"
 )
 
 const (

@@ -15,8 +15,8 @@ import (
 	"github.com/goamz/goamz/s3"
 	"github.com/goamz/goamz/sqs"
 
-	"github.com/HailoOSS/service/aws/sts"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/aws/sts"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 // AwsMgr encapsulates an AWS Manager object

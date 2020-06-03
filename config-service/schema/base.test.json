@@ -35,8 +35,8 @@
         "statsd": {
           "enabled": true,
           "port": 8125,
-          "host": "graphite03-global01-test.i.HailoOSS.com",
-          "hostname": "graphite03-global01-test.i.HailoOSS.com"
+          "host": "graphite03-global01-test.i.hailo-platform/H2O.com",
+          "hostname": "graphite03-global01-test.i.hailo-platform/H2O.com"
         }
       },
       "memcache": {

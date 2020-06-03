@@ -1,7 +1,7 @@
 package discovery
 
 import (
-	shared "github.com/HailoOSS/discovery-service/proto"
+	shared "github.com/hailo-platform/H2O/discovery-service/proto"
 	"sort"
 )
 

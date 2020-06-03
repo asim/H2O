@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"math/rand"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"github.com/nu7hatch/gouuid"
 
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 // Request packages data needed to send a request out

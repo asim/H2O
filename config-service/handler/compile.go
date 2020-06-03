@@ -3,19 +3,19 @@ package handler
 import (
 	"fmt"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/config-service/domain"
-	compile "github.com/HailoOSS/config-service/proto/compile"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/config-service/domain"
+	compile "github.com/hailo-platform/H2O/config-service/proto/compile"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 // Compile constructs a single, merged, view of config, combining many individual elements
 func Compile(req *server.Request) (proto.Message, errors.Error) {
 	request := &compile.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.service.config.compile", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.compile", fmt.Sprintf("%v", err))
 	}
 
 	cfg, hash, err := DoCompile(request.GetId(), request.GetPath())
@@ -34,11 +34,11 @@ func Compile(req *server.Request) (proto.Message, errors.Error) {
 func DoCompile(ids []string, path string) (config, hash string, compileErr errors.Error) {
 	cfg, err := domain.CompileConfig(ids, path)
 	if err == domain.ErrPathNotFound {
-		compileErr = errors.NotFound("com.HailoOSS.service.config.compile", fmt.Sprintf("%v", err))
+		compileErr = errors.NotFound("com.hailo-platform/H2O.service.config.compile", fmt.Sprintf("%v", err))
 		return
 	}
 	if err != nil {
-		compileErr = errors.InternalServerError("com.HailoOSS.service.config.compile", fmt.Sprintf("%v", err))
+		compileErr = errors.InternalServerError("com.hailo-platform/H2O.service.config.compile", fmt.Sprintf("%v", err))
 		return
 	}
 

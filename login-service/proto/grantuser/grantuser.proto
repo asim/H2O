@@ -1,4 +1,4 @@
-package com.HailoOSS.service.login.grantuser;
+package com.hailo-platform/H2O.service.login.grantuser;
 
 message Request {
 	required string application = 1;

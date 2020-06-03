@@ -1,4 +1,4 @@
-package com.HailoOSS.kernel.platform.loadedconfig;
+package com.hailo-platform/H2O.kernel.platform.loadedconfig;
 
 message Request {
 	

@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 // authoriseAdmin checks we have ADMIN role

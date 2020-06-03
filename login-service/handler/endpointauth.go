@@ -1,14 +1,14 @@
 package handler
 
 import (
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/login-service/domain"
-	protoep "github.com/HailoOSS/login-service/proto"
-	endpointauth "github.com/HailoOSS/login-service/proto/endpointauth"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	protoep "github.com/hailo-platform/H2O/login-service/proto"
+	endpointauth "github.com/hailo-platform/H2O/login-service/proto/endpointauth"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 // EndpointAuth will return a list of services that are allowed to talk to endpoints
@@ -16,20 +16,20 @@ import (
 func EndpointAuth(req *server.Request) (proto.Message, errors.Error) {
 	request := &endpointauth.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.service.login.endpointauth.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.endpointauth.unmarshal", err.Error())
 	}
 
 	// authorise by service-to-service header
 	s := request.GetService()
 	if req.From() != s {
 		if !req.Auth().IsAuth() || !req.Auth().AuthUser().HasRole("ADMIN") {
-			return nil, errors.Forbidden("com.HailoOSS.service.login.endpointauth.auth", "Permission denied (unauthorised role)")
+			return nil, errors.Forbidden("com.hailo-platform/H2O.service.login.endpointauth.auth", "Permission denied (unauthorised role)")
 		}
 	}
 
 	authorised, err := dao.ReadEndpointAuth(s)
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.login.endpointauth.dao", err.Error())
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.endpointauth.dao", err.Error())
 	}
 
 	rsp := &endpointauth.Response{

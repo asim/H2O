@@ -9,7 +9,7 @@ Next release candidate branch is rc20140104
 
 Every service using the localisation library that accesses the hob info: ```GetHob(hob)```, ```GetServiceType(hob)``` or ```GetServiceTypes(hob)``` will have to add the following service-2-service permissions
 ```
-execute grantservice {"endpoint":  {"service": "com.HailoOSS.service.hob", "endpoint": "multiconfig", "granted": [ {"name": "your.service.name", "role": "ADMIN" }]}}
-execute grantservice {"endpoint":  {"service": "com.HailoOSS.service.hob", "endpoint": "readhob", "granted": [ {"name": "your.service.name", "role": "ADMIN" }]}}
-execute grantservice {"endpoint":  {"service": "com.HailoOSS.service.hob", "endpoint": "readservicetypes", "granted": [ {"name": "your.service.name", "role": "ADMIN" }]}}
+execute grantservice {"endpoint":  {"service": "com.hailo-platform/H2O.service.hob", "endpoint": "multiconfig", "granted": [ {"name": "your.service.name", "role": "ADMIN" }]}}
+execute grantservice {"endpoint":  {"service": "com.hailo-platform/H2O.service.hob", "endpoint": "readhob", "granted": [ {"name": "your.service.name", "role": "ADMIN" }]}}
+execute grantservice {"endpoint":  {"service": "com.hailo-platform/H2O.service.hob", "endpoint": "readservicetypes", "granted": [ {"name": "your.service.name", "role": "ADMIN" }]}}
 ```

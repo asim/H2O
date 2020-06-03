@@ -2,8 +2,8 @@ package testmanager
 
 import (
 	"fmt"
-	"github.com/HailoOSS/hshell/integrationtest/importstate"
-	"github.com/HailoOSS/hshell/integrationtest/variables"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/importstate"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/variables"
 	"strconv"
 	"sync"
 	"time"
@@ -30,7 +30,7 @@ func runTests(t func()) {
 
 func StartTests(t func()) {
 
-	err := importstate.GetVarsFromFile("/Users/jonathan/gopath/src/github.com/HailoOSS/hshell/integrationtest/test.conf")
+	err := importstate.GetVarsFromFile("/Users/jonathan/gopath/src/github.com/hailo-platform/H2O/hshell/integrationtest/test.conf")
 	if err != nil {
 		fmt.Println(err)
 	}

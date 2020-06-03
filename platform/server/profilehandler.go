@@ -3,21 +3,21 @@ package server
 import (
 	"fmt"
 
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/profile"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/profile"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
 	dcprofile "github.com/jono-macd/profile"
 
-	profilestartproto "github.com/HailoOSS/platform/proto/profilestart"
-	profilestopproto "github.com/HailoOSS/platform/proto/profilestop"
+	profilestartproto "github.com/hailo-platform/H2O/platform/proto/profilestart"
+	profilestopproto "github.com/hailo-platform/H2O/platform/proto/profilestop"
 )
 
 // profileStartHandler handles inbound requests to `profilestart` endpoint
 func profileStartHandler(req *Request) (proto.Message, errors.Error) {
 	request := &profilestartproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.kernel.platform.profilestart", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailo-platform/H2O.kernel.platform.profilestart", fmt.Sprintf("%v", err))
 	}
 
 	cfg := &dcprofile.Config{}
@@ -40,11 +40,11 @@ func profileStartHandler(req *Request) (proto.Message, errors.Error) {
 	}
 
 	if !cfg.CPUProfile && !cfg.MemProfile && !cfg.BlockProfile {
-		return nil, errors.BadRequest("com.HailoOSS.kernel.platform.profilestart", "Unsupported profile type, please use: cpu, memory or block")
+		return nil, errors.BadRequest("com.hailo-platform/H2O.kernel.platform.profilestart", "Unsupported profile type, please use: cpu, memory or block")
 	}
 
 	if err := profile.StartProfiling(cfg, output, fmt.Sprintf("%s-%v", Name, Version), request.GetId()); err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.kernel.platform.profilestart", fmt.Sprintf("Unable to start profile %v", err.Error()))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.platform.profilestart", fmt.Sprintf("Unable to start profile %v", err.Error()))
 	}
 
 	return &profilestartproto.Response{}, nil
@@ -54,7 +54,7 @@ func profileStartHandler(req *Request) (proto.Message, errors.Error) {
 func profileStopHandler(req *Request) (proto.Message, errors.Error) {
 	id, profileOutput, binaryOutput, err := profile.StopProfiling()
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.kernel.platform.profilestop", fmt.Sprintf("Unable to stop profile %v", err.Error()))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.platform.profilestop", fmt.Sprintf("Unable to stop profile %v", err.Error()))
 	}
 	pr := &profilestopproto.Response{
 		Id:            proto.String(id),

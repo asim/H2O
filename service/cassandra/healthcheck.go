@@ -3,13 +3,13 @@ package cassandra
 import (
 	"fmt"
 
-	"github.com/HailoOSS/service/connhealthcheck"
-	"github.com/HailoOSS/service/healthcheck"
+	"github.com/hailo-platform/H2O/service/connhealthcheck"
+	"github.com/hailo-platform/H2O/service/healthcheck"
 )
 
 const (
-	HealthCheckId  = "com.HailoOSS.service.cassandra"
-	MaxConnCheckId = "com.HailoOSS.service.cassandra.maxconns"
+	HealthCheckId  = "com.hailo-platform/H2O.service.cassandra"
+	MaxConnCheckId = "com.hailo-platform/H2O.service.cassandra.maxconns"
 )
 
 // HealthCheck asserts we can connect to C* and

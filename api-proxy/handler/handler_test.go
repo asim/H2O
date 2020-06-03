@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	ptesting "github.com/HailoOSS/platform/testing"
-	"github.com/HailoOSS/service/config"
+	ptesting "github.com/hailo-platform/H2O/platform/testing"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 func TestHandlerSuite(t *testing.T) {

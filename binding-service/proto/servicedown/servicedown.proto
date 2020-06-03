@@ -1,4 +1,4 @@
-package com.HailoOSS.kernel.binding.servicedown;
+package com.hailo-platform/H2O.kernel.binding.servicedown;
 
 message Request {
   required string service = 1;

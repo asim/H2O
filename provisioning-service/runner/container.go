@@ -6,10 +6,10 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/go-hailo-lib/multierror"
-	"github.com/HailoOSS/provisioning-service/container"
-	"github.com/HailoOSS/provisioning-service/dao"
-	"github.com/HailoOSS/provisioning-service/event"
+	"github.com/hailo-platform/H2O/go-hailo-lib/multierror"
+	"github.com/hailo-platform/H2O/provisioning-service/container"
+	"github.com/hailo-platform/H2O/provisioning-service/dao"
+	"github.com/hailo-platform/H2O/provisioning-service/event"
 )
 
 func startMissingContainers(provisionedServices dao.ProvisionedServices) error {
@@ -68,7 +68,7 @@ func startMissingContainers(provisionedServices dao.ProvisionedServices) error {
 
 func stopExtraContainers(provisionedServices dao.ProvisionedServices) error {
 	// stop any services that are running but shouldn't be
-	runningContainerNames, err := container.ListRunning("com.HailoOSS")
+	runningContainerNames, err := container.ListRunning("com.hailo-platform/H2O")
 	if err != nil {
 		return err
 	}

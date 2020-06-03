@@ -13,7 +13,7 @@ import (
 	"github.com/mreiferson/go-httpclient"
 	"github.com/stretchr/testify/assert"
 
-	ptesting "github.com/HailoOSS/platform/testing"
+	ptesting "github.com/hailo-platform/H2O/platform/testing"
 )
 
 type TestServer struct {

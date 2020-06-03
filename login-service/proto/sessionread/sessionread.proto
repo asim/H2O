@@ -1,4 +1,4 @@
-package com.HailoOSS.service.login.sessionread;
+package com.hailo-platform/H2O.service.login.sessionread;
 
 message Request {
 	required string sessId = 1;

@@ -6,11 +6,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/HailoOSS/provisioning-service/dao"
+	"github.com/hailo-platform/H2O/provisioning-service/dao"
 )
 
 func TestDownload(t *testing.T) {
-	s := &dao.ProvisionedService{ServiceName: "com.HailoOSS.service.banning", ServiceVersion: 20130719163756, MachineClass: "A"}
+	s := &dao.ProvisionedService{ServiceName: "com.hailo-platform/H2O.service.banning", ServiceVersion: 20130719163756, MachineClass: "A"}
 
 	filename, err := Download(s)
 	if err != nil {

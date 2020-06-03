@@ -3,24 +3,24 @@ package main
 import (
 	"time"
 
-	handler "github.com/HailoOSS/discovery-service/handler"
-	"github.com/HailoOSS/discovery-service/registry"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/service/zookeeper"
+	handler "github.com/hailo-platform/H2O/discovery-service/handler"
+	"github.com/hailo-platform/H2O/discovery-service/registry"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/service/zookeeper"
 
-	endpointsproto "github.com/HailoOSS/discovery-service/proto/endpoints"
-	instancesproto "github.com/HailoOSS/discovery-service/proto/instances"
-	registerproto "github.com/HailoOSS/discovery-service/proto/register"
-	servicesproto "github.com/HailoOSS/discovery-service/proto/services"
-	unregisterproto "github.com/HailoOSS/discovery-service/proto/unregister"
+	endpointsproto "github.com/hailo-platform/H2O/discovery-service/proto/endpoints"
+	instancesproto "github.com/hailo-platform/H2O/discovery-service/proto/instances"
+	registerproto "github.com/hailo-platform/H2O/discovery-service/proto/register"
+	servicesproto "github.com/hailo-platform/H2O/discovery-service/proto/services"
+	unregisterproto "github.com/hailo-platform/H2O/discovery-service/proto/unregister"
 )
 
 func main() {
-	server.Name = "com.HailoOSS.kernel.discovery"
+	server.Name = "com.hailo-platform/H2O.kernel.discovery"
 	server.Description = "Discovery service; responsible for knowing which services are currently running on which boxes"
 	server.Version = ServiceVersion
-	server.Source = "github.com/HailoOSS/discovery-service"
-	server.OwnerEmail = "dg@HailoOSS.com"
+	server.Source = "github.com/hailo-platform/H2O/discovery-service"
+	server.OwnerEmail = "dg@hailo-platform/H2O.com"
 	server.OwnerMobile = "+447921465358"
 
 	server.Init()

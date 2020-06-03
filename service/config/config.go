@@ -21,8 +21,8 @@ import (
 	sjson "github.com/bitly/go-simplejson"
 	log "github.com/cihub/seelog"
 
-	distance "github.com/HailoOSS/go-distance"
-	"github.com/HailoOSS/service/encryption"
+	distance "github.com/hailo-platform/H2O/go-distance"
+	"github.com/hailo-platform/H2O/service/encryption"
 )
 
 // DefaultInstance is the default config instance

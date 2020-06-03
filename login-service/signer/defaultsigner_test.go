@@ -8,7 +8,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/HailoOSS/login-service/domain"
+	"github.com/hailo-platform/H2O/login-service/domain"
 )
 
 const testPublicKey = `-----BEGIN PUBLIC KEY-----

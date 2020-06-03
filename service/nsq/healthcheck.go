@@ -9,15 +9,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/HailoOSS/service/connhealthcheck"
-	"github.com/HailoOSS/service/healthcheck"
+	"github.com/hailo-platform/H2O/service/connhealthcheck"
+	"github.com/hailo-platform/H2O/service/healthcheck"
 	"github.com/mreiferson/go-httpclient"
 )
 
 const (
-	HealthCheckId   = "com.HailoOSS.service.nsq"
-	HighWatermarkId = "com.HailoOSS.service.nsq.highwatermark"
-	MaxConnCheckId  = "com.HailoOSS.service.nsq.maxconns"
+	HealthCheckId   = "com.hailo-platform/H2O.service.nsq"
+	HighWatermarkId = "com.hailo-platform/H2O.service.nsq.highwatermark"
+	MaxConnCheckId  = "com.hailo-platform/H2O.service.nsq.maxconns"
 )
 
 var (

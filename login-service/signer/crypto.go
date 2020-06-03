@@ -12,7 +12,7 @@ import (
 )
 
 // NOTE: verify and sign are both written such that they are compatible with the
-// original PHP version of the login service (github.com/HailoOSS/login-service)
+// original PHP version of the login service (github.com/hailo-platform/H2O/login-service)
 
 // verify will ensure that the signature is valid for this data
 func verify(pub *rsa.PublicKey, hash crypto.Hash, sig, data []byte) (bool, error) {

@@ -1,7 +1,7 @@
 package auther
 
-import "github.com/HailoOSS/login-service/domain"
-import "github.com/HailoOSS/login-service/dao"
+import "github.com/hailo-platform/H2O/login-service/domain"
+import "github.com/hailo-platform/H2O/login-service/dao"
 
 type applicationAuther struct {
 	normalAuther Auther

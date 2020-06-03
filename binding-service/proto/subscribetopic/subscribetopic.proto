@@ -1,4 +1,4 @@
-package com.HailoOSS.kernel.binding.subscribetopic;
+package com.hailo-platform/H2O.kernel.binding.subscribetopic;
 
 message Request {
   required string topic = 1;

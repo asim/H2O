@@ -3,7 +3,7 @@ package time
 import (
 	"time"
 
-	"github.com/HailoOSS/monday"
+	"github.com/hailo-platform/H2O/monday"
 )
 
 // Format prints a localised string representing the given time=

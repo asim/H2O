@@ -5,11 +5,11 @@ import (
 	"fmt"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"github.com/streadway/amqp"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/service/auth"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/service/auth"
 )
 
 // Request just wraps an AMQP delivery
@@ -50,7 +50,7 @@ func (self *Request) MessageID() string {
 }
 
 // Destination returns the name of the server and endpoint that the request was directed
-// at, for example: com.HailoOSS.service.customer.retrieve
+// at, for example: com.hailo-platform/H2O.service.customer.retrieve
 func (self *Request) Destination() string {
 	return fmt.Sprintf("%s.%s", self.Service(), self.Endpoint())
 }

@@ -6,7 +6,7 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"github.com/HailoOSS/hshell/send"
+	"github.com/hailo-platform/H2O/hshell/send"
 	"io/ioutil"
 	"log"
 	"os"
@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	GitProtoHome   = "github.com/HailoOSS/protobufs/services"
+	GitProtoHome   = "github.com/hailo-platform/H2O/protobufs/services"
 	IMPORT         = "%IMPORT%"
 	REQUEST        = "%REQUEST%"
 	RESPONSE       = "%RESPONSE%"
@@ -26,8 +26,8 @@ const (
 package main
 
 import (
-	"github.com/HailoOSS/protobuf/proto"	
-	"github.com/HailoOSS/platform/client"
+	"github.com/hailo-platform/H2O/protobuf/proto"	
+	"github.com/hailo-platform/H2O/platform/client"
 	"time"
 	"os"
 	"strings"
@@ -168,7 +168,7 @@ func main() {
 	outputFile := flag.String("output", "test-client.go", "Output filename")
 	importStr := flag.String("protobuf", "", "The import protobuf path, ie. go-banning-service/audit")
 	requestStr := flag.String("go", "", `The request object in native Go ie. "Name: proto.String(\"Moddie\"),"`)
-	endpointStr := flag.String("endpoint", "", "The endpoint to hit ie. com.HailoOSS.banning.retrieve")
+	endpointStr := flag.String("endpoint", "", "The endpoint to hit ie. com.hailo-platform/H2O.banning.retrieve")
 	jsonStr := flag.String("json", "", "the request object as json")
 	hint := flag.Bool("hint", false, "Give you a peek at the protobuf.  Won't actually run the request")
 	defaultReq := flag.Bool("default", false, "if true, send the default request")

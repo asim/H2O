@@ -15,10 +15,10 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/util"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/dns"
-	gozk "github.com/HailoOSS/go-zookeeper/zk"
+	"github.com/hailo-platform/H2O/platform/util"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/dns"
+	gozk "github.com/hailo-platform/H2O/go-zookeeper/zk"
 )
 
 type ZookeeperClient interface {

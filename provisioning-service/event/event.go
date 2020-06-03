@@ -5,11 +5,11 @@ import (
 	"encoding/json"
 	"fmt"
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/util"
-	"github.com/HailoOSS/service/nsq"
-	"github.com/HailoOSS/protobuf/proto"
-	pproto "github.com/HailoOSS/provisioning-service/proto"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/util"
+	"github.com/hailo-platform/H2O/service/nsq"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	pproto "github.com/hailo-platform/H2O/provisioning-service/proto"
 	gouuid "github.com/nu7hatch/gouuid"
 	"os"
 	"strconv"
@@ -113,7 +113,7 @@ func eventToNSQ(service string, version uint64, action, info, mClass, user strin
 	return &NSQEvent{
 		Id:        uuid,
 		Timestamp: strconv.Itoa(int(time.Now().Unix())),
-		Type:      "com.HailoOSS.kernel.provisioning.event",
+		Type:      "com.hailo-platform/H2O.kernel.provisioning.event",
 		Details: map[string]string{
 			"ServiceName":    service,
 			"ServiceVersion": strconv.Itoa(int(version)),
@@ -165,7 +165,7 @@ func (e *eventManager) pub(service string, version uint64, action, info string) 
 
 	p := eventProto(service, version, action, info)
 
-	if err := client.Pub("com.HailoOSS.kernel.provisioning.event", p); err != nil {
+	if err := client.Pub("com.hailo-platform/H2O.kernel.provisioning.event", p); err != nil {
 		log.Errorf("Failed to publish provisioning event: %v", err)
 		return
 	}

@@ -11,9 +11,9 @@ import (
 
 	log "github.com/cihub/seelog"
 	"github.com/gocql/gocql"
-	"github.com/HailoOSS/gocassa"
+	"github.com/hailo-platform/H2O/gocassa"
 
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 var (

@@ -3,8 +3,8 @@ package jobutils
 import (
 	"testing"
 
-	jobproto "github.com/HailoOSS/job-service/proto"
-	"github.com/HailoOSS/protobuf/proto"
+	jobproto "github.com/hailo-platform/H2O/job-service/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 // Run some tests against the address string builder

@@ -10,9 +10,9 @@ import (
 	"github.com/jpillora/backoff"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/HailoOSS/platform/multiclient"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/go-service-layer/config"
+	"github.com/hailo-platform/H2O/platform/multiclient"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/go-service-layer/config"
 )
 
 var (

@@ -1,6 +1,6 @@
 package jobutils
 
-import jobproto "github.com/HailoOSS/job-service/proto"
+import jobproto "github.com/hailo-platform/H2O/job-service/proto"
 
 // Produces an address string (including the detail prepended) HOB is
 // included in case there needs to be some localisation in future.

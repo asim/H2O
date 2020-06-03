@@ -3,12 +3,12 @@ package dao
 import (
 	"regexp"
 
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/platform/multiclient"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/platform/multiclient"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/service/config"
 
-	readusersproto "github.com/HailoOSS/ldap-service/proto/readusers"
+	readusersproto "github.com/hailo-platform/H2O/ldap-service/proto/readusers"
 )
 
 var (
@@ -48,7 +48,7 @@ func readLDAPUsers(ids []string) ([]*domain.User, error) {
 	rsp := &readusersproto.Response{}
 	cl.AddScopedReq(&multiclient.ScopedReq{
 		Uid:      "ldap_login",
-		Service:  "com.HailoOSS.service.ldap",
+		Service:  "com.hailo-platform/H2O.service.ldap",
 		Endpoint: "readusers",
 		Req: &readusersproto.Request{
 			Ids: ids,

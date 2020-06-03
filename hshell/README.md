@@ -1,14 +1,14 @@
 platform-cli
 
 Build:
-go get github.com/HailoOSS/platform-cli/hshell
+go get github.com/hailo-platform/H2O/platform-cli/hshell
 
 Usage:
 hshell flag interface
 
 Example:
     
-    hshell -protobuf=github.com/HailoOSS/go-platform-layer/examples/sayhello -endpoint="com.HailoOSS.service.helloworld.sayhello" -request="Name: proto.String(\"Moddie\")"  -update=false -hint=false -default=false
+    hshell -protobuf=github.com/hailo-platform/H2O/go-platform-layer/examples/sayhello -endpoint="com.hailo-platform/H2O.service.helloworld.sayhello" -request="Name: proto.String(\"Moddie\")"  -update=false -hint=false -default=false
 
 Explain:
 

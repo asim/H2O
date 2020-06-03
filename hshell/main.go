@@ -6,9 +6,9 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/HailoOSS/hshell/login"
-	"github.com/HailoOSS/hshell/parseprotobuf"
-	"github.com/HailoOSS/platform/client"
+	"github.com/hailo-platform/H2O/hshell/login"
+	"github.com/hailo-platform/H2O/hshell/parseprotobuf"
+	"github.com/hailo-platform/H2O/platform/client"
 	"github.com/cihub/seelog"
 	gouuid "github.com/nu7hatch/gouuid"
 	"log"
@@ -294,13 +294,13 @@ func GoGet(importStr string, update bool, args ...string) error {
 
 func GetDependancies(update bool) {
 	//Get dependancies for client
-	err := GoGet("github.com/HailoOSS/protobuf/proto", update)
+	err := GoGet("github.com/hailo-platform/H2O/protobuf/proto", update)
 	if err != nil {
 		log.Println("problem getting code")
 		return
 	}
 
-	err = GoGet("github.com/HailoOSS/platform/client", update)
+	err = GoGet("github.com/hailo-platform/H2O/platform/client", update)
 	if err != nil {
 		log.Println("problem getting code")
 		return

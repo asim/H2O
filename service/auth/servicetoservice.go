@@ -11,11 +11,11 @@ import (
 
 	log "github.com/cihub/seelog"
 	"github.com/davegardnerisme/deephash"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/platform/client"
+	"github.com/hailo-platform/H2O/platform/client"
 
-	endpointauth "github.com/HailoOSS/login-service/proto/endpointauth"
+	endpointauth "github.com/hailo-platform/H2O/login-service/proto/endpointauth"
 )
 
 const (
@@ -98,7 +98,7 @@ func (s *serviceToService) load() error {
 	reqProto := &endpointauth.Request{
 		Service: proto.String(svc),
 	}
-	req, err := client.NewRequest("com.HailoOSS.service.login", "endpointauth", reqProto)
+	req, err := client.NewRequest("com.hailo-platform/H2O.service.login", "endpointauth", reqProto)
 	if err != nil {
 		return err
 	}

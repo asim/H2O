@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 
-	ptesting "github.com/HailoOSS/platform/testing"
+	ptesting "github.com/hailo-platform/H2O/platform/testing"
 )
 
 func TestRealIP(t *testing.T) {

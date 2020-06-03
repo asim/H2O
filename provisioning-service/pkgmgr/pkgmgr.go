@@ -1,9 +1,9 @@
 package pkgmgr
 
 import (
-	"github.com/HailoOSS/provisioning-service/dao"
-	"github.com/HailoOSS/provisioning-service/goget"
-	"github.com/HailoOSS/provisioning-service/s3"
+	"github.com/hailo-platform/H2O/provisioning-service/dao"
+	"github.com/hailo-platform/H2O/provisioning-service/goget"
+	"github.com/hailo-platform/H2O/provisioning-service/s3"
 	"os"
 )
 

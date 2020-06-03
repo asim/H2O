@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/HailoOSS/service/auth"
+	"github.com/hailo-platform/H2O/service/auth"
 )
 
 type mockAuthScope struct {

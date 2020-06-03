@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/platform/multiclient"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/platform/multiclient"
+	"github.com/hailo-platform/H2O/platform/server"
 
-	loginproto "github.com/HailoOSS/ldap-service/proto/login"
+	loginproto "github.com/hailo-platform/H2O/ldap-service/proto/login"
 )
 
 type ldapAuther struct {
@@ -94,7 +94,7 @@ func (a *ldapAuther) callLDAPLogin(username, password string) (*domain.User, err
 	rsp := &loginproto.Response{}
 	cl.AddScopedReq(&multiclient.ScopedReq{
 		Uid:      "ldap_login",
-		Service:  "com.HailoOSS.service.ldap",
+		Service:  "com.hailo-platform/H2O.service.ldap",
 		Endpoint: "login",
 		Req: &loginproto.Request{
 			Username: proto.String(username),

@@ -3,7 +3,7 @@ package money
 import (
 	"strings"
 
-	"github.com/HailoOSS/i18n-go/money"
+	"github.com/hailo-platform/H2O/i18n-go/money"
 )
 
 // formatMoney for apps -- in the way they expect, eg: 12.34

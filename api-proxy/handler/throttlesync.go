@@ -4,11 +4,11 @@ import (
 	"errors"
 	"sync/atomic"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	checkinproto "github.com/HailoOSS/api-throttling-service/proto/checkin"
-	"github.com/HailoOSS/platform/multiclient"
-	"github.com/HailoOSS/service/config"
+	checkinproto "github.com/hailo-platform/H2O/api-throttling-service/proto/checkin"
+	"github.com/hailo-platform/H2O/platform/multiclient"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 // reportIncrements sends recently-recorded bucket increments to the API throttling service, and in response returns a
@@ -34,7 +34,7 @@ func reportIncrements(bufP *bucketBufferT) (*throttledBucketsT, error) {
 	req := multiclient.New().AddScopedReq(&multiclient.ScopedReq{
 		Uid:      "increments",
 		From:     newthrottleSyncScoper(),
-		Service:  "com.HailoOSS.service.api-throttling",
+		Service:  "com.hailo-platform/H2O.service.api-throttling",
 		Endpoint: "checkin",
 		Req: &checkinproto.Request{
 			BucketRequests: bucketReqs,

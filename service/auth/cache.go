@@ -6,9 +6,9 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	inst "github.com/HailoOSS/service/instrumentation"
-	mc "github.com/HailoOSS/service/memcache"
-	"github.com/HailoOSS/gomemcache/memcache"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
+	mc "github.com/hailo-platform/H2O/service/memcache"
+	"github.com/hailo-platform/H2O/gomemcache/memcache"
 )
 
 const (

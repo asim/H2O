@@ -20,7 +20,7 @@ Then type:
 	$ cd rabbitmq-public-umbrella/
 	$ make co
 	$ make up_c BRANCH=rabbitmq_v3_1_1
-	$ git clone https://github.com/HailoOSS/rabbitmq-hailo-magic-exchange.git
+	$ git clone https://github.com/hailo-platform/H2O/rabbitmq-hailo-magic-exchange.git
 	$ cd rabbitmq-h2o-exchange/
 	$ make dist
 

@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/HailoOSS/config-service/domain"
-	"github.com/HailoOSS/service/cassandra"
-	"github.com/HailoOSS/service/cassandra/timeseries"
-	"github.com/HailoOSS/gossie/src/gossie"
+	"github.com/hailo-platform/H2O/config-service/domain"
+	"github.com/hailo-platform/H2O/service/cassandra"
+	"github.com/hailo-platform/H2O/service/cassandra/timeseries"
+	"github.com/hailo-platform/H2O/gossie/src/gossie"
 )
 
 const (

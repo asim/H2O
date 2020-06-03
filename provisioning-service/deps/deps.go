@@ -3,9 +3,9 @@ package deps
 import (
 	"encoding/json"
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/provisioning-service/dao"
-	"github.com/HailoOSS/provisioning-service/pkgmgr"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/provisioning-service/dao"
+	"github.com/hailo-platform/H2O/provisioning-service/pkgmgr"
 	"os"
 	"strings"
 	"sync"

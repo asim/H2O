@@ -5,7 +5,7 @@ package trace
 import (
 	"fmt"
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 	"io"
 	"net"
 	"sync"

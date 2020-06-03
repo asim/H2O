@@ -6,9 +6,9 @@ import (
 	"reflect"
 	"testing"
 
-	jsonschemaproto "github.com/HailoOSS/platform/proto/jsonschema"
-	ptesting "github.com/HailoOSS/platform/testing"
-	"github.com/HailoOSS/protobuf/proto"
+	jsonschemaproto "github.com/hailo-platform/H2O/platform/proto/jsonschema"
+	ptesting "github.com/hailo-platform/H2O/platform/testing"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"github.com/streadway/amqp"
 )
 
@@ -71,7 +71,7 @@ type JsonSchemaSuite struct {
 
 func (suite *JsonSchemaSuite) SetupTest() {
 	suite.origName = Name
-	Name = "com.HailoOSS.service.foo"
+	Name = "com.hailo-platform/H2O.service.foo"
 	suite.origVersion = Version
 	Version = 201412100000
 	suite.origRegistry = reg
@@ -156,4 +156,4 @@ func dummyHandler(req *Request) (proto.Message, error) {
 	return jsonschemaHandler(req)
 }
 
-const jsonschemaResponse = `{"jsonschema":"[{\"id\":\"http://directory.hailoweb.com/service/com.HailoOSS.service.foo-201412100000.json#foo\",\"title\":\"com.HailoOSS.service.foo-201412100000.foo\",\"description\":\"foo endpoint schema for com.HailoOSS.service.foo-201412100000\",\"type\":\"object\",\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"properties\":{\"Request\":{\"type\":\"object\",\"properties\":{\"endpoint\":{\"type\":\"string\"}}},\"Response\":{\"type\":\"object\",\"required\":[\"id\",\"testCategory\",\"unsubscribed\",\"token\"],\"properties\":{\"id\":{\"type\":\"string\"},\"lastOpenedTimestamp\":{\"type\":\"integer\"},\"lastUpdateTimestamp\":{\"type\":\"integer\"},\"marketingHob\":{\"type\":\"string\"},\"optedIn\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"SUBSCRIBE\",\"TRANSACTIONAL\",\"LIFECYCLE\",\"SERVICE\",\"PROMOS\"]}},\"testCategory\":{\"type\":\"string\",\"enum\":[\"SUBSCRIBE\",\"TRANSACTIONAL\",\"LIFECYCLE\",\"SERVICE\",\"PROMOS\"]},\"token\":{\"type\":\"string\"},\"unsubscribed\":{\"type\":\"boolean\"}}}}}]"}`
+const jsonschemaResponse = `{"jsonschema":"[{\"id\":\"http://directory.hailoweb.com/service/com.hailo-platform/H2O.service.foo-201412100000.json#foo\",\"title\":\"com.hailo-platform/H2O.service.foo-201412100000.foo\",\"description\":\"foo endpoint schema for com.hailo-platform/H2O.service.foo-201412100000\",\"type\":\"object\",\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"properties\":{\"Request\":{\"type\":\"object\",\"properties\":{\"endpoint\":{\"type\":\"string\"}}},\"Response\":{\"type\":\"object\",\"required\":[\"id\",\"testCategory\",\"unsubscribed\",\"token\"],\"properties\":{\"id\":{\"type\":\"string\"},\"lastOpenedTimestamp\":{\"type\":\"integer\"},\"lastUpdateTimestamp\":{\"type\":\"integer\"},\"marketingHob\":{\"type\":\"string\"},\"optedIn\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"SUBSCRIBE\",\"TRANSACTIONAL\",\"LIFECYCLE\",\"SERVICE\",\"PROMOS\"]}},\"testCategory\":{\"type\":\"string\",\"enum\":[\"SUBSCRIBE\",\"TRANSACTIONAL\",\"LIFECYCLE\",\"SERVICE\",\"PROMOS\"]},\"token\":{\"type\":\"string\"},\"unsubscribed\":{\"type\":\"boolean\"}}}}}]"}`

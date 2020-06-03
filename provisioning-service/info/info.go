@@ -12,12 +12,12 @@ import (
 
 	log "github.com/cihub/seelog"
 	sigar "github.com/cloudfoundry/gosigar"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/platform/util"
-	"github.com/HailoOSS/protobuf/proto"
-	"github.com/HailoOSS/provisioning-service/dao"
-	iproto "github.com/HailoOSS/provisioning-service/proto"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/platform/util"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	"github.com/hailo-platform/H2O/provisioning-service/dao"
+	iproto "github.com/hailo-platform/H2O/provisioning-service/proto"
 )
 
 const (
@@ -159,7 +159,7 @@ func pubInfo() error {
 	services, _ := getServices(delta)
 	machineInfo, _ := getMachineInfo(delta)
 
-	return client.Pub("com.HailoOSS.kernel.provisioning.info", &iproto.Info{
+	return client.Pub("com.hailo-platform/H2O.kernel.provisioning.info", &iproto.Info{
 		Id:           proto.String(server.InstanceID),
 		Version:      proto.String(version),
 		Hostname:     proto.String(hostname),

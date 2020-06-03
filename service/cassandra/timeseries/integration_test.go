@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/HailoOSS/service/cassandra"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/cassandra"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 /*

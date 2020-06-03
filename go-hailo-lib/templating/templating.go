@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/HailoOSS/pongo2"
+	"github.com/hailo-platform/H2O/pongo2"
 
-	"github.com/HailoOSS/go-hailo-lib/templating/filters"
+	"github.com/hailo-platform/H2O/go-hailo-lib/templating/filters"
 )
 
 // TemplateInfoSourceDetail contains details for use with rendering

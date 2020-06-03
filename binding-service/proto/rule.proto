@@ -1,4 +1,4 @@
-package com.HailoOSS.kernel.binding;
+package com.hailo-platform/H2O.kernel.binding;
 
 message BindingRule {
   required string service = 1;

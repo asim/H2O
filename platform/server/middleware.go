@@ -7,14 +7,14 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	errors "github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/stats"
-	inst "github.com/HailoOSS/service/instrumentation"
-	trace "github.com/HailoOSS/service/trace"
+	errors "github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/stats"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
+	trace "github.com/hailo-platform/H2O/service/trace"
 
-	traceproto "github.com/HailoOSS/platform/proto/trace"
+	traceproto "github.com/hailo-platform/H2O/platform/proto/trace"
 )
 
 // commonLogHandler will log to w using the Apache common log format
@@ -94,7 +94,7 @@ func tokenConstrainedMiddleware(ep *Endpoint, h Handler) Handler {
 			inst.Gauge(1.0, tokenBucketName, len(tokC))
 			inst.Counter(1.0, "server.error.capacity", 1)
 
-			return nil, errors.InternalServerError("com.HailoOSS.kernel.server.capacity",
+			return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.server.capacity",
 				fmt.Sprintf("Server %v out of capacity", Name))
 		}
 	}

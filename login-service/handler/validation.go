@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/HailoOSS/go-hailo-lib/validate"
+	"github.com/hailo-platform/H2O/go-hailo-lib/validate"
 )
 
 var (

@@ -5,25 +5,25 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/multiclient"
-	inst "github.com/HailoOSS/service/instrumentation"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/multiclient"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 
-	loginproto "github.com/HailoOSS/login-service/proto"
-	authproto "github.com/HailoOSS/login-service/proto/auth"
-	sessdelproto "github.com/HailoOSS/login-service/proto/deletesession"
-	sessreadproto "github.com/HailoOSS/login-service/proto/readsession"
+	loginproto "github.com/hailo-platform/H2O/login-service/proto"
+	authproto "github.com/hailo-platform/H2O/login-service/proto/auth"
+	sessdelproto "github.com/hailo-platform/H2O/login-service/proto/deletesession"
+	sessreadproto "github.com/hailo-platform/H2O/login-service/proto/readsession"
 )
 
 const (
-	loginService          = "com.HailoOSS.service.login"
+	loginService          = "com.hailo-platform/H2O.service.login"
 	readSessionEndpoint   = "readsession"
 	deleteSessionEndpoint = "deletesession"
 	authEndpoint          = "auth"
-	badCredentialsErrCode = "com.HailoOSS.service.login.auth.badCredentials"
+	badCredentialsErrCode = "com.hailo-platform/H2O.service.login.auth.badCredentials"
 )
 
 // Scope represents some session witin which we may know about a user who has

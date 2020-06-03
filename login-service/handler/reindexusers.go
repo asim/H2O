@@ -1,11 +1,11 @@
 package handler
 
 import (
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 // ReindexUsers is temporary and kicks of user re-indexing for our TS-created index

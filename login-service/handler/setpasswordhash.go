@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/login-service/domain"
-	setpwd "github.com/HailoOSS/login-service/proto/setpasswordhash"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	setpwd "github.com/hailo-platform/H2O/login-service/proto/setpasswordhash"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 func SetPasswordHash(req *server.Request) (proto.Message, errors.Error) {

@@ -5,19 +5,19 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/go-hailo-lib/multierror"
-	"github.com/HailoOSS/provisioning-service/dao"
-	"github.com/HailoOSS/provisioning-service/deps"
-	"github.com/HailoOSS/provisioning-service/event"
-	"github.com/HailoOSS/provisioning-service/pkgmgr"
-	"github.com/HailoOSS/provisioning-service/process"
+	"github.com/hailo-platform/H2O/go-hailo-lib/multierror"
+	"github.com/hailo-platform/H2O/provisioning-service/dao"
+	"github.com/hailo-platform/H2O/provisioning-service/deps"
+	"github.com/hailo-platform/H2O/provisioning-service/event"
+	"github.com/hailo-platform/H2O/provisioning-service/pkgmgr"
+	"github.com/hailo-platform/H2O/provisioning-service/process"
 )
 
 func startMissingProcesses(provisionedServices dao.ProvisionedServices) error {
 	me := multierror.New()
 
 	// start up any services that aren't running but should be
-	runningProcesses, err := process.ListRunning("com.HailoOSS")
+	runningProcesses, err := process.ListRunning("com.hailo-platform/H2O")
 	if err != nil {
 		return err
 	}
@@ -89,7 +89,7 @@ func startMissingProcesses(provisionedServices dao.ProvisionedServices) error {
 
 func stopExtraProcesses(provisionedServices dao.ProvisionedServices) error {
 	// stop any services that are running but shouldn't be
-	runningProcessNames, err := process.ListRunning("com.HailoOSS")
+	runningProcessNames, err := process.ListRunning("com.hailo-platform/H2O")
 	if err != nil {
 		return err
 	}

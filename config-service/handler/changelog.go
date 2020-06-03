@@ -4,19 +4,19 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/config-service/domain"
-	changelog "github.com/HailoOSS/config-service/proto/changelog"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/config-service/domain"
+	changelog "github.com/hailo-platform/H2O/config-service/proto/changelog"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 // ChangeLog will read a time series of changes made within a range
 func ChangeLog(req *server.Request) (proto.Message, errors.Error) {
 	request := &changelog.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.service.config.changelog", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.changelog", fmt.Sprintf("%v", err))
 	}
 
 	id := request.GetId()
@@ -35,7 +35,7 @@ func ChangeLog(req *server.Request) (proto.Message, errors.Error) {
 		chs, last, err = domain.ServiceChangeLog(id, start, end, count, lastId)
 	}
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.config.changelog", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.changelog", fmt.Sprintf("%v", err))
 	}
 
 	return &changelog.Response{

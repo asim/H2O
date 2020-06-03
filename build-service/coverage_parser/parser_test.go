@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/HailoOSS/build-service/models"
+	"github.com/hailo-platform/H2O/build-service/models"
 )
 
 func TestParseLine(t *testing.T) {
@@ -14,11 +14,11 @@ func TestParseLine(t *testing.T) {
 		expected models.Coverage
 	}{
 		{
-			line: `ok  	_/ebs/jenkins/jobs/HailoOSS-build-service-23b9ac1515dd/workspace	0.007s	coverage: 36.1% of statements`,
+			line: `ok  	_/ebs/jenkins/jobs/hailo-platform/H2O-build-service-23b9ac1515dd/workspace	0.007s	coverage: 36.1% of statements`,
 			expected: models.Coverage{PackageName: "main", Percentage: 36.1},
 		},
 		{
-			line: `ok  	_/ebs/jenkins/jobs/HailoOSS-build-service-23b9ac1515dd/workspace/validate	0.004s	coverage: 95.8% of statements`,
+			line: `ok  	_/ebs/jenkins/jobs/hailo-platform/H2O-build-service-23b9ac1515dd/workspace/validate	0.004s	coverage: 95.8% of statements`,
 			expected: models.Coverage{PackageName: "validate", Percentage: 95.8},
 		},
 	}
@@ -82,10 +82,10 @@ var testOutput = `Testing (normal)
 --- PASS: TestMissingServiceName (0.00 seconds)
 PASS
 coverage: 36.1% of statements
-ok  	_/ebs/jenkins/jobs/HailoOSS-build-service-23b9ac1515dd/workspace	0.007s	coverage: 36.1% of statements
-?   	_/ebs/jenkins/jobs/HailoOSS-build-service-23b9ac1515dd/workspace/models	[no test files]
+ok  	_/ebs/jenkins/jobs/hailo-platform/H2O-build-service-23b9ac1515dd/workspace	0.007s	coverage: 36.1% of statements
+?   	_/ebs/jenkins/jobs/hailo-platform/H2O-build-service-23b9ac1515dd/workspace/models	[no test files]
 === RUN TestBlank
 --- PASS: TestBlank (0.00 seconds)
 PASS
 coverage: 95.8% of statements
-ok  	_/ebs/jenkins/jobs/HailoOSS-build-service-23b9ac1515dd/workspace/validate	0.004s	coverage: 95.8% of statements`
+ok  	_/ebs/jenkins/jobs/hailo-platform/H2O-build-service-23b9ac1515dd/workspace/validate	0.004s	coverage: 95.8% of statements`

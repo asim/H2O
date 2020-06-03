@@ -3,7 +3,7 @@ package multiclient
 import (
 	"testing"
 
-	"github.com/HailoOSS/platform/errors"
+	"github.com/hailo-platform/H2O/platform/errors"
 )
 
 func TestErrorCallerWithNil(t *testing.T) {

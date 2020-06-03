@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"testing"
 
-	api "github.com/HailoOSS/api-proxy/proto/api"
+	api "github.com/hailo-platform/H2O/api-proxy/proto/api"
 )
 
 func TestHttpFormEncodedPostReqToProto(t *testing.T) {

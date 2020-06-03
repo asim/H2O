@@ -3,8 +3,8 @@ package handler
 import (
 	"net/http"
 
-	"github.com/HailoOSS/api-proxy/controlplane"
-	inst "github.com/HailoOSS/service/instrumentation"
+	"github.com/hailo-platform/H2O/api-proxy/controlplane"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 )
 
 var (

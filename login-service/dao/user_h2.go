@@ -7,12 +7,12 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/go-hailo-lib/util"
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/service/cassandra"
-	inst "github.com/HailoOSS/service/instrumentation"
-	"github.com/HailoOSS/gossie/src/gossie"
+	"github.com/hailo-platform/H2O/go-hailo-lib/util"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/service/cassandra"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
+	"github.com/hailo-platform/H2O/gossie/src/gossie"
 )
 
 var (
@@ -50,7 +50,7 @@ func testIndexes(pool gossie.ConnectionPool, user *domain.User) errors.Error {
 		}).MultiGet(tempIds)
 		inst.Timing(1.0, "cassandra.read.testindexes", time.Since(t))
 		if err != nil {
-			return errors.InternalServerError("com.HailoOSS.service.login.createuser.cassandra", fmt.Sprintf("Failed to test for existing: %v", err))
+			return errors.InternalServerError("com.hailo-platform/H2O.service.login.createuser.cassandra", fmt.Sprintf("Failed to test for existing: %v", err))
 		}
 		for _, row := range rows {
 			if len(row.Columns) < 1 || string(row.Columns[0].Name) != "uid" {
@@ -59,7 +59,7 @@ func testIndexes(pool gossie.ConnectionPool, user *domain.User) errors.Error {
 			}
 			if string(row.Columns[0].Value) != user.Uid {
 				id := getCorrectId(string(row.Key), user.Ids)
-				return errors.BadRequest("com.HailoOSS.service.login.createuser.indexinuse", fmt.Sprintf("Index '%s' is already linked to another user '%s'", id, string(row.Columns[0].Value)))
+				return errors.BadRequest("com.hailo-platform/H2O.service.login.createuser.indexinuse", fmt.Sprintf("Index '%s' is already linked to another user '%s'", id, string(row.Columns[0].Value)))
 			}
 		}
 	}

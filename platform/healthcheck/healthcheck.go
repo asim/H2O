@@ -1,7 +1,7 @@
 package healthcheck
 
 import (
-	hcproto "github.com/HailoOSS/platform/proto/healthcheck"
+	hcproto "github.com/hailo-platform/H2O/platform/proto/healthcheck"
 	"sync"
 )
 

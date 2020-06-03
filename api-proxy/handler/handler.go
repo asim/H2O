@@ -7,8 +7,8 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/api-proxy/controlplane"
-	"github.com/HailoOSS/platform/util"
+	"github.com/hailo-platform/H2O/api-proxy/controlplane"
+	"github.com/hailo-platform/H2O/platform/util"
 )
 
 const (

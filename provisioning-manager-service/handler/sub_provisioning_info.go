@@ -1,12 +1,12 @@
 package handler
 
 import (
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
-	"github.com/HailoOSS/provisioning-manager-service/domain"
-	"github.com/HailoOSS/provisioning-manager-service/registry"
-	iproto "github.com/HailoOSS/provisioning-service/proto"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/domain"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/registry"
+	iproto "github.com/hailo-platform/H2O/provisioning-service/proto"
 	"time"
 )
 

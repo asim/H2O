@@ -3,8 +3,8 @@ package server
 import (
 	"fmt"
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/errors"
-	inst "github.com/HailoOSS/service/instrumentation"
+	"github.com/hailo-platform/H2O/platform/errors"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 )
 
 // Authoriser is an interface that anything that wants to authorise endpoints must satisfy
@@ -64,7 +64,7 @@ type simpleAuthoriser struct {
 // Given a request, returns a "bad role" error. This is used both by Authorise() and is useful within services which do
 // row-level permission checking.
 func BadRoleError(req *Request) errors.Error {
-	return errors.Forbidden("com.HailoOSS.kernel.auth.badrole", fmt.Sprintf("Must have the correct role to call this "+
+	return errors.Forbidden("com.hailo-platform/H2O.kernel.auth.badrole", fmt.Sprintf("Must have the correct role to call this "+
 		"endpoint [endpoint=%s, service=%s, from=%s]", req.Endpoint(), req.Service(), req.From()), "5")
 }
 
@@ -81,7 +81,7 @@ func (a *simpleAuthoriser) Authorise(req *Request) errors.Error {
 	scope := req.Auth()
 	log.Tracef("Scope user: %v", scope.AuthUser())
 	if a.requireUser && !scope.IsAuth() {
-		return errors.Forbidden("com.HailoOSS.kernel.auth.notsignedin", fmt.Sprintf("Must be signed in to call this endpoint[endpoint=%s, service=%s, from=%s]",
+		return errors.Forbidden("com.hailo-platform/H2O.kernel.auth.notsignedin", fmt.Sprintf("Must be signed in to call this endpoint[endpoint=%s, service=%s, from=%s]",
 			req.Endpoint(), req.Service(), req.From()), "201")
 	}
 	if a.requireRole {
@@ -94,7 +94,7 @@ func (a *simpleAuthoriser) Authorise(req *Request) errors.Error {
 		}
 		if !matchesRole {
 			if scope.HasTriedAuth() {
-				return errors.Forbidden("com.HailoOSS.kernel.auth.badrole", fmt.Sprintf("Must be signed in to call this endpoint[endpoint=%s, service=%s, from=%s]",
+				return errors.Forbidden("com.hailo-platform/H2O.kernel.auth.badrole", fmt.Sprintf("Must be signed in to call this endpoint[endpoint=%s, service=%s, from=%s]",
 					req.Endpoint(), req.Service(), req.From()), "201")
 			}
 			// Instrument when service to service auth fails

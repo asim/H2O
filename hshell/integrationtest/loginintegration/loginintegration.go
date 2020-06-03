@@ -1,9 +1,9 @@
 package loginintegration
 
 import (
-	"github.com/HailoOSS/hshell/integrationtest/request"
-	"github.com/HailoOSS/hshell/integrationtest/validators"
-	"github.com/HailoOSS/hshell/integrationtest/variables"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/request"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/validators"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/variables"
 	"strconv"
 	"time"
 )

@@ -2,7 +2,7 @@ package importstate
 
 import (
 	"fmt"
-	"github.com/HailoOSS/hshell/integrationtest/variables"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/variables"
 	"github.com/jimlawless/cfg"
 )
 

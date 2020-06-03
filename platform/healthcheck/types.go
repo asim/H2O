@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/HailoOSS/service/config"
-	hc "github.com/HailoOSS/service/healthcheck"
+	"github.com/hailo-platform/H2O/service/config"
+	hc "github.com/hailo-platform/H2O/service/healthcheck"
 )
 
 const (

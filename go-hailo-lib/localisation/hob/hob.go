@@ -44,7 +44,7 @@ type Prebook struct {
 	ShowFilters         bool  `json:"showFilters"`
 }
 
-// miscellaneous fields used by https://github.com/HailoOSS/go-api-lib/blob/master/driverconfig/driverconfig.go#L49
+// miscellaneous fields used by https://github.com/hailo-platform/H2O/go-api-lib/blob/master/driverconfig/driverconfig.go#L49
 // as this is a library not really sure what service to put them, so will stick them here for now.
 type Misc struct {
 	DriverTermsUrl      string `json:"driverTerms"`   // The URL used in the driver app to point to Hailos' Terms&Conditions

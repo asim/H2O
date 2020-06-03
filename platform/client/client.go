@@ -7,20 +7,20 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"github.com/nu7hatch/gouuid"
 	"github.com/streadway/amqp"
 
-	"github.com/HailoOSS/platform/circuitbreaker"
-	"github.com/HailoOSS/platform/errors"
-	pe "github.com/HailoOSS/platform/proto/error"
-	traceproto "github.com/HailoOSS/platform/proto/trace"
-	"github.com/HailoOSS/platform/raven"
-	plutil "github.com/HailoOSS/platform/util"
-	inst "github.com/HailoOSS/service/instrumentation"
-	trace "github.com/HailoOSS/service/trace"
+	"github.com/hailo-platform/H2O/platform/circuitbreaker"
+	"github.com/hailo-platform/H2O/platform/errors"
+	pe "github.com/hailo-platform/H2O/platform/proto/error"
+	traceproto "github.com/hailo-platform/H2O/platform/proto/trace"
+	"github.com/hailo-platform/H2O/platform/raven"
+	plutil "github.com/hailo-platform/H2O/platform/util"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
+	trace "github.com/hailo-platform/H2O/service/trace"
 
-	_ "github.com/HailoOSS/platform/logs"
+	_ "github.com/hailo-platform/H2O/platform/logs"
 )
 
 var (
@@ -166,12 +166,12 @@ func (c *client) Req(req *Request, rsp proto.Message, options ...Options) errors
 		return err
 	}
 	if responseMsg == nil {
-		return errors.InternalServerError("com.HailoOSS.kernel.platform.nilresponse", "Nil response")
+		return errors.InternalServerError("com.hailo-platform/H2O.kernel.platform.nilresponse", "Nil response")
 	}
 	c.traceRsp(req, responseMsg, err, time.Now().Sub(t))
 
 	if marshalError := responseMsg.Unmarshal(rsp); marshalError != nil {
-		return errors.InternalServerError("com.HailoOSS.kernel.platform.unmarshal", marshalError.Error())
+		return errors.InternalServerError("com.hailo-platform/H2O.kernel.platform.unmarshal", marshalError.Error())
 	}
 
 	return nil
@@ -191,7 +191,7 @@ func (c *client) doReq(req *Request, options ...Options) (*Response, errors.Erro
 	if circuitbreaker.Open(req.service, req.endpoint) {
 		inst.Counter(1.0, fmt.Sprintf("client.error.%s.%s.circuitbroken", req.service, req.endpoint), 1)
 		log.Warnf("Broken Circuit for %s.%s", req.service, req.endpoint)
-		return nil, errors.CircuitBroken("com.HailoOSS.kernel.platform.circuitbreaker", "Circuit is open")
+		return nil, errors.CircuitBroken("com.hailo-platform/H2O.kernel.platform.circuitbreaker", "Circuit is open")
 	}
 
 	retries := c.defaults["retries"].(int)
@@ -228,8 +228,8 @@ func (c *client) doReq(req *Request, options ...Options) (*Response, errors.Erro
 			if online := <-ch; !online {
 				log.Error("[Client] Listener failed")
 				inst.Timing(1.0, fmt.Sprintf("%s.error", instPrefix), time.Since(t))
-				inst.Counter(1.0, "client.error.com.HailoOSS.kernel.platform.client.listenfail", 1)
-				return nil, errors.InternalServerError("com.HailoOSS.kernel.platform.client.listenfail", "Listener failed")
+				inst.Counter(1.0, "client.error.com.hailo-platform/H2O.kernel.platform.client.listenfail", 1)
+				return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.platform.client.listenfail", "Listener failed")
 			}
 
 			log.Info("[Client] Listener online")
@@ -253,8 +253,8 @@ func (c *client) doReq(req *Request, options ...Options) (*Response, errors.Erro
 
 				errorProto := &pe.PlatformError{}
 				if err := payload.Unmarshal(errorProto); err != nil {
-					inst.Counter(1.0, "client.error.com.HailoOSS.kernel.platform.badresponse", 1)
-					return nil, errors.BadResponse("com.HailoOSS.kernel.platform.badresponse", err.Error())
+					inst.Counter(1.0, "client.error.com.hailo-platform/H2O.kernel.platform.badresponse", 1)
+					return nil, errors.BadResponse("com.hailo-platform/H2O.kernel.platform.badresponse", err.Error())
 				}
 
 				err := errors.FromProtobuf(errorProto)
@@ -277,7 +277,7 @@ func (c *client) doReq(req *Request, options ...Options) (*Response, errors.Erro
 			inst.Timing(1.0, fmt.Sprintf("%s.error", instPrefix), time.Since(t))
 			c.traceAttemptTimeout(req, i, timeout)
 
-			circuitbreaker.Result(req.service, req.endpoint, errors.Timeout("com.HailoOSS.kernel.platform.timeout",
+			circuitbreaker.Result(req.service, req.endpoint, errors.Timeout("com.hailo-platform/H2O.kernel.platform.timeout",
 				fmt.Sprintf("Request timed out talking to %s.%s from %s (most recent timeout %v)", req.Service(), req.Endpoint(), req.From(), timeout),
 				req.Service(),
 				req.Endpoint()))
@@ -285,10 +285,10 @@ func (c *client) doReq(req *Request, options ...Options) (*Response, errors.Erro
 	}
 
 	inst.Timing(1.0, fmt.Sprintf("%s.error.timedOut", instPrefix), time.Since(tAllRetries))
-	inst.Counter(1.0, "client.error.com.HailoOSS.kernel.platform.timeout", 1)
+	inst.Counter(1.0, "client.error.com.hailo-platform/H2O.kernel.platform.timeout", 1)
 
 	return nil, errors.Timeout(
-		"com.HailoOSS.kernel.platform.timeout",
+		"com.hailo-platform/H2O.kernel.platform.timeout",
 		fmt.Sprintf("Request timed out talking to %s.%s from %s (most recent timeout %v)", req.Service(), req.Endpoint(), req.From(), timeout),
 		req.Service(),
 		req.Endpoint(),
@@ -357,7 +357,7 @@ func (c *client) traceAttemptTimeout(req *Request, attemptNum int, timeout time.
 			Hostname:         proto.String(c.hostname),
 			Az:               proto.String(c.az),
 			Payload:          proto.String(""), // @todo
-			ErrorCode:        proto.String("com.HailoOSS.kernel.platform.attemptTimeout"),
+			ErrorCode:        proto.String("com.hailo-platform/H2O.kernel.platform.attemptTimeout"),
 			ErrorDescription: proto.String(desc),
 			Duration:         proto.Int64(int64(timeout)),
 			PersistentTrace:  proto.Bool(req.TraceShouldPersist()),

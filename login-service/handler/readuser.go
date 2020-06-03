@@ -3,28 +3,28 @@ package handler
 import (
 	"fmt"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/login-service/domain"
-	readproto "github.com/HailoOSS/login-service/proto/readuser"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	readproto "github.com/hailo-platform/H2O/login-service/proto/readuser"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 // ReadUser will fetch a single user from the credential store by UID or secondary ID
 func ReadUser(req *server.Request) (proto.Message, errors.Error) {
 	request := &readproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.service.login.readuser.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.readuser.unmarshal", err.Error())
 	}
 
 	user, err := dao.ReadUser(domain.Application(request.GetApplication()), request.GetUid())
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.login.readuser.dao.read", err.Error())
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.readuser.dao.read", err.Error())
 	}
 	if user == nil {
-		return nil, errors.NotFound("com.HailoOSS.service.login.readuser", fmt.Sprintf("No user with ID %s", request.GetUid()))
+		return nil, errors.NotFound("com.hailo-platform/H2O.service.login.readuser", fmt.Sprintf("No user with ID %s", request.GetUid()))
 	}
 
 	rsp := userToProto(user)

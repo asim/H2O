@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -15,7 +15,7 @@ func (*TestPayload) String() string { return "" }
 func (*TestPayload) ProtoMessage()  {}
 
 func TestNewRequest(t *testing.T) {
-	testService := "com.HailoOSS.service.helloworld"
+	testService := "com.hailo-platform/H2O.service.helloworld"
 	testEndpoint := "sayhello"
 
 	payload := &TestPayload{}
@@ -65,7 +65,7 @@ func TestNewJsonRequest(t *testing.T) {
 }
 
 func TestShouldTrace(t *testing.T) {
-	testService := "com.HailoOSS.service.helloworld"
+	testService := "com.hailo-platform/H2O.service.helloworld"
 	testEndpoint := "sayhello"
 	payload := &TestPayload{}
 

@@ -9,13 +9,13 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"github.com/stretchr/testify/assert"
 
-	checkinproto "github.com/HailoOSS/api-throttling-service/proto/checkin"
-	"github.com/HailoOSS/platform/client"
-	platformtesting "github.com/HailoOSS/platform/testing"
-	"github.com/HailoOSS/service/config"
+	checkinproto "github.com/hailo-platform/H2O/api-throttling-service/proto/checkin"
+	"github.com/hailo-platform/H2O/platform/client"
+	platformtesting "github.com/hailo-platform/H2O/platform/testing"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 const throttlingTestConfigJson = `{
@@ -174,7 +174,7 @@ func TestSynchronisation(t *testing.T) {
 			},
 		},
 	}
-	expectedRequest, err := client.NewRequest("com.HailoOSS.service.api-throttling", "checkin", expectedRequestPayload)
+	expectedRequest, err := client.NewRequest("com.hailo-platform/H2O.service.api-throttling", "checkin", expectedRequestPayload)
 	assert.NoError(t, err, "Error constructing expected service request")
 	expectedResponse := &checkinproto.Response{
 		ThrottledBuckets: []string{"sessId:abc"},

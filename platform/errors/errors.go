@@ -4,9 +4,9 @@ import (
 	"fmt"
 
 	"github.com/facebookgo/stack"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	pe "github.com/HailoOSS/platform/proto/error"
+	pe "github.com/hailo-platform/H2O/platform/proto/error"
 )
 
 const (
@@ -53,7 +53,7 @@ func (self LocalError) Type() string {
 	return self.errorType
 }
 
-// Code returns the error code, e.g. com.HailoOSS.service.something.went.wrong
+// Code returns the error code, e.g. com.hailo-platform/H2O.service.something.went.wrong
 func (self LocalError) Code() string {
 	return self.code
 }

@@ -2,8 +2,8 @@ package trace_test
 
 import (
 	"bytes"
-	"github.com/HailoOSS/api-proxy/trace"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/api-proxy/trace"
+	"github.com/hailo-platform/H2O/service/config"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"testing"

@@ -2,11 +2,11 @@ package main
 
 import (
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/binding-service/binding"
-	"github.com/HailoOSS/binding-service/handler"
-	bindinghealth "github.com/HailoOSS/binding-service/healthcheck"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/service/zookeeper"
+	"github.com/hailo-platform/H2O/binding-service/binding"
+	"github.com/hailo-platform/H2O/binding-service/handler"
+	bindinghealth "github.com/hailo-platform/H2O/binding-service/healthcheck"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/service/zookeeper"
 	"time"
 )
 
@@ -14,11 +14,11 @@ func main() {
 	defer log.Flush()
 
 	// register service + endpoints
-	server.Name = "com.HailoOSS.kernel.binding"
+	server.Name = "com.hailo-platform/H2O.kernel.binding"
 	server.Description = "Binding service; responsible for binding brokers and services"
 	server.Version = ServiceVersion
-	server.Source = "github.com/HailoOSS/binding-service"
-	server.OwnerEmail = "dominic@HailoOSS.com"
+	server.Source = "github.com/hailo-platform/H2O/binding-service"
+	server.OwnerEmail = "dominic@hailo-platform/H2O.com"
 	server.OwnerMobile = "+447867524496"
 
 	server.Init()
@@ -49,14 +49,14 @@ func main() {
 
 	// only register, don't bind. We'll manually do it in the init() call
 	server.Register(&server.Endpoint{
-		Name:       "com.HailoOSS.kernel.discovery.serviceup",
+		Name:       "com.hailo-platform/H2O.kernel.discovery.serviceup",
 		Handler:    handler.ServiceUpListener,
 		Authoriser: server.OpenToTheWorldAuthoriser(),
 	})
 
 	// only register, don't bind. We'll manually do it in the init() call
 	server.Register(&server.Endpoint{
-		Name:       "com.HailoOSS.kernel.discovery.servicedown",
+		Name:       "com.hailo-platform/H2O.kernel.discovery.servicedown",
 		Handler:    handler.ServiceDownListener,
 		Authoriser: server.OpenToTheWorldAuthoriser(),
 	})

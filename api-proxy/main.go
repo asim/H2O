@@ -7,13 +7,13 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/api-proxy/controlplane"
-	"github.com/HailoOSS/api-proxy/handler"
-	hc "github.com/HailoOSS/api-proxy/healthcheck"
-	"github.com/HailoOSS/api-proxy/stats"
-	service "github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/zookeeper"
+	"github.com/hailo-platform/H2O/api-proxy/controlplane"
+	"github.com/hailo-platform/H2O/api-proxy/handler"
+	hc "github.com/hailo-platform/H2O/api-proxy/healthcheck"
+	"github.com/hailo-platform/H2O/api-proxy/stats"
+	service "github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/zookeeper"
 )
 
 var (
@@ -21,12 +21,12 @@ var (
 )
 
 func init() {
-	service.Name = "com.HailoOSS.hailo-2-api"
+	service.Name = "com.hailo-platform/H2O.hailo-2-api"
 	service.Description = "Routing layer that handles all inbound client requests, routing them to H1, H2, or " +
 		"throttling them."
 	service.Version = ServiceVersion
-	service.Source = "github.com/HailoOSS/api-proxy"
-	service.OwnerEmail = "oliver.beattie@HailoOSS.com"
+	service.Source = "github.com/hailo-platform/H2O/api-proxy"
+	service.OwnerEmail = "oliver.beattie@hailo-platform/H2O.com"
 	service.OwnerMobile = "+447584048620"
 	service.OwnerTeam = "h2o"
 

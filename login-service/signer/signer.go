@@ -1,7 +1,7 @@
 package signer
 
 import (
-	"github.com/HailoOSS/login-service/domain"
+	"github.com/hailo-platform/H2O/login-service/domain"
 )
 
 type Signer interface {

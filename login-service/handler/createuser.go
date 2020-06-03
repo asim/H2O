@@ -4,21 +4,21 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/login-service/event"
-	createproto "github.com/HailoOSS/login-service/proto/createuser"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/login-service/event"
+	createproto "github.com/hailo-platform/H2O/login-service/proto/createuser"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 // CreateUser will create a new user account within the credential store
 func CreateUser(req *server.Request) (proto.Message, errors.Error) {
 	request := &createproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.service.login.createuser.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.createuser.unmarshal", err.Error())
 	}
 
 	user := &domain.User{
@@ -41,12 +41,12 @@ func CreateUser(req *server.Request) (proto.Message, errors.Error) {
 	if request.GetRequirePassword() || request.GetPassword() != "" {
 		// set password now we know we can proceed
 		if err := user.SetPassword(request.GetPassword()); err != nil {
-			return nil, errors.BadRequest("com.HailoOSS.service.login.createuser.badpassword", fmt.Sprintf("Password %s", err.Error()))
+			return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.createuser.badpassword", fmt.Sprintf("Password %s", err.Error()))
 		}
 	}
 
 	if errs := userValidator.Validate(user); errs.AnyErrors() {
-		return nil, errors.BadRequest("com.HailoOSS.service.login.createuser.validate", errs.Error())
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.createuser.validate", errs.Error())
 	}
 
 	if err := dao.CreateUser(user, request.GetPassword()); err != nil {

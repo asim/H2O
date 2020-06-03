@@ -2,7 +2,7 @@ package dao
 
 import (
 	"bytes"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 	"github.com/stretchr/testify/assert"
 
 	"testing"
@@ -13,7 +13,7 @@ func TestMain(t *testing.T) {
 		"hailo": {
 			"ldap": {
 				"domains": {
-					"HailoOSS.com": true
+					"hailo-platform/H2O.com": true
 				}
 			}
 		}
@@ -22,13 +22,13 @@ func TestMain(t *testing.T) {
 }
 
 func TestIsLDAPUserValid(t *testing.T) {
-	uid := "john.smith@HailoOSS.com"
+	uid := "john.smith@hailo-platform/H2O.com"
 
 	username, domain, ok := IsLDAPUser("ADMIN", uid)
 
 	assert.True(t, ok)
 	assert.Equal(t, "john.smith", username)
-	assert.Equal(t, "HailoOSS.com", domain)
+	assert.Equal(t, "hailo-platform/H2O.com", domain)
 }
 
 func TestIsLDAPUserInvalidUID(t *testing.T) {

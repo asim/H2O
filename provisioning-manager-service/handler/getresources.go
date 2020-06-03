@@ -1,13 +1,13 @@
 package handler
 
 import (
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
-	"github.com/HailoOSS/provisioning-manager-service/domain"
-	pproto "github.com/HailoOSS/provisioning-manager-service/proto"
-	grproto "github.com/HailoOSS/provisioning-manager-service/proto/getresources"
-	"github.com/HailoOSS/provisioning-manager-service/registry"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/domain"
+	pproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto"
+	grproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto/getresources"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/registry"
 )
 
 func GetResources(req *server.Request) (proto.Message, errors.Error) {

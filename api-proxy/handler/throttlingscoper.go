@@ -3,16 +3,16 @@ package handler
 import (
 	"fmt"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/multiclient"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/multiclient"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 // throttlingSyncScoper is a pretty gross piece of code to get around an issue. Requests made to their API throttling
 // service (rightly) require ADMIN-level priviledges, but we cannot grant an S2S auth rule for this purpose. Instead, we
-// fake the service that the requests to it come from (which will be com.HailoOSS.api-proxy.throttlesync).
+// fake the service that the requests to it come from (which will be com.hailo-platform/H2O.api-proxy.throttlesync).
 //
 // @TODO: Figure out a better way of handling this that won't break if/when we implement cryptographic caller identity.
 type throttleSyncScoper struct {

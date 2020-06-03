@@ -6,10 +6,10 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/service/cassandra"
-	"github.com/HailoOSS/service/cassandra/timeseries"
-	inst "github.com/HailoOSS/service/instrumentation"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/service/cassandra"
+	"github.com/hailo-platform/H2O/service/cassandra/timeseries"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 )
 
 // userLoginTs is our pure time-series of all login requests for a user

@@ -4,12 +4,12 @@ import (
 	"fmt"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/config-service/domain"
-	update "github.com/HailoOSS/config-service/proto/update"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/config-service/domain"
+	update "github.com/hailo-platform/H2O/config-service/proto/update"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 	gouuid "github.com/nu7hatch/gouuid"
 )
 
@@ -21,12 +21,12 @@ const (
 func Update(req *server.Request) (proto.Message, errors.Error) {
 	request := &update.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.service.config.update", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.update", fmt.Sprintf("%v", err))
 	}
 
 	u4, err := gouuid.NewV4()
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.config.update.genid", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.update.genid", fmt.Sprintf("%v", err))
 	}
 
 	var mech, id string
@@ -53,7 +53,7 @@ func Update(req *server.Request) (proto.Message, errors.Error) {
 		[]byte(request.GetConfig()),
 	)
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.config.update", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.update", fmt.Sprintf("%v", err))
 	}
 
 	if !request.GetNoReload() {

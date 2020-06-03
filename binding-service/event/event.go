@@ -8,8 +8,8 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/util"
-	"github.com/HailoOSS/service/nsq"
+	"github.com/hailo-platform/H2O/platform/util"
+	"github.com/hailo-platform/H2O/service/nsq"
 	gouuid "github.com/nu7hatch/gouuid"
 )
 
@@ -58,7 +58,7 @@ func PubRuleChange(service, version, action, user string, weight int32) {
 	event := map[string]interface{}{
 		"id":        uuid,
 		"timestamp": strconv.Itoa(int(time.Now().Unix())),
-		"type":      "com.HailoOSS.kernel.binding.event",
+		"type":      "com.hailo-platform/H2O.kernel.binding.event",
 		"details": map[string]string{
 			"ServiceName":    service,
 			"ServiceVersion": version,

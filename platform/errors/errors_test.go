@@ -7,13 +7,13 @@ import (
 )
 
 func TestInternalServerError(t *testing.T) {
-	err := InternalServerError("com.HailoOSS.test", "Something went wrong")
+	err := InternalServerError("com.hailo-platform/H2O.test", "Something went wrong")
 
 	if err.Type() != "INTERNAL_SERVER_ERROR" {
 		t.Errorf("Wrong error type: %v", err.Type())
 	}
 
-	if err.Code() != "com.HailoOSS.test" {
+	if err.Code() != "com.hailo-platform/H2O.test" {
 		t.Errorf("Wrong error code: %v", err.Code())
 	}
 
@@ -31,7 +31,7 @@ func TestInternalServerError(t *testing.T) {
 }
 
 func TestConversion(t *testing.T) {
-	err := InternalServerError("com.HailoOSS.test", "Something went wrong")
+	err := InternalServerError("com.hailo-platform/H2O.test", "Something went wrong")
 	e := ToProtobuf(err)
 	err2 := FromProtobuf(e)
 
@@ -102,7 +102,7 @@ func TestErrTypeCheck(t *testing.T) {
 }
 
 func TestAddContext(t *testing.T) {
-	e := InternalServerError("com.HailoOSS.test", "Something went wrong", "Some context").AddContext("1234")
+	e := InternalServerError("com.hailo-platform/H2O.test", "Something went wrong", "Some context").AddContext("1234")
 
 	if l := len(e.Context()); l != 2 {
 		t.Fatalf("Expected 2 parts in context, found %d", l)

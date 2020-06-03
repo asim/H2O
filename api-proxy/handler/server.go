@@ -12,9 +12,9 @@ import (
 	// gorilla_handlers "github.com/gorilla/handlers"
 	ptomb "gopkg.in/tomb.v2"
 
-	"github.com/HailoOSS/api-proxy/controlplane"
-	"github.com/HailoOSS/api-proxy/statusmonitor"
-	service "github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/api-proxy/controlplane"
+	"github.com/hailo-platform/H2O/api-proxy/statusmonitor"
+	service "github.com/hailo-platform/H2O/platform/server"
 )
 
 const faviconStr = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA1BMVEX9vSx51WFPAAAADElEQVQImWNgIA0AAAAwAAFDlLdnAAAAAElFTkSuQmCC"

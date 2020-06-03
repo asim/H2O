@@ -1,12 +1,12 @@
 package handler
 
 import (
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
-	"github.com/HailoOSS/provisioning-manager-service/domain"
-	gpproto "github.com/HailoOSS/provisioning-manager-service/proto/getprovisioner"
-	"github.com/HailoOSS/provisioning-manager-service/registry"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/domain"
+	gpproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto/getprovisioner"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/registry"
 )
 
 func GetProvisioner(req *server.Request) (proto.Message, errors.Error) {

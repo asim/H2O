@@ -1,4 +1,4 @@
-package com.HailoOSS.service.login.createuser;
+package com.hailo-platform/H2O.service.login.createuser;
 
 message Request {
 	required string application = 1;

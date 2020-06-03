@@ -2,11 +2,11 @@ package connhealthcheck
 
 import (
 	"fmt"
-	"github.com/HailoOSS/go-hailo-lib/proc"
-	"github.com/HailoOSS/service/healthcheck"
+	"github.com/hailo-platform/H2O/go-hailo-lib/proc"
+	"github.com/hailo-platform/H2O/service/healthcheck"
 )
 
-const HealthCheckId = "com.HailoOSS.service.tcpconn"
+const HealthCheckId = "com.hailo-platform/H2O.service.tcpconn"
 
 // MaxTcpConnections inspects the number of established TCP connections are being made by this
 // process for a list of hosts. If the aggregate exceeds maxconns then an error will be raised.

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	platformsync "github.com/HailoOSS/service/sync"
+	platformsync "github.com/hailo-platform/H2O/service/sync"
 
 	sjson "github.com/bitly/go-simplejson"
 )
@@ -370,5 +370,5 @@ func CreateOrUpdateConfig(changeId, id, path, userMech, userId, message string, 
 }
 
 func lockPath(id string) string {
-	return fmt.Sprintf("/com.HailoOSS.service.config/%s", id)
+	return fmt.Sprintf("/com.hailo-platform/H2O.service.config/%s", id)
 }

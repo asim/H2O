@@ -10,7 +10,7 @@ import (
 	log "github.com/cihub/seelog"
 	ptomb "gopkg.in/tomb.v2"
 
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 type PCIFilter struct {

@@ -7,10 +7,10 @@ import (
 	"fmt"
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/binding-service/domain"
-	"github.com/HailoOSS/service/cassandra"
-	"github.com/HailoOSS/service/sync"
-	"github.com/HailoOSS/gossie/src/gossie"
+	"github.com/hailo-platform/H2O/binding-service/domain"
+	"github.com/hailo-platform/H2O/service/cassandra"
+	"github.com/hailo-platform/H2O/service/sync"
+	"github.com/hailo-platform/H2O/gossie/src/gossie"
 )
 
 // Defines crud actions for binding rules

@@ -1,4 +1,4 @@
-package com.HailoOSS.service.provisioningmanager.create;
+package com.hailo-platform/H2O.service.provisioningmanager.create;
 
 message Request {
 	required string serviceName = 1;

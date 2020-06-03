@@ -6,12 +6,12 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	dscShared "github.com/HailoOSS/discovery-service/proto"
-	register "github.com/HailoOSS/discovery-service/proto/register"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/util"
-	"github.com/HailoOSS/service/auth"
-	"github.com/HailoOSS/protobuf/proto"
+	dscShared "github.com/hailo-platform/H2O/discovery-service/proto"
+	register "github.com/hailo-platform/H2O/discovery-service/proto/register"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/util"
+	"github.com/hailo-platform/H2O/service/auth"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 const (
@@ -146,7 +146,7 @@ func (self *discovery) callDiscoveryService(action string, successState bool) er
 	}
 
 	request, err := ScopedRequest(
-		"com.HailoOSS.kernel.discovery",
+		"com.hailo-platform/H2O.kernel.discovery",
 		action,
 		&register.MultiRequest{
 			InstanceId:   proto.String(InstanceID),

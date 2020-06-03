@@ -1,9 +1,9 @@
 package domain
 
 import (
-	instances "github.com/HailoOSS/discovery-service/proto/instances"
-	serviceup "github.com/HailoOSS/discovery-service/proto/serviceup"
-	"github.com/HailoOSS/platform/raven"
+	instances "github.com/hailo-platform/H2O/discovery-service/proto/instances"
+	serviceup "github.com/hailo-platform/H2O/discovery-service/proto/serviceup"
+	"github.com/hailo-platform/H2O/platform/raven"
 	"strconv"
 )
 

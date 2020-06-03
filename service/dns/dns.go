@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/HailoOSS/platform/util"
+	"github.com/hailo-platform/H2O/platform/util"
 )
 
 const (
-	domain = "HailoOSS.net"
+	domain = "hailo-platform/H2O.net"
 	scope  = "i"
 )
 

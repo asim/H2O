@@ -5,12 +5,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/config/service_loader"
-	"github.com/HailoOSS/service/sync"
-	"github.com/HailoOSS/service/zookeeper"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/config/service_loader"
+	"github.com/hailo-platform/H2O/service/sync"
+	"github.com/hailo-platform/H2O/service/zookeeper"
 )
 
 const (
@@ -19,10 +19,10 @@ const (
 )
 
 func main() {
-	sync.SetRegionLockNamespace("com.HailoOSS.service.login")
+	sync.SetRegionLockNamespace("com.hailo-platform/H2O.service.login")
 
 	fmt.Println("Loading config...")
-	service_loader.Init("com.HailoOSS.service.login")
+	service_loader.Init("com.hailo-platform/H2O.service.login")
 	_, t := config.LastLoaded()
 	for t.IsZero() {
 		fmt.Println("Config not loaded, sleeping for 0.5 seconds")

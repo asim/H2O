@@ -5,13 +5,13 @@ import (
 
 	"encoding/json"
 
-	dmp "github.com/HailoOSS/go-diff/diffmatchpatch"
-	"github.com/HailoOSS/protobuf/proto"
+	dmp "github.com/hailo-platform/H2O/go-diff/diffmatchpatch"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/config-service/domain"
-	diff "github.com/HailoOSS/config-service/proto/diff"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/config-service/domain"
+	diff "github.com/hailo-platform/H2O/config-service/proto/diff"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 var (
@@ -53,26 +53,26 @@ func pretty(text interface{}) (string, error) {
 func Diff(req *server.Request) (proto.Message, errors.Error) {
 	request := &diff.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.service.config.diff", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.diff", fmt.Sprintf("%v", err))
 	}
 
 	if len(request.GetConfig()) == 0 {
-		return nil, errors.BadRequest("com.HailoOSS.service.config.diff", "Config cannot be blank")
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.diff", "Config cannot be blank")
 	}
 
 	config, _, err := domain.ReadConfig(request.GetId(), request.GetPath())
 	if err != nil && err != domain.ErrPathNotFound {
-		return nil, errors.InternalServerError("com.HailoOSS.service.config.diff", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.diff", fmt.Sprintf("%v", err))
 	}
 
 	p1, err := pretty(config)
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.config.diff", fmt.Sprintf("Error parsing existing config: %v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.diff", fmt.Sprintf("Error parsing existing config: %v", err))
 	}
 
 	p2, err := pretty(request.GetConfig())
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.config.diff", fmt.Sprintf("Error parsing new config: %v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.diff", fmt.Sprintf("Error parsing new config: %v", err))
 	}
 
 	deef := differ.DiffMain(p1, p2, true)
@@ -81,7 +81,7 @@ func Diff(req *server.Request) (proto.Message, errors.Error) {
 
 	mdiff, err := json.Marshal(deef)
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.config.diff", fmt.Sprintf("Failed to create response: %v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.diff", fmt.Sprintf("Failed to create response: %v", err))
 	}
 
 	rsp := &diff.Response{

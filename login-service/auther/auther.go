@@ -3,7 +3,7 @@ package auther
 import (
 	"math/big"
 
-	"github.com/HailoOSS/login-service/domain"
+	"github.com/hailo-platform/H2O/login-service/domain"
 )
 
 const sessionIdSizeInBits = 1280

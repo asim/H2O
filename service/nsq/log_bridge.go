@@ -2,7 +2,7 @@ package nsq
 
 import (
 	log "github.com/cihub/seelog"
-	nsqlib "github.com/HailoOSS/go-nsq"
+	nsqlib "github.com/hailo-platform/H2O/go-nsq"
 )
 
 type logBridge struct{}

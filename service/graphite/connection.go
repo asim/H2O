@@ -12,8 +12,8 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/service/config"
-	inst "github.com/HailoOSS/service/instrumentation"
+	"github.com/hailo-platform/H2O/service/config"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 	"github.com/mreiferson/go-httpclient"
 )
 
@@ -145,7 +145,7 @@ func Children(q string) ([]string, error) {
 }
 
 // Children returns a list of target IDs within a specific node in the target tree
-// An example q would be `stats.com.HailoOSS` to find all child nodes of this
+// An example q would be `stats.com.hailo-platform/H2O` to find all child nodes of this
 func (conn *Connection) Children(q string) ([]string, error) {
 	v := url.Values{}
 	v.Set("format", "treejson")

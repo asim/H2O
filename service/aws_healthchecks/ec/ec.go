@@ -7,11 +7,11 @@ package aws_healthchecks_ec
 import (
 	"fmt"
 	"github.com/garyburd/redigo/redis"
-	"github.com/HailoOSS/service/healthcheck"
+	"github.com/hailo-platform/H2O/service/healthcheck"
 	"time"
 )
 
-const HealthCheckId = "com.HailoOSS.service.aws_ec"
+const HealthCheckId = "com.hailo-platform/H2O.service.aws_ec"
 
 type ECClient struct {
 	conn redis.Conn

@@ -5,11 +5,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/HailoOSS/api-proxy/stats"
-	"github.com/HailoOSS/api-proxy/statusmonitor"
-	"github.com/HailoOSS/platform/healthcheck"
-	"github.com/HailoOSS/platform/server"
-	hc "github.com/HailoOSS/service/healthcheck"
+	"github.com/hailo-platform/H2O/api-proxy/stats"
+	"github.com/hailo-platform/H2O/api-proxy/statusmonitor"
+	"github.com/hailo-platform/H2O/platform/healthcheck"
+	"github.com/hailo-platform/H2O/platform/server"
+	hc "github.com/hailo-platform/H2O/service/healthcheck"
 )
 
 var (
@@ -21,7 +21,7 @@ func Init(monitor *statusmonitor.StatusMonitor) {
 
 	// Add azstatus healthcheck that exposes the status of this api instance
 	healthcheck.Register(&healthcheck.HealthCheck{
-		Id:             "com.HailoOSS.kernel.azstatus",
+		Id:             "com.hailo-platform/H2O.kernel.azstatus",
 		ServiceName:    server.Name,
 		ServiceVersion: server.Version,
 		Hostname:       Hostname,

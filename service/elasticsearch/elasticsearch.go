@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/HailoOSS/go-hailo-lib/log"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/go-hailo-lib/log"
+	"github.com/hailo-platform/H2O/service/config"
 	"github.com/mattbaird/elastigo/lib"
 )
 

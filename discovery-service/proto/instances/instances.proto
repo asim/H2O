@@ -1,4 +1,4 @@
-package com.HailoOSS.kernel.discovery.instances;
+package com.hailo-platform/H2O.kernel.discovery.instances;
 
 message Request {
 	optional string azName = 1;

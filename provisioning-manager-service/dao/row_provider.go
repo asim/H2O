@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"github.com/HailoOSS/gossie/src/gossie"
+	"github.com/hailo-platform/H2O/gossie/src/gossie"
 )
 
 type rowProvider struct {

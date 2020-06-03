@@ -3,7 +3,7 @@ package registry
 import (
 	"encoding/json"
 	log "github.com/cihub/seelog"
-	zk "github.com/HailoOSS/service/zookeeper"
+	zk "github.com/hailo-platform/H2O/service/zookeeper"
 	"os"
 	"sync"
 	"time"

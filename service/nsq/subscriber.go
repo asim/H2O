@@ -8,8 +8,8 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	nsqlib "github.com/HailoOSS/go-nsq"
-	"github.com/HailoOSS/service/config"
+	nsqlib "github.com/hailo-platform/H2O/go-nsq"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 type Subscriber interface {

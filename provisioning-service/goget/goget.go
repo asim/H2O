@@ -3,8 +3,8 @@ package goget
 import (
 	"bytes"
 	"fmt"
-	"github.com/HailoOSS/provisioning-service/dao"
-	"github.com/HailoOSS/provisioning-service/process"
+	"github.com/hailo-platform/H2O/provisioning-service/dao"
+	"github.com/hailo-platform/H2O/provisioning-service/process"
 	"io"
 	"os"
 	"os/exec"
@@ -15,7 +15,7 @@ import (
 
 var (
 	envPath = "PATH=/opt/boxen/homebrew/bin:$PATH"
-	gitUrl  = "github.com/HailoOSS"
+	gitUrl  = "github.com/hailo-platform/H2O"
 )
 
 type GoGetMgr struct {

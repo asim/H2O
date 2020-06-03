@@ -2,7 +2,7 @@ package handler
 
 import (
 	log "github.com/cihub/seelog"
-	inst "github.com/HailoOSS/service/instrumentation"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 	"net/http"
 	"regexp"
 	"strings"

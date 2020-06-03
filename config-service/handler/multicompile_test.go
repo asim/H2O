@@ -8,17 +8,17 @@ import (
 
 	"github.com/stretchr/testify/mock"
 
-	"github.com/HailoOSS/config-service/domain"
-	platformtesting "github.com/HailoOSS/platform/testing"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/nsq"
-	ssync "github.com/HailoOSS/service/sync"
-	zk "github.com/HailoOSS/service/zookeeper"
-	gozk "github.com/HailoOSS/go-zookeeper/zk"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/config-service/domain"
+	platformtesting "github.com/hailo-platform/H2O/platform/testing"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/nsq"
+	ssync "github.com/hailo-platform/H2O/service/sync"
+	zk "github.com/hailo-platform/H2O/service/zookeeper"
+	gozk "github.com/hailo-platform/H2O/go-zookeeper/zk"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	multicompile "github.com/HailoOSS/config-service/proto/multicompile"
-	uproto "github.com/HailoOSS/config-service/proto/update"
+	multicompile "github.com/hailo-platform/H2O/config-service/proto/multicompile"
+	uproto "github.com/hailo-platform/H2O/config-service/proto/update"
 )
 
 type MulticompileSuite struct {
@@ -39,7 +39,7 @@ func (s *MulticompileSuite) SetupTest() {
 	s.zk = &zk.MockZookeeperClient{}
 	zk.ActiveMockZookeeperClient = s.zk
 	zk.Connector = zk.MockConnector
-	ssync.SetRegionLockNamespace("com.HailoOSS.service.config")
+	ssync.SetRegionLockNamespace("com.hailo-platform/H2O.service.config")
 
 	// Mock NSQ
 	s.realPublisher = nsq.DefaultPublisher
@@ -102,7 +102,7 @@ func (s *MulticompileSuite) TestMulticompileHandlerAuth() {
 		lock.On("SetTTL", mock.AnythingOfType("time.Duration")).Return()
 		lock.On("SetTimeout", mock.AnythingOfType("time.Duration")).Return()
 
-		lockPath := fmt.Sprintf("/com.HailoOSS.service.config/%s", ids[i])
+		lockPath := fmt.Sprintf("/com.hailo-platform/H2O.service.config/%s", ids[i])
 		s.zk.
 			On("NewLock", lockPath, gozk.WorldACL(gozk.PermAll)).
 			Return(lock)

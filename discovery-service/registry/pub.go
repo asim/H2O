@@ -2,16 +2,16 @@ package registry
 
 import (
 	log "github.com/cihub/seelog"
-	servicedown "github.com/HailoOSS/discovery-service/proto/servicedown"
-	serviceup "github.com/HailoOSS/discovery-service/proto/serviceup"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/protobuf/proto"
+	servicedown "github.com/hailo-platform/H2O/discovery-service/proto/servicedown"
+	serviceup "github.com/hailo-platform/H2O/discovery-service/proto/serviceup"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 // pubServiceUp transmits via the platform the fact that we've come up
 func pubServiceUp(inst *Instance) {
 	pub, err := client.NewPublication(
-		"com.HailoOSS.kernel.discovery.serviceup",
+		"com.hailo-platform/H2O.kernel.discovery.serviceup",
 		&serviceup.Request{
 			InstanceId:     proto.String(inst.Id),
 			Hostname:       proto.String(inst.Hostname),
@@ -34,7 +34,7 @@ func pubServiceUp(inst *Instance) {
 
 // pubServiceDown transmits via the platform the fact that we've gone down
 func pubServiceDown(inst *Instance) {
-	pub, err := client.NewPublication("com.HailoOSS.kernel.discovery.servicedown", &servicedown.Request{
+	pub, err := client.NewPublication("com.hailo-platform/H2O.kernel.discovery.servicedown", &servicedown.Request{
 		InstanceId:     proto.String(inst.Id),
 		Hostname:       proto.String(inst.Hostname),
 		ServiceName:    proto.String(inst.Name),

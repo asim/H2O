@@ -3,22 +3,22 @@ package main
 import (
 	log "github.com/cihub/seelog"
 
-	service "github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/provisioning-manager-service/cache"
-	"github.com/HailoOSS/provisioning-manager-service/handler"
-	"github.com/HailoOSS/provisioning-manager-service/instrumenter"
-	"github.com/HailoOSS/provisioning-manager-service/runlevels"
-	"github.com/HailoOSS/provisioning-manager-service/scheduler"
-	"github.com/HailoOSS/provisioning-service/pkgmgr"
+	service "github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/cache"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/handler"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/instrumenter"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/runlevels"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/scheduler"
+	"github.com/hailo-platform/H2O/provisioning-service/pkgmgr"
 )
 
 func main() {
 	defer log.Flush()
 
-	service.Name = "com.HailoOSS.kernel.provisioning-manager"
+	service.Name = "com.hailo-platform/H2O.kernel.provisioning-manager"
 	service.Description = "Responsible for coordinating and caching higher level functionality for provisioning"
 	service.Version = ServiceVersion
-	service.Source = "github.com/HailoOSS/provisioning-manager-service"
+	service.Source = "github.com/hailo-platform/H2O/provisioning-manager-service"
 	service.OwnerTeam = "h2o"
 
 	service.Init()
@@ -131,9 +131,9 @@ func main() {
 
 	// Subscribers
 	service.Register(&service.Endpoint{
-		Name:       "com.HailoOSS.kernel.provisioning.info",
+		Name:       "com.hailo-platform/H2O.kernel.provisioning.info",
 		Handler:    handler.SubProvisioningInfo,
-		Subscribe:  "com.HailoOSS.kernel.provisioning.info",
+		Subscribe:  "com.hailo-platform/H2O.kernel.provisioning.info",
 		Authoriser: service.OpenToTheWorldAuthoriser(),
 	})
 

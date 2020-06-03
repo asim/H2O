@@ -1,7 +1,7 @@
 package registry
 
 import (
-	"github.com/HailoOSS/provisioning-manager-service/domain"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/domain"
 )
 
 type Filter func(p *domain.Provisioner) bool

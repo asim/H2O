@@ -3,9 +3,9 @@ package request
 import (
 	"bytes"
 	"fmt"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/raven"
-	"github.com/HailoOSS/hshell/integrationtest/result"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/raven"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/result"
 	"io/ioutil"
 	"net/http"
 	"net/url"

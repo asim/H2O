@@ -4,10 +4,10 @@ Kernel service which provides a classic SCRUD interface (minus Update) for all r
 
 ## Interface
 
-  - com.HailoOSS.kernel.provision.search (search for provisions which match a given name and/or running on this class of machine)
-  - com.HailoOSS.kernel.provision.create (create a new provision)
-  - com.HailoOSS.kernel.provision.read (read an existing provision)
-  - com.HailoOSS.kernel.provision.delete (delete an exisitng provision)
+  - com.hailo-platform/H2O.kernel.provision.search (search for provisions which match a given name and/or running on this class of machine)
+  - com.hailo-platform/H2O.kernel.provision.create (create a new provision)
+  - com.hailo-platform/H2O.kernel.provision.read (read an existing provision)
+  - com.hailo-platform/H2O.kernel.provision.delete (delete an exisitng provision)
 
 There's no update endpoint because users just bring services up and down, they don't modify any of the fields.
 
@@ -27,14 +27,14 @@ We will store a provisioned_service record for every service which is running in
 
 Each record will be an immutable record of a provision that is running, and will include:
 
-  - service_name (fully qualified service name, eg: com.HailoOSS.kernel.discovery)
+  - service_name (fully qualified service name, eg: com.hailo-platform/H2O.kernel.discovery)
   - service_version (actually a date, eg: 20130618183200)
   - machine_class (the class of machine the service should be running on)
 
 
 ## Setup
 
-  - go get github.com/HailoOSS/goprotobuf/{proto,protoc-gen-go}
+  - go get github.com/hailo-platform/H2O/goprotobuf/{proto,protoc-gen-go}
   - go get "github.com/pomack/thrift4go/lib/go/src/thrift"
   - cat create.cql | cqlsh -3
 

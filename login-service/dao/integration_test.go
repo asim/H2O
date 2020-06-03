@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/service/cassandra"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/gossie/src/gossie"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/service/cassandra"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/gossie/src/gossie"
 )
 
 func TestReadSession(t *testing.T) {
@@ -106,7 +106,7 @@ func TestCreateUser(t *testing.T) {
 	user := &domain.User{
 		App:             domain.Application("test"),
 		Uid:             "dave",
-		Ids:             []domain.Id{"dg@HailoOSS.com", "+447000000000"},
+		Ids:             []domain.Id{"dg@hailo-platform/H2O.com", "+447000000000"},
 		Created:         time.Unix(1378740807, 0),
 		Roles:           []string{"ADMIN"},
 		PasswordHistory: make([][]byte, 0),
@@ -133,7 +133,7 @@ func TestCreateUserIdempotent(t *testing.T) {
 	user := &domain.User{
 		App:             domain.Application("test"),
 		Uid:             "daveyg",
-		Ids:             []domain.Id{"dg+1@HailoOSS.com", "+447000000001"},
+		Ids:             []domain.Id{"dg+1@hailo-platform/H2O.com", "+447000000001"},
 		Created:         time.Unix(1378740807, 0),
 		Roles:           []string{"ADMIN"},
 		PasswordHistory: make([][]byte, 0),
@@ -150,7 +150,7 @@ func TestCreateUserIdempotent(t *testing.T) {
 	user = &domain.User{
 		App:             domain.Application("test"),
 		Uid:             "daveyg",
-		Ids:             []domain.Id{"dg+1@HailoOSS.com", "+447000000001"},
+		Ids:             []domain.Id{"dg+1@hailo-platform/H2O.com", "+447000000001"},
 		Created:         time.Unix(1378740807, 0),
 		Roles:           []string{"ADMIN"},
 		PasswordHistory: make([][]byte, 0),
@@ -171,7 +171,7 @@ func TestCreateUserIndexConstraints(t *testing.T) {
 	user := &domain.User{
 		App:             domain.Application("test"),
 		Uid:             "constraintstest",
-		Ids:             []domain.Id{"dg+11@HailoOSS.com", "+447000000002"},
+		Ids:             []domain.Id{"dg+11@hailo-platform/H2O.com", "+447000000002"},
 		Created:         time.Unix(1378740807, 0),
 		Roles:           []string{"ADMIN"},
 		PasswordHistory: make([][]byte, 0),
@@ -192,8 +192,8 @@ func TestCreateUserIndexConstraints(t *testing.T) {
 		t.Fatal("Should not be able to create duplicate user with same indexes")
 	} else {
 		// err should be known
-		if err.Code() != "com.HailoOSS.service.login.createuser.indexinuse" {
-			t.Fatalf("Index constraint err code should be com.HailoOSS.service.login.createuser.indexinuse, got %v", err.Code())
+		if err.Code() != "com.hailo-platform/H2O.service.login.createuser.indexinuse" {
+			t.Fatalf("Index constraint err code should be com.hailo-platform/H2O.service.login.createuser.indexinuse, got %v", err.Code())
 		}
 	}
 

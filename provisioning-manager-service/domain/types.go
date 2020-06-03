@@ -1,8 +1,8 @@
 package domain
 
 import (
-	"github.com/HailoOSS/protobuf/proto"
-	pproto "github.com/HailoOSS/provisioning-manager-service/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	pproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto"
 	"time"
 )
 

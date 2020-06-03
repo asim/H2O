@@ -5,9 +5,9 @@ import (
 	"reflect"
 	"sync"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	perrors "github.com/HailoOSS/platform/errors"
+	perrors "github.com/hailo-platform/H2O/platform/errors"
 )
 
 // Endpoint containing the name and handler to call with the request

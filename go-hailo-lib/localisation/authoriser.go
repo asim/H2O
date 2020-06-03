@@ -8,8 +8,8 @@ import (
 	log "github.com/cihub/seelog"
 	"github.com/golang/groupcache/lru"
 
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 // HobDiscriminator defines a function that can determine a HOB for a given server request. If no HOB can be determined,

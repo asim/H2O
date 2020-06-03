@@ -1,6 +1,6 @@
-package com.HailoOSS.kernel.binding.listrules;
+package com.hailo-platform/H2O.kernel.binding.listrules;
 
-import 'github.com/HailoOSS/binding-service/proto/rule.proto';
+import 'github.com/hailo-platform/H2O/binding-service/proto/rule.proto';
 
 message Request {
 	required string service = 1;
@@ -8,5 +8,5 @@ message Request {
 }
 
 message Response {
-	repeated com.HailoOSS.kernel.binding.BindingRule rules = 1;
+	repeated com.hailo-platform/H2O.kernel.binding.BindingRule rules = 1;
 }

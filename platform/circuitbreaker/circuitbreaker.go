@@ -15,7 +15,7 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 func init() {

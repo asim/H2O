@@ -1,14 +1,14 @@
 package binding
 
 import (
-	shared "github.com/HailoOSS/binding-service/proto"
-	createrule "github.com/HailoOSS/binding-service/proto/createrule"
-	deleterule "github.com/HailoOSS/binding-service/proto/deleterule"
-	listrules "github.com/HailoOSS/binding-service/proto/listrules"
-	"github.com/HailoOSS/hshell/login"
-	"github.com/HailoOSS/hshell/util"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/protobuf/proto"
+	shared "github.com/hailo-platform/H2O/binding-service/proto"
+	createrule "github.com/hailo-platform/H2O/binding-service/proto/createrule"
+	deleterule "github.com/hailo-platform/H2O/binding-service/proto/deleterule"
+	listrules "github.com/hailo-platform/H2O/binding-service/proto/listrules"
+	"github.com/hailo-platform/H2O/hshell/login"
+	"github.com/hailo-platform/H2O/hshell/util"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	log "github.com/cihub/seelog"
 )
 
@@ -41,7 +41,7 @@ func CreateRule(service string, version string, weight int) error {
 
 func callCreateRule(service string, version string, weight int) error {
 	request, _ := client.NewRequest(
-		"com.HailoOSS.kernel.binding",
+		"com.hailo-platform/H2O.kernel.binding",
 		"createrule",
 		&createrule.Request{
 			Rule: &shared.BindingRule{
@@ -65,7 +65,7 @@ func callCreateRule(service string, version string, weight int) error {
 func callDeleteRule(service string, version string, weight int) error {
 
 	request, _ := client.NewRequest(
-		"com.HailoOSS.kernel.binding",
+		"com.hailo-platform/H2O.kernel.binding",
 		"deleterule",
 		&deleterule.Request{
 			Rule: &shared.BindingRule{
@@ -89,7 +89,7 @@ func callDeleteRule(service string, version string, weight int) error {
 func callListRules(service string) ([]*shared.BindingRule, error) {
 
 	request, _ := client.NewRequest(
-		"com.HailoOSS.kernel.binding",
+		"com.hailo-platform/H2O.kernel.binding",
 		"listrules",
 		&listrules.Request{
 			Service: proto.String(service),

@@ -15,15 +15,15 @@ import (
 
 	"github.com/gorilla/pat"
 
-	"github.com/HailoOSS/build-service/coverage_parser"
-	"github.com/HailoOSS/build-service/models"
-	"github.com/HailoOSS/build-service/validate"
+	"github.com/hailo-platform/H2O/build-service/coverage_parser"
+	"github.com/hailo-platform/H2O/build-service/models"
+	"github.com/hailo-platform/H2O/build-service/validate"
 )
 
 const (
 	langGo      = "Go"
 	langJava    = "Java"
-	serviceName = "com.HailoOSS.build-service"
+	serviceName = "com.hailo-platform/H2O.build-service"
 
 	envSqlUsername = "BUILD_SERVICE_SQL_USERNAME"
 	envSqlPassword = "BUILD_SERVICE_SQL_PASSWORD"

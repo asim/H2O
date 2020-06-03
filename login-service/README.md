@@ -12,7 +12,7 @@ with password management features.
 
 If you're using Boxen, and have H2 installed:
 
-    go get github.com/HailoOSS/login-service
+    go get github.com/hailo-platform/H2O/login-service
     cat config/cassandra.boxen | cassandra-cli -p 19160
 
 You can setup a default user thus:
@@ -29,16 +29,16 @@ this up:
 
 Create a user that you can login with:
 
-	curl -d 'service=com.HailoOSS.service.login' -d endpoint='auth' -d 'request={"mech":"h2","deviceType":"cli","username":"admin","password":"Password1","application":"ADMIN"}' http://localhost:8080/v2/h2/call
+	curl -d 'service=com.hailo-platform/H2O.service.login' -d endpoint='auth' -d 'request={"mech":"h2","deviceType":"cli","username":"admin","password":"Password1","application":"ADMIN"}' http://localhost:8080/v2/h2/call
 
 Take the sessId parameter returned by this call and urlencode it for the next step.
 
 A default config so that we know how to call the H1 login service can be 
-installed for boxen via the [call API](github.com/HailoOSS/call-api):
+installed for boxen via the [call API](github.com/hailo-platform/H2O/call-api):
 
-	curl -d service=com.HailoOSS.service.config \
+	curl -d service=com.hailo-platform/H2O.service.config \
 		 -d endpoint=update \
-		 -d request="{\"id\":\"H2:BASE:com.HailoOSS.service.login\",\"message\":\"Install login config\",\"config\":`cat config/configservice.boxen.json | php -r 'echo json_encode(stream_get_contents(STDIN));'`}" \
+		 -d request="{\"id\":\"H2:BASE:com.hailo-platform/H2O.service.login\",\"message\":\"Install login config\",\"config\":`cat config/configservice.boxen.json | php -r 'echo json_encode(stream_get_contents(STDIN));'`}" \
 		 http://localhost:8080/v2/h2/call?session_id=<url encoded sessId from previous curl>
 
 
@@ -78,7 +78,7 @@ discrete part of the system for a maximum of 8 hours.
 
 ### Credentials store
 
-The [original login service](https://github.com/HailoOSS/login-service) had
+The [original login service](https://github.com/hailo-platform/H2O/login-service) had
 a specific system for storing "admin" users (think internal Hailo users who
 had access to portals etc.) It _did not_ store customer credentials nor
 driver credentials. Instead it had a system whereby different "authentication

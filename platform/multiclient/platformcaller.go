@@ -1,10 +1,10 @@
 package multiclient
 
 import (
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
 )
 
 // PlatformCaller is the default caller and makes requests via the platform layer

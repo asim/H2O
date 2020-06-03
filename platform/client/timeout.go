@@ -8,11 +8,11 @@ import (
 
 	log "github.com/cihub/seelog"
 	"github.com/davegardnerisme/deephash"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 
-	eps "github.com/HailoOSS/discovery-service/proto/endpoints"
+	eps "github.com/hailo-platform/H2O/discovery-service/proto/endpoints"
 )
 
 var (
@@ -145,7 +145,7 @@ func (t *Timeout) reloadSlas() {
 	for service := range t.endpoints {
 		// load from discovery service
 		log.Debugf("[Client] Loading SLAs from discovery service for %v...", service)
-		req, err := NewRequest("com.HailoOSS.kernel.discovery", "endpoints", &eps.Request{
+		req, err := NewRequest("com.hailo-platform/H2O.kernel.discovery", "endpoints", &eps.Request{
 			Service: proto.String(service),
 		})
 		if err != nil {

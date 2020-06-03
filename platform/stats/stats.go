@@ -12,14 +12,14 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"github.com/nu7hatch/gouuid"
 	metrics "github.com/rcrowley/go-metrics"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/util"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/util"
 
-	pstats "github.com/HailoOSS/platform/proto/stats"
+	pstats "github.com/hailo-platform/H2O/platform/proto/stats"
 )
 
 const (
@@ -67,7 +67,7 @@ type Endpoint interface {
 
 func init() {
 	// Set defaults for top level vars
-	ServiceName = "com.HailoOSS.unknown-service"
+	ServiceName = "com.hailo-platform/H2O.unknown-service"
 	ServiceVersion = 20140101000000
 	ServiceType = "h2.unknown"
 
@@ -244,7 +244,7 @@ func (s *stats) monitor() {
 
 // publish
 func (s *stats) publish(status string) {
-	if err := client.Pub("com.HailoOSS.monitor.stats", s.get(status)); err != nil {
+	if err := client.Pub("com.hailo-platform/H2O.monitor.stats", s.get(status)); err != nil {
 		log.Errorf("[Server] Failed to publish service monitoring stats: %v", err)
 	}
 }

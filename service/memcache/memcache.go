@@ -6,10 +6,10 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/dns"
-	inst "github.com/HailoOSS/service/instrumentation"
-	"github.com/HailoOSS/gomemcache/memcache"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/dns"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
+	"github.com/hailo-platform/H2O/gomemcache/memcache"
 )
 
 const (

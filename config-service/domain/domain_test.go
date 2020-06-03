@@ -8,10 +8,10 @@ import (
 	"testing"
 	"time"
 
-	platformtesting "github.com/HailoOSS/platform/testing"
-	ssync "github.com/HailoOSS/service/sync"
-	zk "github.com/HailoOSS/service/zookeeper"
-	gozk "github.com/HailoOSS/go-zookeeper/zk"
+	platformtesting "github.com/hailo-platform/H2O/platform/testing"
+	ssync "github.com/hailo-platform/H2O/service/sync"
+	zk "github.com/hailo-platform/H2O/service/zookeeper"
+	gozk "github.com/hailo-platform/H2O/go-zookeeper/zk"
 )
 
 type DomainSuite struct {
@@ -28,7 +28,7 @@ func (s *DomainSuite) SetupTest() {
 	s.zk = &zk.MockZookeeperClient{}
 	zk.ActiveMockZookeeperClient = s.zk
 	zk.Connector = zk.MockConnector
-	ssync.SetRegionLockNamespace("com.HailoOSS.service.config")
+	ssync.SetRegionLockNamespace("com.hailo-platform/H2O.service.config")
 }
 
 func (s *DomainSuite) TearDownTest() {

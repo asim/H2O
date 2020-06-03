@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/service/cassandra"
-	inst "github.com/HailoOSS/service/instrumentation"
-	"github.com/HailoOSS/gossie/src/gossie"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/service/cassandra"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
+	"github.com/hailo-platform/H2O/gossie/src/gossie"
 )
 
 // ReadSession fetches a single session - usually by base64-encoded sessionId, but also called

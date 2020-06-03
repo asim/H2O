@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 
 	log "github.com/cihub/seelog"
-	nsq "github.com/HailoOSS/service/nsq"
+	nsq "github.com/hailo-platform/H2O/service/nsq"
 )
 
 const (

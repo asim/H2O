@@ -1,6 +1,6 @@
-package com.HailoOSS.service.config.changelog;
+package com.hailo-platform/H2O.service.config.changelog;
 
-import 'github.com/HailoOSS/config-service/proto/common.proto';
+import 'github.com/hailo-platform/H2O/config-service/proto/common.proto';
 
 message Request {
     // specify an ID to filter the change log
@@ -13,6 +13,6 @@ message Request {
 }
 
 message Response {
-	repeated com.HailoOSS.service.config.Change changes = 1;
+	repeated com.hailo-platform/H2O.service.config.Change changes = 1;
 	optional string last = 2;
 }

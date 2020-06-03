@@ -8,18 +8,18 @@ import (
 	"github.com/streadway/amqp"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/HailoOSS/config-service/domain"
-	"github.com/HailoOSS/platform/server"
-	platformtesting "github.com/HailoOSS/platform/testing"
-	"github.com/HailoOSS/service/auth"
-	"github.com/HailoOSS/service/nsq"
-	ssync "github.com/HailoOSS/service/sync"
-	zk "github.com/HailoOSS/service/zookeeper"
-	gozk "github.com/HailoOSS/go-zookeeper/zk"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/config-service/domain"
+	"github.com/hailo-platform/H2O/platform/server"
+	platformtesting "github.com/hailo-platform/H2O/platform/testing"
+	"github.com/hailo-platform/H2O/service/auth"
+	"github.com/hailo-platform/H2O/service/nsq"
+	ssync "github.com/hailo-platform/H2O/service/sync"
+	zk "github.com/hailo-platform/H2O/service/zookeeper"
+	gozk "github.com/hailo-platform/H2O/go-zookeeper/zk"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	rproto "github.com/HailoOSS/config-service/proto/read"
-	uproto "github.com/HailoOSS/config-service/proto/update"
+	rproto "github.com/hailo-platform/H2O/config-service/proto/read"
+	uproto "github.com/hailo-platform/H2O/config-service/proto/update"
 )
 
 type UpdateSuite struct {
@@ -40,7 +40,7 @@ func (s *UpdateSuite) SetupTest() {
 	s.zk = &zk.MockZookeeperClient{}
 	zk.ActiveMockZookeeperClient = s.zk
 	zk.Connector = zk.MockConnector
-	ssync.SetRegionLockNamespace("com.HailoOSS.service.config")
+	ssync.SetRegionLockNamespace("com.hailo-platform/H2O.service.config")
 
 	// Mock NSQ
 	s.realPublisher = nsq.DefaultPublisher
@@ -119,7 +119,7 @@ func (s *UpdateSuite) TestUpdateHandlerAuth() {
 		lock.On("SetTTL", mock.AnythingOfType("time.Duration")).Return()
 		lock.On("SetTimeout", mock.AnythingOfType("time.Duration")).Return()
 
-		lockPath := fmt.Sprintf("/com.HailoOSS.service.config/%s", id)
+		lockPath := fmt.Sprintf("/com.hailo-platform/H2O.service.config/%s", id)
 		s.zk.
 			On("NewLock", lockPath, gozk.WorldACL(gozk.PermAll)).
 			Return(lock)

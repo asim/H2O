@@ -9,14 +9,14 @@ import (
 	"time"
 
 	"github.com/facebookgo/stack"
-	h2error "github.com/HailoOSS/api-proxy/errors"
-	"github.com/HailoOSS/api-proxy/session"
-	"github.com/HailoOSS/api-proxy/stats"
-	"github.com/HailoOSS/api-proxy/trace"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/service/auth"
-	inst "github.com/HailoOSS/service/instrumentation"
+	h2error "github.com/hailo-platform/H2O/api-proxy/errors"
+	"github.com/hailo-platform/H2O/api-proxy/session"
+	"github.com/hailo-platform/H2O/api-proxy/stats"
+	"github.com/hailo-platform/H2O/api-proxy/trace"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/service/auth"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 )
 
 const (
@@ -63,7 +63,7 @@ func rpcHandler(rw http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
 		err := &h2error.ApiError{
 			ErrorType:        errors.ErrorBadRequest,
-			ErrorCode:        "com.HailoOSS.api.rpc.postrequired",
+			ErrorCode:        "com.hailo-platform/H2O.api.rpc.postrequired",
 			ErrorDescription: "Requests to the RPC endpoint must be POST-ed",
 			ErrorContext:     []string{"15"},
 			ErrorHttpCode:    http.StatusMethodNotAllowed,
@@ -94,7 +94,7 @@ func rpcHandler(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// test auth -- blanket block on com.HailoOSS.kernel.*
+	// test auth -- blanket block on com.hailo-platform/H2O.kernel.*
 	if perr := authorisedFor(r, service); perr != nil {
 		h2error.Write(rw, perr, responseContentType, traceInfo)
 		return
@@ -106,7 +106,7 @@ func rpcHandler(rw http.ResponseWriter, r *http.Request) {
 		request.SetTraceShouldPersist(traceInfo.PersistentTrace)
 	}
 	request.SetSessionID(session.SessionId(r))
-	request.SetFrom("com.HailoOSS.hailo-2-api")
+	request.SetFrom("com.hailo-platform/H2O.hailo-2-api")
 	request.SetRemoteAddr(r.RemoteAddr)
 
 	rsp, perr := rpcCaller(request)
@@ -139,7 +139,7 @@ func httpToH2Request(r *http.Request) (service string, req *client.Request, perr
 		endpoint = r.URL.Query().Get("endpoint")
 	default: // assume JSON is posted as a form param
 		if err := r.ParseForm(); err != nil {
-			perr = errors.BadRequest("com.HailoOSS.api.rpc.parseform", "Cannot parse form data.", "15")
+			perr = errors.BadRequest("com.hailo-platform/H2O.api.rpc.parseform", "Cannot parse form data.", "15")
 			return
 		}
 		reqBytes = []byte(r.PostForm.Get("request"))
@@ -151,11 +151,11 @@ func httpToH2Request(r *http.Request) (service string, req *client.Request, perr
 	}
 
 	if service == "" {
-		perr = errors.BadRequest("com.HailoOSS.api.rpc.missingservice", "Missing 'service' parameter.", "15")
+		perr = errors.BadRequest("com.hailo-platform/H2O.api.rpc.missingservice", "Missing 'service' parameter.", "15")
 		return
 	}
 	if endpoint == "" {
-		perr = errors.BadRequest("com.HailoOSS.api.rpc.missingendpoint", "Missing 'endpoint' parameter.", "15")
+		perr = errors.BadRequest("com.hailo-platform/H2O.api.rpc.missingendpoint", "Missing 'endpoint' parameter.", "15")
 		return
 	}
 
@@ -169,7 +169,7 @@ func httpToH2Request(r *http.Request) (service string, req *client.Request, perr
 	}
 
 	if reqErr != nil {
-		perr = errors.BadRequest("com.HailoOSS.api.rpc.badrequest", fmt.Sprintf("%v", reqErr))
+		perr = errors.BadRequest("com.hailo-platform/H2O.api.rpc.badrequest", fmt.Sprintf("%v", reqErr))
 		return
 	}
 
@@ -179,7 +179,7 @@ func httpToH2Request(r *http.Request) (service string, req *client.Request, perr
 // authorisedFor checks if we are authorised to hit this service
 func authorisedFor(r *http.Request, service string) errors.Error {
 	// only bother if trying to hit kernel
-	if !strings.HasPrefix(service, "com.HailoOSS.kernel.") {
+	if !strings.HasPrefix(service, "com.hailo-platform/H2O.kernel.") {
 		return nil
 	}
 
@@ -197,5 +197,5 @@ func authorisedFor(r *http.Request, service string) errors.Error {
 		return nil
 	}
 
-	return errors.Forbidden("com.HailoOSS.api.rpc.auth", "Permission denied.", "5")
+	return errors.Forbidden("com.hailo-platform/H2O.api.rpc.auth", "Permission denied.", "5")
 }

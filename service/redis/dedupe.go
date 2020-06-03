@@ -3,8 +3,8 @@ package redis
 import (
 	log "github.com/cihub/seelog"
 	"github.com/garyburd/redigo/redis"
-	"github.com/HailoOSS/service/config"
-	d "github.com/HailoOSS/service/dedupe"
+	"github.com/hailo-platform/H2O/service/config"
+	d "github.com/hailo-platform/H2O/service/dedupe"
 	"time"
 )
 

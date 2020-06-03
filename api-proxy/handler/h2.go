@@ -8,15 +8,15 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/api-proxy/controlplane"
-	h2error "github.com/HailoOSS/api-proxy/errors"
-	api "github.com/HailoOSS/api-proxy/proto/api"
-	"github.com/HailoOSS/api-proxy/session"
-	"github.com/HailoOSS/api-proxy/stats"
-	"github.com/HailoOSS/api-proxy/trace"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	inst "github.com/HailoOSS/service/instrumentation"
+	"github.com/hailo-platform/H2O/api-proxy/controlplane"
+	h2error "github.com/hailo-platform/H2O/api-proxy/errors"
+	api "github.com/hailo-platform/H2O/api-proxy/proto/api"
+	"github.com/hailo-platform/H2O/api-proxy/session"
+	"github.com/hailo-platform/H2O/api-proxy/stats"
+	"github.com/hailo-platform/H2O/api-proxy/trace"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 )
 
 // h2Handler sends a request via H2, encoding the HTTP request as proto for an API-tier service
@@ -74,7 +74,7 @@ func h2Handler(rw http.ResponseWriter, r *http.Request, router controlplane.Rout
 		request.SetTraceShouldPersist(traceInfo.PersistentTrace)
 	}
 	request.SetSessionID(session.SessionId(r))
-	request.SetFrom("com.HailoOSS.hailo-2-api")
+	request.SetFrom("com.hailo-platform/H2O.hailo-2-api")
 	request.SetRemoteAddr(r.RemoteAddr)
 
 	rsp := &api.Response{}
@@ -118,5 +118,5 @@ func pathToEndpoint(p string) (service, endpoint string) {
 	p = path.Clean(p)
 	p = strings.TrimPrefix(p, "/")
 	parts := strings.Split(p, "/")
-	return "com.HailoOSS.api." + strings.Join(parts[:len(parts)-1], "."), parts[len(parts)-1]
+	return "com.hailo-platform/H2O.api." + strings.Join(parts[:len(parts)-1], "."), parts[len(parts)-1]
 }

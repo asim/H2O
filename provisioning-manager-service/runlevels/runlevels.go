@@ -5,13 +5,13 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/platform/util"
-	"github.com/HailoOSS/protobuf/proto"
-	"github.com/HailoOSS/provisioning-manager-service/dao"
-	levelsproto "github.com/HailoOSS/provisioning-manager-service/proto"
-	descproto "github.com/HailoOSS/provisioning-manager-service/proto/describerunlevels"
-	pproto "github.com/HailoOSS/provisioning-manager-service/proto/provisioned"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/platform/util"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/dao"
+	levelsproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto"
+	descproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto/describerunlevels"
+	pproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto/provisioned"
 )
 
 const (

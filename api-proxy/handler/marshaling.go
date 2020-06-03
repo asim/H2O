@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"strings"
 
-	api "github.com/HailoOSS/api-proxy/proto/api"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/protobuf/proto"
+	api "github.com/hailo-platform/H2O/api-proxy/proto/api"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 const (

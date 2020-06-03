@@ -1,7 +1,7 @@
 package hob
 
 import (
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/platform/server"
 
 	"fmt"
 	"sort"

@@ -9,9 +9,9 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/api-proxy/hostmapping"
-	"github.com/HailoOSS/api-proxy/stats"
-	inst "github.com/HailoOSS/service/instrumentation"
+	"github.com/hailo-platform/H2O/api-proxy/hostmapping"
+	"github.com/hailo-platform/H2O/api-proxy/stats"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 )
 
 const (

@@ -7,7 +7,7 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/login-service/domain"
+	"github.com/hailo-platform/H2O/login-service/domain"
 	"time"
 )
 

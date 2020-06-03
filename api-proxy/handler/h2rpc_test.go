@@ -10,10 +10,10 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	platformtesting "github.com/HailoOSS/platform/testing"
-	"github.com/HailoOSS/service/auth"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	platformtesting "github.com/hailo-platform/H2O/platform/testing"
+	"github.com/hailo-platform/H2O/service/auth"
 )
 
 type testCaller struct {
@@ -76,7 +76,7 @@ func (suite *h2RPCHandlerSuite) TestRpcHandlerFormEncodedPostReturningError() {
 	defer TeardownTestServer(t, server)
 
 	values := make(url.Values)
-	values.Set("service", "com.HailoOSS.service.foo")
+	values.Set("service", "com.hailo-platform/H2O.service.foo")
 	values.Set("endpoint", "bar")
 	values.Set("request", "{\"baz\":\"bing\"}")
 	body := values.Encode()
@@ -89,7 +89,7 @@ func (suite *h2RPCHandlerSuite) TestRpcHandlerFormEncodedPostReturningError() {
 
 	// double check request
 
-	assert.Equal(t, "com.HailoOSS.service.foo", caller.req.Service(), "Request has expected service name")
+	assert.Equal(t, "com.hailo-platform/H2O.service.foo", caller.req.Service(), "Request has expected service name")
 	assert.Equal(t, "bar", caller.req.Endpoint(), "Request has expected endpoint name")
 	assert.Equal(t, "application/json", caller.req.ContentType(), "Request has expected content-type")
 

@@ -8,9 +8,9 @@ import (
 	"sync"
 	"time"
 
-	auth "github.com/HailoOSS/login-service/proto/auth"
-	"github.com/HailoOSS/hintegrate/request"
-	"github.com/HailoOSS/hintegrate/validators"
+	auth "github.com/hailo-platform/H2O/login-service/proto/auth"
+	"github.com/hailo-platform/H2O/hintegrate/request"
+	"github.com/hailo-platform/H2O/hintegrate/validators"
 )
 
 const (
@@ -18,7 +18,7 @@ const (
 	adminPassFallback = "Password1"
 	mech              = "h2"
 	application       = "ADMIN"
-	serviceName       = "com.HailoOSS.service.login"
+	serviceName       = "com.hailo-platform/H2O.service.login"
 )
 
 // Stores found admin tokens in a map based on callapi_host
@@ -77,7 +77,7 @@ func adminLogin(c *request.Context, user, pass string) (string, error) {
 		return "", err
 	}
 	postData := map[string]string{
-		"service":  "com.HailoOSS.service.login",
+		"service":  "com.hailo-platform/H2O.service.login",
 		"endpoint": "auth",
 		"request":  string(adminJson),
 	}

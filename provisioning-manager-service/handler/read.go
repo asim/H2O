@@ -3,11 +3,11 @@ package handler
 import (
 	"fmt"
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
-	"github.com/HailoOSS/provisioning-manager-service/dao"
-	read "github.com/HailoOSS/provisioning-manager-service/proto/read"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/dao"
+	read "github.com/hailo-platform/H2O/provisioning-manager-service/proto/read"
 )
 
 func Read(req *server.Request) (proto.Message, errors.Error) {

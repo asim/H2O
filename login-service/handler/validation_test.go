@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/HailoOSS/login-service/domain"
+	"github.com/hailo-platform/H2O/login-service/domain"
 )
 
 func TestRoles(t *testing.T) {

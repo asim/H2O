@@ -1,12 +1,12 @@
-package com.HailoOSS.kernel.discovery.register;
+package com.hailo-platform/H2O.kernel.discovery.register;
 
-import 'github.com/HailoOSS/discovery-service/proto/service.proto';
+import 'github.com/hailo-platform/H2O/discovery-service/proto/service.proto';
 
 message Request {
 	required string instanceId = 1;
 	required string hostname = 2;
 	required string azName = 3;
-	required com.HailoOSS.kernel.discovery.Service service = 4;
+	required com.hailo-platform/H2O.kernel.discovery.Service service = 4;
 	required string endpoint = 5;
 	required int32 mean = 6;
 	required int32 upper95 = 7;
@@ -25,7 +25,7 @@ message MultiRequest {
 	required string instanceId = 1;
 	required string hostname = 2;
 	required string azName = 3;
-	required com.HailoOSS.kernel.discovery.Service service = 4;
+	required com.hailo-platform/H2O.kernel.discovery.Service service = 4;
 	repeated Endpoint endpoints = 5;
 	optional string machineClass = 6;
 }

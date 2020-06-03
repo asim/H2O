@@ -1,13 +1,13 @@
 package handler
 
 import (
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/discovery-service/registry"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/discovery-service/registry"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 
-	instancesproto "github.com/HailoOSS/discovery-service/proto/instances"
+	instancesproto "github.com/hailo-platform/H2O/discovery-service/proto/instances"
 )
 
 // Instances returns instances, optionally just matching an AZ name

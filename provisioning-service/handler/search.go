@@ -3,13 +3,13 @@ package handler
 import (
 	"fmt"
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
-	pproto "github.com/HailoOSS/provisioning-manager-service/proto/provisioned"
-	dao "github.com/HailoOSS/provisioning-service/dao"
-	search "github.com/HailoOSS/provisioning-service/proto/search"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	pproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto/provisioned"
+	dao "github.com/hailo-platform/H2O/provisioning-service/dao"
+	search "github.com/hailo-platform/H2O/provisioning-service/proto/search"
 )
 
 func provisioned(req *server.Request, serviceName, machineClass string) (dao.ProvisionedServices, error) {
@@ -23,14 +23,14 @@ func provisioned(req *server.Request, serviceName, machineClass string) (dao.Pro
 		pReq.MachineClass = proto.String(machineClass)
 	}
 
-	request, err := req.ScopedRequest("com.HailoOSS.kernel.provisioning-manager", "provisioned", pReq)
+	request, err := req.ScopedRequest("com.hailo-platform/H2O.kernel.provisioning-manager", "provisioned", pReq)
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.provisioning.handler.search", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.search", fmt.Sprintf("%v", err))
 	}
 
 	response := &pproto.Response{}
 	if err := client.Req(request, response); err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.provisioning.handler.search", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.search", fmt.Sprintf("%v", err))
 	}
 
 	var provisioned dao.ProvisionedServices
@@ -51,12 +51,12 @@ func Search(req *server.Request) (proto.Message, errors.Error) {
 
 	request := &search.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.provisioning.handler.search", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.search", fmt.Sprintf("%v", err))
 	}
 
 	rows, err := provisioned(req, request.GetServiceName(), request.GetMachineClass())
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.provisioning.handler.search", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.search", fmt.Sprintf("%v", err))
 	}
 
 	results := make([]*search.Result, len(rows))

@@ -1,12 +1,12 @@
 package server
 
 import (
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/service/config"
 
-	loadedconfigproto "github.com/HailoOSS/platform/proto/loadedconfig"
+	loadedconfigproto "github.com/hailo-platform/H2O/platform/proto/loadedconfig"
 )
 
 // loadedConfigHandler handles inbound requests to `loadedconfig` endpoint

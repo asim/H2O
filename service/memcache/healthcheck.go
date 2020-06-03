@@ -2,12 +2,12 @@ package memcache
 
 import (
 	"fmt"
-	"github.com/HailoOSS/service/healthcheck"
-	"github.com/HailoOSS/gomemcache/memcache"
+	"github.com/hailo-platform/H2O/service/healthcheck"
+	"github.com/hailo-platform/H2O/gomemcache/memcache"
 )
 
 const (
-	HealthCheckId = "com.HailoOSS.service.memcache"
+	HealthCheckId = "com.hailo-platform/H2O.service.memcache"
 )
 
 // HealthCheck asserts we can talk to memcache

@@ -12,9 +12,9 @@ import (
 	glob "github.com/obeattie/ohmyglob"
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/HailoOSS/go-hailo-lib/multierror"
-	serviceauth "github.com/HailoOSS/service/auth"
-	inst "github.com/HailoOSS/service/instrumentation"
+	"github.com/hailo-platform/H2O/go-hailo-lib/multierror"
+	serviceauth "github.com/hailo-platform/H2O/service/auth"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 
 	log "github.com/cihub/seelog"
 )

@@ -13,10 +13,10 @@ import (
 	"strings"
 
 	log "github.com/cihub/seelog"
-	nsqlib "github.com/HailoOSS/go-nsq"
+	nsqlib "github.com/hailo-platform/H2O/go-nsq"
 
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/nsq"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/nsq"
 )
 
 func Init(service string) {

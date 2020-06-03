@@ -10,7 +10,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/HailoOSS/build-service/models"
+	"github.com/hailo-platform/H2O/build-service/models"
 )
 
 func init() {
@@ -22,11 +22,11 @@ func validBuild() models.Build {
 		Hostname:     "localhost",
 		Architecture: "amd64",
 		GoVersion:    "1.1.1",
-		SourceURL:    "https://github.com/HailoOSS/build-service/commit/53d6db9a88494e948b64415f53e1bf9da7efcc4b",
+		SourceURL:    "https://github.com/hailo-platform/H2O/build-service/commit/53d6db9a88494e948b64415f53e1bf9da7efcc4b",
 		BinaryURL:    "http://s3.amazon.com/abcdefg",
 		Version:      "20130627091746",
 		Language:     "Go",
-		Name:         "com.HailoOSS.kernel.build-service",
+		Name:         "com.hailo-platform/H2O.kernel.build-service",
 		Branch:       "master",
 		TimeStamp:    1372346773,
 		Coverage: map[string]float64{
@@ -34,7 +34,7 @@ func validBuild() models.Build {
 			"domain": 100.0,
 		},
 		Dependencies: map[string]string{
-			"github.com/HailoOSS/go-server-layer": "e6dc54ee3618c7b354dccdb6425cf4f82e07423c",
+			"github.com/hailo-platform/H2O/go-server-layer": "e6dc54ee3618c7b354dccdb6425cf4f82e07423c",
 		},
 	}
 }

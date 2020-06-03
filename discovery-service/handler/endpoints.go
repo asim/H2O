@@ -1,13 +1,13 @@
 package handler
 
 import (
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/discovery-service/registry"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/discovery-service/registry"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 
-	endpointsproto "github.com/HailoOSS/discovery-service/proto/endpoints"
+	endpointsproto "github.com/hailo-platform/H2O/discovery-service/proto/endpoints"
 )
 
 // Endpoints returns all endpoints discovered (optionally matching a given service name),

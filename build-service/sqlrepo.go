@@ -9,7 +9,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 
-	"github.com/HailoOSS/build-service/models"
+	"github.com/hailo-platform/H2O/build-service/models"
 )
 
 type sqlRepo struct {

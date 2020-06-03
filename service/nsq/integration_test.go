@@ -6,7 +6,7 @@ package nsq
 
 import (
 	"fmt"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 	"testing"
 )
 

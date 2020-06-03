@@ -7,11 +7,11 @@ import (
 	"strings"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	jsonschema "github.com/HailoOSS/go-jsonschema"
-	"github.com/HailoOSS/platform/errors"
-	jsonschemaproto "github.com/HailoOSS/platform/proto/jsonschema"
+	jsonschema "github.com/hailo-platform/H2O/go-jsonschema"
+	"github.com/hailo-platform/H2O/platform/errors"
+	jsonschemaproto "github.com/hailo-platform/H2O/platform/proto/jsonschema"
 )
 
 // jsonschemaHandler returns all registered endpoints in json schema format as per ITF draft4
@@ -35,7 +35,7 @@ func jsonschemaHandler(req *Request) (proto.Message, errors.Error) {
 
 	rsp, err := json.Marshal(schemas)
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.kernel.marshal.error", fmt.Sprintf("Unable to unmarshal response data: %v", err.Error()))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.kernel.marshal.error", fmt.Sprintf("Unable to unmarshal response data: %v", err.Error()))
 	}
 
 	return &jsonschemaproto.Response{

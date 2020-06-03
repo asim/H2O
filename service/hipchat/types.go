@@ -3,7 +3,7 @@ package hipchat
 import (
 	"fmt"
 
-	"github.com/HailoOSS/go-hailo-lib/multierror"
+	"github.com/hailo-platform/H2O/go-hailo-lib/multierror"
 )
 
 // Notifier represents something that can send notifications

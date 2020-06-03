@@ -4,9 +4,9 @@ import (
 	"math"
 	"time"
 
-	inst "github.com/HailoOSS/service/instrumentation"
-	"github.com/HailoOSS/provisioning-manager-service/domain"
-	"github.com/HailoOSS/provisioning-manager-service/registry"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/domain"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/registry"
 )
 
 type stats struct {

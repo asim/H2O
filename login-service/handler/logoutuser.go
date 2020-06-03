@@ -2,12 +2,12 @@ package handler
 
 import (
 	"fmt"
-	"github.com/HailoOSS/login-service/auther"
-	"github.com/HailoOSS/login-service/dao"
-	logoutproto "github.com/HailoOSS/login-service/proto/logoutuser"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/login-service/auther"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	logoutproto "github.com/hailo-platform/H2O/login-service/proto/logoutuser"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 // LogoutUser will invalidate a user's session, thus effectively logging them out

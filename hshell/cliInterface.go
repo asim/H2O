@@ -18,14 +18,14 @@ import (
 	"text/tabwriter"
 	"time"
 
-	"github.com/HailoOSS/gopass"
-	"github.com/HailoOSS/hshell/binding"
-	"github.com/HailoOSS/hshell/build"
-	"github.com/HailoOSS/hshell/discovery"
-	"github.com/HailoOSS/hshell/login"
-	"github.com/HailoOSS/hshell/provision"
-	vm "github.com/HailoOSS/hshell/versionmanager"
-	"github.com/HailoOSS/platform/raven"
+	"github.com/hailo-platform/H2O/gopass"
+	"github.com/hailo-platform/H2O/hshell/binding"
+	"github.com/hailo-platform/H2O/hshell/build"
+	"github.com/hailo-platform/H2O/hshell/discovery"
+	"github.com/hailo-platform/H2O/hshell/login"
+	"github.com/hailo-platform/H2O/hshell/provision"
+	vm "github.com/hailo-platform/H2O/hshell/versionmanager"
+	"github.com/hailo-platform/H2O/platform/raven"
 	seelog "github.com/cihub/seelog"
 	"github.com/peterh/liner"
 )
@@ -103,9 +103,9 @@ var randomStagingPort int = 55673
 var defaultRabbitPort int = 5672
 
 const (
-	liveBastion    = "master-bastion01-live.i.HailoOSS.com"
-	stagingBastion = "master-bastion01-staging.i.HailoOSS.com"
-	envUrlTemplate = "%s.%s.i.%s.HailoOSS.net"
+	liveBastion    = "master-bastion01-live.i.hailo-platform/H2O.com"
+	stagingBastion = "master-bastion01-staging.i.hailo-platform/H2O.com"
+	envUrlTemplate = "%s.%s.i.%s.hailo-platform/H2O.net"
 	sieUrlTemplate = "api-local.%s.e.hailoweb.com"
 )
 
@@ -1285,7 +1285,7 @@ func printStats(service string) {
   Num Recent Errors (10 min):   6
   Auto Scaling Group Class:     SomeClass
   Owner:                        Jono
-  Source:                       github.com/HailoOSS/Repo
+  Source:                       github.com/hailo-platform/H2O/Repo
   Highest Version:              123456789
   Lowest Version:               000000001
 

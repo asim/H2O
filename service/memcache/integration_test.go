@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/gomemcache/memcache"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/gomemcache/memcache"
 )
 
 func TestPub(t *testing.T) {

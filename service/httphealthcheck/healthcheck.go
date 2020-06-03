@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/HailoOSS/service/healthcheck"
+	"github.com/hailo-platform/H2O/service/healthcheck"
 	"github.com/mreiferson/go-httpclient"
 )
 
-const HealthCheckId = "com.HailoOSS.service.http"
+const HealthCheckId = "com.hailo-platform/H2O.service.http"
 
 var (
 	defaultHttpClient *http.Client

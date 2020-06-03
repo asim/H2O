@@ -6,14 +6,14 @@ package aws_healthchecks_s3
 
 import (
 	"fmt"
-	"github.com/HailoOSS/service/healthcheck"
-	"github.com/HailoOSS/goamz/aws"
-	"github.com/HailoOSS/goamz/s3"
+	"github.com/hailo-platform/H2O/service/healthcheck"
+	"github.com/hailo-platform/H2O/goamz/aws"
+	"github.com/hailo-platform/H2O/goamz/s3"
 	"regexp"
 	"time"
 )
 
-const HealthCheckId = "com.HailoOSS.service.aws_s3"
+const HealthCheckId = "com.hailo-platform/H2O.service.aws_s3"
 
 // HealthCheck asserts we can connect to s3
 func HealthCheck(accessKey string, secretKey string, region string) healthcheck.Checker {

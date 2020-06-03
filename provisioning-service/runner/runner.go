@@ -10,7 +10,7 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/provisioning-service/dao"
+	"github.com/hailo-platform/H2O/provisioning-service/dao"
 )
 
 const (

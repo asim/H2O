@@ -1,8 +1,8 @@
 package statusmonitor
 
 import (
-	zk "github.com/HailoOSS/service/zookeeper"
-	gozk "github.com/HailoOSS/go-zookeeper/zk"
+	zk "github.com/hailo-platform/H2O/service/zookeeper"
+	gozk "github.com/hailo-platform/H2O/go-zookeeper/zk"
 )
 
 const (

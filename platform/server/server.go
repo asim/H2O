@@ -13,29 +13,29 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"github.com/nu7hatch/gouuid"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/healthcheck"
-	pllogs "github.com/HailoOSS/platform/logs"
-	"github.com/HailoOSS/platform/raven"
-	"github.com/HailoOSS/platform/stats"
-	plutil "github.com/HailoOSS/platform/util"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/config/service_loader"
-	slhc "github.com/HailoOSS/service/healthcheck"
-	inst "github.com/HailoOSS/service/instrumentation"
-	ssync "github.com/HailoOSS/service/sync"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/healthcheck"
+	pllogs "github.com/hailo-platform/H2O/platform/logs"
+	"github.com/hailo-platform/H2O/platform/raven"
+	"github.com/hailo-platform/H2O/platform/stats"
+	plutil "github.com/hailo-platform/H2O/platform/util"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/config/service_loader"
+	slhc "github.com/hailo-platform/H2O/service/healthcheck"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
+	ssync "github.com/hailo-platform/H2O/service/sync"
 
-	healthproto "github.com/HailoOSS/platform/proto/healthcheck"
-	jsonschemaproto "github.com/HailoOSS/platform/proto/jsonschema"
-	loadedconfigproto "github.com/HailoOSS/platform/proto/loadedconfig"
-	profilestartproto "github.com/HailoOSS/platform/proto/profilestart"
-	profilestopproto "github.com/HailoOSS/platform/proto/profilestop"
-	statsproto "github.com/HailoOSS/platform/proto/stats"
+	healthproto "github.com/hailo-platform/H2O/platform/proto/healthcheck"
+	jsonschemaproto "github.com/hailo-platform/H2O/platform/proto/jsonschema"
+	loadedconfigproto "github.com/hailo-platform/H2O/platform/proto/loadedconfig"
+	profilestartproto "github.com/hailo-platform/H2O/platform/proto/profilestart"
+	profilestopproto "github.com/hailo-platform/H2O/platform/proto/profilestop"
+	statsproto "github.com/hailo-platform/H2O/platform/proto/stats"
 )
 
 type Options struct {
@@ -44,13 +44,13 @@ type Options struct {
 }
 
 var (
-	// Name is the name of the service such as com.HailoOSS.example
+	// Name is the name of the service such as com.hailo-platform/H2O.example
 	Name string
 	// Description is the human readable version for the Name
 	Description string
 	// Version is the timestamp of the release
 	Version uint64
-	// Source is the URL of the source code, eg: github.com/HailoOSS/foo
+	// Source is the URL of the source code, eg: github.com/hailo-platform/H2O/foo
 	Source string
 	// OwnerEmail is the email address of the person who is responsible for this service
 	OwnerEmail string
@@ -361,7 +361,7 @@ reqProcessor:
 		// Match a handler
 		endpoint, ok := reg.find(req.Endpoint())
 		if !ok {
-			if rsp, err := ErrorResponse(req, errors.InternalServerError("com.HailoOSS.kernel.handler.missing", fmt.Sprintf("No handler registered for %s", req.Destination()))); err != nil {
+			if rsp, err := ErrorResponse(req, errors.InternalServerError("com.hailo-platform/H2O.kernel.handler.missing", fmt.Sprintf("No handler registered for %s", req.Destination()))); err != nil {
 				log.Criticalf("[Server] Unable to build response: %v", err)
 			} else {
 				raven.SendResponse(rsp, InstanceID)
@@ -388,7 +388,7 @@ reqProcessor:
 			_, rspProtoT := endpoint.ProtoTypes()
 			rspDataT := reflect.TypeOf(rspData)
 			if rspProtoT != nil && rspProtoT != rspDataT {
-				err = errors.InternalServerError("com.HailoOSS.kernel.server.mismatchedprotocol",
+				err = errors.InternalServerError("com.hailo-platform/H2O.kernel.server.mismatchedprotocol",
 					fmt.Sprintf("Mismatched response protocol. %s != %s", rspDataT.String(), rspProtoT.String()))
 			}
 		}
@@ -416,7 +416,7 @@ reqProcessor:
 		}
 
 		if rsp, err := ReplyResponse(req, rspData); err != nil {
-			if rsp, err2 := ErrorResponse(req, errors.InternalServerError("com.HailoOSS.kernel.marshal.error", fmt.Sprintf("Could not marshal response %v", err))); err2 != nil {
+			if rsp, err2 := ErrorResponse(req, errors.InternalServerError("com.hailo-platform/H2O.kernel.marshal.error", fmt.Sprintf("Could not marshal response %v", err))); err2 != nil {
 				log.Criticalf("[Server] Unable to build error response: %v", err2)
 			} else { // Send the error response
 				raven.SendResponse(rsp, InstanceID)

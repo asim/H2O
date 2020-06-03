@@ -3,9 +3,9 @@ package sessinvalidator
 import (
 	log "github.com/cihub/seelog"
 
-	nsqlib "github.com/HailoOSS/go-nsq"
-	"github.com/HailoOSS/service/auth"
-	"github.com/HailoOSS/service/nsq"
+	nsqlib "github.com/hailo-platform/H2O/go-nsq"
+	"github.com/hailo-platform/H2O/service/auth"
+	"github.com/hailo-platform/H2O/service/nsq"
 )
 
 // Run will connect to NSQ, consume and process session expiry requests

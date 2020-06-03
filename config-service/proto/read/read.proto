@@ -1,6 +1,6 @@
-package com.HailoOSS.service.config.read;
+package com.hailo-platform/H2O.service.config.read;
 
-import 'github.com/HailoOSS/config-service/proto/common.proto';
+import 'github.com/hailo-platform/H2O/config-service/proto/common.proto';
 
 message Request {
 	required string id = 1;
@@ -10,5 +10,5 @@ message Request {
 message Response {
 	required string config = 1;
 	required string hash = 2;
-	required com.HailoOSS.service.config.ChangeMeta meta = 3;
+	required com.hailo-platform/H2O.service.config.ChangeMeta meta = 3;
 }

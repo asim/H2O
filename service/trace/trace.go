@@ -5,8 +5,8 @@ package trace
 import (
 	"fmt"
 	log "github.com/cihub/seelog"
-	traceproto "github.com/HailoOSS/platform/proto/trace"
-	"github.com/HailoOSS/protobuf/proto"
+	traceproto "github.com/hailo-platform/H2O/platform/proto/trace"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 // Send will ping off a trace event

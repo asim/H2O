@@ -1,8 +1,8 @@
 package util
 
 import (
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"time"
 )
 

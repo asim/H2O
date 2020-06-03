@@ -3,13 +3,13 @@ package handler
 import (
 	"time"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/login-service/domain"
-	protoep "github.com/HailoOSS/login-service/proto"
-	protosession "github.com/HailoOSS/login-service/proto/listsessions"
-	protologin "github.com/HailoOSS/login-service/proto/readlogin"
-	protouser "github.com/HailoOSS/login-service/proto/readuser"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	protoep "github.com/hailo-platform/H2O/login-service/proto"
+	protosession "github.com/hailo-platform/H2O/login-service/proto/listsessions"
+	protologin "github.com/hailo-platform/H2O/login-service/proto/readlogin"
+	protouser "github.com/hailo-platform/H2O/login-service/proto/readuser"
 )
 
 func protoToTime(t *int64, def time.Time) time.Time {

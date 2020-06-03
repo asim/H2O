@@ -1,11 +1,11 @@
 // Package weberrors aims to ease error reporting for webish service programming.
-// The error type here implements the github.com/HailoOSS/platform/errors Errors interface
+// The error type here implements the github.com/hailo-platform/H2O/platform/errors Errors interface
 // If in doubt, ask author (John Dobronszki)
 package weberrors
 
 import (
 	"github.com/facebookgo/stack"
-	"github.com/HailoOSS/platform/errors"
+	"github.com/hailo-platform/H2O/platform/errors"
 )
 
 const (
@@ -55,7 +55,7 @@ func (e *Error) UnsetC(k string) *Error {
 	return e
 }
 
-// SetCode sets the error code. (eg. com.HailoOSS.service.organization.whatever)
+// SetCode sets the error code. (eg. com.hailo-platform/H2O.service.organization.whatever)
 func (e *Error) SetCode(c string) *Error {
 	e.code = c
 	return e

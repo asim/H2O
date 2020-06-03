@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	localisation "github.com/HailoOSS/go-hailo-lib/localisation/hob"
+	localisation "github.com/hailo-platform/H2O/go-hailo-lib/localisation/hob"
 )
 
 func PhoneToInternational(hobCode, phone string) (string, error) {

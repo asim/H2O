@@ -2,16 +2,16 @@ package handler
 
 import (
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/login-service/auther"
-	"github.com/HailoOSS/login-service/constants"
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/login-service/domain"
+	"github.com/hailo-platform/H2O/login-service/auther"
+	"github.com/hailo-platform/H2O/login-service/constants"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/login-service/domain"
 
-	auth "github.com/HailoOSS/login-service/proto/auth"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	auth "github.com/hailo-platform/H2O/login-service/proto/auth"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 type authResponse struct {
@@ -22,7 +22,7 @@ type authResponse struct {
 func Auth(req *server.Request) (proto.Message, errors.Error) {
 	request := &auth.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.service.login.auth.unmarshal", err.Error())
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.login.auth.unmarshal", err.Error())
 	}
 
 	authMech := request.GetMech()
@@ -84,7 +84,7 @@ func authViaH2(req *server.Request, request *auth.Request) (*auth.Response, erro
 	if noExpire { // Get existing session
 		existingSession, err := dao.ReadSession(req.SessionID())
 		if err != nil {
-			return nil, errors.InternalServerError("com.HailoOSS.service.login.auth.readsession", err.Error())
+			return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.auth.readsession", err.Error())
 		}
 		currentSession = existingSession
 	}
@@ -92,10 +92,10 @@ func authViaH2(req *server.Request, request *auth.Request) (*auth.Response, erro
 	sess, err := auther.Auth(app, deviceType, username, password, newPassword, meta, currentSession)
 	if err == auther.ErrorChangePassword {
 		// need a different code for change password
-		return nil, errors.InternalServerError("com.HailoOSS.service.login.auth.change-password", err.Error())
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.auth.change-password", err.Error())
 	}
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.login.auth.auther", err.Error())
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.login.auth.auther", err.Error())
 	}
 
 	if sess == nil {

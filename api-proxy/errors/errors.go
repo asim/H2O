@@ -7,10 +7,10 @@ import (
 
 	log "github.com/cihub/seelog"
 	"github.com/facebookgo/stack"
-	"github.com/HailoOSS/api-proxy/trace"
-	perrors "github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/api-proxy/trace"
+	perrors "github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 const (

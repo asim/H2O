@@ -1,6 +1,6 @@
-package com.HailoOSS.kernel.provisioningmanager.getprovisioner;
+package com.hailo-platform/H2O.kernel.provisioningmanager.getprovisioner;
 
-import "github.com/HailoOSS/provisioning-manager-service/proto/provisioner.proto";
+import "github.com/hailo-platform/H2O/provisioning-manager-service/proto/provisioner.proto";
 
 message Request {
 	required string hostname = 1;

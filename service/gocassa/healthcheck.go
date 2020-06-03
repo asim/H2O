@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/HailoOSS/service/connhealthcheck"
-	"github.com/HailoOSS/service/healthcheck"
-	"github.com/HailoOSS/gocassa"
+	"github.com/hailo-platform/H2O/service/connhealthcheck"
+	"github.com/hailo-platform/H2O/service/healthcheck"
+	"github.com/hailo-platform/H2O/gocassa"
 )
 
 const (
-	HealthCheckId  = "com.HailoOSS.service.cassandra-gocassa"
-	MaxConnCheckId = "com.HailoOSS.service.cassandra-gocassa.maxconns"
+	HealthCheckId  = "com.hailo-platform/H2O.service.cassandra-gocassa"
+	MaxConnCheckId = "com.hailo-platform/H2O.service.cassandra-gocassa.maxconns"
 )
 
 // HealthCheck verifies we can connect to the supplied C* keyspace, and verifies the passed column families exist

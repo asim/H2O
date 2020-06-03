@@ -1,7 +1,7 @@
 {
 	"application":"driverapi",
 	"uid":"ATL10001",
-	"ids":["dg@HailoOSS.com","+447921465358"],
+	"ids":["dg@hailo-platform/H2O.com","+447921465358"],
 	"createdTimestamp":1384505208,
 	"roles":["ADMIN"],
 	"password":"12345"

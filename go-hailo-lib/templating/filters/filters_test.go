@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/HailoOSS/pongo2"
+	"github.com/hailo-platform/H2O/pongo2"
 	"github.com/stretchr/testify/assert"
 )
 

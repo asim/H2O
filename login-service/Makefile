@@ -28,7 +28,7 @@ test :
 build :
 	$(go_build_flags) go build -v
 	docker build -t $(image) .
-	docker run --rm $(image) /$(image) -name 2>/dev/null | grep 'com.HailoOSS' || exit 1
+	docker run --rm $(image) /$(image) -name 2>/dev/null | grep 'com.hailo-platform/H2O' || exit 1
 
 run :
 	docker run -it --rm --name $(container_name) \

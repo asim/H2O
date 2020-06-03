@@ -11,10 +11,10 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	inst "github.com/HailoOSS/service/instrumentation"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 
-	"github.com/HailoOSS/service/zookeeper"
-	gozk "github.com/HailoOSS/go-zookeeper/zk"
+	"github.com/hailo-platform/H2O/service/zookeeper"
+	gozk "github.com/hailo-platform/H2O/go-zookeeper/zk"
 )
 
 const (

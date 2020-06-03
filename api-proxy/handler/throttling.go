@@ -10,8 +10,8 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/api-proxy/errors"
-	"github.com/HailoOSS/api-proxy/session"
+	"github.com/hailo-platform/H2O/api-proxy/errors"
+	"github.com/hailo-platform/H2O/api-proxy/session"
 )
 
 const (
@@ -198,7 +198,7 @@ func (t *ThrottlingHandler) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 			Status:     false,
 			Payload:    "Client error: rate limit exceeded",
 			Number:     429,
-			DottedCode: "com.HailoOSS.api.throttled",
+			DottedCode: "com.hailo-platform/H2O.api.throttled",
 			Context:    nil,
 		})
 		if marshalErr != nil {

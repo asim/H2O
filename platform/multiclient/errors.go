@@ -4,9 +4,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/HailoOSS/go-hailo-lib/multierror"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
+	"github.com/hailo-platform/H2O/go-hailo-lib/multierror"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
 )
 
 type Errors interface {

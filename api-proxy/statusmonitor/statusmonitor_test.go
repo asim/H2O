@@ -2,10 +2,10 @@ package statusmonitor
 
 import (
 	"fmt"
-	"github.com/HailoOSS/platform/multiclient"
-	platformtesting "github.com/HailoOSS/platform/testing"
-	zk "github.com/HailoOSS/service/zookeeper"
-	gozk "github.com/HailoOSS/go-zookeeper/zk"
+	"github.com/hailo-platform/H2O/platform/multiclient"
+	platformtesting "github.com/hailo-platform/H2O/platform/testing"
+	zk "github.com/hailo-platform/H2O/service/zookeeper"
+	gozk "github.com/hailo-platform/H2O/go-zookeeper/zk"
 	"testing"
 	"time"
 )

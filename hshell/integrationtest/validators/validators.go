@@ -2,7 +2,7 @@ package validators
 
 import (
 	"github.com/bitly/go-simplejson"
-	"github.com/HailoOSS/hshell/integrationtest/request"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/request"
 	"regexp"
 )
 

@@ -2,16 +2,16 @@ package provision
 
 import (
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/raven"
-	"github.com/HailoOSS/hshell/login"
-	"github.com/HailoOSS/hshell/util"
-	"github.com/HailoOSS/protobuf/proto"
-	create "github.com/HailoOSS/provisioning-manager-service/proto/create"
-	del "github.com/HailoOSS/provisioning-manager-service/proto/delete"
-	search "github.com/HailoOSS/provisioning-manager-service/proto/search"
-	restart "github.com/HailoOSS/provisioning-service/proto/restart"
-	restartaz "github.com/HailoOSS/provisioning-service/proto/restartaz"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/raven"
+	"github.com/hailo-platform/H2O/hshell/login"
+	"github.com/hailo-platform/H2O/hshell/util"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	create "github.com/hailo-platform/H2O/provisioning-manager-service/proto/create"
+	del "github.com/hailo-platform/H2O/provisioning-manager-service/proto/delete"
+	search "github.com/hailo-platform/H2O/provisioning-manager-service/proto/search"
+	restart "github.com/hailo-platform/H2O/provisioning-service/proto/restart"
+	restartaz "github.com/hailo-platform/H2O/provisioning-service/proto/restartaz"
 	"strconv"
 )
 
@@ -123,7 +123,7 @@ func callCreate(service string, class string, version int) error {
 	}
 
 	request, _ := client.NewRequest(
-		"com.HailoOSS.kernel.provisioning-manager",
+		"com.hailo-platform/H2O.kernel.provisioning-manager",
 		"create",
 		&create.Request{
 			ServiceName:    proto.String(service),
@@ -148,7 +148,7 @@ func callDelete(service string, class string, version int) error {
 	}
 
 	request, _ := client.NewRequest(
-		"com.HailoOSS.kernel.provisioning-manager",
+		"com.hailo-platform/H2O.kernel.provisioning-manager",
 		"delete",
 		&del.Request{
 			ServiceName:    proto.String(service),
@@ -173,7 +173,7 @@ func callSearch(service string, class string) ([]*search.Result, error) {
 	}
 
 	request, _ := client.NewRequest(
-		"com.HailoOSS.kernel.provisioning-manager",
+		"com.hailo-platform/H2O.kernel.provisioning-manager",
 		"search",
 		&search.Request{
 			ServiceName:  proto.String(service),
@@ -193,7 +193,7 @@ func callSearch(service string, class string) ([]*search.Result, error) {
 
 func PubRestart(service, class string, version uint64, azname string) error {
 	pub, err := client.NewPublication(
-		"com.HailoOSS.kernel.provisioning.restart",
+		"com.hailo-platform/H2O.kernel.provisioning.restart",
 		&restart.Request{
 			ServiceName:    proto.String(service),
 			ServiceVersion: proto.Uint64(version),
@@ -210,7 +210,7 @@ func PubRestart(service, class string, version uint64, azname string) error {
 
 func PubRestartAz(azname string) error {
 	pub, err := client.NewPublication(
-		"com.HailoOSS.kernel.provisioning.restartaz",
+		"com.hailo-platform/H2O.kernel.provisioning.restartaz",
 		&restartaz.Request{
 			AzName: proto.String(azname),
 		},

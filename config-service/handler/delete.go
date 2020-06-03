@@ -4,12 +4,12 @@ import (
 	"fmt"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/config-service/domain"
-	del "github.com/HailoOSS/config-service/proto/delete"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/config-service/domain"
+	del "github.com/hailo-platform/H2O/config-service/proto/delete"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 	gouuid "github.com/nu7hatch/gouuid"
 )
 
@@ -17,7 +17,7 @@ import (
 func Delete(req *server.Request) (proto.Message, errors.Error) {
 	request := &del.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.service.config.delete", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.delete", fmt.Sprintf("%v", err))
 	}
 
 	previousConfig, _, err := domain.ReadConfig(request.GetId(), request.GetPath())
@@ -27,7 +27,7 @@ func Delete(req *server.Request) (proto.Message, errors.Error) {
 
 	u4, err := gouuid.NewV4()
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.config.delete.genid", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.delete.genid", fmt.Sprintf("%v", err))
 	}
 
 	err = domain.DeleteConfig(
@@ -39,10 +39,10 @@ func Delete(req *server.Request) (proto.Message, errors.Error) {
 		request.GetMessage(),
 	)
 	if err == domain.ErrPathNotFound {
-		return nil, errors.NotFound("com.HailoOSS.service.config.delete", fmt.Sprintf("%v", err))
+		return nil, errors.NotFound("com.hailo-platform/H2O.service.config.delete", fmt.Sprintf("%v", err))
 	}
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.service.config.delete", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.service.config.delete", fmt.Sprintf("%v", err))
 	}
 
 	broadcastChange(request.GetId())

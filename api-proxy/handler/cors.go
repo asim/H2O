@@ -8,7 +8,7 @@ import (
 var allowedCorsOrigins = [...]*regexp.Regexp{
 	regexp.MustCompile(`^https?://(?:[-\w\.]+\.)?hailoweb.com(:\d+)?$`),
 	regexp.MustCompile(`^https?://(?:[-\w\.]+\.)?hailoapp.com(:\d+)?$`),
-	regexp.MustCompile(`^https?://(?:[-\w\.]+\.)?HailoOSS.com(:\d+)?$`),
+	regexp.MustCompile(`^https?://(?:[-\w\.]+\.)?hailo-platform/H2O.com(:\d+)?$`),
 	regexp.MustCompile(`^https?://(?:[-\w\.]+\.)?hailovpn.com(:\d+)?$`),
 	regexp.MustCompile(`^https?://(?:[-\w\.]+\.)?elasticride.com(:\d+)?$`),
 	regexp.MustCompile(`^https?://(?:[-\w\.]+\.)?elasticride.local(:\d+)?$`),

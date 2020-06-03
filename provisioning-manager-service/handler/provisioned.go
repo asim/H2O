@@ -1,12 +1,12 @@
 package handler
 
 import (
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
-	"github.com/HailoOSS/provisioning-manager-service/cache"
-	pproto "github.com/HailoOSS/provisioning-manager-service/proto/provisioned"
-	"github.com/HailoOSS/provisioning-manager-service/runlevels"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/cache"
+	pproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto/provisioned"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/runlevels"
 )
 
 func Provisioned(req *server.Request) (proto.Message, errors.Error) {

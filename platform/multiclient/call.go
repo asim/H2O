@@ -1,7 +1,7 @@
 package multiclient
 
 import (
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 func Call(scope Scoper, service string, endpoint string, request proto.Message, response proto.Message) error {

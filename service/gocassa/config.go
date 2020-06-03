@@ -12,11 +12,11 @@ import (
 
 	log "github.com/cihub/seelog"
 	"github.com/gocql/gocql"
-	"github.com/HailoOSS/go-hostpool"
+	"github.com/hailo-platform/H2O/go-hostpool"
 
-	platutil "github.com/HailoOSS/platform/util"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/dns"
+	platutil "github.com/hailo-platform/H2O/platform/util"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/dns"
 )
 
 var (

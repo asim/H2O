@@ -3,16 +3,16 @@ package handler
 import (
 	"fmt"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/login-service/dao"
-	grantservice "github.com/HailoOSS/login-service/proto/grantservice"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	grantservice "github.com/hailo-platform/H2O/login-service/proto/grantservice"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 const (
-	thinAPI = "com.HailoOSS.hailo-2-api"
+	thinAPI = "com.hailo-platform/H2O.hailo-2-api"
 )
 
 // GrantService will authorise a specific service to be authorised to talk to a specific endpoint

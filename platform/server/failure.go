@@ -8,12 +8,12 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/service/nsq"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/service/nsq"
 
-	fproto "github.com/HailoOSS/platform/proto/failure"
-	"github.com/HailoOSS/protobuf/proto"
+	fproto "github.com/hailo-platform/H2O/platform/proto/failure"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 var (
@@ -37,7 +37,7 @@ func publishFailure(r interface{}) {
 	b := make([]byte, 1024)
 	runtime.Stack(b, true)
 
-	if err := client.Pub("com.HailoOSS.monitor.failure", &fproto.Failure{
+	if err := client.Pub("com.hailo-platform/H2O.monitor.failure", &fproto.Failure{
 		ServiceName:    proto.String(Name),
 		ServiceVersion: proto.Uint64(Version),
 		AzName:         proto.String(az),

@@ -5,24 +5,24 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/config-service/config"
-	"github.com/HailoOSS/config-service/dao"
-	"github.com/HailoOSS/config-service/domain"
-	"github.com/HailoOSS/config-service/handler"
-	"github.com/HailoOSS/config-service/httpserver"
-	service "github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/service/cassandra"
-	"github.com/HailoOSS/service/healthcheck"
-	"github.com/HailoOSS/service/nsq"
-	"github.com/HailoOSS/service/zookeeper"
+	"github.com/hailo-platform/H2O/config-service/config"
+	"github.com/hailo-platform/H2O/config-service/dao"
+	"github.com/hailo-platform/H2O/config-service/domain"
+	"github.com/hailo-platform/H2O/config-service/handler"
+	"github.com/hailo-platform/H2O/config-service/httpserver"
+	service "github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/service/cassandra"
+	"github.com/hailo-platform/H2O/service/healthcheck"
+	"github.com/hailo-platform/H2O/service/nsq"
+	"github.com/hailo-platform/H2O/service/zookeeper"
 )
 
 func main() {
-	service.Name = "com.HailoOSS.service.config"
+	service.Name = "com.hailo-platform/H2O.service.config"
 	service.Description = "Responsible for storing configuration data for applications."
 	service.Version = ServiceVersion
-	service.Source = "github.com/HailoOSS/config-service"
-	service.OwnerEmail = "dg@HailoOSS.com"
+	service.Source = "github.com/hailo-platform/H2O/config-service"
+	service.OwnerEmail = "dg@hailo-platform/H2O.com"
 	service.OwnerMobile = "+447921465358"
 
 	// to avoid chicken and egg, manually load c* settings we need to access the config

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/HailoOSS/service/nsq"
+	"github.com/hailo-platform/H2O/service/nsq"
 )
 
 const (

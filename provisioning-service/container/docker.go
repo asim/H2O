@@ -11,7 +11,7 @@ import (
 	log "github.com/cihub/seelog"
 	docker "github.com/fsouza/go-dockerclient"
 
-	"github.com/HailoOSS/provisioning-service/info"
+	"github.com/hailo-platform/H2O/provisioning-service/info"
 )
 
 var (

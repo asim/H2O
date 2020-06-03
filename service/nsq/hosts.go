@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/dns"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/dns"
 )
 
 // diffHosts return hosts which exist in A and do not exist in B.

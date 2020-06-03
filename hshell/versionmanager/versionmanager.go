@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/csv"
 	"fmt"
-	"github.com/HailoOSS/hshell/provision"
+	"github.com/hailo-platform/H2O/hshell/provision"
 	"io/ioutil"
 	"strconv"
 )

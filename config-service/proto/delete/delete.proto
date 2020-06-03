@@ -1,4 +1,4 @@
-package com.HailoOSS.service.config.delete;
+package com.hailo-platform/H2O.service.config.delete;
 
 message Request {
 	required string id = 1;

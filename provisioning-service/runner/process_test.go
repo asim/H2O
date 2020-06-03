@@ -3,8 +3,8 @@
 package runner
 
 import (
-	"github.com/HailoOSS/provisioning-service/dao"
-	proc "github.com/HailoOSS/provisioning-service/process"
+	"github.com/hailo-platform/H2O/provisioning-service/dao"
+	proc "github.com/hailo-platform/H2O/provisioning-service/process"
 	"io/ioutil"
 	"log"
 	"os"
@@ -20,13 +20,13 @@ func createTestFile(filename string) {
 }
 
 func TestSplitProcessName(t *testing.T) {
-	const filename = "/opt/hailo/bin/com.HailoOSS.service.provisioning.testsplitprocessname-20130102030405"
+	const filename = "/opt/hailo/bin/com.hailo-platform/H2O.service.provisioning.testsplitprocessname-20130102030405"
 	serviceName, seviceVersion, err := splitProcessName(filename)
 	if err != nil {
 		log.Fatalln("Error: ", err)
 	}
 
-	if serviceName != "com.HailoOSS.service.provisioning.testsplitprocessname" {
+	if serviceName != "com.hailo-platform/H2O.service.provisioning.testsplitprocessname" {
 		t.Error("Error testing splitProcessName() - serviceName was wrong")
 	}
 
@@ -36,17 +36,17 @@ func TestSplitProcessName(t *testing.T) {
 }
 
 func TestStopExtraProcesses(t *testing.T) {
-	const filename = "/opt/hailo/bin/com.HailoOSS.service.provisioning.teststopextra-20130102030405"
+	const filename = "/opt/hailo/bin/com.hailo-platform/H2O.service.provisioning.teststopextra-20130102030405"
 	createTestFile(filename)
 	defer os.Remove(filename)
 
-	extraP := &dao.ProvisionedService{ServiceName: "com.HailoOSS.service.provisioning.teststopextra", ServiceVersion: 20130102030405, MachineClass: "A"}
+	extraP := &dao.ProvisionedService{ServiceName: "com.hailo-platform/H2O.service.provisioning.teststopextra", ServiceVersion: 20130102030405, MachineClass: "A"}
 
-	if err := proc.Start("com.HailoOSS.service.provisioning.teststopextra", 20130102030405, 1024, 4096); err != nil {
+	if err := proc.Start("com.hailo-platform/H2O.service.provisioning.teststopextra", 20130102030405, 1024, 4096); err != nil {
 		t.Error("Error starting service:", err)
 	}
 
-	numInstances, err := proc.CountRunningInstances("com.HailoOSS.service.provisioning.teststopextra", 20130102030405)
+	numInstances, err := proc.CountRunningInstances("com.hailo-platform/H2O.service.provisioning.teststopextra", 20130102030405)
 	if err != nil {
 		t.Error("Error:", err)
 	}

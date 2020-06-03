@@ -6,11 +6,11 @@ package aws_healthchecks_rs
 
 import (
 	"database/sql"
-	"github.com/HailoOSS/service/healthcheck"
+	"github.com/hailo-platform/H2O/service/healthcheck"
 	_ "github.com/lib/pq"
 )
 
-const HealthCheckId = "com.HailoOSS.service.aws_rs"
+const HealthCheckId = "com.hailo-platform/H2O.service.aws_rs"
 
 // HealthCheck asserts we can connect to rs
 func HealthCheck(odbc string) healthcheck.Checker {

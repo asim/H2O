@@ -10,10 +10,10 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/go-hailo-lib/multierror"
-	"github.com/HailoOSS/service/cassandra"
-	inst "github.com/HailoOSS/service/instrumentation"
-	"github.com/HailoOSS/gossie/src/gossie"
+	"github.com/hailo-platform/H2O/go-hailo-lib/multierror"
+	"github.com/hailo-platform/H2O/service/cassandra"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
+	"github.com/hailo-platform/H2O/gossie/src/gossie"
 )
 
 const (

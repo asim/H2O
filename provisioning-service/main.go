@@ -1,20 +1,20 @@
 package main
 
 import (
-	service "github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/provisioning-service/config"
-	"github.com/HailoOSS/provisioning-service/deps"
-	"github.com/HailoOSS/provisioning-service/handler"
-	"github.com/HailoOSS/provisioning-service/info"
-	"github.com/HailoOSS/provisioning-service/pkgmgr"
-	"github.com/HailoOSS/provisioning-service/runner"
+	service "github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/provisioning-service/config"
+	"github.com/hailo-platform/H2O/provisioning-service/deps"
+	"github.com/hailo-platform/H2O/provisioning-service/handler"
+	"github.com/hailo-platform/H2O/provisioning-service/info"
+	"github.com/hailo-platform/H2O/provisioning-service/pkgmgr"
+	"github.com/hailo-platform/H2O/provisioning-service/runner"
 )
 
 func main() {
-	service.Name = "com.HailoOSS.kernel.provisioning"
+	service.Name = "com.hailo-platform/H2O.kernel.provisioning"
 	service.Description = "Provisioning service; responsible for provisioning all other services"
 	service.Version = ServiceVersion
-	service.Source = "github.com/HailoOSS/provisioning-service"
+	service.Source = "github.com/hailo-platform/H2O/provisioning-service"
 
 	config.Bootstrap()
 
@@ -49,16 +49,16 @@ func main() {
 		Authoriser: service.SignInRoleAuthoriser([]string{"ADMIN"}),
 	})
 	service.Register(&service.Endpoint{
-		Name:       "com.HailoOSS.kernel.provisioning.restart",
+		Name:       "com.hailo-platform/H2O.kernel.provisioning.restart",
 		Handler:    handler.Restart,
 		Authoriser: service.SignInRoleAuthoriser([]string{"ADMIN"}),
-		Subscribe:  "com.HailoOSS.kernel.provisioning.restart",
+		Subscribe:  "com.hailo-platform/H2O.kernel.provisioning.restart",
 	})
 	service.Register(&service.Endpoint{
-		Name:       "com.HailoOSS.kernel.provisioning.restartaz",
+		Name:       "com.hailo-platform/H2O.kernel.provisioning.restartaz",
 		Handler:    handler.RestartAZ,
 		Authoriser: service.SignInRoleAuthoriser([]string{"ADMIN"}),
-		Subscribe:  "com.HailoOSS.kernel.provisioning.restartaz",
+		Subscribe:  "com.hailo-platform/H2O.kernel.provisioning.restartaz",
 	})
 
 	service.RegisterPostConnectHandler(pkgmgr.Setup)

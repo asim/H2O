@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"github.com/HailoOSS/platform/multiclient"
+	"github.com/hailo-platform/H2O/platform/multiclient"
 )
 
 type MockScope struct {

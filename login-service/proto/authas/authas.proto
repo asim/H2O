@@ -1,6 +1,6 @@
-package com.HailoOSS.service.login.authas;
+package com.hailo-platform/H2O.service.login.authas;
 
-import 'github.com/HailoOSS/login-service/proto/keyvalue.proto';
+import 'github.com/hailo-platform/H2O/login-service/proto/keyvalue.proto';
 
 message Request {
 	optional string username = 1;
@@ -8,7 +8,7 @@ message Request {
 	optional string application = 2;
 	optional string deviceType = 3;
 	// meta data is optional meta data for h2 logins to attach to the login record, things like IP etc.
-	repeated com.HailoOSS.service.login.KeyValue meta = 4;
+	repeated com.hailo-platform/H2O.service.login.KeyValue meta = 4;
 }
 
 message Response {

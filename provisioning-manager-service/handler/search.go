@@ -2,11 +2,11 @@ package handler
 
 import (
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
-	"github.com/HailoOSS/provisioning-manager-service/cache"
-	search "github.com/HailoOSS/provisioning-manager-service/proto/search"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/cache"
+	search "github.com/hailo-platform/H2O/provisioning-manager-service/proto/search"
 )
 
 func Search(req *server.Request) (proto.Message, errors.Error) {

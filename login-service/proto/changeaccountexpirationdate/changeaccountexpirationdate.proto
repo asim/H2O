@@ -1,4 +1,4 @@
-package com.HailoOSS.service.login.changeaccountexpirationdate;
+package com.hailo-platform/H2O.service.login.changeaccountexpirationdate;
 
 message Request {
 	required string application = 1;

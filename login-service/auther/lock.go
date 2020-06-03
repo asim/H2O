@@ -3,7 +3,7 @@ package auther
 import (
 	"fmt"
 
-	"github.com/HailoOSS/service/sync"
+	"github.com/hailo-platform/H2O/service/sync"
 )
 
 const (

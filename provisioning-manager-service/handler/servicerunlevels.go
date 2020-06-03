@@ -2,18 +2,18 @@ package handler
 
 import (
 	"fmt"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
-	levels "github.com/HailoOSS/provisioning-manager-service/proto"
-	srlproto "github.com/HailoOSS/provisioning-manager-service/proto/servicerunlevels"
-	"github.com/HailoOSS/provisioning-manager-service/runlevels"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	levels "github.com/hailo-platform/H2O/provisioning-manager-service/proto"
+	srlproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto/servicerunlevels"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/runlevels"
 )
 
 func ServiceRunLevels(req *server.Request) (proto.Message, errors.Error) {
 	request := &srlproto.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.provisioning-manager.servicerunlevels", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning-manager.servicerunlevels", fmt.Sprintf("%v", err))
 	}
 
 	rsp := &srlproto.Response{}

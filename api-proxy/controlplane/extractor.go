@@ -10,7 +10,7 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/api-proxy/session"
+	"github.com/hailo-platform/H2O/api-proxy/session"
 )
 
 const (

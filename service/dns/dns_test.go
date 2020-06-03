@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	platformtesting "github.com/HailoOSS/platform/testing"
+	platformtesting "github.com/hailo-platform/H2O/platform/testing"
 )
 
 func TestDnsHostSuite(t *testing.T) {

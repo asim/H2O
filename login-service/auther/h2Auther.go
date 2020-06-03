@@ -10,15 +10,15 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/login-service/event"
-	"github.com/HailoOSS/login-service/sessinvalidator"
-	"github.com/HailoOSS/login-service/signer"
-	"github.com/HailoOSS/platform/multiclient"
-	"github.com/HailoOSS/service/jstats"
-	oauth "github.com/HailoOSS/oauth-client-service/proto/info"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/login-service/event"
+	"github.com/hailo-platform/H2O/login-service/sessinvalidator"
+	"github.com/hailo-platform/H2O/login-service/signer"
+	"github.com/hailo-platform/H2O/platform/multiclient"
+	"github.com/hailo-platform/H2O/service/jstats"
+	oauth "github.com/hailo-platform/H2O/oauth-client-service/proto/info"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 const (
@@ -349,7 +349,7 @@ func (a *h2Auther) OAuth(app domain.Application, deviceType, username, oauthtoke
 	oauthRsp := &oauth.Response{}
 	call := multiclient.New().AddScopedReq(&multiclient.ScopedReq{
 		Uid:      "oauth",
-		Service:  "com.HailoOSS.service.oauth-client",
+		Service:  "com.hailo-platform/H2O.service.oauth-client",
 		Endpoint: "info",
 		Req:      oauthReq,
 		Rsp:      oauthRsp,

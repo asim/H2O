@@ -2,7 +2,7 @@ package stats
 
 import (
 	"errors"
-	pstats "github.com/HailoOSS/platform/stats"
+	pstats "github.com/hailo-platform/H2O/platform/stats"
 	"sync"
 	"time"
 )

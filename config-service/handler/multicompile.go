@@ -3,11 +3,11 @@ package handler
 import (
 	"fmt"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	multicompile "github.com/HailoOSS/config-service/proto/multicompile"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	multicompile "github.com/hailo-platform/H2O/config-service/proto/multicompile"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 // MultiCompile is an equivalent of repeated executions of "Compile". Its goal is to save traffic.
@@ -15,7 +15,7 @@ import (
 func MultiCompile(req *server.Request) (proto.Message, errors.Error) {
 	request := &multicompile.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.service.config.multicompile", fmt.Sprintf("%v", err))
+		return nil, errors.BadRequest("com.hailo-platform/H2O.service.config.multicompile", fmt.Sprintf("%v", err))
 	}
 
 	compileResponses := make([]*multicompile.Response_CompileResponse, len(request.GetCompileRequests()))

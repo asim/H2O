@@ -1,13 +1,13 @@
 package handler
 
 import (
-	"github.com/HailoOSS/binding-service/binding"
-	"github.com/HailoOSS/binding-service/domain"
-	servicedown "github.com/HailoOSS/discovery-service/proto/servicedown"
-	serviceup "github.com/HailoOSS/discovery-service/proto/serviceup"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/binding-service/binding"
+	"github.com/hailo-platform/H2O/binding-service/domain"
+	servicedown "github.com/hailo-platform/H2O/discovery-service/proto/servicedown"
+	serviceup "github.com/hailo-platform/H2O/discovery-service/proto/serviceup"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 // Create bindings on
@@ -16,7 +16,7 @@ import (
 func ServiceUpListener(req *server.Request) (proto.Message, errors.Error) {
 	request := &serviceup.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.kernel.binding.serviceup", err.Error())
+		return nil, errors.BadRequest("com.hailo-platform/H2O.kernel.binding.serviceup", err.Error())
 	}
 	errObj := binding.SetupService(domain.ServiceFromServiceupProto(request))
 	if errObj != nil {
@@ -31,7 +31,7 @@ func ServiceUpListener(req *server.Request) (proto.Message, errors.Error) {
 func ServiceDownListener(req *server.Request) (proto.Message, errors.Error) {
 	request := &servicedown.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.BadRequest("com.HailoOSS.kernel.binding.servicedown", err.Error())
+		return nil, errors.BadRequest("com.hailo-platform/H2O.kernel.binding.servicedown", err.Error())
 	}
 	queue := request.GetInstanceId()
 	service := request.GetServiceName()

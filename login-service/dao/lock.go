@@ -3,8 +3,8 @@ package dao
 import (
 	"fmt"
 
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/service/sync"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/service/sync"
 )
 
 const (

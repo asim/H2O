@@ -8,7 +8,7 @@ import (
 	"github.com/streadway/amqp"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/platform/server"
 )
 
 func TestCachingHobDiscriminator(t *testing.T) {

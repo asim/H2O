@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"time"
 
-	traceproto "github.com/HailoOSS/platform/proto/trace"
-	"github.com/HailoOSS/service/config"
-	strace "github.com/HailoOSS/service/trace"
-	"github.com/HailoOSS/protobuf/proto"
+	traceproto "github.com/hailo-platform/H2O/platform/proto/trace"
+	"github.com/hailo-platform/H2O/service/config"
+	strace "github.com/hailo-platform/H2O/service/trace"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	gouuid "github.com/nu7hatch/gouuid"
 )
 

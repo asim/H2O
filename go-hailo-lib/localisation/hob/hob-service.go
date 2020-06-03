@@ -3,12 +3,12 @@ package hob
 import (
 	"fmt"
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/platform/multiclient"
-	multiconfig "github.com/HailoOSS/hob-service/proto/multiconfig"
-	readhob "github.com/HailoOSS/hob-service/proto/readhob"
-	readservicetypes "github.com/HailoOSS/hob-service/proto/readservicetypes"
+	"github.com/hailo-platform/H2O/platform/multiclient"
+	multiconfig "github.com/hailo-platform/H2O/hob-service/proto/multiconfig"
+	readhob "github.com/hailo-platform/H2O/hob-service/proto/readhob"
+	readservicetypes "github.com/hailo-platform/H2O/hob-service/proto/readservicetypes"
 )
 
 type HobService interface {
@@ -27,7 +27,7 @@ func (c *H2HobService) ReadHob(hob string) (*Hob, error) {
 	cl.AddScopedReq(
 		&multiclient.ScopedReq{
 			Uid:      "readhob",
-			Service:  "com.HailoOSS.service.hob",
+			Service:  "com.hailo-platform/H2O.service.hob",
 			Endpoint: "readhob",
 			Req:      &readhob.Request{Hob: proto.String(hob)},
 			Rsp:      rsp,
@@ -46,7 +46,7 @@ func (c *H2HobService) ReadServiceTypes(hob string) (ServiceTypes, error) {
 	cl.AddScopedReq(
 		&multiclient.ScopedReq{
 			Uid:      "readservicetypes",
-			Service:  "com.HailoOSS.service.hob",
+			Service:  "com.hailo-platform/H2O.service.hob",
 			Endpoint: "readservicetypes",
 			Req:      &readservicetypes.Request{Hob: proto.String(hob)},
 			Rsp:      rsp,
@@ -85,7 +85,7 @@ func (c *H2HobService) Multiconfig(hobs, hobHashes, serviceTypesHashes []string)
 	cl.AddScopedReq(
 		&multiclient.ScopedReq{
 			Uid:      "multiconfig",
-			Service:  "com.HailoOSS.service.hob",
+			Service:  "com.hailo-platform/H2O.service.hob",
 			Endpoint: "multiconfig",
 			Req: &multiconfig.Request{
 				Ids: hobIds,

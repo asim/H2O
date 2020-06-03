@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/errors"
+	"github.com/hailo-platform/H2O/platform/errors"
 )
 
 type errorBody struct {

@@ -1,11 +1,11 @@
-package com.HailoOSS.kernel.discovery.services;
+package com.hailo-platform/H2O.kernel.discovery.services;
 
-import 'github.com/HailoOSS/discovery-service/proto/service.proto';
+import 'github.com/hailo-platform/H2O/discovery-service/proto/service.proto';
 
 message Request {
 	optional string service = 1;
 }
 
 message Response{
-	repeated com.HailoOSS.kernel.discovery.Service services = 1;
+	repeated com.hailo-platform/H2O.kernel.discovery.Service services = 1;
 }

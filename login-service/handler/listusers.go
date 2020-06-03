@@ -3,14 +3,14 @@ package handler
 import (
 	"time"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
 
-	listproto "github.com/HailoOSS/login-service/proto/listusers"
+	listproto "github.com/hailo-platform/H2O/login-service/proto/listusers"
 )
 
 // ListUsers will fetch a bunch of users within a single application namespace

@@ -5,11 +5,11 @@ import (
 	"sync"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 // MultiClient represents a session where we want to make one or more requests
@@ -154,7 +154,7 @@ func (c *defClient) AddScopedReq(sr *ScopedReq) MultiClient {
 	c.responses[sr.Uid] = sr.Rsp
 	if err != nil {
 		c.errors.set(sr.Uid, clientReq,
-			errors.InternalServerError("com.HailoOSS.kernel.multirequest.badrequest", err.Error()), from)
+			errors.InternalServerError("com.hailo-platform/H2O.kernel.multirequest.badrequest", err.Error()), from)
 	} else {
 		clientReq.SetOptions(sr.Options)
 	}
@@ -193,7 +193,7 @@ func (c *defClient) Execute() MultiClient {
 		} else if req == nil {
 			log.Warnf("[Multiclient] Not expecting nil Request within MultiClient")
 			c.errors.set(uid, req, errors.InternalServerError(
-				"com.HailoOSS.kernel.multirequest.badrequest.nil",
+				"com.hailo-platform/H2O.kernel.multirequest.badrequest.nil",
 				fmt.Sprintf("Response for uid %s is nil", uid)), nil)
 			continue
 		}

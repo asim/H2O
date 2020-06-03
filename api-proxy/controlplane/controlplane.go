@@ -16,7 +16,7 @@ import (
 	"github.com/davegardnerisme/deephash"
 	"gopkg.in/tomb.v2"
 
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 const (

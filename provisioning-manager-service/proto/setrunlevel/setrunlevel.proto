@@ -1,6 +1,6 @@
-package com.HailoOSS.kernel.provisioningmanager.setrunlevel;
+package com.hailo-platform/H2O.kernel.provisioningmanager.setrunlevel;
 
-import "github.com/HailoOSS/provisioning-manager-service/proto/levels.proto";
+import "github.com/hailo-platform/H2O/provisioning-manager-service/proto/levels.proto";
 
 message Request {
 	required string region = 1;

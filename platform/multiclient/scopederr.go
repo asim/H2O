@@ -3,7 +3,7 @@ package multiclient
 import (
 	"github.com/facebookgo/stack"
 
-	"github.com/HailoOSS/platform/errors"
+	"github.com/hailo-platform/H2O/platform/errors"
 )
 
 type scopedErr struct {

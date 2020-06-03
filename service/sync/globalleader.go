@@ -1,7 +1,7 @@
 package sync
 
 import (
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 // NewGlobalLocker returns a global leader which is basically just a region leader pinned to one region based on

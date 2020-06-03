@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 	seelog "github.com/cihub/seelog"
-	li "github.com/HailoOSS/hshell/integrationtest/loginintegration"
-	"github.com/HailoOSS/hshell/integrationtest/result"
-	"github.com/HailoOSS/hshell/integrationtest/testmanager"
-	"github.com/HailoOSS/hshell/integrationtest/variables"
+	li "github.com/hailo-platform/H2O/hshell/integrationtest/loginintegration"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/result"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/testmanager"
+	"github.com/hailo-platform/H2O/hshell/integrationtest/variables"
 	"io/ioutil"
 	"log"
 	"runtime"
@@ -71,7 +71,7 @@ func Integration() {
 	for i := 0; i < loop; i++ {
 		id := variables.GlobalVar.GetVar("driver_id")
 
-		email := "moddie+driver" + id + "@HailoOSS.com"
+		email := "moddie+driver" + id + "@hailo-platform/H2O.com"
 		password := "Password1"
 		device := "foobar"
 

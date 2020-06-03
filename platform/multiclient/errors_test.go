@@ -3,9 +3,9 @@ package multiclient
 import (
 	"testing"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	ptesting "github.com/HailoOSS/platform/testing"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	ptesting "github.com/hailo-platform/H2O/platform/testing"
 )
 
 func TestErrorsImplSuite(t *testing.T) {

@@ -6,8 +6,8 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/provisioning-manager-service/dao"
-	pproto "github.com/HailoOSS/provisioning-manager-service/proto/provisioned"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/dao"
+	pproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto/provisioned"
 )
 
 const (

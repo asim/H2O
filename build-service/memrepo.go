@@ -3,7 +3,7 @@ package main
 import (
 	"time"
 
-	"github.com/HailoOSS/build-service/models"
+	"github.com/hailo-platform/H2O/build-service/models"
 )
 
 type memoryRepo struct {

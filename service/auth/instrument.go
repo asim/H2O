@@ -3,7 +3,7 @@ package auth
 import (
 	"time"
 
-	inst "github.com/HailoOSS/service/instrumentation"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 )
 
 func instTiming(key string, err error, t time.Time) {

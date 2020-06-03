@@ -1,4 +1,4 @@
-package com.HailoOSS.service.provisioning.read;
+package com.hailo-platform/H2O.service.provisioning.read;
 
 message Request {
 	required string serviceName = 1;

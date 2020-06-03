@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 
-	platformtesting "github.com/HailoOSS/platform/testing"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/dns"
+	platformtesting "github.com/hailo-platform/H2O/platform/testing"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/dns"
 )
 
 func TestRunNsqHostsSuite(t *testing.T) {

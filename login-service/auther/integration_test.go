@@ -5,9 +5,9 @@
 package auther
 
 import (
-	"github.com/HailoOSS/login-service/dao"
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/login-service/dao"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/service/config"
 	"testing"
 	"time"
 )
@@ -24,7 +24,7 @@ func TestAuthUser(t *testing.T) {
 	user := &domain.User{
 		App:             domain.Application("test"),
 		Uid:             "auther1",
-		Ids:             []domain.Id{"auther@HailoOSS.com", "+447100000000"},
+		Ids:             []domain.Id{"auther@hailo-platform/H2O.com", "+447100000000"},
 		Created:         time.Unix(1378740807, 0),
 		Roles:           []string{"ADMIN"},
 		PasswordHistory: make([][]byte, 0),

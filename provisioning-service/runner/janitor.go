@@ -5,7 +5,7 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/provisioning-service/container"
+	"github.com/hailo-platform/H2O/provisioning-service/container"
 )
 
 type janitor struct {

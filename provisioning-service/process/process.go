@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"fmt"
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/util"
-	dao "github.com/HailoOSS/provisioning-service/dao"
+	"github.com/hailo-platform/H2O/platform/util"
+	dao "github.com/hailo-platform/H2O/provisioning-service/dao"
 	"math/rand"
 	"os"
 	"os/exec"
@@ -246,7 +246,7 @@ func install(serviceName string, serviceVersion, noFileSoftLimit, noFileHardLimi
 		Environment     map[string]string
 	}{
 		cmdName,
-		"com.HailoOSS.service.provisioning.create",
+		"com.hailo-platform/H2O.service.provisioning.create",
 		exePath,
 		time.Now().String(),
 		user,

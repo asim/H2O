@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	ptomb "gopkg.in/tomb.v2"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/raven"
-	"github.com/HailoOSS/platform/util"
-	mp "github.com/HailoOSS/monitoring-service/proto/azstatus"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/raven"
+	"github.com/hailo-platform/H2O/platform/util"
+	mp "github.com/hailo-platform/H2O/monitoring-service/proto/azstatus"
 	"time"
 )
 
@@ -171,7 +171,7 @@ func (s *StatusMonitor) recoverAZ() {
 // checkAZStatus polls the monitoring service for AZ health status
 func checkAZStatus(az string) (bool, error) {
 	monRequest := &mp.Request{AzName: proto.String(az)}
-	req, err := client.NewRequest("com.HailoOSS.service.monitoring", "azstatus", monRequest)
+	req, err := client.NewRequest("com.hailo-platform/H2O.service.monitoring", "azstatus", monRequest)
 	if err != nil {
 		log.Errorf("[StatusMonitor] Unable to marshal a monitoring service request: %v", err)
 		return false, err
@@ -180,7 +180,7 @@ func checkAZStatus(az string) (bool, error) {
 	//We don't want to be retrying this
 	reqOptions := make(client.Options)
 	reqOptions["retries"] = 0
-	req.SetFrom("com.HailoOSS.hailo-2-api")
+	req.SetFrom("com.hailo-platform/H2O.hailo-2-api")
 
 	rsp, err := client.CustomReq(req, reqOptions)
 	if err != nil {

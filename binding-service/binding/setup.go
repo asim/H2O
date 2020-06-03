@@ -6,18 +6,18 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/HailoOSS/binding-service/dao"
-	"github.com/HailoOSS/binding-service/domain"
-	instances "github.com/HailoOSS/discovery-service/proto/instances"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/raven"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/service/sync"
+	"github.com/hailo-platform/H2O/binding-service/dao"
+	"github.com/hailo-platform/H2O/binding-service/domain"
+	instances "github.com/hailo-platform/H2O/discovery-service/proto/instances"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/raven"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/service/sync"
 )
 
 var (
-	localServices map[string]bool = map[string]bool{"com.HailoOSS.kernel.binding": true} // services which shouldn't cross AZs
+	localServices map[string]bool = map[string]bool{"com.hailo-platform/H2O.kernel.binding": true} // services which shouldn't cross AZs
 )
 
 const (
@@ -29,14 +29,14 @@ const (
 func PostConnectHandler() {
 	// register serviceup topic listener
 	httpClient := http.Client{}
-	subTopic := "com.HailoOSS.kernel.discovery.serviceup"
+	subTopic := "com.hailo-platform/H2O.kernel.discovery.serviceup"
 	err := CreateTopicBindingE2Q(&httpClient, LocalHost+":"+DefaultRabbitPort, raven.TOPIC_EXCHANGE, server.InstanceID, subTopic)
 	if err != nil {
 		log.Error("Failed to subscribe to ", subTopic, err)
 		panic(err)
 	}
 	log.Debug("Subscribed to ", subTopic)
-	subTopic = "com.HailoOSS.kernel.discovery.servicedown"
+	subTopic = "com.hailo-platform/H2O.kernel.discovery.servicedown"
 	err = CreateTopicBindingE2Q(&httpClient, LocalHost+":"+DefaultRabbitPort, raven.TOPIC_EXCHANGE, server.InstanceID, subTopic)
 	if err != nil {
 		log.Error("Failed to subscribe to ", subTopic, err)
@@ -51,7 +51,7 @@ func rebindAll(httpClient *http.Client) {
 	log.Debug("Rebinding all service instances")
 
 	request, err := server.ScopedRequest(
-		"com.HailoOSS.kernel.discovery",
+		"com.hailo-platform/H2O.kernel.discovery",
 		"instances",
 		&instances.Request{},
 	)
@@ -166,19 +166,19 @@ func SetupService(s *domain.Service) errors.Error {
 	defer lock.Unlock()
 	if err != nil {
 		log.Errorf("Failed to acquire lock to setup up process %+v", err)
-		return errors.InternalServerError("com.HailoOSS.kernel.binding.setupservice", err.Error())
+		return errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.setupservice", err.Error())
 	}
 
 	if err != nil {
 		log.Errorf("Failed to acquire lock to setup up process %+v", err)
-		return errors.InternalServerError("com.HailoOSS.kernel.binding.setupservice", err.Error())
+		return errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.setupservice", err.Error())
 	}
 	log.Debug("Acquired lock")
 
 	rules, err := dao.GetRules(s.Service)
 	if err != nil {
 		log.Errorf("Error retrieving binding rules %+v", err)
-		return errors.InternalServerError("com.HailoOSS.kernel.binding.setupservice", err.Error())
+		return errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.setupservice", err.Error())
 	}
 	if rules == nil || len(rules) == 0 {
 		// sort out a default rule with weight 100. This means that only < 1% of messages will go over the federation links
@@ -191,12 +191,12 @@ func SetupService(s *domain.Service) errors.Error {
 	hostport := LocalHost + ":" + DefaultRabbitPort
 	err = CreateBinding(getHttpClient(), hostport, b)
 	if err != nil {
-		return errors.InternalServerError("com.HailoOSS.kernel.binding.setupservice", fmt.Sprintf("Error while creating E2Q binding h2o -> %v. %v", b.Destination, err))
+		return errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.setupservice", fmt.Sprintf("Error while creating E2Q binding h2o -> %v. %v", b.Destination, err))
 	}
 
 	bindings, err := GetAllQueueBindings(getHttpClient(), hostport, b.Destination)
 	if err != nil {
-		return errors.InternalServerError("com.HailoOSS.kernel.binding.setupservice", fmt.Sprintf("Error while querying current bindings h2o -> %v. %v", b.Destination, err))
+		return errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.setupservice", fmt.Sprintf("Error while querying current bindings h2o -> %v. %v", b.Destination, err))
 	}
 	log.Debugf("There are %d bindings for queue %s", len(bindings), b.Destination)
 	if len(bindings) > 1 {
@@ -221,7 +221,7 @@ func SetupService(s *domain.Service) errors.Error {
 		if sub != "" {
 			err := CreateTopicBindingE2Q(getHttpClient(), LocalHost+":"+DefaultRabbitPort, raven.TOPIC_EXCHANGE, s.Instance, sub)
 			if err != nil {
-				return errors.InternalServerError("com.HailoOSS.kernel.binding.setupservice", fmt.Sprintf("Error while creating E2Q binding h2o.topic -> %v. %v", s.Instance, err))
+				return errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.setupservice", fmt.Sprintf("Error while creating E2Q binding h2o.topic -> %v. %v", s.Instance, err))
 			}
 		}
 	}
@@ -234,7 +234,7 @@ func SetupService(s *domain.Service) errors.Error {
 		}
 		hosts, err := getRabbitClusterHosts()
 		if err != nil {
-			return errors.InternalServerError("com.HailoOSS.kernel.binding.setupservice", fmt.Sprintf("Error while retrieving hostnames %v", err))
+			return errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.setupservice", fmt.Sprintf("Error while retrieving hostnames %v", err))
 		}
 
 		for _, host := range hosts {
@@ -248,7 +248,7 @@ func SetupService(s *domain.Service) errors.Error {
 			remoteHostPort := host.Host + ":" + DefaultRabbitPort
 			err = CreateBinding(getHttpClient(), remoteHostPort, eb)
 			if err != nil {
-				return errors.InternalServerError("com.HailoOSS.kernel.binding.setupservice", fmt.Sprintf("Error while creating E2E binding h2o -> %v on %v. %v", thisAz, host, err))
+				return errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.setupservice", fmt.Sprintf("Error while creating E2E binding h2o -> %v on %v. %v", thisAz, host, err))
 			}
 
 		}
@@ -294,12 +294,12 @@ func TeardownRemoteServiceBindings(httpClient *http.Client, service string, azNa
 		defer lock.Unlock()
 		if err != nil {
 			log.Errorf("Failed to acquire lock to tear down process %+v", err)
-			return errors.BadRequest("com.HailoOSS.kernel.binding.teardownservice", err.Error())
+			return errors.BadRequest("com.hailo-platform/H2O.kernel.binding.teardownservice", err.Error())
 		}
 
 		if err != nil {
 			log.Errorf("Failed to acquire lock to tear down process %+v", err)
-			return errors.BadRequest("com.HailoOSS.kernel.binding.teardownservice", err.Error())
+			return errors.BadRequest("com.hailo-platform/H2O.kernel.binding.teardownservice", err.Error())
 		}
 		log.Debug("Acquired lock")
 		last, err := isLastInstanceInAz(httpClient, LocalHost+":"+DefaultRabbitPort, service, azName)
@@ -310,7 +310,7 @@ func TeardownRemoteServiceBindings(httpClient *http.Client, service string, azNa
 			log.Debug("Last instance in AZ, unbinding in other AZs")
 			hosts, err := getRabbitClusterHosts()
 			if err != nil {
-				return errors.InternalServerError("com.HailoOSS.kernel.binding.teardownservice", fmt.Sprintf("Error while retrieving hostnames %v", err))
+				return errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.teardownservice", fmt.Sprintf("Error while retrieving hostnames %v", err))
 			}
 
 			for _, host := range hosts {
@@ -320,7 +320,7 @@ func TeardownRemoteServiceBindings(httpClient *http.Client, service string, azNa
 
 				err = DeleteRemoteServiceBindings(httpClient, host.Host+":"+DefaultRabbitPort, service, azName)
 				if err != nil {
-					return errors.InternalServerError("com.HailoOSS.kernel.binding.setupservice", fmt.Sprintf("Error while deleting service bindings %v", err))
+					return errors.InternalServerError("com.hailo-platform/H2O.kernel.binding.setupservice", fmt.Sprintf("Error while deleting service bindings %v", err))
 				}
 			}
 		}

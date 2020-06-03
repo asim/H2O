@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/HailoOSS/service/cassandra"
-	"github.com/HailoOSS/service/cassandra/timeseries"
+	"github.com/hailo-platform/H2O/service/cassandra"
+	"github.com/hailo-platform/H2O/service/cassandra/timeseries"
 )
 
 func TestDeleteWithoutSecondaryIndex(t *testing.T) {

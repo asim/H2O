@@ -4,6 +4,6 @@ Architecture: amd64
 Essential: no
 Section: Applications
 Priority: optional
-Maintainer: devops@HailoOSS.com
+Maintainer: devops@hailo-platform/H2O.com
 Installed-Size: 10000
 Description: Hailo Provisioning Service

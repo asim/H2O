@@ -3,17 +3,17 @@ package multiclient
 import (
 	"testing"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
 	"github.com/stretchr/testify/assert"
 
-	hcproto "github.com/HailoOSS/platform/proto/healthcheck"
+	hcproto "github.com/hailo-platform/H2O/platform/proto/healthcheck"
 )
 
 const (
-	mockFooService     = "com.HailoOSS.service.foo"
+	mockFooService     = "com.hailo-platform/H2O.service.foo"
 	mockHealthEndpoint = "health"
 )
 

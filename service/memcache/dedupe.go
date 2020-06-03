@@ -5,8 +5,8 @@ See the dedupe package for more information.
 package memcache
 
 import (
-	d "github.com/HailoOSS/service/dedupe"
-	mc "github.com/HailoOSS/gomemcache/memcache"
+	d "github.com/hailo-platform/H2O/service/dedupe"
+	mc "github.com/hailo-platform/H2O/gomemcache/memcache"
 )
 
 type MemcacheDeduper struct {

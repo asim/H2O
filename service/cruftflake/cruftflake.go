@@ -1,15 +1,15 @@
 package cruftflake
 
 import (
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/server"
-	cf "github.com/HailoOSS/idgen-service/proto/cruftflake"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/server"
+	cf "github.com/hailo-platform/H2O/idgen-service/proto/cruftflake"
 )
 
 // Mint a new Cruftflake ID from the IDGen Service
 func Mint() (int64, error) {
 	reqProto := &cf.Request{}
-	req, err := server.ScopedRequest("com.HailoOSS.service.idgen", "cruftflake", reqProto)
+	req, err := server.ScopedRequest("com.hailo-platform/H2O.service.idgen", "cruftflake", reqProto)
 	if err != nil {
 		return 0, err
 	}

@@ -4,9 +4,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/HailoOSS/config-service/domain"
-	common "github.com/HailoOSS/config-service/proto"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/config-service/domain"
+	common "github.com/hailo-platform/H2O/config-service/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 func changeToProto(c *domain.ChangeSet) *common.ChangeMeta {
@@ -53,7 +53,7 @@ func changeToNSQ(action, changeId, id, path, mech, user, message, config, previo
 	return &NSQEvent{
 		Id:        changeId,
 		Timestamp: strconv.Itoa(int(time.Now().Unix())),
-		Type:      "com.HailoOSS.service.config.event",
+		Type:      "com.hailo-platform/H2O.service.config.event",
 		Details: map[string]string{
 			"Action":         action,
 			"Id":             id,

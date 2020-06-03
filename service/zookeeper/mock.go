@@ -5,7 +5,7 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	gozk "github.com/HailoOSS/go-zookeeper/zk"
+	gozk "github.com/hailo-platform/H2O/go-zookeeper/zk"
 	"github.com/stretchr/testify/mock"
 )
 

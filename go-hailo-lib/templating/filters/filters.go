@@ -10,12 +10,12 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	c "github.com/HailoOSS/i18n-go/currency"
-	loc "github.com/HailoOSS/i18n-go/locale"
-	"github.com/HailoOSS/i18n-go/money"
+	c "github.com/hailo-platform/H2O/i18n-go/currency"
+	loc "github.com/hailo-platform/H2O/i18n-go/locale"
+	"github.com/hailo-platform/H2O/i18n-go/money"
 
-	"github.com/HailoOSS/monday"
-	"github.com/HailoOSS/pongo2"
+	"github.com/hailo-platform/H2O/monday"
+	"github.com/hailo-platform/H2O/pongo2"
 )
 
 const (

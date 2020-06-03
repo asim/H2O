@@ -2,14 +2,14 @@ package zookeeper
 
 import (
 	"fmt"
-	"github.com/HailoOSS/service/config"
-	"github.com/HailoOSS/service/connhealthcheck"
-	"github.com/HailoOSS/service/healthcheck"
+	"github.com/hailo-platform/H2O/service/config"
+	"github.com/hailo-platform/H2O/service/connhealthcheck"
+	"github.com/hailo-platform/H2O/service/healthcheck"
 )
 
 const (
-	HealthCheckId  = "com.HailoOSS.service.zookeeper"
-	MaxConnCheckId = "com.HailoOSS.service.zookeeper.maxconns"
+	HealthCheckId  = "com.hailo-platform/H2O.service.zookeeper"
+	MaxConnCheckId = "com.hailo-platform/H2O.service.zookeeper.maxconns"
 )
 
 // HealthCheck asserts we can talk to ZK

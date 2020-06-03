@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/goamz/goamz/aws"
 	"github.com/goamz/goamz/sts"
-	"github.com/HailoOSS/platform/util"
+	"github.com/hailo-platform/H2O/platform/util"
 	"regexp"
 	"strings"
 	"sync"

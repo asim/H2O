@@ -3,12 +3,12 @@ package server
 import (
 	"testing"
 
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"github.com/streadway/amqp"
 	"github.com/stretchr/testify/assert"
 
-	perrors "github.com/HailoOSS/platform/errors"
-	ptesting "github.com/HailoOSS/platform/testing"
+	perrors "github.com/hailo-platform/H2O/platform/errors"
+	ptesting "github.com/hailo-platform/H2O/platform/testing"
 )
 
 type testEndpointPayload struct {
@@ -29,7 +29,7 @@ type EndpointSuite struct {
 
 func (suite *EndpointSuite) SetupTest() {
 	suite.origName = Name
-	Name = "com.HailoOSS.service.foo"
+	Name = "com.hailo-platform/H2O.service.foo"
 	suite.origRegistry = reg
 	suite.registry = newRegistry()
 	reg = suite.registry

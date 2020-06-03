@@ -2,7 +2,7 @@ package registry
 
 import (
 	"fmt"
-	"github.com/HailoOSS/provisioning-manager-service/domain"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/domain"
 	"sync"
 )
 

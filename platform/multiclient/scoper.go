@@ -1,9 +1,9 @@
 package multiclient
 
 import (
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 
-	"github.com/HailoOSS/platform/client"
+	"github.com/hailo-platform/H2O/platform/client"
 )
 
 // Scoper represents something that generate us a "scoped" request

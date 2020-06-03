@@ -1,12 +1,12 @@
-package com.HailoOSS.service.login.endpointauth;
+package com.hailo-platform/H2O.service.login.endpointauth;
 
-import 'github.com/HailoOSS/login-service/proto/endpoint.proto';
+import 'github.com/hailo-platform/H2O/login-service/proto/endpoint.proto';
 
 message Request {
 	required string service = 1;
 }
 
 message Response {
-	repeated com.HailoOSS.service.login.Endpoint endpoints = 1;
+	repeated com.hailo-platform/H2O.service.login.Endpoint endpoints = 1;
 }
 

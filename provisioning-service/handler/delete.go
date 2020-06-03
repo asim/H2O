@@ -2,18 +2,18 @@ package handler
 
 import (
 	"fmt"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/errors"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
-	delproto "github.com/HailoOSS/provisioning-manager-service/proto/delete"
-	delete "github.com/HailoOSS/provisioning-service/proto/delete"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/errors"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	delproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto/delete"
+	delete "github.com/hailo-platform/H2O/provisioning-service/proto/delete"
 )
 
 func Delete(req *server.Request) (proto.Message, errors.Error) {
 	request := &delete.Request{}
 	if err := req.Unmarshal(request); err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.provisioning.handler.delete", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.delete", fmt.Sprintf("%v", err))
 	}
 
 	deleteReq := &delproto.Request{
@@ -22,14 +22,14 @@ func Delete(req *server.Request) (proto.Message, errors.Error) {
 		MachineClass:   request.MachineClass,
 	}
 
-	drequest, err := req.ScopedRequest("com.HailoOSS.kernel.provisioning-manager", "delete", deleteReq)
+	drequest, err := req.ScopedRequest("com.hailo-platform/H2O.kernel.provisioning-manager", "delete", deleteReq)
 	if err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.provisioning.handler.delete", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.delete", fmt.Sprintf("%v", err))
 	}
 
 	response := &delproto.Response{}
 	if err := client.Req(drequest, response); err != nil {
-		return nil, errors.InternalServerError("com.HailoOSS.provisioning.handler.delete", fmt.Sprintf("%v", err))
+		return nil, errors.InternalServerError("com.hailo-platform/H2O.provisioning.handler.delete", fmt.Sprintf("%v", err))
 	}
 
 	return &delete.Response{}, nil

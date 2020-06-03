@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/HailoOSS/gojsonschema"
+	"github.com/hailo-platform/H2O/gojsonschema"
 )
 
 type FieldType struct {

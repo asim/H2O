@@ -1,6 +1,6 @@
-package com.HailoOSS.service.login.readusermulti;
+package com.hailo-platform/H2O.service.login.readusermulti;
 
-import "github.com/HailoOSS/login-service/proto/readuser/readuser.proto";
+import "github.com/hailo-platform/H2O/login-service/proto/readuser/readuser.proto";
 
 
 message Request {
@@ -9,5 +9,5 @@ message Request {
 }
 
 message Response {
-	repeated com.HailoOSS.service.login.readuser.Response users = 1;
+	repeated com.hailo-platform/H2O.service.login.readuser.Response users = 1;
 }

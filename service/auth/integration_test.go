@@ -8,8 +8,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/HailoOSS/platform/raven"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/platform/raven"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 var setupOnce sync.Once

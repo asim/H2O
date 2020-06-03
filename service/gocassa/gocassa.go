@@ -4,9 +4,9 @@ import (
 	"regexp"
 	"strings"
 
-	s "github.com/HailoOSS/platform/server"
+	s "github.com/hailo-platform/H2O/platform/server"
 
-	"github.com/HailoOSS/gocassa"
+	"github.com/hailo-platform/H2O/gocassa"
 )
 
 var (

@@ -1,6 +1,6 @@
-package com.HailoOSS.kernel.provisioningmanager.setservicerunlevels;
+package com.hailo-platform/H2O.kernel.provisioningmanager.setservicerunlevels;
 
-import "github.com/HailoOSS/provisioning-manager-service/proto/levels.proto";
+import "github.com/hailo-platform/H2O/provisioning-manager-service/proto/levels.proto";
 
 message Request {
 	required string serviceName = 1;

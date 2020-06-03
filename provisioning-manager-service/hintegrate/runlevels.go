@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/url"
 
-	"github.com/HailoOSS/hintegrate/request"
-	"github.com/HailoOSS/hintegrate/validators"
-	"github.com/HailoOSS/hintegrate/variables"
+	"github.com/hailo-platform/H2O/hintegrate/request"
+	"github.com/hailo-platform/H2O/hintegrate/validators"
+	"github.com/hailo-platform/H2O/hintegrate/variables"
 )
 
 type SetRunLevelRequest struct {
@@ -25,7 +25,7 @@ const (
 
 const (
 	// use the gateway service to make this call
-	serviceName = "com.HailoOSS.service.gateway"
+	serviceName = "com.hailo-platform/H2O.service.gateway"
 )
 
 // SetRunLevel calls the setrunlevel endpoint in the provisioning service

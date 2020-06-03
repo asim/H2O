@@ -6,9 +6,9 @@ import (
 
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/login-service/domain"
-	"github.com/HailoOSS/service/cassandra/timeseries"
-	"github.com/HailoOSS/gossie/src/gossie"
+	"github.com/hailo-platform/H2O/login-service/domain"
+	"github.com/hailo-platform/H2O/service/cassandra/timeseries"
+	"github.com/hailo-platform/H2O/gossie/src/gossie"
 )
 
 const (

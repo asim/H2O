@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/HailoOSS/platform/util"
+	"github.com/hailo-platform/H2O/platform/util"
 	gouuid "github.com/nu7hatch/gouuid"
 )
 
@@ -68,7 +68,7 @@ func eventToNSQ(service string, version uint64, action, info, mClass, user strin
 	return &NSQEvent{
 		Id:        uuid,
 		Timestamp: strconv.Itoa(int(time.Now().Unix())),
-		Type:      "com.HailoOSS.kernel.provisioning.event",
+		Type:      "com.hailo-platform/H2O.kernel.provisioning.event",
 		Details: map[string]string{
 			"ServiceName":    service,
 			"ServiceVersion": strconv.Itoa(int(version)),

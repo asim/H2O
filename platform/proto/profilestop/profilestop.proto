@@ -1,4 +1,4 @@
-package com.HailoOSS.kernel.platform.profilestop;
+package com.hailo-platform/H2O.kernel.platform.profilestop;
 
 
 message Request {

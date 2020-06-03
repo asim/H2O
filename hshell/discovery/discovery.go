@@ -2,15 +2,15 @@ package discovery
 
 import (
 	log "github.com/cihub/seelog"
-	shared "github.com/HailoOSS/discovery-service/proto"
-	endpoints "github.com/HailoOSS/discovery-service/proto/endpoints"
-	instances "github.com/HailoOSS/discovery-service/proto/instances"
-	services "github.com/HailoOSS/discovery-service/proto/services"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/raven"
-	"github.com/HailoOSS/hshell/login"
-	"github.com/HailoOSS/hshell/util"
-	"github.com/HailoOSS/protobuf/proto"
+	shared "github.com/hailo-platform/H2O/discovery-service/proto"
+	endpoints "github.com/hailo-platform/H2O/discovery-service/proto/endpoints"
+	instances "github.com/hailo-platform/H2O/discovery-service/proto/instances"
+	services "github.com/hailo-platform/H2O/discovery-service/proto/services"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/raven"
+	"github.com/hailo-platform/H2O/hshell/login"
+	"github.com/hailo-platform/H2O/hshell/util"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"sort"
 	"strings"
 )
@@ -194,7 +194,7 @@ func callEndpoints(service string) ([]*endpoints.Response_Endpoint, error) {
 	}
 
 	request, _ := client.NewRequest(
-		"com.HailoOSS.kernel.discovery",
+		"com.hailo-platform/H2O.kernel.discovery",
 		"endpoints",
 		&endpoints.Request{
 			Service: proto.String(service),
@@ -217,7 +217,7 @@ func callServices(service string) ([]*shared.Service, error) {
 		raven.AmqpUri = AmqpHost
 	}
 	request, _ := client.NewRequest(
-		"com.HailoOSS.kernel.discovery",
+		"com.hailo-platform/H2O.kernel.discovery",
 		"services",
 		&services.Request{
 			Service: proto.String(service),
@@ -239,7 +239,7 @@ func callServices(service string) ([]*shared.Service, error) {
 func CallInstances(az string) ([]*instances.Instance, error) {
 
 	request, _ := client.NewRequest(
-		"com.HailoOSS.kernel.discovery",
+		"com.hailo-platform/H2O.kernel.discovery",
 		"instances",
 		&instances.Request{
 			AzName: proto.String(az),

@@ -7,9 +7,9 @@ import (
 
 	"github.com/facebookgo/clock"
 
-	"github.com/HailoOSS/platform/errors"
-	ptesting "github.com/HailoOSS/platform/testing"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/platform/errors"
+	ptesting "github.com/hailo-platform/H2O/platform/testing"
+	"github.com/hailo-platform/H2O/service/config"
 )
 
 type CircuitBreakerTestSuit struct {
@@ -61,7 +61,7 @@ func (s *CircuitBreakerTestSuit) TestOpenToClosedCircuit() {
 }
 
 func (s *CircuitBreakerTestSuit) TestCircuitConfig() {
-	service := "com.HailoOSS.test.cruft"
+	service := "com.hailo-platform/H2O.test.cruft"
 	endpoint := "testendpoint"
 
 	// Set default timeout to 100 ms
@@ -100,7 +100,7 @@ func (s *CircuitBreakerTestSuit) TestCircuitConfig() {
 				"circuitbreaker": {
 					"initialIntervalMs": 50,
 					"endpoints": {
-						"com.HailoOSS.test.cruft": {
+						"com.hailo-platform/H2O.test.cruft": {
 							"testendpoint": {
 								"initialIntervalMs": 90
 							}

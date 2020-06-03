@@ -3,7 +3,7 @@ package hob
 import (
 	"time"
 
-	hobpb "github.com/HailoOSS/hob-service/proto"
+	hobpb "github.com/hailo-platform/H2O/hob-service/proto"
 )
 
 func ProtoToJobSettings(j *hobpb.JobSettings) JobSettings {

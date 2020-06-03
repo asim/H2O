@@ -3,7 +3,7 @@ package i18n
 import (
 	"testing"
 
-	localisation "github.com/HailoOSS/go-hailo-lib/localisation/hob"
+	localisation "github.com/hailo-platform/H2O/go-hailo-lib/localisation/hob"
 )
 
 func TestPhoneToInternational(t *testing.T) {

@@ -139,7 +139,7 @@ func TestHobMatch(t *testing.T) {
 }
 
 // Test that nil pointers in a Rule don't cause panics in the methods.
-// See: https://github.com/HailoOSS/api-proxy/pull/32
+// See: https://github.com/hailo-platform/H2O/api-proxy/pull/32
 func TestRegression_RuleNilPointers(t *testing.T) {
 	ext := &testExtractor{
 		hob:    "LON",

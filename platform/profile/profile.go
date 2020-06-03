@@ -8,8 +8,8 @@ import (
 	"sync"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/util"
-	"github.com/HailoOSS/service/config"
+	"github.com/hailo-platform/H2O/platform/util"
+	"github.com/hailo-platform/H2O/service/config"
 	"github.com/jono-macd/profile"
 )
 

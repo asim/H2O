@@ -4,7 +4,7 @@ import (
 	"time"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/provisioning-manager-service/registry"
+	"github.com/hailo-platform/H2O/provisioning-manager-service/registry"
 )
 
 const (

@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"os"
 
-	cfg "github.com/HailoOSS/config-service/config"
-	"github.com/HailoOSS/config-service/dao"
-	"github.com/HailoOSS/config-service/domain"
+	cfg "github.com/hailo-platform/H2O/config-service/config"
+	"github.com/hailo-platform/H2O/config-service/dao"
+	"github.com/hailo-platform/H2O/config-service/domain"
 )
 
 var (

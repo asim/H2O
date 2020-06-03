@@ -9,10 +9,10 @@ import (
 	"github.com/stretchr/testify/mock"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/go-hostpool"
-	nsqlib "github.com/HailoOSS/go-nsq"
-	"github.com/HailoOSS/service/config"
-	inst "github.com/HailoOSS/service/instrumentation"
+	"github.com/hailo-platform/H2O/go-hostpool"
+	nsqlib "github.com/hailo-platform/H2O/go-nsq"
+	"github.com/hailo-platform/H2O/service/config"
+	inst "github.com/hailo-platform/H2O/service/instrumentation"
 )
 
 const (

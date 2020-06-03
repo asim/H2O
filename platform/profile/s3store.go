@@ -6,8 +6,8 @@ import (
 	"io"
 	"time"
 
-	"github.com/HailoOSS/goamz/aws"
-	"github.com/HailoOSS/goamz/s3"
+	"github.com/hailo-platform/H2O/goamz/aws"
+	"github.com/hailo-platform/H2O/goamz/s3"
 )
 
 type s3Store struct {

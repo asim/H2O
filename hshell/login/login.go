@@ -1,19 +1,19 @@
 package login
 
 import (
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	log "github.com/cihub/seelog"
 
-	"github.com/HailoOSS/hshell/util"
-	"github.com/HailoOSS/platform/client"
+	"github.com/hailo-platform/H2O/hshell/util"
+	"github.com/hailo-platform/H2O/platform/client"
 
-	auth "github.com/HailoOSS/login-service/proto/auth"
-	deletesession "github.com/HailoOSS/login-service/proto/deletesession"
+	auth "github.com/hailo-platform/H2O/login-service/proto/auth"
+	deletesession "github.com/hailo-platform/H2O/login-service/proto/deletesession"
 )
 
 var User string
 var Session string
-var FromService string = "com.HailoOSS.hshell"
+var FromService string = "com.hailo-platform/H2O.hshell"
 
 func Login(user string, password string) (string, error) {
 	return callAuth(user, password, "admin", "")
@@ -33,7 +33,7 @@ func NewPasswordH2(user, password, newPassword string) (string, error) {
 
 func Logout() error {
 	request, _ := client.NewRequest(
-		"com.HailoOSS.service.login",
+		"com.hailo-platform/H2O.service.login",
 		"deletesession",
 		&deletesession.Request{
 			SessId: proto.String(Session),
@@ -54,7 +54,7 @@ func Logout() error {
 
 func callAuth(user, password, mech, application string) (string, error) {
 	request, _ := client.NewRequest(
-		"com.HailoOSS.service.login",
+		"com.hailo-platform/H2O.service.login",
 		"auth",
 		&auth.Request{
 			Username:    proto.String(user),
@@ -78,7 +78,7 @@ func callAuth(user, password, mech, application string) (string, error) {
 
 func callNewAuth(user string, password string, newPassword string, mech string, application string) (string, error) {
 	request, _ := client.NewRequest(
-		"com.HailoOSS.service.login",
+		"com.hailo-platform/H2O.service.login",
 		"auth",
 		&auth.Request{
 			Username:    proto.String(user),

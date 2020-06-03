@@ -2,18 +2,18 @@ package healthcheck
 
 import (
 	"fmt"
-	"github.com/HailoOSS/binding-service/util"
-	instances "github.com/HailoOSS/discovery-service/proto/instances"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/service/healthcheck"
-	"github.com/HailoOSS/binding-service/rabbit"
-	"github.com/HailoOSS/protobuf/proto"
+	"github.com/hailo-platform/H2O/binding-service/util"
+	instances "github.com/hailo-platform/H2O/discovery-service/proto/instances"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/service/healthcheck"
+	"github.com/hailo-platform/H2O/binding-service/rabbit"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 	"sort"
 	"strings"
 )
 
-const HealthCheckId = "com.HailoOSS.service.bindings"
+const HealthCheckId = "com.hailo-platform/H2O.service.bindings"
 
 // HealthCheck asserts all the local queues are bound that should be bound
 func BindingHealthCheck() healthcheck.Checker {
@@ -40,7 +40,7 @@ func checkBindings() (map[string]string, error) {
 			AzName: proto.String(azname),
 		}
 
-		instancesReq, err := server.ScopedRequest("com.HailoOSS.kernel.discovery", "instances", ir)
+		instancesReq, err := server.ScopedRequest("com.hailo-platform/H2O.kernel.discovery", "instances", ir)
 		if err != nil {
 			return nil, err
 		}

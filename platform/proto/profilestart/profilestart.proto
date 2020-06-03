@@ -1,4 +1,4 @@
-package com.HailoOSS.kernel.platform.profilestart;
+package com.hailo-platform/H2O.kernel.platform.profilestart;
 
 
 message Request {

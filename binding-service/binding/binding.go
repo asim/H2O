@@ -6,10 +6,10 @@ import (
 	"errors"
 	"fmt"
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/binding-service/domain"
-	"github.com/HailoOSS/binding-service/util"
-	"github.com/HailoOSS/platform/raven"
-	plutil "github.com/HailoOSS/platform/util"
+	"github.com/hailo-platform/H2O/binding-service/domain"
+	"github.com/hailo-platform/H2O/binding-service/util"
+	"github.com/hailo-platform/H2O/platform/raven"
+	plutil "github.com/hailo-platform/H2O/platform/util"
 	"io"
 	"io/ioutil"
 	"math/rand"
@@ -221,7 +221,7 @@ func GetAllQueueBindings(httpClient *http.Client, hostport string, queue string)
 
 func GetAllBindings(httpClient *http.Client, hostport string, fromExchange string, to string, toType domain.DestinationTypeS) ([]*domain.BindingDef, error) {
 
-	// GET Request URL:http://protobroker03-global01-test.i.HailoOSS.com:15672/api/bindings/%2f/e/h2o/e/eu-west-1a/
+	// GET Request URL:http://protobroker03-global01-test.i.hailo-platform/H2O.com:15672/api/bindings/%2f/e/h2o/e/eu-west-1a/
 	resp, err := createAndSendRequest(httpClient, makeRabbitURL(fmt.Sprintf(BINDING_URL, fromExchange, string(toType), to), hostport), "GET", nil)
 	if resp != nil {
 		defer resp.Body.Close()
@@ -247,7 +247,7 @@ func GetAllBindings(httpClient *http.Client, hostport string, fromExchange strin
 
 func GetBindingsForExchange(httpClient *http.Client, hostport string, exchange string) (*[]domain.BindingDef, error) {
 
-	// GET Request URL:http://protobroker03-global01-test.i.HailoOSS.com:15672/api/exchanges/%2f/h2o/bindings/source
+	// GET Request URL:http://protobroker03-global01-test.i.hailo-platform/H2O.com:15672/api/exchanges/%2f/h2o/bindings/source
 	resp, err := createAndSendRequest(httpClient, makeRabbitURL(fmt.Sprintf(BINDINGS_FOR_EXCHANGE_URL, exchange), hostport), "GET", nil)
 	if resp != nil {
 		defer resp.Body.Close()
@@ -318,7 +318,7 @@ func DeleteServiceBindings(httpClient *http.Client, hostport string, instanceId 
 }
 
 func DeleteBinding(httpClient *http.Client, hostport string, b *domain.BindingDef) error {
-	// DELETE Request URL:http://protobroker01-global01-test.i.HailoOSS.com:15672/api/bindings/%2F/e/h2o/e/eu-west-1c/~_FUDj6QombDT58zwoCtUyA
+	// DELETE Request URL:http://protobroker01-global01-test.i.hailo-platform/H2O.com:15672/api/bindings/%2F/e/h2o/e/eu-west-1c/~_FUDj6QombDT58zwoCtUyA
 	// {"vhost":"/","source":"h2o","destination":"eu-west-1c","destination_type":"e","properties_key":"~_FUDj6QombDT58zwoCtUyA"}
 	log.Debugf("Deleting binding from %+v", b)
 
@@ -339,7 +339,7 @@ func CreateTopicBindingE2Q(httpClient *http.Client, hostport string, from string
 }
 
 func GetAllExchanges(httpClient *http.Client, hostport string) (*[]domain.ExchangeDef, error) {
-	// GET Request URL:http://protobroker03-global01-test.i.HailoOSS.com:15672/api/exchanges/%2f
+	// GET Request URL:http://protobroker03-global01-test.i.hailo-platform/H2O.com:15672/api/exchanges/%2f
 	resp, err := createAndSendRequest(httpClient, makeRabbitURL(EXCHANGES_URL, hostport), "GET", nil)
 	if resp != nil {
 		defer resp.Body.Close()

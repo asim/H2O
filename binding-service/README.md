@@ -26,7 +26,7 @@ You need to install version R15B03 of erlang which can be found at https://www.e
 
 Download the hailo magic exchange package from 
 
-    https://github.com/HailoOSS/scratch/blob/master/dom/rabbitmq-hailo-magic-exchange/dist/rabbitmq_hailo_magic_exchange-0.1.0-rmq0.0.0.ez 
+    https://github.com/hailo-platform/H2O/scratch/blob/master/dom/rabbitmq-hailo-magic-exchange/dist/rabbitmq_hailo_magic_exchange-0.1.0-rmq0.0.0.ez 
 
 Copy this to $RABBIT_HOME/plugins. Then you need to enable the various rabbit plugins we need
 

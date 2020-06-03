@@ -9,10 +9,10 @@ import (
 	"sync"
 
 	log "github.com/cihub/seelog"
-	"github.com/HailoOSS/platform/client"
-	"github.com/HailoOSS/platform/server"
-	"github.com/HailoOSS/protobuf/proto"
-	pproto "github.com/HailoOSS/provisioning-manager-service/proto/provisioned"
+	"github.com/hailo-platform/H2O/platform/client"
+	"github.com/hailo-platform/H2O/platform/server"
+	"github.com/hailo-platform/H2O/protobuf/proto"
+	pproto "github.com/hailo-platform/H2O/provisioning-manager-service/proto/provisioned"
 )
 
 const (
@@ -37,7 +37,7 @@ func init() {
 }
 
 func getProvisionedServices(machineClass string) (ProvisionedServices, error) {
-	request, err := server.ScopedRequest("com.HailoOSS.kernel.provisioning-manager", "provisioned", &pproto.Request{
+	request, err := server.ScopedRequest("com.hailo-platform/H2O.kernel.provisioning-manager", "provisioned", &pproto.Request{
 		MachineClass: proto.String(machineClass),
 	})
 	if err != nil {

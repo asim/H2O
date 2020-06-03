@@ -2,12 +2,12 @@ package handler
 
 import (
 	"fmt"
-	commonproto "github.com/HailoOSS/discovery-service/proto"
-	endpoints "github.com/HailoOSS/discovery-service/proto/endpoints"
-	instances "github.com/HailoOSS/discovery-service/proto/instances"
-	register "github.com/HailoOSS/discovery-service/proto/register"
-	"github.com/HailoOSS/discovery-service/registry"
-	"github.com/HailoOSS/protobuf/proto"
+	commonproto "github.com/hailo-platform/H2O/discovery-service/proto"
+	endpoints "github.com/hailo-platform/H2O/discovery-service/proto/endpoints"
+	instances "github.com/hailo-platform/H2O/discovery-service/proto/instances"
+	register "github.com/hailo-platform/H2O/discovery-service/proto/register"
+	"github.com/hailo-platform/H2O/discovery-service/registry"
+	"github.com/hailo-platform/H2O/protobuf/proto"
 )
 
 // multiRegToInstance marshals a multi register request proto into an instance
