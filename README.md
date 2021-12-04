@@ -4,7 +4,7 @@ The Hailo H2O microservices platform
 
 ## Overview
 
-This repo serves as the historic record of H2O, a microservices platform built by the Hailo H2O team in 2013. Our work became the foundation for what is now the [Micro](https://micro.mu) platform. We pay tribute to what was the most game changing and advanced architecture of its time. A platform we have yet to be seen replicated in it's entirety.
+This repo serves as the historic record of H2O, a microservices platform built by the Hailo H2O team in 2013. Our work became the foundation for what is now the [M3O](https://m3o.com) platform. We pay tribute to what was the most game changing and advanced architecture of its time. A platform we have yet to be seen replicated in it's entirety.
 
 ## Authors
 
